@@ -1,61 +1,33 @@
 package board.model.service;
-import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import adminService.model.dao.ManageMemDao;
 import board.model.dao.BoardDao;
 import board.model.vo.Board;
+import emp.model.vo.Emp;
+
+import static common.JDBCTemplate.*;
 
 public class BoardService {
-
-	public int getListCount() {
-		Connection conn = getConnection();
-		
-		int result = new BoardDao().getListCount(conn);
-		
-		close(conn);
-		return result;
-	}
-
+	
 	public ArrayList<Board> selectList(int currentPage, int boardLimit) {
+		
 		Connection conn = getConnection();
+
 		ArrayList<Board> list = new BoardDao().selectList(conn, currentPage, boardLimit);
+
 		close(conn);
+
 		return list;
-	}
-
-	/**
-	 * 게시글 작성용 서비스
-	 * @param 
-	 * @return
-	 */
-	public int insertBoard(Board b) {
-		Connection conn = getConnection();
-		int result = new BoardDao().insertBoard(conn,b);
-		if(result>0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		close(conn);
-		return result;
-	}
-
-	public Board boardDetail(int bno) {
-		Connection conn = getConnection();
 		
-		Board b = null;
-		int result = new BoardDao().increaseCount(conn,bno);
-		if(result>0) {
-			commit(conn);
-			b= new BoardDao().boardDetail(conn, bno);
-		}else {
-			rollback(conn);
-		}
+	}
+	
+	public int getListCount() {
 		
-		close(conn);
-		return b;
+		사용할 sql문= SELECT COUNT(*) FROM TB WHERE절
+		
 	}
 
 }

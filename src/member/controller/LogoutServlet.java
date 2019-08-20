@@ -26,10 +26,8 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//session에 회원객체 제거하기-->세션에 저장된 값들 지움
-		request.getSession().invalidate();
-		response.sendRedirect(request.getContextPath());
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
