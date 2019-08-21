@@ -12,7 +12,7 @@ import adminService.model.service.ManageMemService;
 /**
  * Servlet implementation class DeleteMemServlet
  */
-@WebServlet("deleteMem.as")
+@WebServlet("/deleteMem.as")
 public class DeleteMemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

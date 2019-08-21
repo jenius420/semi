@@ -18,7 +18,7 @@ import ownerService.model.vo.Filter;
 /**
  * Servlet implementation class SearchResumeListServlet
  */
-@WebServlet("/SearchResumeListServlet")
+@WebServlet("/searchResumeListServlet")
 public class SearchResumeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

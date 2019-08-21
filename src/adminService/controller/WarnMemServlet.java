@@ -12,7 +12,7 @@ import adminService.model.service.ManageMemService;
 /**
  * Servlet implementation class WarnMemServlet
  */
-@WebServlet("warnMem.as")
+@WebServlet("/warnMem.as")
 public class WarnMemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

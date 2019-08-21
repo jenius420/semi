@@ -82,6 +82,7 @@ public class SubmitIncruitServlet extends HttpServlet {
 			request.setAttribute("msg", "공고 등록에 실패했습니다");
 			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
+		
 	}
 
 	/**

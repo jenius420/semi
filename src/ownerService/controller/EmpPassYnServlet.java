@@ -16,7 +16,7 @@ import ownerService.model.vo.Appliant;
 /**
  * Servlet implementation class EmpPassYnServlet
  */
-@WebServlet("passYn.os")
+@WebServlet("/passYn.os")
 public class EmpPassYnServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
