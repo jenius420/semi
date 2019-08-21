@@ -43,16 +43,26 @@ public class IncruitDao {
 
 		try {
 //			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, resume.getResumeTitle());
-//			pstmt.setInt(2, resume.getEmpNum());
-//			pstmt.setString(3, resume.getDistrict());
-//			pstmt.setString(4, resume.getType());
-//			pstmt.setString(5, resume.getComment());
-//			pstmt.setString(6, resume.사진경로);
-//			pstmt.setString(7, resume.getDesireForm());
-//			pstmt.setInt(8, resume.getDesireIncome());
-//			pstmt.setString(9, resume.getOpenSet());
-//			pstmt.setString(10, resume.getEdu());
+			
+			pstmt.setString(1, incruit.getwTitle());
+			pstmt.setInt(2, incruit.getoNum());
+			pstmt.setDate(3, incruit.getWorkStartTerm());
+			pstmt.setDate(4, incruit.getWorkEndTerm());
+			pstmt.setString(5, incruit.getWorkDay());
+			//pstmt.setString(6, incruit.사진경로);
+			pstmt.setString(7, incruit.getWorkStartTime());
+			pstmt.setString(8, incruit.getWorkEndTime());
+			pstmt.setInt(9, incruit.getTermNo());
+			pstmt.setString(11, incruit.getGender());
+			pstmt.setInt(12, incruit.getAge());
+			pstmt.setString(13, incruit.getEdu());
+			pstmt.setDate(14, incruit.getEnrollDate());
+			pstmt.setString(15, incruit.getStatus());
+			pstmt.setDate(16, incruit.getDoneDate());
+			pstmt.setString(17, incruit.getSalaryForm());
+			pstmt.setInt(18, incruit.getSalary());
+			pstmt.setInt(18, incruit.getpNum());
+			pstmt.setString(18, incruit.getDescription());
 			
 			result = pstmt.executeUpdate();
 

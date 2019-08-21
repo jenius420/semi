@@ -13,7 +13,8 @@ public class Incruit {
 	private String workDay; // 근무요일
 	private String workStartTime; // 시작시간
 	private String workEndTime; // 종료시간
-	private String termName; // 근무기간+
+	private int termNo; // 근무기간key
+	private String termName; // 근무기간명+
 	private String gender; // 성별
 	private int age; // 나이
 	private String edu; // 학력
@@ -32,7 +33,7 @@ public class Incruit {
 	}
 
 	public Incruit(int wNum, String wTitle, int oNum, String opName, Date workStartTerm, Date workEndTerm,
-			String workDay, String workStartTime, String workEndTime, String termName, String gender, int age,
+			String workDay, String workStartTime, String workEndTime, int termNo, String termName, String gender, int age,
 			String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, int pNum,
 			String product, String description) {
 		super();
@@ -45,6 +46,7 @@ public class Incruit {
 		this.workDay = workDay;
 		this.workStartTime = workStartTime;
 		this.workEndTime = workEndTime;
+		this.termNo = termNo;
 		this.termName = termName;
 		this.gender = gender;
 		this.age = age;
@@ -56,6 +58,32 @@ public class Incruit {
 		this.salary = salary;
 		this.pNum = pNum;
 		this.product = product;
+		this.description = description;
+	}
+	
+	
+
+	public Incruit(String wTitle, int oNum, Date workStartTerm, Date workEndTerm, String workDay, String workStartTime,
+			String workEndTime, int termNo, String gender, int age, String edu, Date enrollDate, String status,
+			Date doneDate, String salaryForm, int salary, int pNum, String description) {
+		super();
+		this.wTitle = wTitle;
+		this.oNum = oNum;
+		this.workStartTerm = workStartTerm;
+		this.workEndTerm = workEndTerm;
+		this.workDay = workDay;
+		this.workStartTime = workStartTime;
+		this.workEndTime = workEndTime;
+		this.termNo = termNo;
+		this.gender = gender;
+		this.age = age;
+		this.edu = edu;
+		this.enrollDate = enrollDate;
+		this.status = status;
+		this.doneDate = doneDate;
+		this.salaryForm = salaryForm;
+		this.salary = salary;
+		this.pNum = pNum;
 		this.description = description;
 	}
 
@@ -153,6 +181,14 @@ public class Incruit {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public int getTermNo() {
+		return termNo;
+	}
+
+	public void setTermNo(int termNo) {
+		this.termNo = termNo;
 	}
 
 	public String getEdu() {
