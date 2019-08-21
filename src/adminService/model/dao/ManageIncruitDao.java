@@ -47,29 +47,29 @@ public class ManageIncruitDao {
 			
 			if(rs.next()) {
 
-				list.add(new Incruit(
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getInt("ONUM"),
-									rs.getString("OPNAME"),
-									rs.getDate("WORKSTARTTERM"),
-									rs.getDate("WORKENDTERM"),
-									rs.getString("WORKDAY"),
-									rs.getString("WORKSTARTTIME"),
-									rs.getString("WORKENDTIME"),
-									rs.getString("TERMNAME"),
-									rs.getString("WORKGENDER"),
-									rs.getInt("WORKAGE"),
-									rs.getString("WORKEDU"),
-									rs.getDate("STARTDATE"),
-									rs.getString("INCRUITSTATUS"),
-									rs.getDate("ENDDATE"),
-									rs.getString("WORKFORM"),
-									rs.getInt("SALARY"),
-									rs.getInt("APPLYPRODUCT"),
-									rs.getString("PTITLE"),
-									rs.getString("REXPLAIN")
-									));
+//				list.add(new Incruit(
+//									rs.getInt("WNUM"),
+//									rs.getString("WTITLE"),
+//									rs.getInt("ONUM"),
+//									rs.getString("OPNAME"),
+//									rs.getDate("WORKSTARTTERM"),
+//									rs.getDate("WORKENDTERM"),
+//									rs.getString("WORKDAY"),
+//									rs.getString("WORKSTARTTIME"),
+//									rs.getString("WORKENDTIME"),
+//									rs.getString("TERMNAME"),
+//									rs.getString("WORKGENDER"),
+//									rs.getInt("WORKAGE"),
+//									rs.getString("WORKEDU"),
+//									rs.getDate("STARTDATE"),
+//									rs.getString("INCRUITSTATUS"),
+//									rs.getDate("ENDDATE"),
+//									rs.getString("WORKFORM"),
+//									rs.getInt("SALARY"),
+//									rs.getInt("APPLYPRODUCT"),
+//									rs.getString("PTITLE"),
+//									rs.getString("REXPLAIN")
+//									));
 			}
 			
 		}catch (SQLException e) {
@@ -99,29 +99,29 @@ public class ManageIncruitDao {
 			
 			if(rs.next()) {
 
-				list.add(new Incruit(
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getInt("ONUM"),
-									rs.getString("OPNAME"),
-									rs.getDate("WORKSTARTTERM"),
-									rs.getDate("WORKENDTERM"),
-									rs.getString("WORKDAY"),
-									rs.getString("WORKSTARTTIME"),
-									rs.getString("WORKENDTIME"),
-									rs.getString("TERMNAME"),
-									rs.getString("WORKGENDER"),
-									rs.getInt("WORKAGE"),
-									rs.getString("WORKEDU"),
-									rs.getDate("STARTDATE"),
-									rs.getString("INCRUITSTATUS"),
-									rs.getDate("ENDDATE"),
-									rs.getString("WORKFORM"),
-									rs.getInt("SALARY"),
-									rs.getInt("APPLYPRODUCT"),
-									rs.getString("PTITLE"),
-									rs.getString("REXPLAIN")
-									));
+//				list.add(new Incruit(
+//									rs.getInt("WNUM"),
+//									rs.getString("WTITLE"),
+//									rs.getInt("ONUM"),
+//									rs.getString("OPNAME"),
+//									rs.getDate("WORKSTARTTERM"),
+//									rs.getDate("WORKENDTERM"),
+//									rs.getString("WORKDAY"),
+//									rs.getString("WORKSTARTTIME"),
+//									rs.getString("WORKENDTIME"),
+//									rs.getString("TERMNAME"),
+//									rs.getString("WORKGENDER"),
+//									rs.getInt("WORKAGE"),
+//									rs.getString("WORKEDU"),
+//									rs.getDate("STARTDATE"),
+//									rs.getString("INCRUITSTATUS"),
+//									rs.getDate("ENDDATE"),
+//									rs.getString("WORKFORM"),
+//									rs.getInt("SALARY"),
+//									rs.getInt("APPLYPRODUCT"),
+//									rs.getString("PTITLE"),
+//									rs.getString("REXPLAIN")
+//									));
 			}
 			
 		}catch (SQLException e) {
@@ -188,29 +188,29 @@ public class ManageIncruitDao {
 			
 			if(rs.next()) {
 
-				incruit = new Incruit(
-										rs.getInt("WNUM"),
-										rs.getString("WTITLE"),
-										rs.getInt("ONUM"),
-										rs.getString("OPNAME"),
-										rs.getDate("WORKSTARTTERM"),
-										rs.getDate("WORKENDTERM"),
-										rs.getString("WORKDAY"),
-										rs.getString("WORKSTARTTIME"),
-										rs.getString("WORKENDTIME"),
-										rs.getString("TERMNAME"),
-										rs.getString("WORKGENDER"),
-										rs.getInt("WORKAGE"),
-										rs.getString("WORKEDU"),
-										rs.getDate("STARTDATE"),
-										rs.getString("INCRUITSTATUS"),
-										rs.getDate("ENDDATE"),
-										rs.getString("WORKFORM"),
-										rs.getInt("SALARY"),
-										rs.getInt("APPLYPRODUCT"),
-										rs.getString("PTITLE"),
-										rs.getString("REXPLAIN")
-										);
+//				incruit = new Incruit(
+//										rs.getInt("WNUM"),
+//										rs.getString("WTITLE"),
+//										rs.getInt("ONUM"),
+//										rs.getString("OPNAME"),
+//										rs.getDate("WORKSTARTTERM"),
+//										rs.getDate("WORKENDTERM"),
+//										rs.getString("WORKDAY"),
+//										rs.getString("WORKSTARTTIME"),
+//										rs.getString("WORKENDTIME"),
+//										rs.getString("TERMNAME"),
+//										rs.getString("WORKGENDER"),
+//										rs.getInt("WORKAGE"),
+//										rs.getString("WORKEDU"),
+//										rs.getDate("STARTDATE"),
+//										rs.getString("INCRUITSTATUS"),
+//										rs.getDate("ENDDATE"),
+//										rs.getString("WORKFORM"),
+//										rs.getInt("SALARY"),
+//										rs.getInt("APPLYPRODUCT"),
+//										rs.getString("PTITLE"),
+//										rs.getString("REXPLAIN")
+//										);
 			}
 			
 		}catch (SQLException e) {

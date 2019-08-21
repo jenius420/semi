@@ -39,7 +39,7 @@ public class SubmitIncruitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		Owner owner = (Owner)request.getSession().getAttribute("user");
 		Incruit incruit = null;
@@ -82,6 +82,7 @@ request.setCharacterEncoding("UTF-8");
 			request.setAttribute("msg", "공고 등록에 실패했습니다");
 			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

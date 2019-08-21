@@ -173,7 +173,7 @@ public class IncruitDao {
 //									rs.getDate("modify_date"),
 //									rs.getString("status")
 //									);
-				list.add(emp);
+//				list.add(emp);
 			}
 			
 		}catch (SQLException e) {
@@ -260,7 +260,7 @@ public class IncruitDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(2, keyword);
-			pstmt.setInt(1, filter.get()); // 어떤 조건들 넣을지 결정
+			//pstmt.setInt(1, filter.get()); // 어떤 조건들 넣을지 결정
 			
 			rs = pstmt.executeQuery();
 			
@@ -347,7 +347,7 @@ public class IncruitDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, rNum);
 			
-			rs = pstmt.executeQuery();
+			result = pstmt.executeUpdate();
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -356,7 +356,7 @@ public class IncruitDao {
 			close(pstmt);
 		}
 		
-		return resume;
+		return result;
 		
 	}
 

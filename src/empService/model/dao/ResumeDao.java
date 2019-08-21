@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import empService.model.vo.ApplicationState;
 import empService.model.vo.Resume;
 import ownerService.model.vo.Filter;
 import ownerService.model.vo.Incruit;
@@ -82,21 +81,21 @@ public class ResumeDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				list.add(new Resume(
-									rs.getInt(""),
-									rs.getInt("ENUM"),
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getString("OPNAME"),
-									rs.getDate("APPLYDATE"),
-									rs.getString("PASSORFAIL")
-									rs.getString("PASSORFAIL")
-									rs.getString("PASSORFAIL")
-									rs.getString("PASSORFAIL")
-									rs.getString("PASSORFAIL")
-									rs.getString("PASSORFAIL")
-									
-									));
+//				list.add(new Resume(
+//									rs.getInt(""),
+//									rs.getInt("ENUM"),
+//									rs.getInt("WNUM"),
+//									rs.getString("WTITLE"),
+//									rs.getString("OPNAME"),
+//									rs.getDate("APPLYDATE"),
+//									rs.getString("PASSORFAIL")
+//									rs.getString("PASSORFAIL")
+//									rs.getString("PASSORFAIL")
+//									rs.getString("PASSORFAIL")
+//									rs.getString("PASSORFAIL")
+//									rs.getString("PASSORFAIL")
+//									
+//									));
 			}
 			
 		}catch (SQLException e) {
@@ -119,20 +118,20 @@ public class ResumeDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, filter);
+			//pstmt.setInt(1, filter);
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				list.add(new Incruit(
-									rs.getInt("APPLYNUM"),
-									rs.getInt("ENUM"),
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getString("OPNAME"),
-									rs.getDate("APPLYDATE"),
-									rs.getString("PASSORFAIL")
-									));
+//				list.add(new Incruit(
+//									rs.getInt("APPLYNUM"),
+//									rs.getInt("ENUM"),
+//									rs.getInt("WNUM"),
+//									rs.getString("WTITLE"),
+//									rs.getString("OPNAME"),
+//									rs.getDate("APPLYDATE"),
+//									rs.getString("PASSORFAIL")
+//									));
 			}
 			
 		}catch (SQLException e) {

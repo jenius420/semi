@@ -1,4 +1,4 @@
-package board.Controller;
+package board.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -51,15 +51,15 @@ public class EmpServiceDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				list.add(new Appliant(
-									rs.getInt("APPLYNUM"),
-									rs.getInt("ENUM"),
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getString("OPNAME"),
-									rs.getDate("APPLYDATE"),
-									rs.getString("PASSORFAIL")
-									));
+//				list.add(new Appliant(
+//									rs.getInt("APPLYNUM"),
+//									rs.getInt("ENUM"),
+//									rs.getInt("WNUM"),
+//									rs.getString("WTITLE"),
+//									rs.getString("OPNAME"),
+//									rs.getDate("APPLYDATE"),
+//									rs.getString("PASSORFAIL")
+//									));
 			}
 			
 		}catch (SQLException e) {

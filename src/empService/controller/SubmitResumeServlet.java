@@ -50,21 +50,21 @@ public class SubmitResumeServlet extends HttpServlet {
 		String comment = request.getParameter("comment");
 		String openSet = (request.getParameter("openSet")=="Y") ? "Y":"N";
 		
-		Resume resume = new Resume(resumeTitle, empNum, district, type, comment, picture, desireForm, desireIncome, openSet, edu);
-		
-		int result = new ResumeService().enrollResume(resume);
-		
-		if(result > 0) {
-			request.setAttribute("msg", "이력서를 성공적으로 등록했습니다");	
-			
-			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
-			
-		}else {
-			request.setAttribute("msg", "이력서 등록에 실패했습니다. 다시 시도해주세요");
-			
-			response.sendRedirect("makeResume.es");
-			// 여기서 에러페이지로 가야하는지?		
-		}
+//		Resume resume = new Resume(resumeTitle, empNum, district, type, comment, picture, desireForm, desireIncome, openSet, edu);
+//		
+//		int result = new ResumeService().enrollResume(resume);
+//		
+//		if(result > 0) {
+//			request.setAttribute("msg", "이력서를 성공적으로 등록했습니다");	
+//			
+//			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
+//			
+//		}else {
+//			request.setAttribute("msg", "이력서 등록에 실패했습니다. 다시 시도해주세요");
+//			
+//			response.sendRedirect("makeResume.es");
+//			// 여기서 에러페이지로 가야하는지?		
+//		}
 		
 		
 		

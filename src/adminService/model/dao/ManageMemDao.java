@@ -14,7 +14,6 @@ import java.util.Properties;
 import emp.model.vo.Emp;
 import empService.model.dao.EmpEvalDao;
 import empService.model.vo.EmpEvaluation;
-import member.model.vo.PersonMember;
 import owner.model.vo.Owner;
 
 public class ManageMemDao {
@@ -49,15 +48,15 @@ public class ManageMemDao {
 			
 			if(rs.next()) {
 				// 회원vo 어떤거 쓸지 결정해야함. 컬럼은 전부 가져와야할듯
-				list.add(new Emp(
-									rs.getInt("ENUM"),
-									rs.getString("EID"),
-									rs.getString("ENAME"),
-									rs.getInt("ECNUM"),
-									rs.getInt("PHONE")
-									rs.getString("EMAIL")
-									rs.getString("INVALIDID")
-									));
+//				list.add(new Emp(
+//									rs.getInt("ENUM"),
+//									rs.getString("EID"),
+//									rs.getString("ENAME"),
+//									rs.getInt("ECNUM"),
+//									rs.getInt("PHONE")
+//									rs.getString("EMAIL")
+//									rs.getString("INVALIDID")
+//									));
 			}
 			
 		}catch (SQLException e) {
@@ -86,15 +85,15 @@ public class ManageMemDao {
 			
 			if(rs.next()) {
 				// 회원vo 어떤거 쓸지 결정해야함. 컬럼은 전부 가져와야할듯
-				list.add(new Owner(
-									rs.getInt("ENUM"),
-									rs.getString("EID"),
-									rs.getString("ENAME"),
-									rs.getInt("ECNUM"),
-									rs.getInt("PHONE")
-									rs.getString("EMAIL")
-									rs.getString("INVALIDID")
-									));
+//				list.add(new Owner(
+//									rs.getInt("ENUM"),
+//									rs.getString("EID"),
+//									rs.getString("ENAME"),
+//									rs.getInt("ECNUM"),
+//									rs.getInt("PHONE")
+//									rs.getString("EMAIL")
+//									rs.getString("INVALIDID")
+//									));
 			}
 			
 		}catch (SQLException e) {

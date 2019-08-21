@@ -2,7 +2,6 @@ package empService.model.service;
 
 import empService.model.dao.EmpEvalDao;
 import empService.model.dao.ResumeDao;
-import empService.model.vo.ApplicationState;
 import empService.model.vo.EmpEvaluation;
 import empService.model.vo.EmpEvaluationBefore;
 import empService.model.vo.Resume;

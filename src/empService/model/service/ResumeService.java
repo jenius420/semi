@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import empService.model.dao.ResumeDao;
-import empService.model.vo.ApplicationState;
 import empService.model.vo.Resume;
 import ownerService.model.vo.Filter;
 import ownerService.model.vo.Incruit;

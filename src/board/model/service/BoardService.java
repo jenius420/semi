@@ -26,8 +26,10 @@ public class BoardService {
 	
 	public int getListCount() {
 		
-		사용할 sql문= SELECT COUNT(*) FROM TB WHERE절
+		int result = 0;
 		
+		//사용할 sql문= SELECT COUNT(*) FROM TB WHERE절
+		return result;
 	}
 
 }
