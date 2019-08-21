@@ -116,19 +116,28 @@ public class IncruitDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-//				incruit = new Incruit(
-//									rs.getInt("USER_NO"),
-//									rs.getString("user_id"),
-//									rs.getString("user_pwd"),
-//									rs.getString("user_name"),
-//									rs.getString("phone"),
-//									rs.getString("email"),
-//									rs.getString("address"),
-//									rs.getString("interest"),
-//									rs.getDate("enroll_date"),
-//									rs.getDate("modify_date"),
-//									rs.getString("status")
-//									);
+				incruit = new Incruit(
+										rs.getInt("WNUM"),
+										rs.getString("WTITLE"),
+										rs.getInt("ONUM"),
+										rs.getString("OPNAME"),
+										rs.getDate("WORKSTARTTERM"),
+										rs.getDate("WORKENDTERM"),
+										rs.getString("WORKDAY"),
+										rs.getString("WORKSTARTTIME"),
+										rs.getString("WORKENDTIME"),
+										rs.getString("TERMNAME"),
+										rs.getString("WORKGENDER"),
+										rs.getInt("WORKAGE"),
+										rs.getString("WORKEDU"),
+										rs.getDate("STARTDATE"),
+										rs.getString("INCRUITSTATUS"),
+										rs.getDate("ENDDATE"),
+										rs.getString("WORKFORM"),
+										rs.getInt("SALARY"),
+										rs.getString("PTITLE"),
+										rs.getString("REXPLAIN")
+									);
 				list.add(incruit);
 			}
 			
@@ -146,7 +155,7 @@ public class IncruitDao {
 	public ArrayList<Appliant> selectManageEmp(Connection conn, int oNum){
 		
 		ArrayList<Appliant> list = null;
-		Emp emp = null;
+		Appliant appliant = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -160,20 +169,22 @@ public class IncruitDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-//				incruit = new Incruit(
-//									rs.getInt("USER_NO"),
-//									rs.getString("user_id"),
-//									rs.getString("user_pwd"),
-//									rs.getString("user_name"),
-//									rs.getString("phone"),
-//									rs.getString("email"),
-//									rs.getString("address"),
-//									rs.getString("interest"),
-//									rs.getDate("enroll_date"),
-//									rs.getDate("modify_date"),
-//									rs.getString("status")
-//									);
-//				list.add(emp);
+				appliant = new Appliant(
+									rs.getInt("APPLYNUM"),
+									rs.getInt("RNUM"),
+									rs.getString("COMMENT"),
+									rs.getInt("ENUM"),
+									rs.getString("ENAME"),
+									rs.getInt("WNUM"),
+									rs.getString("WTITLE"),
+									rs.getInt("ONUM"),
+									rs.getString("OPNAME"),
+									rs.getString("INCRUITSTATUS"),
+									rs.getDate("ENDDATE"),
+									rs.getDate("APPLYDATE"),
+									rs.getString("PASSORFAIL")
+									);
+				list.add(appliant);
 			}
 			
 		}catch (SQLException e) {
@@ -259,25 +270,35 @@ public class IncruitDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(2, keyword);
-			//pstmt.setInt(1, filter.get()); // 어떤 조건들 넣을지 결정
+			
+			pstmt.setString(1, '%'+keyword+'%');
+			pstmt.setString(2, filter.getDistrict());
+			pstmt.setString(3, filter.getType());
+			pstmt.setString(4, filter.getDesireForm());
+			pstmt.setInt(5, filter.getDesireIncome());
+			pstmt.setString(6, filter.getFinalEdu());
+
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-//				resume = new Resume(
-//									rs.getInt("USER_NO"),
-//									rs.getString("user_id"),
-//									rs.getString("user_pwd"),
-//									rs.getString("user_name"),
-//									rs.getString("phone"),
-//									rs.getString("email"),
-//									rs.getString("address"),
-//									rs.getString("interest"),
-//									rs.getDate("enroll_date"),
-//									rs.getDate("modify_date"),
-//									rs.getString("status")
-//									);
+				
+				rnum, A.enum, ename, phone, email, districtName, typeName, comment, 
+				updateDate, invalidResume, desireForm, desireIncome, openset, finaleduname
+				
+				resume = new Resume(
+									rs.getInt("USER_NO"),
+									rs.getString("user_id"),
+									rs.getString("user_pwd"),
+									rs.getString("user_name"),
+									rs.getString("phone"),
+									rs.getString("email"),
+									rs.getString("address"),
+									rs.getString("interest"),
+									rs.getDate("enroll_date"),
+									rs.getDate("modify_date"),
+									rs.getString("status")
+									);
 				list.add(resume);
 			}
 			

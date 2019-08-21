@@ -39,10 +39,19 @@ public class SearchResumeListServlet extends HttpServlet {
 		
 		String keyword = request.getParameter("keyword"); 
 		
-		// 여기해야대
-		Filter filter = new Filter();
+		String district = request.getParameter("district");
+		String type = request.getParameter("type"); 
+		String desireForm = request.getParameter("desireForm");
+		int desireIncome = Integer.parseInt(request.getParameter("desireIncome"));
+		String finalEdu = request.getParameter("finalEdu");
 		
-
+		Filter filter = new Filter();
+		filter.setDistrict(district);
+		filter.setType(type);
+		filter.setDesireForm(desireForm);
+		filter.setDesireIncome(desireIncome);
+		filter.setFinalEdu(finalEdu);
+		
 		ArrayList<Resume> list = new IncruitService().selectSearchResumeList(keyword, filter);
 		
 

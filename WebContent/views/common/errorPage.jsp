@@ -10,7 +10,7 @@
 <body>
 
 	<div>
-        <img src="../resources/image/errorIcon.jpg" art="error" width="400">
+        <img src="../resources/images/errorIcon.jpg" art="error" width="400">
 		<h1>Error :(</h1>
 		<h4><%= msg %></h1>
 	</div>

@@ -20,22 +20,30 @@ public class ResumeService {
 	 * @param resume
 	 * @return 1-성공 0-실패
 	 */
-	public int enrollResume(Resume resume) {
+	public int enrollResume(Resume resume, at) {
 
 		Connection conn = getConnection();
 
-		int result = new ResumeDao().enrollResume(conn, resume);
+		int result1 = new ResumeDao().enrollResume(conn, resume);
+		int result2 = 0;
 
 		if (result > 0) {
-			commit(conn);
-
+			
+			result2 = new ResumeDao().enrollAttachment(conn, at);
+			
+			if(result2 > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
 		} else {
 			rollback(conn);
 		}
 
 		close(conn);
 
-		return result;
+		return result2;
 	}
 	
 	public ArrayList<Resume> selectResumeList(int empNum) {

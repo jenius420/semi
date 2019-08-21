@@ -86,6 +86,35 @@ public class Incruit {
 		this.pNum = pNum;
 		this.description = description;
 	}
+	
+	
+
+	public Incruit(int wNum, String wTitle, int oNum, String opName, Date workStartTerm, Date workEndTerm,
+			String workDay, String workStartTime, String workEndTime, String termName, String gender, int age,
+			String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, String product,
+			String description) {
+		super();
+		this.wNum = wNum;
+		this.wTitle = wTitle;
+		this.oNum = oNum;
+		this.opName = opName;
+		this.workStartTerm = workStartTerm;
+		this.workEndTerm = workEndTerm;
+		this.workDay = workDay;
+		this.workStartTime = workStartTime;
+		this.workEndTime = workEndTime;
+		this.termName = termName;
+		this.gender = gender;
+		this.age = age;
+		this.edu = edu;
+		this.enrollDate = enrollDate;
+		this.status = status;
+		this.doneDate = doneDate;
+		this.salaryForm = salaryForm;
+		this.salary = salary;
+		this.product = product;
+		this.description = description;
+	}
 
 	public int getwNum() {
 		return wNum;

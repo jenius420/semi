@@ -1,6 +1,8 @@
 package empService.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import common.model.vo.Attachment;
+import common.model.vo.MyFileRenamePolicy;
 import emp.model.vo.Emp;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
@@ -49,6 +57,52 @@ public class SubmitResumeServlet extends HttpServlet {
 		int desireIncome = Integer.parseInt(request.getParameter("desireIncome"));
 		String comment = request.getParameter("comment");
 		String openSet = (request.getParameter("openSet")=="Y") ? "Y":"N";
+		
+		// multipart/form-data 로 전송됏는지 확인
+		if(ServletFileUpload.isMultipartContent(request)) {
+			
+			int maxSize = 1024 * 1024 * 10;
+			
+			String resources = request.getSession().getServletContext().getRealPath("/resources");
+			
+			String savePath = resources + "/uploadFiles/";
+			
+			MultipartRequest mr = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
+		
+			//db에 저장
+			ArrayList<String> changeFiles = new ArrayList<>();
+			ArrayList<String> originFiles = new ArrayList<>();
+			
+			Enumeration<String> files = mr.getFileNames();
+			
+			while(files.hasMoreElements()) {
+				
+				String name = files.nextElement();
+				
+				if(mr.getFilesystemName(name) != null) {
+					String changeName = mr.getFilesystemName(name);
+					String originName = mr.getOriginalFileName(name);
+					
+					changeFiles.add(changeName);
+					originFiles.add(originName);
+				}
+			}
+			
+			ArrayList<Attachment> fileList = new ArrayList<>();
+			
+			for(int i=changeFiles.size()-1; i>=0; i--) {
+				Attachment at = new Attachment();
+				at.setFilePath(savePath);
+				at.setOriginName(originFiles.get(i));
+				at.setChangeName(changeFiles.get(i));
+				
+				fileList.add(at);
+			}
+			
+			int result = new ResumeService().enrollResume(resume, fileList);
+			// INSERT INTO PHOTO VALUES(PHOTO_SEQ.NEXTVAL, )
+			// INSERT INTO 처리테이블 VALUES(... PHOTO_SEQ.CURRVAL,....)
+		}
 		
 		Resume resume = new Resume(resumeTitle, empNum, district, type, comment, picture, desireForm, desireIncome, openSet, edu);
 		

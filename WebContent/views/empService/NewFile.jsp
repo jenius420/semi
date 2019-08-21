@@ -50,6 +50,9 @@ onclick="history.go(-1);"
 </script>
 
 
+이미지 업로드
+이미지 파일 업로드 form태그에는 enctype="multipart/form-data" 속성을 추가해야 함
+input타입은 file임
 
 </body>
 </html>
