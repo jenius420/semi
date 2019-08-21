@@ -33,7 +33,7 @@ tmp/
 *.bak
 *.swp
 *~.nib
-*.xml
+META-INF/*.xml
 local.properties
 .settings/
 .loadpath
