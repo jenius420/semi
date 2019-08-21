@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MakeEmpEvalServlet
  */
-@WebServlet("/emp.es")
+@WebServlet("/empEval.es")
 public class MakeEmpEvalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
