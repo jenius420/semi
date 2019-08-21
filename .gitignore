@@ -96,4 +96,5 @@ local.properties
 .sts4-cache/
 
 Servers/
+context.xml
 # End of https://www.gitignore.io/api/eclipse
