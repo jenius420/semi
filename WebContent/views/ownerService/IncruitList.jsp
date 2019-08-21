@@ -37,6 +37,7 @@
 					<td><%=i.get() %></td>
 					<td><%=i.get() %></td>
 					<td><%=i.get() %></td>
+					<td>수정버튼 추가</td>
 					<td>마감 버튼 closeIncruit.os 호출 input wNum</td>
 				</tr>
 				<%}}%>
