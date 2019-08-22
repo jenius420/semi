@@ -92,33 +92,33 @@ public class SubmitResumeServlet extends HttpServlet {
 			
 			for(int i=changeFiles.size()-1; i>=0; i--) {
 				Attachment at = new Attachment();
-				at.setFilePath(savePath);
-				at.setOriginName(originFiles.get(i));
-				at.setChangeName(changeFiles.get(i));
+//				at.setFilePath(savePath);
+//				at.setOriginName(originFiles.get(i));
+//				at.setChangeName(changeFiles.get(i));
 				
 				fileList.add(at);
 			}
 			
-			int result = new ResumeService().enrollResume(resume, fileList);
+			//int result = new ResumeService().enrollResume(resume, fileList);
 			// INSERT INTO PHOTO VALUES(PHOTO_SEQ.NEXTVAL, )
 			// INSERT INTO 처리테이블 VALUES(... PHOTO_SEQ.CURRVAL,....)
 		}
 		
-		Resume resume = new Resume(resumeTitle, empNum, district, type, comment, picture, desireForm, desireIncome, openSet, edu);
+		//Resume resume = new Resume(resumeTitle, empNum, district, type, comment, picture, desireForm, desireIncome, openSet, edu);
 		
-		int result = new ResumeService().enrollResume(resume);
-		
-		if(result > 0) {
-			request.setAttribute("msg", "이력서를 성공적으로 등록했습니다");	
-			
-			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
-			
-		}else {
-			request.setAttribute("msg", "이력서 등록에 실패했습니다. 다시 시도해주세요");
-			
-			response.sendRedirect("makeResume.es");
-			// 여기서 에러페이지로 가야하는지?		
-		}
+		//int result = new ResumeService().enrollResume(resume);
+//		
+//		if(result > 0) {
+//			request.setAttribute("msg", "이력서를 성공적으로 등록했습니다");	
+//			
+//			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
+//			
+//		}else {
+//			request.setAttribute("msg", "이력서 등록에 실패했습니다. 다시 시도해주세요");
+//			
+//			response.sendRedirect("makeResume.es");
+//			// 여기서 에러페이지로 가야하는지?		
+//		}
 		
 		
 		
