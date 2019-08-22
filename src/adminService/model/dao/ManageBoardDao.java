@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -36,15 +37,13 @@ public class ManageBoardDao {
 		
 		ArrayList<Board> list = null;	
 		
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 		ResultSet rs = null;
 		
 		String sql = prop.getProperty("selectBoardReportList");
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery();
+			rs = stmt.executeQuery(sql);
 			
 			if(rs.next()) {
 
@@ -67,7 +66,7 @@ public class ManageBoardDao {
 			e.printStackTrace();
 		}finally {
 			close(rs);
-			close(pstmt);
+			close(stmt);
 		}
 		
 		return list;
@@ -78,15 +77,13 @@ public class ManageBoardDao {
 		
 		ArrayList<Comment> list = null;	
 		
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 		ResultSet rs = null;
 		
 		String sql = prop.getProperty("selectCommentReportList");
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery();
+			rs = stmt.executeQuery(sql);
 			
 			if(rs.next()) {
 				list.add(new Comment(
@@ -105,7 +102,7 @@ public class ManageBoardDao {
 			e.printStackTrace();
 		}finally {
 			close(rs);
-			close(pstmt);
+			close(stmt);
 		}
 		
 		return list;

@@ -33,7 +33,7 @@ public class SearchResumeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/views/ownerService/searchResume.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/ownerService/SearchResume.jsp").forward(request, response);
 		
 	}
 

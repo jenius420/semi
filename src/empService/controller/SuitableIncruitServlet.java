@@ -1,7 +1,6 @@
 package empService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,21 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
-import empService.model.service.ResumeService;
-import empService.model.vo.Resume;
-
 /**
- * Servlet implementation class ManageResumeServlet
+ * Servlet implementation class SuitableRecruitServlet
  */
-@WebServlet("/manageResume.es")
-public class ManageResumeServlet extends HttpServlet {
+@WebServlet("/suitableIncruit.es")
+public class SuitableIncruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageResumeServlet() {
+    public SuitableIncruitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,19 +28,7 @@ public class ManageResumeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
-		
-		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
-		
-		if(!list.isEmpty()) {
-			request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("/views/empService/suitableIncruit.jsp").forward(request, response);
 	}
 
 	/**

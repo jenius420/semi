@@ -11,6 +11,7 @@
 
 
 	이력서 리스트 출력
+	이력서 선텍 selectResume.es
 
 	<div id="makeResume" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';">이력서 작성하기</div>
 

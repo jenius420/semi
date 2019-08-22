@@ -36,6 +36,7 @@
 		업직종 <%= type %>
 		업자명 <%= oName %>
 		전화번호 <%= phone %>
+		무슨동
 		
 		희망근무지(구) 
 		<select name="district" id="district">

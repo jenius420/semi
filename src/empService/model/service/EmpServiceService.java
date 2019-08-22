@@ -1,7 +1,6 @@
 package empService.model.service;
 
-import static common.JDBCTemplate.close;
-import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -28,6 +27,31 @@ public class EmpServiceService {
 		close(conn);
 
 		return list;
+	}
+	
+	public int cancleAppliant(String[] applyArr) {
+		
+		Connection conn = getConnection();
+		
+		int result = 0;
+		
+		for(String s: applyArr) {
+			
+			result = new EmpServiceDao().cancleAppliant(conn, Integer.parseInt(s));
+			
+			if(result == 0) {
+				break;
+			}
+		}
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+		
 	}
 	
 	public ArrayList<Owner> selectInterestOwner(int empNum){

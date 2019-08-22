@@ -8,6 +8,7 @@ import static common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import common.model.vo.Attachment;
 import empService.model.dao.ResumeDao;
 import empService.model.vo.Resume;
 import ownerService.model.vo.Filter;
@@ -20,30 +21,65 @@ public class ResumeService {
 	 * @param resume
 	 * @return 1-성공 0-실패
 	 */
-	public int enrollResume(Resume resume, at) {
+	public int enrollResume(Resume resume, Attachment at) {
 
 		Connection conn = getConnection();
 
 		int result1 = new ResumeDao().enrollResume(conn, resume);
-		int result2 = 0;
+//		int result2 = new ResumeDao().enrollAttachment(conn, at);
 
-		if (result > 0) {
-			
-			result2 = new ResumeDao().enrollAttachment(conn, at);
-			
-			if(result2 > 0) {
-				commit(conn);
-			}else {
-				rollback(conn);
-			}
-			
-		} else {
-			rollback(conn);
-		}
+//		if (result1 > 0 && resule2 > 0) {
+//			commit(conn);
+//		}else {
+//			rollback(conn);
+//		}
+//
+//		close(conn);
+
+		return result1;
+	}
+	
+	public Resume selectResume(int rNum) {
+		
+		Connection conn = getConnection();
+
+		Resume resume = new ResumeDao().selectResume(conn, rNum);
 
 		close(conn);
 
-		return result2;
+		return resume;
+	}
+	
+	public int updateResume(Resume resume) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ResumeDao().updateResume(conn, resume);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+		
+	}
+	
+	public int deleteResume(int rNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ResumeDao().deleteResume(conn, rNum);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+		
 	}
 	
 	public ArrayList<Resume> selectResumeList(int empNum) {
@@ -72,7 +108,7 @@ public class ResumeService {
 		
 		Connection conn = getConnection();
 
-		Resume resume = new ResumeDao().choiceResume(conn, rNum);
+		Resume resume = new ResumeDao().selectResume(conn, rNum);
 		
 		ArrayList<Incruit> list = new ResumeDao().selectSuitableIncruit(conn, resume);
 
