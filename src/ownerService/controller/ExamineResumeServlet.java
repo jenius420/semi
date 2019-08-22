@@ -1,30 +1,26 @@
-package empService.controller;
+package ownerService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
-import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
+import ownerService.model.service.IncruitService;
 
 /**
- * Servlet implementation class ManageResumeServlet
+ * Servlet implementation class ExamineResumeServlet
  */
-@WebServlet("/manageResume.es")
-public class ManageResumeServlet extends HttpServlet {
+@WebServlet("/examineResume.os")
+public class ExamineResumeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageResumeServlet() {
+    public ExamineResumeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +30,17 @@ public class ManageResumeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		int rNum = (int)request.getAttribute("rNum");
 		
-		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+		Resume resume = new IncruitService().selectResume(rNum);
+		int result = new IncruitService().checkResume(rNum);
 		
-		if(!list.isEmpty()) {
-			request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
+		if(resume != null) {
+			request.setAttribute("resume", resume);
+			request.getRequestDispatcher("/views/ownerService/ExamineResume.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
 			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);

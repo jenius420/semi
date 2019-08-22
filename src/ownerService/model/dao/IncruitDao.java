@@ -42,27 +42,27 @@ public class IncruitDao {
 		String sql = prop.getProperty("enrollIncruit");
 
 		try {
-//			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, incruit.getwTitle());
 			pstmt.setInt(2, incruit.getoNum());
 			pstmt.setDate(3, incruit.getWorkStartTerm());
 			pstmt.setDate(4, incruit.getWorkEndTerm());
 			pstmt.setString(5, incruit.getWorkDay());
-			//pstmt.setString(6, incruit.사진경로);
-			pstmt.setString(7, incruit.getWorkStartTime());
-			pstmt.setString(8, incruit.getWorkEndTime());
-			pstmt.setInt(9, incruit.getTermNo());
-			pstmt.setString(11, incruit.getGender());
-			pstmt.setInt(12, incruit.getAge());
-			pstmt.setString(13, incruit.getEdu());
-			pstmt.setDate(14, incruit.getEnrollDate());
-			pstmt.setString(15, incruit.getStatus());
-			pstmt.setDate(16, incruit.getDoneDate());
-			pstmt.setString(17, incruit.getSalaryForm());
-			pstmt.setInt(18, incruit.getSalary());
-			pstmt.setInt(18, incruit.getpNum());
+			pstmt.setString(6, incruit.getWorkStartTime());
+			pstmt.setString(7, incruit.getWorkEndTime());
+			pstmt.setInt(8, incruit.getTermNo());
+			pstmt.setString(9, incruit.getGender());
+			pstmt.setInt(10, incruit.getAge());
+			pstmt.setString(11, incruit.getEdu());
+			pstmt.setDate(12, incruit.getEnrollDate());
+			pstmt.setString(13, incruit.getStatus());
+			pstmt.setDate(14, incruit.getDoneDate());
+			pstmt.setString(15, incruit.getSalaryForm());
+			pstmt.setInt(16, incruit.getSalary());
+			pstmt.setInt(17, incruit.getpNum());
 			pstmt.setString(18, incruit.getDescription());
+			pstmt.setInt(19, incruit.getPeopleCount());
 			
 			result = pstmt.executeUpdate();
 
@@ -73,6 +73,84 @@ public class IncruitDao {
 		}
 
 		return result;
+		
+	}
+	
+	public Incruit selectIncruit(Connection conn, int wNum) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Incruit incruit = null;
+		
+		String sql = prop.getProperty("selectIncruit");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, wNum);
+			
+			rs = pstmt.executeQuery();
+			
+			incruit = new Incruit(
+									rs.getInt("WNUM"),
+									rs.getString("WTITLE"),
+									rs.getInt("ONUM"),
+									rs.getString("OPNAME"),
+									rs.getDate("WORKSTARTTERM"),
+									rs.getDate("WORKENDTERM"),
+									rs.getString("WORKDAY"),
+									rs.getString("WORKSTARTTIME"),
+									rs.getString("WORKENDTIME"),
+									rs.getString("TERMNAME"),
+									rs.getString("WORKGENDER"),
+									rs.getInt("WORKAGE"),
+									rs.getString("WORKEDU"),
+									rs.getDate("STARTDATE"),
+									rs.getString("INCRUITSTATUS"),
+									rs.getDate("ENDDATE"),
+									rs.getString("WORKFORM"),
+									rs.getInt("SALARY"),
+									rs.getString("PTITLE"),
+									rs.getString("REXPLAIN"),
+									rs.getInt("PEOPLECOUNT"),
+									rs.getString("DONGNAME"),
+									rs.getString("DISTRICTNAME"),
+									rs.getString("TYPENAME")
+								);
+				
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return incruit;
+		
+	}
+	
+	public int updateIncruit(Connection conn, Incruit incruit) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("updateIncruit");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(마지막, wNum);
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
 		
 	}
 	
@@ -136,7 +214,11 @@ public class IncruitDao {
 										rs.getString("WORKFORM"),
 										rs.getInt("SALARY"),
 										rs.getString("PTITLE"),
-										rs.getString("REXPLAIN")
+										rs.getString("REXPLAIN"),
+										rs.getInt("PEOPLECOUNT"),
+										rs.getString("DONGNAME"),
+										rs.getString("DISTRICTNAME"),
+										rs.getString("TYPENAME")
 									);
 				list.add(incruit);
 			}
@@ -208,17 +290,9 @@ public class IncruitDao {
 		String sql = prop.getProperty("deleteIncruit");
 
 		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, resume.getResumeTitle());
-//			pstmt.setInt(2, resume.getEmpNum());
-//			pstmt.setString(3, resume.getDistrict());
-//			pstmt.setString(4, resume.getType());
-//			pstmt.setString(5, resume.getComment());
-//			pstmt.setString(6, resume.사진경로);
-//			pstmt.setString(7, resume.getDesireForm());
-//			pstmt.setInt(8, resume.getDesireIncome());
-//			pstmt.setString(9, resume.getOpenSet());
-//			pstmt.setString(10, resume.getEdu());
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, incruitNum);
 			
 			result = pstmt.executeUpdate();
 
@@ -283,21 +357,23 @@ public class IncruitDao {
 			
 			if(rs.next()) {
 				
-				rnum, A.enum, ename, phone, email, districtName, typeName, comment, 
-				updateDate, invalidResume, desireForm, desireIncome, openset, finaleduname
-				
 				resume = new Resume(
-									rs.getInt("USER_NO"),
-									rs.getString("user_id"),
-									rs.getString("user_pwd"),
-									rs.getString("user_name"),
-									rs.getString("phone"),
-									rs.getString("email"),
-									rs.getString("address"),
-									rs.getString("interest"),
-									rs.getDate("enroll_date"),
-									rs.getDate("modify_date"),
-									rs.getString("status")
+									rs.getInt("RNUM"),
+									rs.getInt("ENUM"),
+									rs.getString("ENAME"),
+									rs.getInt("PHONE"),
+									rs.getString("EMAIL"),
+									rs.getString("DISTRICTNAME"),
+									rs.getString("TYPENAME"),
+									rs.getString("COMMENT"),
+									rs.getDate("UPDATEDATE"),
+									rs.getString("INVALIDRESUME"),
+									rs.getString("DESIREFORM"),
+									rs.getInt("DESIREINCOME"),
+									rs.getString("OPENSET"),
+									rs.getString("FINALEDUNAME"),
+									rs.getInt("PNUM"),
+									rs.getString("SAVENAME")
 									);
 				list.add(resume);
 			}
@@ -328,20 +404,24 @@ public class IncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-	
-//				resume = new Resume(
-//									rs.getInt("USER_NO"),
-//									rs.getString("user_id"),
-//									rs.getString("user_pwd"),
-//									rs.getString("user_name"),
-//									rs.getString("phone"),
-//									rs.getString("email"),
-//									rs.getString("address"),
-//									rs.getString("interest"),
-//									rs.getDate("enroll_date"),
-//									rs.getDate("modify_date"),
-//									rs.getString("status")
-//									);
+				resume = new Resume(
+									rs.getInt("RNUM"),
+									rs.getInt("ENUM"),
+									rs.getString("ENAME"),
+									rs.getInt("PHONE"),
+									rs.getString("EMAIL"),
+									rs.getString("DISTRICTNAME"),
+									rs.getString("TYPENAME"),
+									rs.getString("COMMENT"),
+									rs.getDate("UPDATEDATE"),
+									rs.getString("INVALIDRESUME"),
+									rs.getString("DESIREFORM"),
+									rs.getInt("DESIREINCOME"),
+									rs.getString("OPENSET"),
+									rs.getString("FINALEDUNAME"),
+									rs.getInt("PNUM"),
+									rs.getString("SAVENAME")
+									);
 		
 			
 		}catch (SQLException e) {

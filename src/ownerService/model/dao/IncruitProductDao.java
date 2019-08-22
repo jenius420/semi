@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 import ownerService.model.vo.IncruitProduct;
@@ -33,15 +34,13 @@ public class IncruitProductDao {
 		ArrayList<IncruitProduct> list = null;
 		IncruitProduct prod = null;
 		
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 		ResultSet rs = null;
 		
 		String sql = prop.getProperty("selectIncruitProduct");
 		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery();
+		try {	
+			rs = stmt.executeQuery(sql);
 			
 			if(rs.next()) {
 				prod = new IncruitProduct(
@@ -57,7 +56,7 @@ public class IncruitProductDao {
 			e.printStackTrace();
 		}finally {
 			close(rs);
-			close(pstmt);
+			close(stmt);
 		}
 		
 		return list;

@@ -41,12 +41,13 @@ public class ApplicationStateServlet extends HttpServlet {
 		ArrayList<Appliant> list = new EmpServiceService().selectApplicationState(emp.getEmpNum());
 		
 		if(list.size() > 0) {
-			request.setAttribute("applicationStatelist", list);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("/views/empService/ApplicationState.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "페이지를 불러오는데 실패했습니다");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
-		//else.. list null처리를 화면에서 해야하는지?
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/empService/ApplicationState.jsp");
-		view.forward(request, response);
 	}
 
 	/**

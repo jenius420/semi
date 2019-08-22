@@ -36,7 +36,6 @@ public class WatchingResumeServlet extends HttpServlet {
 		int rNum = (int)request.getAttribute("rNum");
 		
 		Resume resume = new IncruitService().selectResume(rNum);
-//		int result = new IncruitService().checkResume(rNum);
 		
 		if(resume != null) {
 			request.setAttribute("resume", resume);

@@ -1,30 +1,26 @@
 package empService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
+import empService.model.service.EmpServiceService;
 import empService.model.service.ResumeService;
-import empService.model.vo.Resume;
 
 /**
- * Servlet implementation class ManageResumeServlet
+ * Servlet implementation class CancleAppliantServlet
  */
-@WebServlet("/manageResume.es")
-public class ManageResumeServlet extends HttpServlet {
+@WebServlet("/cancleAppliant.es")
+public class CancleAppliantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageResumeServlet() {
+    public CancleAppliantServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,18 +30,17 @@ public class ManageResumeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+		String[] applyArr = request.getParameterValues("applyArr");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		int result = new EmpServiceService().cancleAppliant(applyArr);
 		
-		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
-		
-		if(!list.isEmpty()) {
-			request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
+		if(result > 0) {
+			response.sendRedirect("applicationState.es");
 		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+			request.setAttribute("msg", "지원 취소에 실패했습니다");
 			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
+		
 	}
 
 	/**

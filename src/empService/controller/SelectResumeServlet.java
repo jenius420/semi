@@ -1,25 +1,27 @@
 package empService.controller;
 
+import java.io.File;
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import empService.model.service.ResumeService;
+import empService.model.vo.Resume;
+
 /**
- * Servlet implementation class SuitableRecruitServlet
+ * Servlet implementation class SelectResumeServlet
  */
-@WebServlet("/suitableRecruit.es")
-public class SuitableRecruitServlet extends HttpServlet {
+@WebServlet("/selectResume.es")
+public class SelectResumeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SuitableRecruitServlet() {
+    public SelectResumeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +30,20 @@ public class SuitableRecruitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/views/empService/suitableRecruit.jsp").forward(request, response);
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		int rNum = Integer.parseInt(request.getParameter("rNum"));
+		
+		Resume resume = new ResumeService().selectResume(rNum);
+		
+		if(resume != null) {
+			request.setAttribute("resume", resume);	
+			request.getRequestDispatcher("views/empService/SelectResume.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "요청하신 페이지에 접속 실패했습니다");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

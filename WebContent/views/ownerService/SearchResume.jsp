@@ -13,7 +13,7 @@
 	
 	호출서블랫: searchResumeList.os
 	
-	이력서 선택시 해당 이력서 보여주기 watchingResume.os input rNum
+	이력서 선택시 해당 이력서 보여주기 watchingResume.os input rNum (아님 이거 같은 화면에 비동기로 보여줄지?)
 	
 </body>
 </html>

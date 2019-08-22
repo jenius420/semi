@@ -42,7 +42,6 @@ public class EmpServiceDao {
 		ResultSet rs = null;
 		
 		String sql = prop.getProperty("selectApplicationState");
-		// 지원일 순으로 정렬. 지원취소한거는 포함 안 됨
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -51,15 +50,21 @@ public class EmpServiceDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-//				list.add(new Appliant(
-//									rs.getInt("APPLYNUM"),
-//									rs.getInt("ENUM"),
-//									rs.getInt("WNUM"),
-//									rs.getString("WTITLE"),
-//									rs.getString("OPNAME"),
-//									rs.getDate("APPLYDATE"),
-//									rs.getString("PASSORFAIL")
-//									));
+				list.add(new Appliant(
+										rs.getInt("APPLYNUM"),
+										rs.getInt("RNUM"),
+										rs.getString("COMMENT"),
+										rs.getInt("ENUM"),
+										rs.getString("ENAME"),
+										rs.getInt("WNUM"),
+										rs.getString("WTITLE"),
+										rs.getInt("ONUM"),
+										rs.getString("OPNAME"),
+										rs.getString("INCRUITSTATUS"),
+										rs.getDate("ENDDATE"),
+										rs.getDate("APPLYDATE"),
+										rs.getString("PASSORFAIL")
+										));
 			}
 			
 		}catch (SQLException e) {
@@ -70,6 +75,32 @@ public class EmpServiceDao {
 		}
 		
 		return list;
+		
+	}
+	
+	public int cancleAppliant(Connection conn, int applyNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("cancleAppliant");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, applyNum);
+	
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
 		
 	}
 	

@@ -5,31 +5,27 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
-import empService.model.service.ResumeService;
-import empService.model.vo.Resume;
 import owner.model.vo.Owner;
 import ownerService.model.service.IncruitService;
 import ownerService.model.vo.Incruit;
 
 /**
- * Servlet implementation class SubmitIncruitServlet
+ * Servlet implementation class UpdateIncruitServlet
  */
-@WebServlet("/submitIncruit.os")
-public class SubmitIncruitServlet extends HttpServlet {
+@WebServlet("/updateIncruit.os")
+public class UpdateIncruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SubmitIncruitServlet() {
+    public UpdateIncruitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,16 +34,16 @@ public class SubmitIncruitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("UTF-8");
 		
-		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
-		Incruit incruit = null;
+		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		
+		Incruit incruit = new Incruit();;
+		
+
 		try {
-			
 			String wTitle = request.getParameter("wTitle");
-			int oNum = owner.getoNum();
 			Date workStartTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workStartTerm");
 			Date workEndTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workEndTerm");
 			String workDay = request.getParameter("workDay");
@@ -57,30 +53,40 @@ public class SubmitIncruitServlet extends HttpServlet {
 			String gender = request.getParameter("gender");
 			int age = Integer.parseInt(request.getParameter("age"));
 			String edu = request.getParameter("edu");
-			Date enrollDate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("enrollDate");
-			String status = request.getParameter("status");
-			Date doneDate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("doneDate");
 			String salaryForm = request.getParameter("salaryForm");
 			int salary = Integer.parseInt(request.getParameter("salary"));
 			int pNum = Integer.parseInt(request.getParameter("pNum"));
 			String description = request.getParameter("description");
 			
-			
-			incruit = new Incruit(wTitle, oNum, workStartTerm, workEndTerm, workDay, workStartTime, workEndTime, termNo,
-					gender, age, edu, enrollDate, status, doneDate, salaryForm, salary, pNum, description);
+			incruit.setwNum(wNum);
+			incruit.setwTitle(wTitle);
+			incruit.setWorkStartTerm(workStartTerm);
+			incruit.setWorkEndTerm(workEndTerm);
+			incruit.setWorkDay(workDay);
+			incruit.setWorkStartTime(workStartTime);
+			incruit.setWorkEndTime(workEndTime);
+			incruit.setTermNo(termNo);
+			incruit.setGender(gender);
+			incruit.setAge(age);
+			incruit.setEdu(edu);
+			incruit.setSalaryForm(salaryForm);
+			incruit.setSalary(salary);
+			incruit.setpNum(pNum);
+			incruit.setDescription(description);
+
 			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 
-		int result = new IncruitService().enrollIncruit(incruit);
+		int result = new IncruitService().updateIncruit(incruit);
 		
 		if(result > 0) {
-			request.setAttribute("msg", "공고를 성공적으로 등록했습니다");	
-//			request.getRequestDispatcher("/views/ownerService/ManageIncruit.jsp").forward(request, response);
-//			response.sendRedirect("incruitList.os"); 
+			request.setAttribute("msg", "공고를 성공적으로 수정했습니다");	
+//			request.getRequestDispatcher("/views/ownerService/incruitList.os.jsp").forward(request, response);
+			response.sendRedirect("incruitList.os"); 
 		}else {
-			request.setAttribute("msg", "공고 등록에 실패했습니다");
+			request.setAttribute("msg", "공고 수정에 실패했습니다");
 			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
 		

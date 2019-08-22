@@ -1,30 +1,28 @@
-package empService.controller;
+package ownerService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
+import ownerService.model.service.IncruitService;
+import ownerService.model.vo.Incruit;
 
 /**
- * Servlet implementation class ManageResumeServlet
+ * Servlet implementation class SelectIncruitServlet
  */
-@WebServlet("/manageResume.es")
-public class ManageResumeServlet extends HttpServlet {
+@WebServlet("/selectIncruit.os")
+public class SelectIncruitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageResumeServlet() {
+    public SelectIncruitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,14 +34,15 @@ public class ManageResumeServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		
-		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+		Incruit incruit = new IncruitService().selectIncruit(wNum);
 		
-		if(!list.isEmpty()) {
-			request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
+		if(incruit != null) {
+			request.setAttribute("incruit", incruit);	
+			request.getRequestDispatcher("views/ownerService/SelectIncruit.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+			request.setAttribute("msg", "요청하신 페이지에 접속 실패했습니다");
 			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
 	}

@@ -26,6 +26,13 @@ public class Incruit {
 	private int pNum; // 상품코드
 	private String product; // 상품명+
 	private String description; // 상세내역
+	private int peopleCount; // 모집인원
+	private int dongNum; // 동코드
+	private String dong; // 동
+	private int districtNum; // 구코드
+	private String district; // 구
+	private int typeNum; // 업직종코드
+	private String type; // 업직종
 	
 	public Incruit() {
 		super();
@@ -33,9 +40,10 @@ public class Incruit {
 	}
 
 	public Incruit(int wNum, String wTitle, int oNum, String opName, Date workStartTerm, Date workEndTerm,
-			String workDay, String workStartTime, String workEndTime, int termNo, String termName, String gender, int age,
-			String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, int pNum,
-			String product, String description) {
+			String workDay, String workStartTime, String workEndTime, int termNo, String termName, String gender,
+			int age, String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, int pNum,
+			String product, String description, int peopleCount, int dongNum, String dong, int districtNum,
+			String district, int typeNum, String type) {
 		super();
 		this.wNum = wNum;
 		this.wTitle = wTitle;
@@ -59,9 +67,18 @@ public class Incruit {
 		this.pNum = pNum;
 		this.product = product;
 		this.description = description;
+		this.peopleCount = peopleCount;
+		this.dongNum = dongNum;
+		this.dong = dong;
+		this.districtNum = districtNum;
+		this.district = district;
+		this.typeNum = typeNum;
+		this.type = type;
 	}
-	
-	
+
+
+
+
 
 	public Incruit(String wTitle, int oNum, Date workStartTerm, Date workEndTerm, String workDay, String workStartTime,
 			String workEndTime, int termNo, String gender, int age, String edu, Date enrollDate, String status,
@@ -92,7 +109,7 @@ public class Incruit {
 	public Incruit(int wNum, String wTitle, int oNum, String opName, Date workStartTerm, Date workEndTerm,
 			String workDay, String workStartTime, String workEndTime, String termName, String gender, int age,
 			String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, String product,
-			String description) {
+			String description, int peopleCount, String dong, String district, String type) {
 		super();
 		this.wNum = wNum;
 		this.wTitle = wTitle;
@@ -114,6 +131,76 @@ public class Incruit {
 		this.salary = salary;
 		this.product = product;
 		this.description = description;
+		this.peopleCount = peopleCount;
+		this.dong = dong;
+		this.district = district;
+		this.type = type;
+	}
+
+	
+	
+	public int getTypeNum() {
+		return typeNum;
+	}
+
+	public void setTypeNum(int typeNum) {
+		this.typeNum = typeNum;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getDongNum() {
+		return dongNum;
+	}
+
+
+	public void setDongNum(int dongNum) {
+		this.dongNum = dongNum;
+	}
+
+
+	public String getDong() {
+		return dong;
+	}
+
+
+	public void setDong(String dong) {
+		this.dong = dong;
+	}
+
+
+	public int getDistrictNum() {
+		return districtNum;
+	}
+
+
+	public void setDistrictNum(int districtNum) {
+		this.districtNum = districtNum;
+	}
+
+
+	public String getDistrict() {
+		return district;
+	}
+
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+
+	public int getPeopleCount() {
+		return peopleCount;
+	}
+
+	public void setPeopleCount(int peopleCount) {
+		this.peopleCount = peopleCount;
 	}
 
 	public int getwNum() {

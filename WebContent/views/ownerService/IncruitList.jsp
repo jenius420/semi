@@ -16,6 +16,7 @@
 
 	단순 리스트 출력
 	탭형식으로 진행중/마감된 나누면 좋겠음
+	클릭시 selectIncruit.os
 	
 	<div class="tableArea">
 		
@@ -37,8 +38,7 @@
 					<td><%=i.get() %></td>
 					<td><%=i.get() %></td>
 					<td><%=i.get() %></td>
-					<td>수정버튼 추가</td>
-					<td>마감 버튼 closeIncruit.os 호출 input wNum</td>
+					
 				</tr>
 				<%}}%>
 				
