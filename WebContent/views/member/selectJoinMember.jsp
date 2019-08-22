@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+
+	String contextPath = request.getContextPath();
+
+%>   
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +19,7 @@
 
 <style>
 
-    form{
+    div{
         /* border: 1px solid black; */
         
         text-align: center;
@@ -23,19 +29,18 @@
     }
 
     table{
+        /* border: 1px solid black; */
         background: rgb(176, 19, 242);
         border-radius: 10px 10px 10px 10px;
         color: white;
     }
 
-    th, td{
+    td{
         vertical-align: middle;
-        width: 400px;
+        width: 350px;
         height: 45px;
         
     }
-
-
 
     .btn{
         background: rgb(176, 19, 242);
@@ -51,38 +56,60 @@
 </head>
 <body>
 
-    <form action="">
+    <div>
             <h2>회원가입</h2>
             <br>
         <table>
             <tr>
-                <td class="tr1"><h4>개인회원</h4></td>
-                <td><h4>기업회원</h4></td>
+                <th><h4>개인회원</h4></th>
+                <th><h4>기업회원</h4></th>
             </tr>
             <tr>
-                <td class="tr1">알바정보가 필요한 분</td>
+                <td>알바정보가 필요한 분</td>
                 <td>알바생정보가 필요한 분</td>
+            </tr>
             </table>
-        <br>
-            <button class="btn btn-primary" onclick="personJoinMember();">개인회원 가입하기</button>
-            <button class="btn btn-primary" onclick="bizJoinMember();">기업회원 가입하기</button>
-    </form>
-
-    <script>
-        function personJoinMember(){
-        	location.href="<%= request.getContextPath() %>/empJoinMember.me";
-        }
-
-        function bizJoinMember(){
-        	location.href="<%= request.getContextPath() %>/bizJoinMember.me";
             
-        }
-        
-    
-    </script>
+            <br>
+            
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-secondary" onclick="empJoinMember();">개인회원 회원가입</button>
+                    </td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-secondary" onclick="ownerJoinMember();">기업회원 회원가입</button>
+                        
+                    </td>
 
-	
-    
+                </tr>
+            </table>
+        </div>
+        
+        <script>
+        
+
+        	function empJoinMember(){
+        		
+        		window.opener.location.href = "<%= contextPath %>/empJoinMember.me";
+        		window.close();
+        		
+        	}
+
+        	function ownerJoinMember(){
+        		
+        		window.opener.location.href = "<%= contextPath %>/ownerJoinMember.me";
+        		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
+        		
+        		window.close();
+        		
+        	}
+        
+        
+        </script>
+
+  
 
 </body>
 </html>

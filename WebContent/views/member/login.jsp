@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+
+	String contextPath = request.getContextPath();
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +36,7 @@
         height: 50px;
         width: 130px;
         border:none;
-        background: rgb(176, 19, 242); 
+        background: rgb(176, 18, 241); 
     }
 
     #login{
@@ -54,7 +59,7 @@
     </div>
 
     <div>
-        <form action="">
+        <form action="<%= contextPath %>/login.me" method="post">
             <table>
                 <tr>
                     <td><input type="text" name="userId" id="userId" maxlength="15" placeholder="아이디"></td>
@@ -70,36 +75,15 @@
             <br>
             <div>
                 <div class="btn-group" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary" onclick="findId();">아이디 찾기</button>
-                    <button type="button" class="btn btn-secondary" onclick="findPwd();">비밀번호 찾기</button>
-                    <button type="button" class="btn btn-secondary" onclick="joinMember();">회원가입</button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href=<%= contextPath %>/findId.me">아이디 찾기</button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href=<%= contextPath %>/findPwd.me">비밀번호 찾기</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.open('selectJoinMember.jsp', '_self', '회원가입', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">회원가입</button>
                 </div>
                 
             </div>
         </form>
     </div>
     
-    <script>
-
-         function findId(){
-        	
-         	location.href="<%= request.getContextPath() %>/findId.me";
-         }
-        
-        function findPwd(){
-        	
-        	location.href="<%= request.getContextPath() %>/findPwd.me";
-        }
-        
-        function joinMember(){
-        	
-            location.href="<%= request.getContextPath() %>/selectMemberJoin.me";
-        	
-        }
-        
-        
-        
-    </script>
 
     
   
