@@ -92,6 +92,7 @@
 
         	function empJoinMember(){
         		
+        		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
         		window.opener.location.href = "<%= contextPath %>/empJoinMember.me";
         		window.close();
         		
@@ -99,8 +100,8 @@
 
         	function ownerJoinMember(){
         		
-        		window.opener.location.href = "<%= contextPath %>/ownerJoinMember.me";
         		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
+        		window.opener.location.href = "<%= contextPath %>/ownerJoinMember.me";
         		
         		window.close();
         		
