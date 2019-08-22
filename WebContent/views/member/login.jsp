@@ -18,6 +18,7 @@
         resize: none;
         margin-left: auto;
         margin-right: auto;
+        margin-top: auto;
 
     }
 
