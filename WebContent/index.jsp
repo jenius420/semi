@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+
+	String contextPath = request.getContextPath();
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -53,7 +59,7 @@ http://www.templatemo.com/tm-406-flex
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
-                                        <li class="active"><a href="#">Login</a></li>
+                                        <li class="active" onclick="location.href='<%= contextPath %>/login.me';"><a href="#">Login</a></li>
                                         <li><a href="#services">지역별</a></li>
                                         <li><a href="#portfolio">기간별</a></li>
                                         <li><a href="#our-team">게시판</a></li>
