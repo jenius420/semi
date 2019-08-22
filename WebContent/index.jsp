@@ -59,7 +59,7 @@ http://www.templatemo.com/tm-406-flex
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
-                                        <li class="active" onclick="loginBtn();"><a href="#">Login</a></li>
+                                        <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 resizeable=no')"><a href="#">Login</a></li>
                                         <li><a href="#services">지역별</a></li>
                                         <li><a href="#portfolio">기간별</a></li>
                                         <li><a href="#our-team">게시판</a></li>
@@ -418,11 +418,7 @@ http://www.templatemo.com/tm-406-flex
                  --------------------------------------------------------------------------------------------------------------*/ 
                 $('body').bind('touchstart', function() {});
             });
-            
-            function loginBtn(){
-            	window.open("views/member/login.jsp", "로그인", "resizeble=no" "width=100", "height=100");
-            }
-            
+                  
         </script>
         <!-- templatemo 406 flex -->
     </body>

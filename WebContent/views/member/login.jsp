@@ -14,11 +14,11 @@
 
     form{
         /* border: 1px solid black; */
-        width: 320px;
+        width: 390px;
         resize: none;
         margin-left: auto;
         margin-right: auto;
-        margin-top: auto;
+        margin-top: 50px;
 
     }
 
