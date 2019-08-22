@@ -97,7 +97,7 @@
 
 					<tr>
 						<td><b>성명</b></td>
-						<td><input name="eName" type="text" size="28" maxlength="5" placeholder="성명 입력"></input></td>
+						<td><input id="eName" name="eName" type="text" size="28" maxlength="5" placeholder="성명 입력"></input></td>
 						<td><label id="nameResult"></label></td>
 					</tr>
 				
@@ -210,9 +210,11 @@
 					$(nameResult).text("성명을 확인 해주세요.");
 					eName.focus();
 				}else{
-					// $(nameResult).text(eName.value + "님");
+					$(nameResult).text(eName.value);
 				}
 			});
+
+			
 
 
 			
