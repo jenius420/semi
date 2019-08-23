@@ -63,8 +63,8 @@
 		<br>
 		<h2 align="center">개인회원 가입</h2>
 		
-		//<b>이용약관에 모두 동의 합니다</b>
-		//<td colspan="3"><input type="checkbox">
+		<!--<b>이용약관에 모두 동의 합니다</b>
+		<input type="checkbox">-->
 			
 			<hr>
 			
@@ -104,17 +104,17 @@
 					<tr>
 						<td><b>주민등록번호</b></td>
 						<td>
-							<input name="ecNum1" type="text" size="10" maxlength="6" placeholder=""></input> - 
-							<input name="ecNum2" type="password" size="11" maxlength="7" placeholder=""></input>
-							<td><label></label></td>
+							<input id="ecNum1" name="ecNum1" type="text" size="10" maxlength="6" placeholder=""></input> - 
+							<input id="ecNum2" name="ecNum2" type="password" size="11" maxlength="7" placeholder=""></input>
+							<td><label id="ecNumResult"></label></td>
 						</td>
 					</tr>
 
 					<tr>
 						<td><b>메일주소</b></td>
 						<td>
-							<input name="email1" type="text" size="10"></input> @
-							<select name="email2"> 
+							<input id="email1" name="email1" type="text" size="10"></input> @
+							<select id="email2" name="email2"> 
 								<option value="@gmail.com">gmail.com</option>
 								<option value="@naver.com">naver.com</option>
 								<option value="@daum.net">daum.net</option>
@@ -162,7 +162,8 @@
 		var pwdResult2 = document.getElementById("pwdResult2");
 		var eName = document.getElementById("eName");
 		var nameResult = document.getElementById("nameResult");
-
+		var email1 = document.getElementById("email1");
+		var email2 = document.getElementById("email2");
 
 
 		function onreset(){
@@ -172,18 +173,19 @@
 		$(function(){
 			$(eId).on('blur', function(e){
 				
-				if(!(/^[a-z][a-z0-9]{3,}$/.test(eId.value))){
+				if(!(/^[a-z0-9]{4,}$/.test(eId.value))){
 					$(eIdResult).text("사용할 수 없는 아이디 입니다.");
 					eId.focus();
 								
 				}else{
 					$(eIdResult).text("사용 가능한 아이디 입니다.");
 				}
+
 			});
 
 			$(ePwd).on('blur', function(e){
 
-				if(!(/^[a-zA-Z0-9!@#$%^&*]{8,16}$/.test(ePwd.value))){
+				if(!(/^[a-zA-Z0-9!@#$%^&*]{8,}$/.test(ePwd.value))){
 					$(pwdResult1).text("비밀번호를 확인 해주세요.");
 					ePwd.focus();
 					ePwd.value="";
@@ -209,12 +211,18 @@
 				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
 					eName.focus();
-				}else{
-					$(nameResult).text(eName.value);
 				}
 			});
 
-			
+
+
+
+
+
+			$()
+
+
+
 
 
 			
