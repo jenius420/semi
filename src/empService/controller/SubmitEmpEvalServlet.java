@@ -1,10 +1,6 @@
 package empService.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,21 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import emp.model.vo.Emp;
+import empService.model.service.EmpEvalService;
 import empService.model.service.EmpServiceService;
-import owner.model.vo.Owner;
-import ownerService.model.vo.Incruit;
+import empService.model.vo.EmpEvaluation;
 
 /**
- * Servlet implementation class InterestOwnerManageServlet
+ * Servlet implementation class SubmitEmpEvalServlet
  */
-@WebServlet("/interestOwner.es")
-public class InterestOwnerManageServlet extends HttpServlet {
+@WebServlet("/submitEmpEval.es")
+public class SubmitEmpEvalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InterestOwnerManageServlet() {
+    public SubmitEmpEvalServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,13 +36,29 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
-		ArrayList<Owner> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
+		int eNum = emp.getEmpNum();
+		int oNum = Integer.parseInt(request.getParameter("oNum"));
+		int point = Integer.parseInt(request.getParameter("point"));
+		String comment = request.getParameter("comment");
 		
-		request.setAttribute("olist", oList);
-		request.setAttribute("wlist", wList);
-		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
-
+		EmpEvaluation eval = new EmpEvaluation();
+		
+		eval.setApplyNum(applyNum);
+		eval.seteNum(eNum);
+		eval.setoNum(oNum);
+		eval.setSevalPoint(point);
+		eval.seteComment(comment);
+		
+		int result = new EmpEvalService().submitEmpEval(eval);
+		
+		if(result > 0) {
+			response.sendRedirect("empEvaluationManagement.es");
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**

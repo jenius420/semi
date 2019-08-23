@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import adminService.model.service.ManageMemService;
 import emp.model.vo.Emp;
+import member.model.vo.EmpMember;
+import member.model.vo.OwnerMember;
 import owner.model.vo.Owner;
 
 /**
@@ -33,8 +35,8 @@ public class MemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Emp> empList = new ManageMemService().selectEmpList();
-		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
+		ArrayList<EmpMember> empList = new ManageMemService().selectEmpList();
+		ArrayList<OwnerMember> ownerList = new ManageMemService().selectOwnerList();
 		
 		if(!empList.isEmpty() && !ownerList.isEmpty()) {
 			request.setAttribute("empList", empList);

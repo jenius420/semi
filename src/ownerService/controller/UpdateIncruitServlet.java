@@ -41,7 +41,6 @@ public class UpdateIncruitServlet extends HttpServlet {
 		
 		Incruit incruit = new Incruit();;
 		
-
 		try {
 			String wTitle = request.getParameter("wTitle");
 			Date workStartTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workStartTerm");
@@ -57,6 +56,7 @@ public class UpdateIncruitServlet extends HttpServlet {
 			int salary = Integer.parseInt(request.getParameter("salary"));
 			int pNum = Integer.parseInt(request.getParameter("pNum"));
 			String description = request.getParameter("description");
+			int peopleCount = Integer.parseInt(request.getParameter("peopleCount"));
 			
 			incruit.setwNum(wNum);
 			incruit.setwTitle(wTitle);
@@ -73,6 +73,7 @@ public class UpdateIncruitServlet extends HttpServlet {
 			incruit.setSalary(salary);
 			incruit.setpNum(pNum);
 			incruit.setDescription(description);
+			incruit.setPeopleCount(peopleCount);
 
 			
 		} catch (ParseException e) {

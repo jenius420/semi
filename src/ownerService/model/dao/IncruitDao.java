@@ -80,6 +80,7 @@ public class IncruitDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		Incruit incruit = null;
 		
 		String sql = prop.getProperty("selectIncruit");
@@ -139,7 +140,24 @@ public class IncruitDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(마지막, wNum);
+			
+			pstmt.setString(1, incruit.getwTitle());
+			pstmt.setDate(2, incruit.getWorkStartTerm());
+			pstmt.setDate(3, incruit.getWorkEndTerm());
+			pstmt.setString(4, incruit.getWorkDay());
+			pstmt.setString(5, incruit.getWorkStartTime());
+			pstmt.setString(6, incruit.getWorkEndTime());
+			pstmt.setInt(7, incruit.getTermNo());
+			pstmt.setString(8, incruit.getGender());
+			pstmt.setInt(9, incruit.getAge());
+			pstmt.setString(10, incruit.getEdu());
+			pstmt.setString(11, incruit.getSalaryForm());
+			pstmt.setInt(12, incruit.getSalary());
+			pstmt.setInt(13, incruit.getpNum());
+			pstmt.setString(14, incruit.getDescription());
+			pstmt.setInt(15, incruit.getPeopleCount());
+			
+			pstmt.setInt(16, incruit.getwNum());
 			
 			result = pstmt.executeUpdate();
 
@@ -193,7 +211,7 @@ public class IncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				incruit = new Incruit(
 										rs.getInt("WNUM"),
 										rs.getString("WTITLE"),
@@ -250,7 +268,7 @@ public class IncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				appliant = new Appliant(
 									rs.getInt("APPLYNUM"),
 									rs.getInt("RNUM"),
@@ -355,7 +373,7 @@ public class IncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				
 				resume = new Resume(
 									rs.getInt("RNUM"),

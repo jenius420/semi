@@ -42,7 +42,7 @@ public class IncruitProductDao {
 		try {	
 			rs = stmt.executeQuery(sql);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				prod = new IncruitProduct(
 									rs.getInt("PCODE"),
 									rs.getString("PTITLE"),

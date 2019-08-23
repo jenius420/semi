@@ -70,6 +70,7 @@ public class ResumeDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		Resume resume = null;
 		
 		String sql = prop.getProperty("selectResume");
@@ -217,81 +218,7 @@ public class ResumeDao {
 		
 		return list;
 	}
-	
-	public ArrayList<Incruit> selectSuitableRecruitList(Connection conn, Filter filter) {
-		
-		ArrayList<Incruit> list = null;	
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = prop.getProperty("selectApplicationState");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			//pstmt.setInt(1, filter);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-//				list.add(new Incruit(
-//									rs.getInt("APPLYNUM"),
-//									rs.getInt("ENUM"),
-//									rs.getInt("WNUM"),
-//									rs.getString("WTITLE"),
-//									rs.getString("OPNAME"),
-//									rs.getDate("APPLYDATE"),
-//									rs.getString("PASSORFAIL")
-//									));
-			}
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
-	
-//	public Resume choiceResume(Connection conn, int rNum) {
-//		
-//		Resume resume = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		String sql = prop.getProperty("choiceResume");
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, rNum);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			
-//			resume = new Resume(
-////									rs.getInt("APPLYNUM"),
-////									rs.getInt("ENUM"),
-////									rs.getInt("WNUM"),
-////									rs.getString("WTITLE"),
-////									rs.getString("OPNAME"),
-////									rs.getDate("APPLYDATE"),
-////									rs.getString("PASSORFAIL")
-//									);
-//		
-//			
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			close(rs);
-//			close(pstmt);
-//		}
-//		
-//		return resume;
-//		
-//	}
-	
+
 	public ArrayList<Incruit> selectSuitableIncruit(Connection conn, Resume resume) {
 		
 		ArrayList<Incruit> list = null;	
@@ -354,5 +281,80 @@ public class ResumeDao {
 		
 		return list;
 	}
+	
+	// 디컴?
+//	public ArrayList<Incruit> selectSuitableRecruitList(Connection conn, Filter filter) {
+//		
+//		ArrayList<Incruit> list = null;	
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		String sql = prop.getProperty("selectApplicationState");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			//pstmt.setInt(1, filter);
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			if(rs.next()) {
+//				list.add(new Incruit(
+//									rs.getInt("APPLYNUM"),
+//									rs.getInt("ENUM"),
+//									rs.getInt("WNUM"),
+//									rs.getString("WTITLE"),
+//									rs.getString("OPNAME"),
+//									rs.getDate("APPLYDATE"),
+//									rs.getString("PASSORFAIL")
+//									));
+//			}
+//			
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return list;
+//		
+//	}
+	
+//	public Resume choiceResume(Connection conn, int rNum) {
+//		
+//		Resume resume = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		String sql = prop.getProperty("choiceResume");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, rNum);
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			
+//			resume = new Resume(
+////									rs.getInt("APPLYNUM"),
+////									rs.getInt("ENUM"),
+////									rs.getInt("WNUM"),
+////									rs.getString("WTITLE"),
+////									rs.getString("OPNAME"),
+////									rs.getDate("APPLYDATE"),
+////									rs.getString("PASSORFAIL")
+//									);
+//		
+//			
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return resume;
+//		
+//	}
 
 }

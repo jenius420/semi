@@ -36,6 +36,7 @@ public class ManageBoardDao {
 	public ArrayList<Board> selectBoardReportList(Connection conn) {
 		
 		ArrayList<Board> list = null;	
+		Board board = null;
 		
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -45,9 +46,9 @@ public class ManageBoardDao {
 		try {
 			rs = stmt.executeQuery(sql);
 			
-			if(rs.next()) {
+			while(rs.next()) {
 
-				list.add(new Board(
+				board = new Board(
 									rs.getInt("TNUM"),
 									rs.getString("TITLE"),
 									rs.getInt("ENUM"),
@@ -59,7 +60,8 @@ public class ManageBoardDao {
 									rs.getString("INVALIDPOST"),
 									rs.getString("ISNOTICE"),
 									rs.getInt("BOARDCOUNT")
-									));
+									);
+				list.add(board);
 			}
 			
 		}catch (SQLException e) {
@@ -76,6 +78,7 @@ public class ManageBoardDao {
 	public ArrayList<Comment> selectCommentReportList(Connection conn) {
 		
 		ArrayList<Comment> list = null;	
+		Comment comment = null;
 		
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -85,8 +88,8 @@ public class ManageBoardDao {
 		try {
 			rs = stmt.executeQuery(sql);
 			
-			if(rs.next()) {
-				list.add(new Comment(
+			while(rs.next()) {
+				comment = new Comment(
 									rs.getInt("COMMENTNUM"),
 									rs.getString("COMMENTEXPLAIN"),
 									rs.getInt("TNUM"),
@@ -95,7 +98,8 @@ public class ManageBoardDao {
 									rs.getInt("ENUM"),
 									rs.getString("ENAME"),
 									rs.getInt("WARNING")
-									));
+									);
+				list.add(comment);
 			}
 			
 		}catch (SQLException e) {

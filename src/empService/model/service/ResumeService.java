@@ -93,16 +93,17 @@ public class ResumeService {
 		return list;
 	}
 	
-	public ArrayList<Incruit> selectSuitableRecruitList(Filter filter) {
-
-		Connection conn = getConnection();
-
-		ArrayList<Incruit> list = new ResumeDao().selectSuitableRecruitList(conn, filter);
-
-		close(conn);
-
-		return list;
-	}
+	 //디컴?
+//	public ArrayList<Incruit> selectSuitableRecruitList(Filter filter) {
+//
+//		Connection conn = getConnection();
+//
+//		ArrayList<Incruit> list = new ResumeDao().selectSuitableRecruitList(conn, filter);
+//
+//		close(conn);
+//
+//		return list;
+//	}
 	
 	public ArrayList<Incruit> selectSuitableIncruit(int rNum) {
 		

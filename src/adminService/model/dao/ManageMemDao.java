@@ -14,6 +14,8 @@ import java.util.Properties;
 import emp.model.vo.Emp;
 import empService.model.dao.EmpEvalDao;
 import empService.model.vo.EmpEvaluation;
+import member.model.vo.EmpMember;
+import member.model.vo.OwnerMember;
 import owner.model.vo.Owner;
 
 public class ManageMemDao {
@@ -32,9 +34,10 @@ public class ManageMemDao {
 
 	}
 	
-	public ArrayList<Emp> selectEmpList(Connection conn) {
+	public ArrayList<EmpMember> selectEmpList(Connection conn) {
 		
-		ArrayList<Emp> list = null;	
+		ArrayList<EmpMember> list = null;	
+		EmpMember emp = new EmpMember();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -46,17 +49,18 @@ public class ManageMemDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				// 회원vo 어떤거 쓸지 결정해야함. 컬럼은 전부 가져와야할듯
-//				list.add(new Emp(
-//									rs.getInt("ENUM"),
-//									rs.getString("EID"),
-//									rs.getString("ENAME"),
-//									rs.getInt("ECNUM"),
-//									rs.getInt("PHONE")
-//									rs.getString("EMAIL")
-//									rs.getString("INVALIDID")
-//									));
+			while(rs.next()) {
+				
+				emp.seteNum(rs.getInt("ENUM"));
+				emp.seteId(rs.getString("EID"));
+				emp.seteName(rs.getString("ENAME"));
+				emp.setEcNum(rs.getInt("ECNUM"));
+				emp.setPhone(rs.getInt("PHONE"));
+				emp.setEmail(rs.getString("EMAIL"));
+				emp.setInvalidId(rs.getString("INVALIDID"));
+				emp.setWaringCount(rs.getInt("WARNINGCOUNT"));
+
+				list.add(emp);
 			}
 			
 		}catch (SQLException e) {
@@ -69,9 +73,10 @@ public class ManageMemDao {
 		return list;
 	}
 	
-	public ArrayList<Owner> selectOwnerList(Connection conn) {
+	public ArrayList<OwnerMember> selectOwnerList(Connection conn) {
 		
-		ArrayList<Owner> list = null;	
+		ArrayList<OwnerMember> list = null;	
+		OwnerMember owner = new OwnerMember();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -83,17 +88,20 @@ public class ManageMemDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				// 회원vo 어떤거 쓸지 결정해야함. 컬럼은 전부 가져와야할듯
-//				list.add(new Owner(
-//									rs.getInt("ENUM"),
-//									rs.getString("EID"),
-//									rs.getString("ENAME"),
-//									rs.getInt("ECNUM"),
-//									rs.getInt("PHONE")
-//									rs.getString("EMAIL")
-//									rs.getString("INVALIDID")
-//									));
+			while(rs.next()) {
+				
+				owner.setoNum(rs.getInt("ONUM"));
+				owner.setoId(rs.getString("OID"));
+				owner.setOpName(rs.getString("OPNAME"));
+				owner.setOpNum(rs.getInt("OPNUM"));
+				owner.setoName(rs.getString("ONAME"));
+				owner.setoTel(rs.getInt("OTEL"));
+				owner.setPhone(rs.getInt("PHONE"));
+				owner.setEmail(rs.getString("EMAIL"));
+				owner.setEinvalidId(rs.getString("INVALIDID"));
+				owner.setCheckoNum(rs.getString("CHECKONUM"));
+				
+				list.add(owner);
 			}
 			
 		}catch (SQLException e) {

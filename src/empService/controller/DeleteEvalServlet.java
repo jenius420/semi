@@ -1,10 +1,8 @@
 package empService.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,21 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import emp.model.vo.Emp;
-import empService.model.service.EmpServiceService;
-import owner.model.vo.Owner;
-import ownerService.model.vo.Incruit;
+import empService.model.service.EmpEvalService;
+import empService.model.vo.EmpEvaluation;
+import empService.model.vo.EmpEvaluationBefore;
 
 /**
- * Servlet implementation class InterestOwnerManageServlet
+ * Servlet implementation class DeleteEvalServlet
  */
-@WebServlet("/interestOwner.es")
-public class InterestOwnerManageServlet extends HttpServlet {
+@WebServlet("/deleteEval.es")
+public class DeleteEvalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InterestOwnerManageServlet() {
+    public DeleteEvalServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,15 +36,17 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		int sevalNum = Integer.parseInt(request.getParameter("sevalNum"));
 		
-		ArrayList<Owner> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		int result = new EmpEvalService().deleteEval(sevalNum);
 		
-		request.setAttribute("olist", oList);
-		request.setAttribute("wlist", wList);
-		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
-
+		if(result > 0 ) {
+			response.sendRedirect("empEvaluationManagement.es");
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**

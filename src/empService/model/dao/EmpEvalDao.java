@@ -33,6 +33,8 @@ public class EmpEvalDao {
 	public ArrayList<EmpEvaluation> selectEmpEval(Connection conn, int empNum) {
 		
 		ArrayList<EmpEvaluation> list = null;	
+		EmpEvaluation eval = null;
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -44,14 +46,20 @@ public class EmpEvalDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-//				list.add(new EmpEvaluation(
-//									rs.getInt("EEVALNUM"),
-//									rs.getString("OPNAME"),
-//									rs.getInt("EEVALUPOINT"),
-//									rs.getString("EEVALCOMMENT"),
-//									rs.getDate("ENROLLDATE")
-//									));
+			while(rs.next()) {
+				
+				eval = new EmpEvaluation();
+				
+				eval.setSevalNum(rs.getInt("SEVALNUM"));
+				eval.seteNum(rs.getInt("ENUM"));
+				eval.setoNum(rs.getInt("ONUM"));
+				eval.setOpName(rs.getString("OPNAME"));
+				eval.setSevalPoint(rs.getInt("SEVALPOINT"));
+				eval.seteComment(rs.getString("ECOMMENT"));
+				eval.setEnrollDate(rs.getDate("ENROLLDATE"));
+				eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
+				eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
+				
 			}
 			
 		}catch (SQLException e) {
@@ -68,6 +76,9 @@ public class EmpEvalDao {
 	public ArrayList<EmpEvaluationBefore> selectEmpEvalBefore(Connection conn, int empNum) {
 		
 		ArrayList<EmpEvaluationBefore> list = null;	
+		EmpEvaluationBefore eval = null;
+		
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -79,15 +90,19 @@ public class EmpEvalDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-//				list.add(new EmpEvaluationBefore(
-//									rs.getInt("APPLYNUM"),
-//									rs.getString("OPNAME"),
-//									rs.getString("WTITLE"),
-//									rs.getDate("WORKSTARTTERM"),
-//									rs.getDate("WORKENDTERM")
-//									));
-			}
+				while(rs.next()) {
+					
+					eval = new EmpEvaluationBefore();
+				
+					eval.setApplyNum(rs.getInt("APPLYNUM"));
+					eval.seteNum(rs.getInt("ENUM"));
+					eval.setwNum(rs.getInt("WNUM"));
+					eval.setwTitle(rs.getString("WTITLE"));
+					eval.setOpName(rs.getString("OPNAME"));
+					eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
+					eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
+		
+				}
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -100,28 +115,22 @@ public class EmpEvalDao {
 		
 	}
 	
-	public int MakeEmpEval(Connection conn, EmpEvaluation empEval) {
+	public int submitEmpEval(Connection conn, EmpEvaluation empEval) {
 		
 		int result = 0;
 
 		PreparedStatement pstmt = null;
 
-		String sql = prop.getProperty("MakeEmpEval");
+		String sql = prop.getProperty("submitEmpEval");
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-//			pstmt.setString(1, resume.getResumeTitle());
-//			pstmt.setInt(2, resume.getEmpNum());
-//			pstmt.setString(3, resume.getDistrict());
-//			pstmt.setString(4, resume.getType());
-//			pstmt.setString(5, resume.getComment());
-//			pstmt.setString(6, resume.사진경로);
-//			pstmt.setString(7, resume.getDesireForm());
-//			pstmt.setInt(8, resume.getDesireIncome());
-//			pstmt.setString(9, resume.getOpenSet());
-//			pstmt.setString(10, resume.getEdu());
-//			
+			pstmt.setInt(1, empEval.geteNum());
+			pstmt.setInt(2, empEval.getoNum());
+			pstmt.setInt(3, empEval.getSevalPoint());
+			pstmt.setString(4, empEval.geteComment());
+
 
 			result = pstmt.executeUpdate();
 
@@ -133,6 +142,98 @@ public class EmpEvalDao {
 
 		return result;
 		
+	}
+	
+	public int updateAppliant(Connection conn, EmpEvaluation empEval) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("updateAppliant");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, empEval.getApplyNum());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+	
+	public int deleteEval(Connection conn, int sevalNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("deleteEval");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, sevalNum);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
+	}
+	
+	public ArrayList<EmpEvaluation> selectEmpEvalList(Connection conn, int oNum) {
+		
+		ArrayList<EmpEvaluation> list = null;	
+		EmpEvaluation eval = null;
+		
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("selectEmpEvalList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, oNum);
+			
+			rs = pstmt.executeQuery();
+			
+				while(rs.next()) {
+					
+					eval = new EmpEvaluation();
+				
+					eval.setSevalNum(rs.getInt("SEVALNUM"));
+					eval.seteNum(rs.getInt("ENUM"));
+					eval.setoNum(rs.getInt("ONUM"));
+					eval.setOpName(rs.getString("OPNAME"));
+					eval.setSevalPoint(rs.getInt("SEVALPOINT"));
+					eval.seteComment(rs.getString("ECOMMENT"));
+					eval.setEnrollDate(rs.getDate("ENROLLDATE"));
+					eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
+					eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
+		
+				}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 
 }

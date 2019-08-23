@@ -1,10 +1,8 @@
 package empService.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,16 +15,16 @@ import owner.model.vo.Owner;
 import ownerService.model.vo.Incruit;
 
 /**
- * Servlet implementation class InterestOwnerManageServlet
+ * Servlet implementation class DeleteInterestOwnerServlet
  */
-@WebServlet("/interestOwner.es")
-public class InterestOwnerManageServlet extends HttpServlet {
+@WebServlet("/deleteInterestOwnerServlet.es")
+public class DeleteInterestOwnerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InterestOwnerManageServlet() {
+    public DeleteInterestOwnerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,13 +38,18 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
-		ArrayList<Owner> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		int eNum = emp.getEmpNum();
+		int oNum = Integer.parseInt(request.getParameter("oNum"));
 		
-		request.setAttribute("olist", oList);
-		request.setAttribute("wlist", wList);
-		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
-
+		int result = new EmpServiceService().deleteInterestOwnerServlet(eNum, oNum);
+		
+		if(result > 0) {
+			response.sendRedirect("/interestOwner.es");
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+		}
+			
 	}
 
 	/**

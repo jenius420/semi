@@ -48,11 +48,34 @@ public class EmpEvalService {
 		
 	}
 	
-	public int MakeEmpEval(EmpEvaluation empEval) {
+	public int submitEmpEval(EmpEvaluation empEval) {
 		
 		Connection conn = getConnection();
 
-		int result = new EmpEvalDao().MakeEmpEval(conn, empEval);
+		int result = new EmpEvalDao().submitEmpEval(conn, empEval);
+
+		if (result > 0) {
+			
+			int result2 = new EmpEvalDao().updateAppliant(conn, empEval);
+			
+			if(result2 > 0) {
+				commit(conn);
+			}
+
+		} else {
+			rollback(conn);
+		}
+
+		close(conn);
+
+		return result;
+	}
+	
+	public int deleteEval(int sevalNum) {
+		
+		Connection conn = getConnection();
+
+		int result = new EmpEvalDao().deleteEval(conn, sevalNum);
 
 		if (result > 0) {
 			commit(conn);
@@ -64,6 +87,19 @@ public class EmpEvalService {
 		close(conn);
 
 		return result;
+	}
+	
+	public ArrayList<EmpEvaluation> selectEmpEvalList(int oNum) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<EmpEvaluation> list = new EmpEvalDao().selectEmpEvalList(conn, oNum);
+		
+		close(conn);
+		
+		return list;
+		
+		
 	}
 
 }

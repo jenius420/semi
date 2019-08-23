@@ -40,19 +40,18 @@ public class EmpEvalManageServlet extends HttpServlet {
 		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
 		ArrayList<EmpEvaluation> empEval = new EmpEvalService().selectEmpEval(emp.getEmpNum());
-		
-		if(empEval.size() > 0) {
-			request.setAttribute("empEval", empEval);
-		}
-		
 		ArrayList<EmpEvaluationBefore> empEvalBf = new EmpEvalService().selectEmpEvalBefore(emp.getEmpNum());
 		
-		if(empEvalBf.size() > 0) {
+		if(empEval.size() > 0 && empEvalBf.size() > 0) {
 			request.setAttribute("empEvalBf", empEvalBf);
+			request.setAttribute("empEval", empEval);
+			request.getRequestDispatcher("/views/empService/EmpEvalManage.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
 		}
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/empService/EmpEvalManage.jsp");
-		view.forward(request, response);
+		
 	}
 
 	/**

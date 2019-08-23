@@ -5,6 +5,7 @@ import java.sql.Date;
 public class EmpEvaluation {
 	
 	private int sevalNum;
+	private int applyNum;
 	private int eNum;
 	private int oNum;
 	private String opName;
@@ -13,6 +14,7 @@ public class EmpEvaluation {
 	private Date enrollDate;
 	private Date workStartTerm;
 	private Date workEndTerm;
+	
 	
 	public EmpEvaluation() {
 		super();
@@ -34,6 +36,14 @@ public class EmpEvaluation {
 	}
 
 
+
+	public int getApplyNum() {
+		return applyNum;
+	}
+
+	public void setApplyNum(int applyNum) {
+		this.applyNum = applyNum;
+	}
 
 	public Date getWorkStartTerm() {
 		return workStartTerm;

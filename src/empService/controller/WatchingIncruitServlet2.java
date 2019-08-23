@@ -1,32 +1,26 @@
 package empService.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
-import empService.model.service.EmpServiceService;
-import owner.model.vo.Owner;
+import adminService.model.service.ManageIncruitService;
 import ownerService.model.vo.Incruit;
 
 /**
- * Servlet implementation class InterestOwnerManageServlet
+ * Servlet implementation class WatchingIncruitServlet2
  */
-@WebServlet("/interestOwner.es")
-public class InterestOwnerManageServlet extends HttpServlet {
+@WebServlet("/watchingIncruit2.es")
+public class WatchingIncruitServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InterestOwnerManageServlet() {
+    public WatchingIncruitServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,15 +32,17 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		
-		ArrayList<Owner> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		Incruit incruit = new ManageIncruitService().watchingIncruit(wNum);
 		
-		request.setAttribute("olist", oList);
-		request.setAttribute("wlist", wList);
-		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
-
+		if(incruit != null) {
+			request.setAttribute("incruit", incruit);
+			request.getRequestDispatcher("/views/empService/WatchingIncruit2.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

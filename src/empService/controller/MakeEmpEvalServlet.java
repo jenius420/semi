@@ -1,16 +1,21 @@
 package empService.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import empService.model.service.EmpEvalService;
+import empService.model.vo.EmpEvaluation;
+
 /**
  * Servlet implementation class MakeEmpEvalServlet
  */
-@WebServlet("/makeEval.es")
+@WebServlet("/makeEmpEval.es")
 public class MakeEmpEvalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,8 +31,25 @@ public class MakeEmpEvalServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
+		int oNum = Integer.parseInt(request.getParameter("oNum"));
+		
+		ArrayList<EmpEvaluation> list = new EmpEvalService().selectEmpEvalList(oNum);
+	
+		
+		if(!list.isEmpty()) {
+			request.setAttribute("applyNum", applyNum);
+			request.setAttribute("oNum", oNum);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("/views/empService/makeEmpEval.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**

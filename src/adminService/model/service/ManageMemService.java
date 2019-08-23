@@ -5,17 +5,19 @@ import java.util.ArrayList;
 
 import adminService.model.dao.ManageMemDao;
 import emp.model.vo.Emp;
+import member.model.vo.EmpMember;
+import member.model.vo.OwnerMember;
 
 import static common.JDBCTemplate.*;
 import owner.model.vo.Owner;
 
 public class ManageMemService {
 	
-	public ArrayList<Emp> selectEmpList() {
+	public ArrayList<EmpMember> selectEmpList() {
 		
 		Connection conn = getConnection();
 
-		ArrayList<Emp> list = new ManageMemDao().selectEmpList(conn);
+		ArrayList<EmpMember> list = new ManageMemDao().selectEmpList(conn);
 
 		close(conn);
 
@@ -23,11 +25,11 @@ public class ManageMemService {
 		
 	}
 	
-	public ArrayList<Owner> selectOwnerList() {
+	public ArrayList<OwnerMember> selectOwnerList() {
 		
 		Connection conn = getConnection();
 
-		ArrayList<Owner> list = new ManageMemDao().selectOwnerList(conn);
+		ArrayList<OwnerMember> list = new ManageMemDao().selectOwnerList(conn);
 
 		close(conn);
 

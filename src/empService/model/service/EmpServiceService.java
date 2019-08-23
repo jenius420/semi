@@ -10,6 +10,7 @@ import emp.model.vo.Emp;
 import empService.model.dao.EmpServiceDao;
 import owner.model.vo.Owner;
 import ownerService.model.vo.Appliant;
+import ownerService.model.vo.Incruit;
 
 public class EmpServiceService {
 
@@ -58,15 +59,62 @@ public class EmpServiceService {
 		
 		Connection conn = getConnection();
 
-		int[] listNum = new EmpServiceDao().selectInterestOwnerNum(conn, empNum);
+		ArrayList<Integer> listNum = new EmpServiceDao().selectInterestOwnerNum(conn, empNum);
 		ArrayList<Owner> iList = new EmpServiceDao().selectInterestOwner(conn, listNum);
 		
-		
-
 		close(conn);
 
 		return iList;
 		
 	}
+	
+	public int deleteInterestOwnerServlet(int eNum, int oNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = 0;
+		
+		result = new EmpServiceDao().deleteInterestOwnerServlet(conn, eNum, oNum);
+
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+		
+	}
+	
+	public ArrayList<Incruit> selectInterestIncruit(ArrayList<Owner> oList) {
+		
+		Connection conn = getConnection();
+
+		ArrayList<Incruit> list = new EmpServiceDao().selectInterestIncruit(conn, oList);
+		
+		close(conn);
+
+		return list;
+	}
+	
+	public int apply(int wNum, int rNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = 0;
+		
+		result = new EmpServiceDao().apply(conn, wNum, rNum);
+
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+		
+	}
+	
+	
 
 }
