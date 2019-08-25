@@ -13,7 +13,7 @@
 <style>
 
 	form{
-		/* border: 1px solid black; */
+		/* border: 1px solid black;/ */
 		width: 650px;
         resize: none;
 	}
@@ -48,6 +48,12 @@
 		height: 20px;
 	}
 
+	input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    
+}
+
+
 
 </style>
 
@@ -79,33 +85,33 @@
 
 					<tr>
 						<td><b>아이디</b></td>
-						<td><input name="eId" id="eId" type="text" size="28" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
-						<td><label id="eIdResult"></label></td>
+						<td><input name="id" id="id" type="text" size="35" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
+						<td width="170px"><label id="idResult"></label></td>
 					</tr>
 
 					<tr>
 						<td><b>비밀번호</b></td>
-						<td><input name="ePwd" id="ePwd" type="password" size="28" maxlength="16" placeholder="8~16자 영문, 숫자, 특수문자 입력"></input></td>
+						<td><input name="pwd" id="pwd" type="password" size="35" maxlength="16" placeholder="8~16자 영문, 숫자, 특수문자 입력"></input></td>
 						<td><label id="pwdResult1"></label></td>
 					</tr>
 			
 					<tr>
 						<td><b>비밀번호확인</b></td>
-						<td><input id="pwd" type="password" size="28" maxlength="16" placeholder="비밀번호 확인"></td>		
+						<td><input id="pwd2" type="password" size="35" maxlength="16" placeholder="비밀번호 확인"></td>		
 						<td><label id="pwdResult2"></label></td>
 					</tr>
 
 					<tr>
 						<td><b>성명</b></td>
-						<td><input id="eName" name="eName" type="text" size="28" maxlength="5" placeholder="성명 입력"></input></td>
+						<td><input id="name" name="name" type="text" size="35" maxlength="5" placeholder="성명 입력"></input></td>
 						<td><label id="nameResult"></label></td>
 					</tr>
 				
 					<tr>
 						<td><b>주민등록번호</b></td>
 						<td>
-							<input id="ecNum1" name="ecNum1" type="text" size="10" maxlength="6" placeholder=""></input> - 
-							<input id="ecNum2" name="ecNum2" type="password" size="11" maxlength="7" placeholder=""></input>
+							<input id="ecNum1" name="ecNum1" type="number" size="13" maxlength="6" placeholder=""></input> - 
+							<input id="ecNum2" name="ecNum2" type="password" size="14" maxlength="7" placeholder=""></input>
 							<td><label id="ecNumResult"></label></td>
 						</td>
 					</tr>
@@ -113,7 +119,7 @@
 					<tr>
 						<td><b>메일주소</b></td>
 						<td>
-							<input id="email1" name="email1" type="text" size="10"></input> @
+							<input id="email1" name="email1" type="text" size="17"></input> @
 							<select id="email2" name="email2"> 
 								<option value="@gmail.com">gmail.com</option>
 								<option value="@naver.com">naver.com</option>
@@ -122,7 +128,7 @@
 							</select>
 							
 						</td>
-						<td><input name="mailaccept" type="checkbox" value="checkEmail"> 이메일 수신 동의</td>
+						<td><label id="emailResult"></label></td>
 						
 					</tr>
 					<tr>
@@ -136,11 +142,19 @@
 								<option value="108">018</option>
 								<option value="109">019</option>
 							</select> - 
-							<input type="text" size="5" maxlength="4"> -
-							<input type="text" size="5" maxlength="4">
+							<input type="number" size="23" maxlength="8" placeholder="- 제외하고 입력 해주세요">
 						</td>
-						<td><input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의</td>
+						<td></td>
 						
+					</tr>
+
+					<tr>
+						<td></td>
+						<td>
+							<input name="mailaccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
+							<input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의</td>
+						</td>
+
 					</tr>
 
 			</table>
@@ -154,72 +168,79 @@
 
 	<script>
 
-		var eId = document.getElementById("eId");
-		var eIdResult = document.getElementById("eIdResult");
-		var ePwd = document.getElementById("ePwd");
-		var pwdResult1 = document.getElementById("pwdResult1");
+		var id = document.getElementById("id");
+		var idResult = document.getElementById("idResult");
 		var pwd = document.getElementById("pwd");
+		var pwdResult1 = document.getElementById("pwdResult1");
+		var pwdw = document.getElementById("pwdw");
 		var pwdResult2 = document.getElementById("pwdResult2");
-		var eName = document.getElementById("eName");
+		var name = document.getElementById("name");
 		var nameResult = document.getElementById("nameResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
-
+		var emailResult = document.getElementById("emailResult");
 
 		function onreset(){
 			
 		}
 
 		$(function(){
-			$(eId).on('blur', function(e){
+			$(id).on('blur', function(e){
 				
-				if(!(/^[a-z0-9]{4,}$/.test(eId.value))){
-					$(eIdResult).text("사용할 수 없는 아이디 입니다.");
-					eId.focus();
+				if(!(/^[a-z0-9]{4,}$/.test(id.value))){
+					$(idResult).text("사용할 수 없는 아이디 입니다.");
+					
+					id.focus();
 								
 				}else{
-					$(eIdResult).text("사용 가능한 아이디 입니다.");
+					$(idResult).text("사용 가능한 아이디 입니다.");
 				}
+
 
 			});
 
-			$(ePwd).on('blur', function(e){
+			$(pwd).on('blur', function(e){
 
-				if(!(/^[a-zA-Z0-9!@#$%^&*]{8,}$/.test(ePwd.value))){
-					$(pwdResult1).text("비밀번호를 확인 해주세요.");
-					ePwd.focus();
-					ePwd.value="";
+				if(!(/^[a-zA-Z0-9!@#$%^&*]{8,}$/.test(pwd.value))){
+					$(pwdResult1).text("비밀번호를 확인 해주세요.");					
 					pwd.value="";
+					pwd2.value="";
+					pwd.focus();
 				}else{
 					$(pwdResult1).text("사용 가능한 비밀번호 입니다.");
 					
 				}
 			});
 			
-			$(pwd).on('blur', function(e){
-				if(ePwd.value != pwd.value){
+			$(pwd2).on('blur', function(e){
+				if(pwd.value != pwd2.value){
 					$(pwdResult2).text("비밀번호가 일치 하지 않습니다.");
-					ePwd.value="";
 					pwd.value="";
-					ePwd.focus();
+					pwd2.value="";
+					pwd.focus();
 				}else{
 					$(pwdResult2).text("비밀번호가 일치 합니다.");
 				}
 			});
 
-			$(eName).on('blur', function(e){
-				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
+			$(name).on('blur', function(e){
+				if(!(/^[가-힣]{2,5}$/.test(name.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
-					eName.focus();
+					name.focus();
 				}
 			});
 
 
+			$(email1).on('blur', function(e){
+				if(!(/^[a-z0-9]{,}$/.test(email1.value))){
+					$(emailResult).text("이메일을 확인 해주세요");
+					email1.value="";
+					email1.focus();
+				}
+
+			});
 
 
-
-
-			$()
 
 
 
