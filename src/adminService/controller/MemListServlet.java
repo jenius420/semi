@@ -35,17 +35,17 @@ public class MemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<EmpMember> empList = new ManageMemService().selectEmpList();
-		ArrayList<OwnerMember> ownerList = new ManageMemService().selectOwnerList();
-		
-		if(!empList.isEmpty() && !ownerList.isEmpty()) {
-			request.setAttribute("empList", empList);
-			request.setAttribute("ownerList", ownerList);
+//		ArrayList<EmpMember> empList = new ManageMemService().selectEmpList();
+//		ArrayList<OwnerMember> ownerList = new ManageMemService().selectOwnerList();
+//		
+//		if(!empList.isEmpty() && !ownerList.isEmpty()) {
+//			request.setAttribute("empList", empList);
+//			request.setAttribute("ownerList", ownerList);
 			request.getRequestDispatcher("/views/adminService/MemList.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
-		}
+//		}else {
+//			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+//			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+//		}
 		
 		
 		

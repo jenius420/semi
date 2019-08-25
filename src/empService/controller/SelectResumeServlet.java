@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.model.vo.Attachment;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
 
@@ -36,9 +37,11 @@ public class SelectResumeServlet extends HttpServlet {
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
 		
 		Resume resume = new ResumeService().selectResume(rNum);
+		Attachment at = new ResumeService().selectAttachment(rNum);
 		
 		if(resume != null) {
 			request.setAttribute("resume", resume);	
+			request.setAttribute("at", at);	
 			request.getRequestDispatcher("views/empService/SelectResume.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "요청하신 페이지에 접속 실패했습니다");

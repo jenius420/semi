@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.model.vo.Attachment;
+import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
 import owner.model.vo.Owner;
 import ownerService.model.service.IncruitService;
@@ -36,9 +38,11 @@ public class WatchingResumeServlet extends HttpServlet {
 		int rNum = (int)request.getAttribute("rNum");
 		
 		Resume resume = new IncruitService().selectResume(rNum);
+		Attachment at = new ResumeService().selectAttachment(rNum);
 		
 		if(resume != null) {
 			request.setAttribute("resume", resume);
+			request.setAttribute("at", at);
 			request.getRequestDispatcher("/views/ownerService/WatchingResume.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");

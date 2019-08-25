@@ -10,42 +10,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
 <title>공고 리스트</title>
+<style>
+
+
+</style>
 </head>
 <body>
 
-	단순 리스트 출력
-	탭형식으로 진행중/마감된 나누면 좋겠음
-	클릭시 selectIncruit.os
+<div id="div">
 	
-	<div class="tableArea">
+	<div id="header"></div>
+	
+		<div id="content">
 		
-			<table id="listArea">
-				<tr>
-					<th></th>
-					<th width="300"></th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
-				<%if(list.isEmpty()){%>
-					<tr><td colspan="?">존재하는 내용이 없습니다</td></tr>
-				<%}else{ 
-				for(Incruit i : list) {%>
-				<tr>
-					<td><%=i.get() %></td>
-					<td><%=i.get() %></td>
-					<td><%=i.get() %></td>
-					<td><%=i.get() %></td>
-					<td><%=i.get() %></td>
-					
-				</tr>
-				<%}}%>
-				
-				
-			</table>
+		<div id="content-left"><%@ include file="../adminService/AdminServiceMenubar.jsp"%></div>
 		
-		</div>
+		<div id="content-center">
+		
+			단순 리스트 출력
+			탭형식으로 진행중/마감된 나누면 좋겠음
+			클릭시 selectIncruit.os
+			
+			<div class="tableArea"></div>
+			</div>
+		
+		<div id="content-right"></div>
+		
+		</div> <!-- /콘텐트 -->
+	
+	<div id="footer"></div>
+
+</div> <!-- /화면 -->
+
+	
 
 </body>
 </html>

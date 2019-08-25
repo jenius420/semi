@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import common.model.vo.Attachment;
 import empService.model.vo.Resume;
 import ownerService.model.vo.Filter;
 import ownerService.model.vo.Incruit;
@@ -42,16 +43,14 @@ public class ResumeDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-//			pstmt.setString(1, resume.getResumeTitle());
-//			pstmt.setInt(2, resume.getEmpNum());
-//			pstmt.setString(3, resume.getDistrict());
-//			pstmt.setString(4, resume.getType());
-//			pstmt.setString(5, resume.getComment());
-//			pstmt.setString(6, resume.사진경로);
-//			pstmt.setString(7, resume.getDesireForm());
-//			pstmt.setInt(8, resume.getDesireIncome());
-//			pstmt.setString(9, resume.getOpenSet());
-//			pstmt.setString(10, resume.getEdu());
+			pstmt.setInt(1, resume.getEmpNum());
+			pstmt.setInt(2, resume.getDistrictNum());
+			pstmt.setInt(3, resume.getTypeNum());
+			pstmt.setString(4, resume.getComment());
+			pstmt.setString(5, resume.getDesireForm());
+			pstmt.setInt(6, resume.getDesireIncome());
+			pstmt.setString(7, resume.getOpenSet());
+			pstmt.setInt(8, resume.getEduNum());
 //			
 
 			result = pstmt.executeUpdate();
@@ -64,6 +63,88 @@ public class ResumeDao {
 
 		return result;
 		
+	}
+	
+	public int enrollAttachment(Connection conn, Attachment at) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("enrollAttachment");
+		
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, at.getOriginName());
+			pstmt.setString(2, at.getChangeName());
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}   
+	
+	public int updateAttachment(Connection conn, Attachment at, int rNum) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateAttachment");
+		
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, rNum);
+			pstmt.setString(2, at.getOriginName());
+			pstmt.setString(3, at.getChangeName());
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int deleteAttachment(Connection conn, int rNum) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteAttachment");
+		
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, rNum);
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 	
 	public Resume selectResume(Connection conn, int rNum) {
@@ -109,6 +190,35 @@ public class ResumeDao {
 		
 		return resume;
 		
+	}
+	
+	public Attachment selectAttachment(Connection conn, int rNum) {
+		
+		Attachment at = new Attachment();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, rNum);
+			
+			rset = pstmt.executeQuery();
+
+			at.setChangeName(rset.getString("SAVENAME"));
+			at.setfId(rset.getInt("PNUM"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return at;
 	}
 	
 	public int updateResume(Connection conn, Resume resume) {

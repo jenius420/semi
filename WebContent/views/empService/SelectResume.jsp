@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="empService.model.vo.Resume, common.model.vo.Attachment"%>
+<%
+Resume resume = (Resume)request.getAttribute("resume");
+
+Attachment at = (Attachment)request.getAttribute("at");
+%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -13,9 +18,10 @@
 	 삭제 deleteResume.es
 	 
 	 사진예제
-	 <div>
-	 	<img src="<%=request.getContextPath() %>/resources/uploadFiles/<%=at.getSaveName() %>" width="200" height="150">
-	 </div>
+	 
+	 <div id="titleImgArea" align="center">
+		<img id="titleImg" src="<%= request.getContextPath() %>/resources/uploadFiles/<%= at.getChangeName() %>">
+	</div>
 
 </body>
 </html>

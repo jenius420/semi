@@ -7,58 +7,67 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>관리서비스 메뉴바</title>
 <style>
-  .esMenubar li{
-        color: plum;
-        cursor: pointer;
-        width: 15%;
-        height: 100%;
-        margin-right: 0;
-        padding-right: 0;
-		size:30px;        
-        
-    }
 
-    .esMenubar span{
-        color: purple;
-        font-weight: bold;
-    }
-   	
-   	.space{
-   		height: 30px;
-   	}
+.esMenubar{
+	position: fixed;
+	left: 0x;
+	top: 150px;
+	clear: both;
+    margin: 0;
+    padding: 0;
+    width: 170px;
+    background-color: #f1f1f1;
+}
+.esm1{
+ 	padding: 8px 14px;
+    background-color: purple;
+    color: white;
+    height:35px;
+    font-weight:bold;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -3px 20px rgba(255,255,255,0.4);
+}
+.esLink{
+    color: #000;
+    padding: 8px 17px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.esLink:hover:not(.active) {
+    background-color: #ddccff;
+    color: white;
+    text-shadow: 2px 2px 2px gray;
+}
+.space{
+	height: 14px;
+}
 </style>
 </head>
 <body>
 
 <div class="esMenubar">
+
     <div>
-        <span>회원 관리</span>
-       	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/memList.as';">회원 관리</div> 회원들 컬럼 정리해야함
+        <div class="esm1">회원 관리</div>
+       	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/memList.as';">회원 관리</div>
     </div>
     <div class="space"></div>
+    
     <div>
-        <span>공고 관리</span>
-        <ul>
-            <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/ingIncruit.as';">진행중 공고</div>
-            <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/doneIncruit.as';">지난 공고</div>
-            <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageProduct.as';">공고 상품 관리</div>
-        </ul>
+        <div class="esm1">공고 관리</div>
+        <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/ingIncruit.as';">진행중 공고</div>
+        <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/doneIncruit.as';">지난 공고</div>
+        <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageProduct.as';">공고 상품 관리</div>
     </div>
     <div class="space"></div>
+    
     <div>
-        <span>게시판 관리</span>
-        <ul>
-        	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/boardReportList.as';">게시글 신고내역</div>
-        	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/commentReportList.as';">댓글 신고내역</div>
-        </ul>
+        <div class="esm1">게시판 관리</div>
+      	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/boardReportList.as';">게시글 신고내역</div>
+      	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/commentReportList.as';">댓글 신고내역</div>
     </div>
     <div class="space"></div>
-    <div>
-        <span>관리자 정보</span>
-        <ul>
-            <li>정보 변경</li>
-        </ul>
-    </div>
+
 
 </div>
     

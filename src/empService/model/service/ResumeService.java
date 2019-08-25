@@ -26,15 +26,15 @@ public class ResumeService {
 		Connection conn = getConnection();
 
 		int result1 = new ResumeDao().enrollResume(conn, resume);
-//		int result2 = new ResumeDao().enrollAttachment(conn, at);
+		int result2 = new ResumeDao().enrollAttachment(conn, at);
 
-//		if (result1 > 0 && resule2 > 0) {
-//			commit(conn);
-//		}else {
-//			rollback(conn);
-//		}
-//
-//		close(conn);
+		if (result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+
+		close(conn);
 
 		return result1;
 	}
@@ -50,19 +50,33 @@ public class ResumeService {
 		return resume;
 	}
 	
-	public int updateResume(Resume resume) {
+	public Attachment selectAttachment(int rNum) {
 		
 		Connection conn = getConnection();
 		
-		int result = new ResumeDao().updateResume(conn, resume);
+		Attachment at = new ResumeDao().selectAttachment(conn, rNum);
 		
-		if(result > 0) {
+		close(conn);
+		
+		return at;
+		
+	}
+	
+	public int updateResume(Resume resume, Attachment at) {
+		
+		Connection conn = getConnection();
+		
+		int result1 = new ResumeDao().updateResume(conn, resume);
+		int result2 = new ResumeDao().deleteAttachment(conn, resume.getrNum());
+		int result3 = new ResumeDao().updateAttachment(conn, at, resume.getrNum());
+		
+		if (result1 > 0 && result2 > 0 && result3 > 0) {
 			commit(conn);
+			return result3;
 		}else {
 			rollback(conn);
+			return 0;
 		}
-		
-		return result;
 		
 	}
 	
