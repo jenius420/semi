@@ -72,6 +72,56 @@ onclick="history.go(-1);"
 				
 				
 			</table>
+			
+			
+탭형식
+<body>
+	<fieldset>
+		<legend>검색할 항목을 선택하세요.</legend>
+		<input type="radio" name="category" onclick="showDiv(this);" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" onclick="showDiv(this);"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" onclick="showDiv(this);" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp;
+	</fieldset>
+	<hr>
+	<div id="titleBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 제목을 입력하세요 : </label>
+			<br> 
+			<input type="search" name="title" size="50"> &nbsp;
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<div id="dateBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 날짜를 선택하세요 : </label>
+			<br>
+			<input type="date" name="start"> - 
+			<input type="date" name="end"> &nbsp; 
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<div id="writerBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 작성자 아이디를 입력하세요 : </label>
+			<br>
+			<input type="search" name="writer" size="25"> &nbsp; 
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<script>
+		
+		function showDiv(element){
+			var tag = document.getElementsByClassName("box");
+			
+			for(var i=0 ; i<tag.length ; i++){
+				if(element.id+"Box" == tag[i].id)
+					tag[i].style.display = "block";
+				else
+					tag[i].style.display = "none";
+			}
+
+		}
+  	</script>
 
 
 </body>
