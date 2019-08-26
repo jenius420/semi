@@ -161,25 +161,26 @@ public class ResumeDao {
 			pstmt.setInt(1, rNum);
 			
 			rs = pstmt.executeQuery();
-			
-			resume = new Resume(
-								rs.getInt("RNUM"),
-								rs.getInt("ENUM"),
-								rs.getString("ENAME"),
-								rs.getInt("PHONE"),
-								rs.getString("EMAIL"),
-								rs.getString("DISTRICTNAME"),
-								rs.getString("TYPENAME"),
-								rs.getString("COMMENT"),
-								rs.getDate("UPDATEDATE"),
-								rs.getString("INVALIDRESUME"),
-								rs.getString("DESIREFORM"),
-								rs.getInt("DESIREINCOME"),
-								rs.getString("OPENSET"),
-								rs.getString("FINALEDUNAME"),
-								rs.getInt("PNUM"),
-								rs.getString("SAVENAME")
-			);
+			while(rs.next()) {
+				resume = new Resume(
+									rs.getInt("RNUM"),
+									rs.getInt("ENUM"),
+									rs.getString("ENAME"),
+									rs.getInt("PHONE"),
+									rs.getString("EMAIL"),
+									rs.getString("DISTRICTNAME"),
+									rs.getString("TYPENAME"),
+									rs.getString("COMMENT"),
+									rs.getDate("UPDATEDATE"),
+									rs.getString("INVALIDRESUME"),
+									rs.getString("DESIREFORM"),
+									rs.getInt("DESIREINCOME"),
+									rs.getString("OPENSET"),
+									rs.getString("FINALEDUNAME"),
+									rs.getInt("PNUM"),
+									rs.getString("SAVENAME")
+				);
+			}
 				
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -194,7 +195,7 @@ public class ResumeDao {
 	
 	public Attachment selectAttachment(Connection conn, int rNum) {
 		
-		Attachment at = new Attachment();
+		Attachment at = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -207,9 +208,12 @@ public class ResumeDao {
 			pstmt.setInt(1, rNum);
 			
 			rset = pstmt.executeQuery();
-
-			at.setChangeName(rset.getString("SAVENAME"));
-			at.setfId(rset.getInt("PNUM"));
+			while(rset.next()) {
+				at = new Attachment();
+				
+				at.setChangeName(rset.getString("SAVENAME"));
+				at.setfId(rset.getInt("PNUM"));
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -331,7 +335,7 @@ public class ResumeDao {
 
 	public ArrayList<Incruit> selectSuitableIncruit(Connection conn, Resume resume) {
 		
-		ArrayList<Incruit> list = null;	
+		ArrayList<Incruit> list = new ArrayList<>();	
 		Incruit incruit = null;
 		
 		PreparedStatement pstmt = null;

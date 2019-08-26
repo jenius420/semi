@@ -34,13 +34,10 @@ public class IncruitProductServlet extends HttpServlet {
 		
 		ArrayList<IncruitProduct> list = new IncruitProductService().selectIncruitProduct();
 
-		if(!list.isEmpty()) {
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("/views/ownerService/IncruitProduct.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/views/ownerService/IncruitProduct.jsp").forward(request, response);
+	
 		
 	}
 

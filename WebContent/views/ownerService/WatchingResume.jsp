@@ -3,6 +3,18 @@
 <%
 Resume resume = (Resume)request.getAttribute("resume");
 
+int rNum = resume.getrNum();
+String eName = resume.geteName();
+int phone = resume.getPhone();
+String email = resume.getEmail();
+String district = resume.getDistrict();
+String type = resume.getType();
+String comment = resume.getComment();
+Date updateDate = resume.getUpdateDate();
+String desireForm = resume.getDesireForm();
+int desireIncome = resume.getDesireIncome();
+String edu = resume.getEdu();
+
 Attachment at = (Attachment)request.getAttribute("at");
 %>
 <!DOCTYPE html >

@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="ownerService.model.vo.Incruit"
-    import="java.util.ArrayList"
+    pageEncoding="UTF-8" import="ownerService.model.vo.Incruit"
 %>
 <%
-	ArrayList<Incruit> list = (ArrayList<Incruit>)request.getAttribute("incruitList");
+	ArrayList<Incruit> list = (ArrayList<Incruit>)request.getAttribute("list");
 %>
 <!DOCTYPE html >
 <html>
@@ -25,13 +23,13 @@
 	
 		<div id="content">
 		
-		<div id="content-left"><%@ include file="../adminService/AdminServiceMenubar.jsp"%></div>
+		<div id="content-left"><%@ include file="../ownerService/OwnerServiceMenubar.jsp"%></div>
 		
 		<div id="content-center">
 		
 			단순 리스트 출력
 			탭형식으로 진행중/마감된 나누면 좋겠음
-			클릭시 selectIncruit.os
+			클릭시 selectIncruit.os input wnum
 			
 			<div class="tableArea"></div>
 			</div>

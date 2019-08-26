@@ -31,7 +31,7 @@ public class IncruitProductDao {
 	
 	public ArrayList<IncruitProduct> selectIncruitProduct(Connection conn) {
 		
-		ArrayList<IncruitProduct> list = null;
+		ArrayList<IncruitProduct> list = new ArrayList<>();
 		IncruitProduct prod = null;
 		
 		Statement stmt = null;

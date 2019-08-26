@@ -35,7 +35,7 @@ public class ManageBoardDao {
 	
 	public ArrayList<Board> selectBoardReportList(Connection conn) {
 		
-		ArrayList<Board> list = null;	
+		ArrayList<Board> list = new ArrayList<>();	
 		Board board = null;
 		
 		Statement stmt = null;
@@ -77,7 +77,7 @@ public class ManageBoardDao {
 	
 	public ArrayList<Comment> selectCommentReportList(Connection conn) {
 		
-		ArrayList<Comment> list = null;	
+		ArrayList<Comment> list = new ArrayList<>();	
 		Comment comment = null;
 		
 		Statement stmt = null;
