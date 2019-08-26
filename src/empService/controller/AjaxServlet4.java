@@ -1,31 +1,25 @@
-package ownerService.controller;
+package empService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
-import owner.model.vo.Owner;
-import ownerService.model.service.IncruitService;
-import ownerService.model.vo.Appliant;
-import ownerService.model.vo.Incruit;
+import org.json.simple.JSONObject;
 
 /**
- * Servlet implementation class ManageEmpServlet
+ * Servlet implementation class AjaxServlet3
  */
-@WebServlet("/manageEmp.os")
-public class ManageEmpServlet extends HttpServlet {
+@WebServlet("/ajax4.es")
+public class AjaxServlet4 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageEmpServlet() {
+    public AjaxServlet4() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,18 +31,19 @@ public class ManageEmpServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
-		
-		ArrayList<Appliant> list = new IncruitService().selectManageEmp(owner.getoNum());
+		String str = request.getParameter("input");
+		String str2 = request.getParameter("input2");
 
-		if(!list.isEmpty()) {
-			request.setAttribute("manageEmpList", list);
-			request.getRequestDispatcher("/views/ownerService/ManageEmp.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+		// json으로 넘기는 방법
+		// https://code.google.com/archive/p/json-simple/downloads  json 쓰려면 라이브러리 다운 받아야함
+	
+		response.setContentType("application/json, charset=UTF-8");
 		
+		JSONObject jsonUser = new JSONObject();
+		jsonUser.put("key", str);
+		jsonUser.put("key2", str2);
+		
+		response.getWriter().print(jsonUser);
 	}
 
 	/**

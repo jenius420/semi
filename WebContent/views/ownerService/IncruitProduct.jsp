@@ -7,11 +7,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
 <title>공고상품 조회</title>
 </head>
 <body>
 
-	<div class="tableArea">
+
+
+
+<div id="div">
+
+	<div id="header"></div>
+	
+	<div id="content">
+		
+		<div id="content-left"><%@ include file="../ownerService/OwnerServiceMenubar.jsp"%></div>
+		
+		<div id="content-center">
+		
+<div class="tableArea">
 		
 			<table id="listArea">
 				<tr>
@@ -34,6 +48,17 @@
 			</table>
 		
 		</div>
+
+			</div> <!-- /메인콘텐트 -->
+			
+		<div id="content-right"></div>
+		
+		</div> <!-- /콘텐트 -->
+		
+	<div id="footer"></div>
+	
+</div> <!-- /화면 -->
+	
 
 </body>
 </html>

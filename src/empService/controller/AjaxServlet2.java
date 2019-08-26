@@ -1,7 +1,7 @@
-package ownerService.controller;
+package empService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,23 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
-import owner.model.vo.Owner;
-import ownerService.model.service.IncruitService;
-import ownerService.model.vo.Appliant;
-import ownerService.model.vo.Incruit;
-
 /**
- * Servlet implementation class ManageEmpServlet
+ * Servlet implementation class AjaxServlet2
  */
-@WebServlet("/manageEmp.os")
-public class ManageEmpServlet extends HttpServlet {
+@WebServlet("/ajax2.es")
+public class AjaxServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageEmpServlet() {
+    public AjaxServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,17 +31,14 @@ public class ManageEmpServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
+		String name = request.getParameter("name");
 		
-		ArrayList<Appliant> list = new IncruitService().selectManageEmp(owner.getoNum());
-
-		if(!list.isEmpty()) {
-			request.setAttribute("manageEmpList", list);
-			request.getRequestDispatcher("/views/ownerService/ManageEmp.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+		response.setCharacterEncoding("UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		out.append("서버에서 전송한 값<br>");
+		out.append("name=" + name);
 		
 	}
 

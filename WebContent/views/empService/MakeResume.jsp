@@ -11,8 +11,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>이력서 등록</title>
 <link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
+<title>이력서 등록</title>
 </head>
 <body>
 
@@ -105,7 +105,7 @@
 				<button type="button" onclick="javascript:history.back();">이전 화면으로</button>
 		
 			</form>
-			</div>
+			</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>
 		

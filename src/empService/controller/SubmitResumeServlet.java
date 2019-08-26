@@ -116,7 +116,7 @@ public class SubmitResumeServlet extends HttpServlet {
 				failedFile.delete();
 				
 				request.setAttribute("msg", "이력서 등록을 실패했습니다");
-				request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+				request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 			}
 		}
 		

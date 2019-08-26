@@ -63,7 +63,7 @@ http://www.templatemo.com/tm-406-flex
                                         <li><a href="#services">지역별</a></li>
                                         <li><a href="#portfolio">기간별</a></li>
                                         <li><a href="#our-team">게시판</a></li>
-                                        <li><a href="<%=request.getContextPath()%>/makeResume.es">개인서비스</a></li>
+                                        <li><a href="<%=request.getContextPath()%>/manageResume.es">개인서비스</a></li>
                                         <li><a href="<%=request.getContextPath()%>/incruitList.os">기업서비스</a></li> 
                                         <li><a href="<%=request.getContextPath()%>/memList.as">관리자서비스</a></li>                                 
                                     </ul>                                    

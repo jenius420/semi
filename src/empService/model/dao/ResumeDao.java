@@ -285,7 +285,7 @@ public class ResumeDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		ArrayList<Resume> list = null;	
+		ArrayList<Resume> list = new ArrayList<>();	
 		Resume resume = null;
 		
 		String sql = prop.getProperty("selectResumeList");

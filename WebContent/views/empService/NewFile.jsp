@@ -122,7 +122,106 @@ onclick="history.go(-1);"
 
 		}
   	</script>
+  	
+  	
+ajax 비동기
+<script>
+function ajax1(){ // js get방식
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){ // 요청이 끝났고 그에 해당하는 응답이 온 경우
+			if(xhr.status == 200){ 
+				// 성공적 통신
+				태그 = xhr.responseText;
+				
+			}else if(xhr.status == 404){
+				// 통신실패
+			}
+		}
+	}
+	xhr.open("GET", "<%=request.getContextPath()%>/ajax1.es?name=큐큐", true); // ture가 비동기
 
+	xhr.send();
+}
+
+function ajax2(){ // js post방식
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){ // 요청이 끝났고 그에 해당하는 응답이 온 경우
+			if(xhr.status == 200){ 
+				// 성공적 통신
+				태그 = xhr.responseText;
+				
+			}else if(xhr.status == 404){
+				// 통신실패
+			}
+		}
+	}
+	xhr.open("POST", "<%=request.getContextPath()%>/ajax2.es", true); // ture가 비동기
+
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded;");
+	xhr.send("name=김규식");
+	
+}
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script> 
+$(function(){ // get jquery방식
+	$("태그선택자").click(function(){
+		var inp = $("태그선택자2").val();
+		$.ajax({
+			url : "ajax3.es", // url은 필수임
+			data : {input:inp}, // 키:밸류 형태. 콤마 찍고 여러개 보낼 수 있음
+			type : "get",
+			success : function(result){ // 성공 시 실행 함수
+				//result = 리턴 변수
+				$("태그선택자3").val(result);
+			},
+			error : function(){ // 실패 시 실행 함수
+				
+			},
+			complete : function(){ // 성공실패 관계없이 무조건 수행되는 함수
+				
+			}
+			
+		});
+	});
+});
+
+$(function(){ //json방식
+	$("태그선택자").click(function(){
+		var inp = $("태그선택자2").val();
+		var inp2 = $("태그선택자3").val();
+		$.ajax({
+			url : "ajax4.es", // url은 필수임
+			data : {input1:inp, input2:inp2}, // 키:밸류 형태. 콤마 찍고 여러개 보낼 수 있음
+			type : "post",
+			dataType: "json",
+			success : function(obj){ // 성공 시 실행 함수
+				
+				var result = "";
+			
+				if(obj != null){
+					result = "이름:" + obj.name;
+				}else{
+					result="정보없음";
+				}
+				
+				$("태그선택자4").val(result);
+			},
+			error : function(){ // 실패 시 실행 함수
+				
+			},
+			complete : function(){ // 성공실패 관계없이 무조건 수행되는 함수
+				
+			}
+			
+		});
+	});
+});
+</script>
 
 </body>
 </html>

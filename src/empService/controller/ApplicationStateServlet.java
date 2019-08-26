@@ -45,7 +45,7 @@ public class ApplicationStateServlet extends HttpServlet {
 			request.getRequestDispatcher("/views/empService/ApplicationState.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "페이지를 불러오는데 실패했습니다");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		
 	}

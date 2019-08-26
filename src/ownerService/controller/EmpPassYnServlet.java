@@ -46,7 +46,7 @@ public class EmpPassYnServlet extends HttpServlet {
 //			response.sendRedirect("manageEmp.os");
 		}else {
 			request.setAttribute("msg", "처리에 실패했습니다");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		
 		

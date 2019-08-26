@@ -38,7 +38,6 @@ public class MakeEmpEvalServlet extends HttpServlet {
 		int oNum = Integer.parseInt(request.getParameter("oNum"));
 		
 		ArrayList<EmpEvaluation> list = new EmpEvalService().selectEmpEvalList(oNum);
-	
 		
 		if(!list.isEmpty()) {
 			request.setAttribute("applyNum", applyNum);
@@ -47,7 +46,7 @@ public class MakeEmpEvalServlet extends HttpServlet {
 			request.getRequestDispatcher("/views/empService/makeEmpEval.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		
 	}

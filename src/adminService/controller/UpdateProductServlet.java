@@ -45,7 +45,7 @@ public class UpdateProductServlet extends HttpServlet {
 			response.sendRedirect("manageProduct.as");
 		}else {
 			request.setAttribute("msg", "상품정보 수정에 실패했습니다");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		
 

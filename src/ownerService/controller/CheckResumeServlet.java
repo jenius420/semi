@@ -42,7 +42,7 @@ public class CheckResumeServlet extends HttpServlet {
 			
 		}else {
 			request.setAttribute("msg", "처리 실패");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		
 		

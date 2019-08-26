@@ -40,11 +40,11 @@ public class SelectSuitableIncruitServlet extends HttpServlet {
 		ArrayList<Incruit> list = new ResumeService().selectSuitableIncruit(rNum);
 		
 		if(!list.isEmpty()) {
-			// 비동기?
+			// 비동기?????
 			//request.getRequestDispatcher("views/empService/SuitableIncruit.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "조회에 실패했습니다");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		
 	}

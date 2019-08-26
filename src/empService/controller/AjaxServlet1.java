@@ -1,7 +1,7 @@
-package adminService.controller;
+package empService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import adminService.model.service.ManageIncruitService;
-import ownerService.model.vo.Incruit;
-import ownerService.model.vo.IncruitProduct;
-
 /**
- * Servlet implementation class ManageProductServlet
+ * Servlet implementation class AjaxServlet1
  */
-@WebServlet("/manageProduct.as")
-public class ManageProductServlet extends HttpServlet {
+@WebServlet("/ajax1.es")
+public class AjaxServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageProductServlet() {
+    public AjaxServlet1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +29,14 @@ public class ManageProductServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<IncruitProduct> list = new ManageIncruitService().selectProductList();
+		String name = request.getParameter("name");
 		
-		if(!list.isEmpty()) {
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("/views/adminService/ManageProduct.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+		String str = "name="+name;
+		
+		response.setContentType("text/html; charset=UTF-8"); // 응답에 한글 있는 경우 깨짐 방지
+		
+		PrintWriter out = response.getWriter();
+		out.append(str);
 		
 	}
 

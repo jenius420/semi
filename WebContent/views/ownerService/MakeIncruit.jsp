@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="member.model.vo.OwnerMember"%>
-<%@ include file="../ownerService/OwnerServiceMenubar.jsp"%>
 <%	
 	OwnerMember owner= (OwnerMember) session.getAttribute("loginUser");
 	Boolean accessAuth = true;
@@ -23,11 +22,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
 <title>공고 작성</title>
 </head>
 <body>
 
-	<form id="incruitForm" action="<%=request.getContextPath()%>/submitIncruit.os" method="POST">
+
+
+
+
+<div id="div">
+
+	<div id="header"></div>
+	
+	<div id="content">
+		
+		<div id="content-left"><%@ include file="../ownerService/OwnerServiceMenubar.jsp"%></div>
+		
+		<div id="content-center">
+		
+<form id="incruitForm" action="<%=request.getContextPath()%>/submitIncruit.os" method="POST">
 		
 		제목 <input type="text" name="incruitTitle" id="incruitTitle"
 			placeholder="공고 제목">
@@ -75,8 +89,17 @@
 
 	</form>
 
-각 항목 수정
-공고상품 검색해서 삽입하는 부분은 ajax 배운 후에 가능
+
+			</div> <!-- /메인콘텐트 -->
+			
+		<div id="content-right"></div>
+		
+		</div> <!-- /콘텐트 -->
+		
+	<div id="footer"></div>
+	
+</div> <!-- /화면 -->
+	
 
 </body>
 </html>

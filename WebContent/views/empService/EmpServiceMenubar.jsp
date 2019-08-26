@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.Date, java.text.SimpleDateFormat, emp.model.vo.Emp" %>
+    pageEncoding="UTF-8" import="java.util.Date, java.text.SimpleDateFormat" %>
 <%
-	Emp emp = (Emp) session.getAttribute("loginUser");
-
 	Date date = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	String today = sdf.format(date);
@@ -26,7 +24,7 @@
 }
 .esm1{
  	padding: 8px 14px;
-    background-color: purple;
+    background-color: rgb(176,18,241);
     color: white;
     height:35px;
     font-weight:bold;
@@ -57,7 +55,7 @@
     	<div class="esm1">이력서</div>
        	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageResume.es';">이력서 관리</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';">이력서 작성</div>
-        <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/suitableIncruit.es';">이력서 맞춤 알바</div>
+        <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/suitableIncruit.es';">이력서 맞춤 알바는 후순위..</div>
     </div>
     <div class="space"></div>
     

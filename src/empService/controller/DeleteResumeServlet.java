@@ -40,7 +40,7 @@ public class DeleteResumeServlet extends HttpServlet {
 			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "이력서 삭제에 실패했습니다");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

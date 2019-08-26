@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import emp.model.vo.Emp;
 import empService.model.service.ResumeService;
@@ -36,15 +37,25 @@ public class ManageResumeServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		//Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
-		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+		//샘플 데이터
+		Emp emp = new Emp();
+		emp.setEmpNum(1);
+		emp.seteName("규식");
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser", emp);
 		
-		if(!list.isEmpty()) {
+		//ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+		ArrayList<Resume> list = new ArrayList<>();
+		//request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
+		
+		if(list.size() > 0) {
+			request.setAttribute("list", list);
 			request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/ErrorPage.jsp").forward(request, response);
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 
