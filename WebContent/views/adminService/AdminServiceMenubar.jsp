@@ -63,7 +63,7 @@
         <div class="asm1">공고 관리</div>
         <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/ingIncruit.as';">진행중 공고</div>
         <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/doneIncruit.as';">지난 공고</div>
-        <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/manageProduct.as';">공고 상품 관리</div>
+        <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/manageProduct.as';">공고 상품 관리</div> 여기부턴
     </div>
     <div class="space"></div>
     

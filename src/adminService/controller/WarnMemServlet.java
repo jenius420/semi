@@ -46,7 +46,7 @@ public class WarnMemServlet extends HttpServlet {
 		request.setAttribute("msg", count + "명 경고 완료");
 		request.getRequestDispatcher("/views/adminService/MemList.jsp").forward(request, response);
 
-		response.sendRedirect("memList.as?msg="+ count + "명 경고 완료"); 
+
 		
 	}
 

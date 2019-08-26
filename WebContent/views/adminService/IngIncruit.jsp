@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8" import="ownerService.model.vo.Incruit"%>
+<%
+	ArrayList<Incruit> list = (ArrayList<Incruit>)request.getAttribute("list");
+%>
 
 <!DOCTYPE html ">
 <html>
@@ -21,7 +24,7 @@
 		<div id="content-left"><%@ include file="../adminService/AdminServiceMenubar.jsp"%></div>
 		
 		<div id="content-center">
-	선택 시 해당 공고 불러옴 watchingIncruit.as
+	선택 시 해당 공고 불러옴 watchingIncruit.as input wNum
 
 			</div> <!-- /메인콘텐트 -->
 			
