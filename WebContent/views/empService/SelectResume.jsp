@@ -23,7 +23,6 @@ Attachment at = (Attachment)request.getAttribute("at");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
 <title>이력서 보기</title>
 </head>
 <body>	

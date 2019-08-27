@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import emp.model.vo.Emp;
 
 import empService.model.dao.EmpServiceDao;
+import empService.model.vo.HopeEnt;
 import owner.model.vo.Owner;
 import ownerService.model.vo.Appliant;
 import ownerService.model.vo.Incruit;
@@ -55,12 +56,11 @@ public class EmpServiceService {
 		
 	}
 	
-	public ArrayList<Owner> selectInterestOwner(int empNum){
+	public ArrayList<HopeEnt> selectInterestOwner(int empNum){
 		
 		Connection conn = getConnection();
 
-		ArrayList<Integer> listNum = new EmpServiceDao().selectInterestOwnerNum(conn, empNum);
-		ArrayList<Owner> iList = new EmpServiceDao().selectInterestOwner(conn, listNum);
+		ArrayList<HopeEnt> iList = new EmpServiceDao().selectInterestOwner(conn, empNum);
 		
 		close(conn);
 
@@ -86,7 +86,7 @@ public class EmpServiceService {
 		
 	}
 	
-	public ArrayList<Incruit> selectInterestIncruit(ArrayList<Owner> oList) {
+	public ArrayList<Incruit> selectInterestIncruit(ArrayList<HopeEnt> oList) {
 		
 		Connection conn = getConnection();
 

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import emp.model.vo.Emp;
 import empService.model.service.EmpServiceService;
+import empService.model.vo.HopeEnt;
 import owner.model.vo.Owner;
 import ownerService.model.vo.Incruit;
 
@@ -40,7 +41,7 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
-		ArrayList<Owner> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
+		ArrayList<HopeEnt> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
 		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
 		
 		request.setAttribute("olist", oList);

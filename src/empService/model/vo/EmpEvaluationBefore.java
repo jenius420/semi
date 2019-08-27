@@ -6,6 +6,7 @@ public class EmpEvaluationBefore {
 	
 	private int applyNum; // key
 	private int eNum; // 구직자key
+	private int oNum; // 사업자key
 	private int wNum; // 공고key
 	private String wTitle; // 공고명
 	private String opName; // 사업자명
@@ -17,17 +18,22 @@ public class EmpEvaluationBefore {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EmpEvaluationBefore(int applyNum, int eNum, int wNum, String wTitle, String opName, Date workStartTerm,
-			Date workEndTerm) {
+	
+
+	public EmpEvaluationBefore(int applyNum, int eNum, int oNum, int wNum, String wTitle, String opName,
+			Date workStartTerm, Date workEndTerm) {
 		super();
 		this.applyNum = applyNum;
 		this.eNum = eNum;
+		this.oNum = oNum;
 		this.wNum = wNum;
 		this.wTitle = wTitle;
 		this.opName = opName;
 		this.workStartTerm = workStartTerm;
 		this.workEndTerm = workEndTerm;
 	}
+
+
 
 	public int getApplyNum() {
 		return applyNum;
@@ -83,6 +89,14 @@ public class EmpEvaluationBefore {
 
 	public void setWorkEndTerm(Date workEndTerm) {
 		this.workEndTerm = workEndTerm;
+	}
+
+	public int getoNum() {
+		return oNum;
+	}
+
+	public void setoNum(int oNum) {
+		this.oNum = oNum;
 	}
 
 	

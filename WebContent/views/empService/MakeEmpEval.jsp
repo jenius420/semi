@@ -9,7 +9,6 @@ ArrayList<EmpEvaluation> list = (ArrayList<EmpEvaluation>)request.getAttribute("
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
 <title>알바 후기 작성</title>
 </head>
 <body>

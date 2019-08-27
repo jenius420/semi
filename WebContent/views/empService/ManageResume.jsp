@@ -14,7 +14,7 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<%@ include file="../empService/resources.jsp"%>
+<%@ include file="../common/includeTable.jsp"%>
 
 
 <style>
@@ -65,10 +65,10 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 			
 			
 			<!--===============================================================================================-->	
-			<div class="limiter">
+			<div class="limiter " >
 			<div class="container-table100">
 				<div class="wrap-table100">
-					<div class="table100 ver4">
+					<div class="table100 ver4 m-t-100">
 						<div class="table100-head">
 							<table>
 								<thead>
@@ -91,11 +91,11 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 									<%}else{ 
 										for(Resume a : list) {%>
 										<tr class="row100 body">
-											<td class="cell100 column1"><%=a.getwTitle()%></td>
-											<td class="cell100 column2"><%=a.getEndDate()%></td>
-											<td class="cell100 column3"><%=a.getApplyDate()%></td>
-											<td class="cell100 column4"><%=a.getPassOrFail()%></td>
-											<td class="cell100 column5"><input type="checkbox" id="applyArr" name="applyArr" value="<%=a.getApplyNum() %>"></td>
+											<td class="cell100 column1"><%=a.getrNum()%></td>
+											<td class="cell100 column2"></td>
+											<td class="cell100 column3"></td>
+											<td class="cell100 column4"></td>
+											<td class="cell100 column5"><input type="checkbox" id="applyArr" name="applyArr" value=""></td>
 										</tr>
 										<%}}%>
 								</tbody>

@@ -8,7 +8,9 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<%@ include file="../empService/resources.jsp"%>
+
+<%@ include file="../common/includeTable.jsp"%>
+
 
 <style>
 
@@ -59,7 +61,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 			<div class="limiter">
 			<div class="container-table100">
 				<div class="wrap-table100">
-					<div class="table100 ver4 m-t-20">
+					<div class="table100 ver5 m-t-70">
 						<div class="table100-head">
 							<table>
 								<thead>
