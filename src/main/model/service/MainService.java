@@ -20,7 +20,9 @@ public class MainService {
 	public ArrayList<Main> selectRecomendList(String id){
 		Connection conn = getConnection(); 
 		
-		ArrayList<Main> list = new MainDao().selectRecomendList(conn, id);
+		int dong = new MainDao().getAddress(conn,id);
+		
+		ArrayList<Main> list = new MainDao().selectRecomendList(conn, dong);
 		
 		close(conn);
 		return list;

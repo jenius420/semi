@@ -31,6 +31,33 @@ public class MainDao {
 		
 		
 		
+		public int getAddress(Connection conn, String id) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("getAddress");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					result = rset.getInt(1);
+				}	
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			
+			return result;
+		}
+		
+		
 		
 		
 		
@@ -39,7 +66,7 @@ public class MainDao {
 		 * @param conn, id
 		 * @return
 		 */
-	public ArrayList<Main> selectRecomendList(Connection conn, String id){
+	public ArrayList<Main> selectRecomendList(Connection conn, int dong){
 		ArrayList<Main> list = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
@@ -49,13 +76,22 @@ public class MainDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, dong);
 			
 			rset = pstmt.executeQuery();
 			
-			if(rset.next()) {
-				list.add(new Main(rset.getString("logo"),
-								rset.getString("title")));
+			while(rset.next()) {
+				list.add(new Main(rset.getInt("onum"),
+								  rset.getInt("opnum"),
+								  rset.getString("opname"),
+								  rset.getInt("dongnum"),
+								  rset.getString("dongname"),
+								  rset.getString("opaddress"),
+								  rset.getInt("typenum"),
+								  rset.getString("typename"),
+								  rset.getString("applyproduct"),
+								  rset.getInt("pnum"),
+								  rset.getString("saveName")));
 				
 				
 			}
@@ -85,8 +121,17 @@ public class MainDao {
 		rset = stmt.executeQuery(sql);
 		
 		while(rset.next()) {
-			list.add(new Main(rset.getString("logo"),
-							rset.getString("title")));
+			list.add(new Main(rset.getInt("onum"),
+							  rset.getInt("opnum"),
+							  rset.getString("opname"),
+							  rset.getInt("dongnum"),
+							  rset.getString("dongname"),
+							  rset.getString("opaddress"),
+							  rset.getInt("typenum"),
+							  rset.getString("typename"),
+							  rset.getString("applyproduct"),
+							  rset.getInt("pnum"),
+							  rset.getString("saveName")));
 		}
 		
 		
