@@ -17,7 +17,45 @@
 <link rel="stylesheet" type="text/css" href="resources/css/gs-main.css">
 
 <link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
+<style>
+.gs-btn{
+	background:transparent;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14;
+    font-weight: 700;
+    line-height: 1;
+    margin: 18px;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    outline:none;
+    position:relative;
+    top:0;
+    text-shadow:0 1px 1px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -moz-transition: all 0.2s ease-in-out 0s;
+    -ms-transition: all 0.2s ease-in-out 0s;
+     transition: all 0.2s ease-in-out 0s;
+     background:#9a59b5;
+	color:#fff;
+	box-shadow: 0 3px 0 #7f4497;
+	border-radius:5px;	
+}
 
+.gs-btn:hover{
+	background:#c472e6;	
+}
+.gs-btn:active, .gs-btn:focus{
+	background:#944fb0;	
+}
+
+.gs-btn-parent{
+text-align: right;
+}
+</style>
 </head>
 <body>
 
@@ -28,6 +66,7 @@
 <script src="resources/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="resources/js/gs-main.js"></script>
 <script>
+
 $('.js-pscroll').each(function(){
 	var ps = new PerfectScrollbar(this);
 

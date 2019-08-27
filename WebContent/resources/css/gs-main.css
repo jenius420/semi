@@ -174,31 +174,6 @@ th, td {
   padding-right: 10px;
 }
 
-.column1 {
-  width: 20%;
-  padding-left: 40px;
-   text-align: center;
-}
-
-.column2 {
-  width: 20%;
-  text-align: center;
-}
-
-.column3 {
-  width: 20%;
-   text-align: center;
-}
-
-.column4 {
-  width: 20%;
-   text-align: center;
-}
-
-.column5 {
-  width: 20%;
-   text-align: center;
-}
 
 .table100-head th {
   padding-top: 18px;
@@ -396,7 +371,7 @@ th, td {
 .table100.ver4 th {
   font-family: Lato-Bold;
   font-size: 18px;
-  color: #4272d7;
+  color: purple;
   line-height: 1.4;
 
   background-color: transparent;

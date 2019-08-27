@@ -16,7 +16,7 @@ public class Appliant {
 	private String incruitStatus; // 마감상태
 	private Date endDate; // 마감일
 	private Date applyDate; // 지원일
-	private String passOrFail; // 합불여부
+	private String passOrFail; // 지원상태
 	
 	public Appliant() {
 		super();

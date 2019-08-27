@@ -29,13 +29,13 @@ box-sizing: border-box;
 }
 
 #content-center{
-    width: 78%;
+    width: 83%;
     height: 100%;
     float: left;
 }
 
 #content-right{
-    width: 10%;
+    width: 5%;
     height: 100%;
     float: left;
 
