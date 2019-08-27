@@ -2,109 +2,158 @@ package main.model.vo;
 
 public class Main {
 
-	private int wNum;
-	private String wTitle;
-	private String oName;
-	private int districnum;
-	private String districtname;
-	private int dongnum;
-	private String dongName;
-	private String logo;
+	private int onum;				// 사업자 회원번호
+	private int opnum;				// 사업장 번호
+	private String opname;			// 사업장 이름
+	private int dongnum;			// 사업장 동번호
+	private String dongname;		// 사업장 동이름
+	private String opaddress;		// 사업장 나머지 주소
+	private int typenum;			// 업직종번호
+	private String typename;		// 업직종명
+	private String applyproduct;	// 적용 상품코드
+	private int pnum;				// 사진 기본키
+	private String saveName; 		// 저장될 사진 이름 및 경로
+	
 	
 	public Main() {}
 
-	public Main(int wNum, String wTitle, String oName, int districnum, String districtname, int dongnum,
-			String dongName, String logo) {
+
+	public Main(int onum, int opnum, String opname, int dongnum, String dongname, String opaddress, int typenum,
+			String typename, String applyproduct, int pnum, String saveName) {
 		super();
-		this.wNum = wNum;
-		this.wTitle = wTitle;
-		this.oName = oName;
-		this.districnum = districnum;
-		this.districtname = districtname;
+		this.onum = onum;
+		this.opnum = opnum;
+		this.opname = opname;
 		this.dongnum = dongnum;
-		this.dongName = dongName;
-		this.logo = logo;
-	}
-	
-
-	public Main(String logo, String wTitle) {
-		super();
-		this.logo = logo;
-		this.wTitle = wTitle;
+		this.dongname = dongname;
+		this.opaddress = opaddress;
+		this.typenum = typenum;
+		this.typename = typename;
+		this.applyproduct = applyproduct;
+		this.pnum = pnum;
+		this.saveName = saveName;
 	}
 
-	public int getwNum() {
-		return wNum;
+
+	public int getOnum() {
+		return onum;
 	}
 
-	public void setwNum(int wNum) {
-		this.wNum = wNum;
+
+	public void setOnum(int onum) {
+		this.onum = onum;
 	}
 
-	public String getwTitle() {
-		return wTitle;
+
+	public int getOpnum() {
+		return opnum;
 	}
 
-	public void setwTitle(String wTitle) {
-		this.wTitle = wTitle;
+
+	public void setOpnum(int opnum) {
+		this.opnum = opnum;
 	}
 
-	public String getoName() {
-		return oName;
+
+	public String getOpname() {
+		return opname;
 	}
 
-	public void setoName(String oName) {
-		this.oName = oName;
+
+	public void setOpname(String opname) {
+		this.opname = opname;
 	}
 
-	public int getDistricnum() {
-		return districnum;
-	}
-
-	public void setDistricnum(int districnum) {
-		this.districnum = districnum;
-	}
-
-	public String getDistrictname() {
-		return districtname;
-	}
-
-	public void setDistrictname(String districtname) {
-		this.districtname = districtname;
-	}
 
 	public int getDongnum() {
 		return dongnum;
 	}
 
+
 	public void setDongnum(int dongnum) {
 		this.dongnum = dongnum;
 	}
 
-	public String getDongName() {
-		return dongName;
+
+	public String getDongname() {
+		return dongname;
 	}
 
-	public void setDongName(String dongName) {
-		this.dongName = dongName;
+
+	public void setDongname(String dongname) {
+		this.dongname = dongname;
 	}
 
-	public String getLogo() {
-		return logo;
+
+	public String getOpaddress() {
+		return opaddress;
 	}
 
-	public void setLogo(String logo) {
-		this.logo = logo;
+
+	public void setOpaddress(String opaddress) {
+		this.opaddress = opaddress;
 	}
+
+
+	public int getTypenum() {
+		return typenum;
+	}
+
+
+	public void setTypenum(int typenum) {
+		this.typenum = typenum;
+	}
+
+
+	public String getTypename() {
+		return typename;
+	}
+
+
+	public void setTypename(String typename) {
+		this.typename = typename;
+	}
+
+
+	public String getApplyproduct() {
+		return applyproduct;
+	}
+
+
+	public void setApplyproduct(String applyproduct) {
+		this.applyproduct = applyproduct;
+	}
+
+
+	public int getPnum() {
+		return pnum;
+	}
+
+
+	public void setPnum(int pnum) {
+		this.pnum = pnum;
+	}
+
+
+	public String getSaveName() {
+		return saveName;
+	}
+
+
+	public void setSaveName(String saveName) {
+		this.saveName = saveName;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Main [wNum=" + wNum + ", wTitle=" + wTitle + ", oName=" + oName + ", districnum=" + districnum
-				+ ", districtname=" + districtname + ", dongnum=" + dongnum + ", dongName=" + dongName + ", logo="
-				+ logo + "]";
+		return "Main [onum=" + onum + ", opnum=" + opnum + ", opname=" + opname + ", dongnum=" + dongnum + ", dongname="
+				+ dongname + ", opaddress=" + opaddress + ", typenum=" + typenum + ", typename=" + typename
+				+ ", applyproduct=" + applyproduct + ", pnum=" + pnum + ", saveName=" + saveName + "]";
 	}
 	
 	
 	
+
 	
 }
