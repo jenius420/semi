@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, ownerService.model.vo.IncruitProduct"%>
+    pageEncoding="UTF-8" import="ownerService.model.vo.IncruitProduct"%>
 <%
 	ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute("list");
 %>

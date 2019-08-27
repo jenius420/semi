@@ -36,8 +36,8 @@ public class ManageMemDao {
 	
 	public ArrayList<EmpMember> selectEmpList(Connection conn) {
 		
-		ArrayList<EmpMember> list = null;	
-		EmpMember emp = new EmpMember();
+		ArrayList<EmpMember> list = new ArrayList<>();	
+		EmpMember emp = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -50,6 +50,8 @@ public class ManageMemDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				
+				emp = new EmpMember();
 				
 				emp.seteNum(rs.getInt("ENUM"));
 				emp.seteId(rs.getString("EID"));
@@ -75,8 +77,8 @@ public class ManageMemDao {
 	
 	public ArrayList<OwnerMember> selectOwnerList(Connection conn) {
 		
-		ArrayList<OwnerMember> list = null;	
-		OwnerMember owner = new OwnerMember();
+		ArrayList<OwnerMember> list = new ArrayList<>();	
+		OwnerMember owner = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -89,6 +91,8 @@ public class ManageMemDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				
+				owner = new OwnerMember();
 				
 				owner.setoNum(rs.getInt("ONUM"));
 				owner.setoId(rs.getString("OID"));

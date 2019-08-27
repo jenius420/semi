@@ -32,7 +32,7 @@ public class EmpEvalDao {
 	
 	public ArrayList<EmpEvaluation> selectEmpEval(Connection conn, int empNum) {
 		
-		ArrayList<EmpEvaluation> list = null;	
+		ArrayList<EmpEvaluation> list = new ArrayList<>();	
 		EmpEvaluation eval = null;
 		
 		PreparedStatement pstmt = null;
@@ -60,6 +60,8 @@ public class EmpEvalDao {
 				eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
 				eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
 				
+				list.add(eval);
+				
 			}
 			
 		}catch (SQLException e) {
@@ -75,7 +77,7 @@ public class EmpEvalDao {
 	
 	public ArrayList<EmpEvaluationBefore> selectEmpEvalBefore(Connection conn, int empNum) {
 		
-		ArrayList<EmpEvaluationBefore> list = null;	
+		ArrayList<EmpEvaluationBefore> list = new ArrayList<>();	
 		EmpEvaluationBefore eval = null;
 		
 		
@@ -101,6 +103,8 @@ public class EmpEvalDao {
 					eval.setOpName(rs.getString("OPNAME"));
 					eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
 					eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
+					
+					list.add(eval);
 		
 				}
 			
@@ -195,7 +199,7 @@ public class EmpEvalDao {
 	
 	public ArrayList<EmpEvaluation> selectEmpEvalList(Connection conn, int oNum) {
 		
-		ArrayList<EmpEvaluation> list = null;	
+		ArrayList<EmpEvaluation> list = new ArrayList<>();	
 		EmpEvaluation eval = null;
 		
 		
@@ -223,6 +227,8 @@ public class EmpEvalDao {
 					eval.setEnrollDate(rs.getDate("ENROLLDATE"));
 					eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
 					eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
+					
+					list.add(eval);
 		
 				}
 			

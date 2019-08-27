@@ -91,33 +91,34 @@ public class IncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-			incruit = new Incruit(
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getInt("ONUM"),
-									rs.getString("OPNAME"),
-									rs.getDate("WORKSTARTTERM"),
-									rs.getDate("WORKENDTERM"),
-									rs.getString("WORKDAY"),
-									rs.getString("WORKSTARTTIME"),
-									rs.getString("WORKENDTIME"),
-									rs.getString("TERMNAME"),
-									rs.getString("WORKGENDER"),
-									rs.getInt("WORKAGE"),
-									rs.getString("WORKEDU"),
-									rs.getDate("STARTDATE"),
-									rs.getString("INCRUITSTATUS"),
-									rs.getDate("ENDDATE"),
-									rs.getString("WORKFORM"),
-									rs.getInt("SALARY"),
-									rs.getString("PTITLE"),
-									rs.getString("REXPLAIN"),
-									rs.getInt("PEOPLECOUNT"),
-									rs.getString("DONGNAME"),
-									rs.getString("DISTRICTNAME"),
-									rs.getString("TYPENAME")
-								);
-				
+			while(rs.next()) {
+				incruit = new Incruit(
+										rs.getInt("WNUM"),
+										rs.getString("WTITLE"),
+										rs.getInt("ONUM"),
+										rs.getString("OPNAME"),
+										rs.getDate("WORKSTARTTERM"),
+										rs.getDate("WORKENDTERM"),
+										rs.getString("WORKDAY"),
+										rs.getString("WORKSTARTTIME"),
+										rs.getString("WORKENDTIME"),
+										rs.getString("TERMNAME"),
+										rs.getString("WORKGENDER"),
+										rs.getInt("WORKAGE"),
+										rs.getString("WORKEDU"),
+										rs.getDate("STARTDATE"),
+										rs.getString("INCRUITSTATUS"),
+										rs.getDate("ENDDATE"),
+										rs.getString("WORKFORM"),
+										rs.getInt("SALARY"),
+										rs.getString("PTITLE"),
+										rs.getString("REXPLAIN"),
+										rs.getInt("PEOPLECOUNT"),
+										rs.getString("DONGNAME"),
+										rs.getString("DISTRICTNAME"),
+										rs.getString("TYPENAME")
+									);	
+			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -197,7 +198,7 @@ public class IncruitDao {
 	
 	public ArrayList<Incruit> selectIncruitList(Connection conn, int oNum) {
 		
-		ArrayList<Incruit> list = null;
+		ArrayList<Incruit> list = new ArrayList<>();
 		Incruit incruit = null;
 		
 		PreparedStatement pstmt = null;
@@ -254,7 +255,7 @@ public class IncruitDao {
 	
 	public ArrayList<Appliant> selectManageEmp(Connection conn, int oNum){
 		
-		ArrayList<Appliant> list = null;
+		ArrayList<Appliant> list = new ArrayList<>();
 		Appliant appliant = null;
 		
 		PreparedStatement pstmt = null;
@@ -352,7 +353,7 @@ public class IncruitDao {
 	
 	public ArrayList<Resume> selectSearchResumeList(Connection conn, String keyword, Filter filter) {
 		
-		ArrayList<Resume> list = null;
+		ArrayList<Resume> list = new ArrayList<>();
 		Resume resume = null;
 		
 		PreparedStatement pstmt = null;
@@ -422,6 +423,7 @@ public class IncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
+			while(rs.next()) {
 				resume = new Resume(
 									rs.getInt("RNUM"),
 									rs.getInt("ENUM"),
@@ -440,7 +442,7 @@ public class IncruitDao {
 									rs.getInt("PNUM"),
 									rs.getString("SAVENAME")
 									);
-		
+			}
 			
 		}catch (SQLException e) {
 			e.printStackTrace();

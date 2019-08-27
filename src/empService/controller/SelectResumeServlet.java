@@ -39,7 +39,7 @@ public class SelectResumeServlet extends HttpServlet {
 		Resume resume = new ResumeService().selectResume(rNum);
 		Attachment at = new ResumeService().selectAttachment(rNum);
 		
-		if(resume != null) {
+		if(resume != null && at != null) {
 			request.setAttribute("resume", resume);	
 			request.setAttribute("at", at);	
 			request.getRequestDispatcher("views/empService/SelectResume.jsp").forward(request, response);

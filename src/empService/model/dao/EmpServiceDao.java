@@ -38,7 +38,7 @@ public class EmpServiceDao {
 	
 	public ArrayList<Appliant> selectApplicationState(Connection conn, int empNum){
 		
-		ArrayList<Appliant> list = null;	
+		ArrayList<Appliant> list = new ArrayList<>();	
 		Appliant appliant = null;
 		
 		PreparedStatement pstmt = null;
@@ -143,7 +143,7 @@ public class EmpServiceDao {
 	
 	public ArrayList<Owner> selectInterestOwner(Connection conn, ArrayList<Integer> listNum){
 		
-		ArrayList<Owner> list = null;	
+		ArrayList<Owner> list = new ArrayList<>();	
 		Owner owner = null;
 		
 		PreparedStatement pstmt = null;
@@ -211,7 +211,7 @@ public class EmpServiceDao {
 	
 	public ArrayList<Incruit> selectInterestIncruit(Connection conn, ArrayList<Owner> oList) {
 		
-		ArrayList<Incruit> list = null;	
+		ArrayList<Incruit> list = new ArrayList<>();	
 		Incruit incruit = null;
 		
 		PreparedStatement pstmt = null;

@@ -38,14 +38,10 @@ public class SelectSuitableIncruitServlet extends HttpServlet {
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
 		
 		ArrayList<Incruit> list = new ResumeService().selectSuitableIncruit(rNum);
-		
-		if(!list.isEmpty()) {
-			// 비동기?????
-			//request.getRequestDispatcher("views/empService/SuitableIncruit.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "조회에 실패했습니다");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+	
+		// 비동기?????
+		//request.getRequestDispatcher("views/empService/SuitableIncruit.jsp").forward(request, response);
+	
 		
 	}
 

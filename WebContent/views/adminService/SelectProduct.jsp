@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="ownerService.model.vo.IncruitProduct"%>
+<%
+	IncruitProduct prod = (IncruitProduct)request.getAttribute("prod");
+
+int pCode = prod.getpCode();
+String pTitle = prod.getpTitle();
+String pExplain = prod.getpExplain();
+int pPay = prod.getpPay();
+%>
 <!DOCTYPE html>
 <html>
 <head>

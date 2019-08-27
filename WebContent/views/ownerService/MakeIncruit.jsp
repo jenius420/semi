@@ -1,22 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="member.model.vo.OwnerMember"%>
+    import="owner.model.vo.Owner"%>
 <%	
-	OwnerMember owner= (OwnerMember) session.getAttribute("loginUser");
-	Boolean accessAuth = true;
-	String opName = ""; // 업체명
-	String type = ""; // 업직종
-	String oName = ""; // 업자명
-	int phone = 0; // 전화번호
-	
-	if(owner == null){
-		accessAuth = false;
-	}else{
-		opName = owner.getOpName();
-		type = owner.getType();
-		oName = owner.getoName();
-		phone = owner.getPhone();
-	}
+	Owner owner= (Owner) session.getAttribute("loginUser");
+
+	String opName = owner.getOpName(); // 업체명
+	String type = owner.getType(); // 업직종
+	String oName = owner.getoName(); // 업자명
+	int phone = owner.getPhone(); // 전화번호
+
 %>
 <!DOCTYPE html >
 <html>
@@ -26,9 +18,6 @@
 <title>공고 작성</title>
 </head>
 <body>
-
-
-
 
 
 <div id="div">

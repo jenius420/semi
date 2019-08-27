@@ -33,7 +33,7 @@ public class ManageIncruitDao {
 	
 	public ArrayList<Incruit> selectIngIncruitList(Connection conn) {
 		
-		ArrayList<Incruit> list = null;
+		ArrayList<Incruit> list = new ArrayList<>();
 		Incruit incruit = null;
 		
 		PreparedStatement pstmt = null;
@@ -91,7 +91,7 @@ public class ManageIncruitDao {
 	
 	public ArrayList<Incruit> selectDoneIncruitList(Connection conn) {
 		
-		ArrayList<Incruit> list = null;	
+		ArrayList<Incruit> list = new ArrayList<>();	
 		Incruit incruit = null;
 		
 		PreparedStatement pstmt = null;
@@ -147,7 +147,7 @@ public class ManageIncruitDao {
 	
 	public ArrayList<IncruitProduct> selectProductList(Connection conn) {
 		
-		ArrayList<IncruitProduct> list = null;	
+		ArrayList<IncruitProduct> list = new ArrayList<>();	
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -196,34 +196,34 @@ public class ManageIncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-			
-			incruit = new Incruit(
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getInt("ONUM"),
-									rs.getString("OPNAME"),
-									rs.getDate("WORKSTARTTERM"),
-									rs.getDate("WORKENDTERM"),
-									rs.getString("WORKDAY"),
-									rs.getString("WORKSTARTTIME"),
-									rs.getString("WORKENDTIME"),
-									rs.getString("TERMNAME"),
-									rs.getString("WORKGENDER"),
-									rs.getInt("WORKAGE"),
-									rs.getString("WORKEDU"),
-									rs.getDate("STARTDATE"),
-									rs.getString("INCRUITSTATUS"),
-									rs.getDate("ENDDATE"),
-									rs.getString("WORKFORM"),
-									rs.getInt("SALARY"),
-									rs.getString("PTITLE"),
-									rs.getString("REXPLAIN"),
-									rs.getInt("PEOPLECOUNT"),
-									rs.getString("DONGNAME"),
-									rs.getString("DISTRICTNAME"),
-									rs.getString("TYPENAME")
-								);
-			
+			while(rs.next()) {
+				incruit = new Incruit(
+										rs.getInt("WNUM"),
+										rs.getString("WTITLE"),
+										rs.getInt("ONUM"),
+										rs.getString("OPNAME"),
+										rs.getDate("WORKSTARTTERM"),
+										rs.getDate("WORKENDTERM"),
+										rs.getString("WORKDAY"),
+										rs.getString("WORKSTARTTIME"),
+										rs.getString("WORKENDTIME"),
+										rs.getString("TERMNAME"),
+										rs.getString("WORKGENDER"),
+										rs.getInt("WORKAGE"),
+										rs.getString("WORKEDU"),
+										rs.getDate("STARTDATE"),
+										rs.getString("INCRUITSTATUS"),
+										rs.getDate("ENDDATE"),
+										rs.getString("WORKFORM"),
+										rs.getInt("SALARY"),
+										rs.getString("PTITLE"),
+										rs.getString("REXPLAIN"),
+										rs.getInt("PEOPLECOUNT"),
+										rs.getString("DONGNAME"),
+										rs.getString("DISTRICTNAME"),
+										rs.getString("TYPENAME")
+									);
+			}
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -279,13 +279,14 @@ public class ManageIncruitDao {
 			
 			rs = pstmt.executeQuery();
 			
-			prod = new IncruitProduct(
-								rs.getInt("PCODE"),
-								rs.getString("PTITLE"),
-								rs.getString("PEXPLAIN"),
-								rs.getInt("PPAY")
-								);
-	
+			while(rs.next()) {
+				prod = new IncruitProduct(
+									rs.getInt("PCODE"),
+									rs.getString("PTITLE"),
+									rs.getString("PEXPLAIN"),
+									rs.getInt("PPAY")
+									);
+			}
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {

@@ -56,14 +56,10 @@ public class SearchResumeListServlet extends HttpServlet {
 		
 
 		//비동기 처리??
-		
-		if(!list.isEmpty()) {
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("/views/ownerService/searchResume.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "조회에 실패했습니다. 다시 시도해주세요");
-			request.getRequestDispatcher("/views/common/searchResume.jsp").forward(request, response);
-		}
+
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/views/ownerService/searchResume.jsp").forward(request, response);
+	
 		
 	}
 

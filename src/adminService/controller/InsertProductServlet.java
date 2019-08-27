@@ -41,7 +41,7 @@ public class InsertProductServlet extends HttpServlet {
 		int result = new ManageIncruitService().InsertProduct(prod);
 		
 		if(result > 0) {
-			response.sendRedirect("boardReportList.as");
+			response.sendRedirect("manageProduct.as");
 		}else {
 			request.setAttribute("msg", "상품 등록에 실패했습니다");
 			request.getRequestDispatcher("views/common/errorPage.jsp");

@@ -40,13 +40,9 @@ public class ApplicationStateServlet extends HttpServlet {
 		
 		ArrayList<Appliant> list = new EmpServiceService().selectApplicationState(emp.getEmpNum());
 		
-		if(list.size() > 0) {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("/views/empService/ApplicationState.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "페이지를 불러오는데 실패했습니다");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+		
 		
 	}
 

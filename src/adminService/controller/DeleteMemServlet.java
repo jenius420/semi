@@ -46,7 +46,7 @@ public class DeleteMemServlet extends HttpServlet {
 		request.setAttribute("msg", count + "개 회원 삭제 완료");
 		request.getRequestDispatcher("/views/adminService/MemList.jsp").forward(request, response);
 
-		response.sendRedirect("memList.as?msg="+ count + "개 회원 삭제 완료"); 
+
 		
 	}
 

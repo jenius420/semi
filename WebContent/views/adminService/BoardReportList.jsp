@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="board.model.vo.Board"%>
+<%
+	ArrayList<Board> empList = (ArrayList<Board>)request.getAttribute("list");
+%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -23,8 +26,8 @@
 		
 		<div id="content-center">
 	
-	경고 warnMem.as
-	삭제 deleteBoard.as
+	체크박스 경고 warnMem.as input String[] memArr, flag 1구직자 2사업자
+	삭제 deleteBoard.as input String[] tNumArr
 	
 
 			</div> <!-- /메인콘텐트 -->

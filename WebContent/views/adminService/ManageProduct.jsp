@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="ownerService.model.vo.IncruitProduct"%>
+<%
+	ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute("list");
+%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -26,8 +29,8 @@
 	등록 
 	<button onclick="Location.href='<%= request.getContextPath()%>/enrollProduct.as'">등록하기</button>
 
-	클릭시 수정페이지 이동 input pCode
-	selectProduct.as
+	클릭시 수정페이지 이동  selectProduct.as  input pCode
+	
 	
 	삭제는 없는걸로 
 	
