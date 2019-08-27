@@ -1,13 +1,18 @@
 package empService.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import emp.model.vo.Emp;
 
 /**
  * Servlet implementation class AjaxServlet3
@@ -33,17 +38,27 @@ public class AjaxServlet4 extends HttpServlet {
 		
 		String str = request.getParameter("input");
 		String str2 = request.getParameter("input2");
+		
+		ArrayList<Emp> list = new ArrayList<>();
 
 		// json으로 넘기는 방법
 		// https://code.google.com/archive/p/json-simple/downloads  json 쓰려면 라이브러리 다운 받아야함
+		
+		JSONArray jsonArr = new JSONArray();
 	
+		for(Emp e : list) {
+			JSONObject jsonUser = new JSONObject();
+			
+			jsonUser.put("num", e.geteName());
+			jsonUser.put("name", e.geteName());
+			jsonUser.put("str2", str2);
+			
+			jsonArr.add(jsonUser);
+		}
+		
 		response.setContentType("application/json, charset=UTF-8");
 		
-		JSONObject jsonUser = new JSONObject();
-		jsonUser.put("key", str);
-		jsonUser.put("key2", str2);
-		
-		response.getWriter().print(jsonUser);
+		response.getWriter().print(jsonArr);
 	}
 
 	/**

@@ -29,7 +29,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 지원일 순으로 정렬. 지원취소한거는 포함 안 됨
 	체크박스로 한번에 지원취소 기능 추가 cancleAppliant.es  input applyArr체크
 
-			</div> <!-- /메인콘텐트 -->
+		</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>
 		

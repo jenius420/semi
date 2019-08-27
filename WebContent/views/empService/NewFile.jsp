@@ -201,15 +201,18 @@ $(function(){ //json방식
 			dataType: "json",
 			success : function(obj){ // 성공 시 실행 함수
 				
-				var result = "";
+				var $tableBody = $("선택자 tbody");
 			
-				if(obj != null){
-					result = "이름:" + obj.name;
-				}else{
-					result="정보없음";
-				}
+				 $tableBody.html("");
 				
-				$("태그선택자4").val(result);
+				$.each(data, function(index, value){
+					var $tr = $("<tr>"); // <tr></tr>
+					var $no = $("<td>").text(value.no);
+					var $name = $("<td>").text(value.name);
+					
+					$tr.append($no);
+					$tr.append($name);
+				});
 			},
 			error : function(){ // 실패 시 실행 함수
 				
@@ -221,6 +224,8 @@ $(function(){ //json방식
 		});
 	});
 });
+
+
 </script>
 
 </body>

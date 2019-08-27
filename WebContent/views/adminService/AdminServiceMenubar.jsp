@@ -17,12 +17,12 @@
 .asMenubar{
 	position: fixed;
 	left: 0x;
-	top: 150px;
+	top: 170px;
 	clear: both;
     margin: 0;
-    padding: 0;
+    padding: 10;
     width: 170px;
-    background-color: #f1f1f1;
+
 }
 .asm1{
  	padding: 8px 14px;
@@ -37,6 +37,7 @@
     padding: 8px 17px;
     cursor: pointer;
     font-size: 14px;
+    background-color: #f1f1f1;
 }
 
 .asLink:hover:not(.active) {

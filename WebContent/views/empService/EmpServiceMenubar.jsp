@@ -11,16 +11,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>개인서비스 메뉴바</title>
 <style>
-
+	
 .esMenubar{
 	position: fixed;
 	left: 0x;
-	top: 150px;
+	top: 170px;
 	clear: both;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     width: 170px;
-    background-color: #f1f1f1;
+   
+
 }
 .esm1{
  	padding: 8px 14px;
@@ -35,6 +36,7 @@
     padding: 8px 17px;
     cursor: pointer;
     font-size: 14px;
+     background-color: #f1f1f1;
 }
 
 .esLink:hover:not(.active) {
@@ -44,6 +46,7 @@
 }
 .space{
 	height: 14px;
+	
 }
 
 </style>
