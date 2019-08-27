@@ -25,7 +25,7 @@ http://www.templatemo.com/tm-406-flex
         <link rel="stylesheet" href="resources/css/templatemo_misc.css">
         <link rel="stylesheet" href="resources/css/templatemo_style.css">
 
-        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -38,12 +38,12 @@ http://www.templatemo.com/tm-406-flex
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <ul class="social-icons">
+                            <!-- <ul class="social-icons">
                                 <li><a href="#" class="fa fa-facebook"></a></li>
                                 <li><a href="#" class="fa fa-twitter"></a></li>
                                 <li><a href="#" class="fa fa-dribbble"></a></li>
                                 <li><a href="#" class="fa fa-linkedin"></a></li>
-                            </ul>
+                            </ul> -->
                         </div> <!-- /.col-md-12 -->
                     </div> <!-- /.row -->
                 </div> <!-- /.container -->
@@ -60,9 +60,9 @@ http://www.templatemo.com/tm-406-flex
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
-                                        <li><a href="#services">지역별</a></li>
-                                        <li><a href="#portfolio">기간별</a></li>
-                                        <li><a href="#our-team">게시판</a></li>
+                                        <li><a href="#location">지역별</a></li>
+                                        <li><a href="#date">기간별</a></li>
+                                        <li><a href="#board">게시판</a></li>
                                         <li><a href="<%=request.getContextPath()%>/manageResume.es">개인서비스</a></li>
                                         <li><a href="<%=request.getContextPath()%>/incruitList.os">기업서비스</a></li> 
                                         <li><a href="<%=request.getContextPath()%>/memList.as">관리자서비스</a></li>                                 
@@ -81,27 +81,27 @@ http://www.templatemo.com/tm-406-flex
                                 <div class="overlay"></div>
                                 <img src="resources/images/slide1.jpg" alt="">
                                 <div class="slider-caption visible-md visible-lg">
-                                    <h2>Digital Marketing</h2>
-                                    <p>more visitors to your website</p>
-                                    <a href="#" class="slider-btn">Let us design!</a>
+                                    <h2>여름 방학 알바도</h2>
+                                    <p>summer period alba</p>
+                                    <a href="#" class="slider-btn">Let join summer!</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="overlay"></div>
                                 <img src="resources/images/slide2.jpg" alt="">
                                 <div class="slider-caption visible-md visible-lg">
-                                    <h2>Responsive HTML CSS</h2>
-                                    <p>Download and use it for your site</p>
-                                    <a href="#" class="slider-btn">Go to Portfolio</a>
+                                    <h2>서울 특성화 알바 구인사이트</h2>
+                                    <p>you can see only Seoul alba</p>
+                                    <a href="#" class="slider-btn">Go to Seoul!</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="overlay"></div>
                                 <img src="resources/images/slide3.jpg" alt="">
                                 <div class="slider-caption visible-md visible-lg">
-                                    <h2>Pro Level Design</h2>
+                                    <h2>너의 가치를 뽐내봐</h2>
                                     <p>High standard work</p>
-                                    <a href="#" class="slider-btn">Mobile Website</a>
+                                    <a href="#" class="slider-btn">create resume</a>
                                 </div>
                             </li>
                         </ul>
@@ -388,17 +388,17 @@ http://www.templatemo.com/tm-406-flex
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
         
-        <script src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="resources/js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="resources/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/plugins.js"></script>
+        <script src="resources/js/main.js"></script>
 
-        <!-- Google Map -->
+<!--         Google Map
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="js/vendor/jquery.gmap3.min.js"></script>
+        <script src="resources/js/vendor/jquery.gmap3.min.js"></script>
         
-        <!-- Google Map Init-->
+        Google Map Init
         <script type="text/javascript">
             jQuery(function($){
                 $('#map_canvas').gmap3({
@@ -412,7 +412,7 @@ http://www.templatemo.com/tm-406-flex
                         streetViewControl : true
                         }
                     }
-                });
+                }); -->
 
                 /* Simulate hover on iPad
                  * http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers

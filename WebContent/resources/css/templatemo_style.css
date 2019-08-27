@@ -294,7 +294,7 @@ hr {
 .logo-wrapper a {
   display: inline-block;
   overflow: hidden;
-  padding-left: 130px;
+  padding-left: 100px;
   line-height: 100px;
   text-transform: uppercase;
   color: white;
@@ -350,7 +350,7 @@ hr {
   font-size: 14px;
 }
 .menu-responsive ul li.active a {
-  color: #ec523f; 원래 색깔
+  color: #ec523f; �썝�옒 �깋源�
 }*/
 
 .flexslider {
