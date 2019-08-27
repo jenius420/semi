@@ -13,7 +13,7 @@
 <style>
 
 	form{
-		/* border: 1px solid black;/ */
+		/* border: 1px solid black; */
 		width: 650px;
         resize: none;
 	}

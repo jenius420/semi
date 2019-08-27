@@ -12,46 +12,49 @@
 <title>Insert title here</title>
 <style>
 
-        form{
-            /* border: 1px solid black; */
-            /* width: 650px; */
-            resize: none;
-        }
-    
-        table{
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: auto;
-        }
-    
-        td{
-            /* border: 1px solid black; */
-            font-size: 10px;
-            padding: 7px;
-        }
-        b{
-            font-size: 15px;
-        }
-        #btn{
-        text-align: center;
+
+    form{
+        
+        /* border: 1px solid black; */
+        width: 500px;
+        resize: none;
     }
 
+    table{
+
+        background: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        
+        
+    }
+
+    td{
+        /* border: 1px solid black; */
+        font-size: 10px;
+        padding: 7px;
+    }
+    b{
+        font-size: 15px;
+    }
     .btn{
         height: 50px;
-        width: 130px;
+        width: 200px;
         background: rgb(176, 19, 242);
         border: none;
+        
     }
 
 </style>
 </head>
 <body>
     <div>
-        <h3 align="center">비밀번호 변경</h3>
-
-        <hr>
-
+        
         <form action="">
+                <h3 align="center">비밀번호 변경</h3>
+        
+                <hr>
             <table>
                 <tr>
                     <td width="150"><b>현재 비밀번호</b></td>
@@ -74,11 +77,25 @@
             </table>
 
             <br>
+            
+            <div align="center"><b>안전한 비밀번호를 사용하는 방법!</b></div>
 
-            <div id="btn">
-                <button type="reset" name="insertBtn" class="btn btn-secondary">닫기</button>
-                <button type="submit" name="insertBtn" class="btn btn-secondary">변경하기</button>
+            <br>
+
+            <ul>
+                <li>영문, 숫자, 특수기호 3자기 모두 조합하세요.</li>
+                <li>아이디와 동일한 비밀번호는 사용하지 마세요.</li>
+                <li>개인정보를 포함하는 비밀번호는 사용하지 마세요.</li>
+                <li>비밀번호는 주기적으로 변경해주세요</li>
+            </ul>
+
+
+            <br>
+
+            <div style="text-align:center">
+                <button type="submit"  name="insertBtn" class="btn btn-secondary">수정완료</button>
             </div>
+            
 
 
 
