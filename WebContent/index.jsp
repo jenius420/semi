@@ -11,7 +11,7 @@
 %>
 
 
-<%  /* 수진  */
+<%-- <%  /* 수진  */
 
 	EmpMember em = (EmpMember)session.getAttribute("loginUser");
 
@@ -19,7 +19,7 @@
 	ArrayList<Main> primiumList = (ArrayList<Main>)request.getAttribute("primiumList");
 
 
-%>
+%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="no-js">
 <head>
@@ -57,7 +57,7 @@
                                 </div> <!-- /.logo-wrapper -->                                
                                 <div class="search-wrapper">
                                     <h1>
-                                        <a href="#" class="search">Search</a>
+                                        <a href="#" class="search" style="font-size:2em;">Search</a>
                                     </h1>
                                 </div> <!-- /.search-wrapper  -->
                                <div class="col-md-10 col-sm-10 main-menu text-right">
