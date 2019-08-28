@@ -76,8 +76,8 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 									<tbody>
 										<%if(oList.isEmpty()){%>
 											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
-										<%}else{ 
-											for(HopeEnt a : oList) {%>
+										<%}else{ %>
+											<%for(HopeEnt a : oList) {%>
 											<tr class="row100 body">
 												<td class="cell100 column1"><%=a.getOpName()%></td>
 												<td class="cell100 column2"><%=a.getOpAddress()%></td>
