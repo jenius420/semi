@@ -262,7 +262,7 @@ hr {
   width: 100%;
   margin: 0 auto;
   z-index: 1000;
-  top: 0px;
+  top: 94px;
   -webkit-transition: all 150ms ease-in-out;
   -moz-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
