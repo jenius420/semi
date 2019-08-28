@@ -42,7 +42,7 @@
         font-size: 10px;
     }
 
-    #postcodify :hover{
+    #postcodify:hover{
         cursor: pointer;
     }
 

@@ -59,7 +59,11 @@
     </div>
 
     <div>
+        
         <form action="<%= contextPath %>/login.me" method="post" onsubmit="return validate();">
+            
+            <span><input type="radio" name="kind" value="1" id="emp" checked><label for="emp">개인회원</label></span>
+            <span><input type="radio" name="kind" value="2" id="own"><label for="own">기업회원</label></span>
             <table>
                 <tr>
                     <td><input type="text" name="userId" id="userId" maxlength="15" placeholder="아이디"></td>
@@ -82,6 +86,7 @@
                 
             </div>
         </form>
+
     </div>
     
     <script type="text/javascript">
@@ -98,8 +103,10 @@
     			return false;
     		}
     		return true;
+    		
+    		window.close();
     	}
-    
+    	
     </script>
     
 

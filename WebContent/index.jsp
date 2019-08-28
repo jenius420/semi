@@ -1,9 +1,13 @@
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 
 	String contextPath = request.getContextPath();
+	
+	// 로그인 세션
+	Member loginUser = (Member).session.getAttribute("loginUser") ;
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -63,9 +67,10 @@ http://www.templatemo.com/tm-406-flex
                                     <ul class="menu-first">
                                         
                                         <% if(loginUser == null){ %>
-                                        <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
+                                        <li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
+                                        
                                         <%}else{ %>
-                                        <li class="active" onclick="location.href='<%= request.getContextPath()%>/logout.me';"><a href="#">Logout</a></li>
+                                        <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
                                         <%} %>
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
