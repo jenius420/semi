@@ -1,9 +1,23 @@
+<%@page import="main.model.vo.Main"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="member.model.vo.EmpMember"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 
 	String contextPath = request.getContextPath();
+
+%>
+
+
+<%  /* 수진  */
+
+	EmpMember em = (EmpMember)session.getAttribute("loginUser");
+
+	ArrayList<Main> recomendList = (ArrayList<Main>)request.getAttribute("recomendList"); 
+	ArrayList<Main> primiumList = (ArrayList<Main>)request.getAttribute("primiumList");
+
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -53,7 +67,6 @@
                                         
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
                                         
-                                        <li class="active" onclick="location.href='<%= request.getContextPath()%>/logout.me';"><a href="#">Logout</a></li>
                                       
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
@@ -129,20 +142,21 @@
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
+                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                            <img src="resources/images/recomend1.png" alt="">
+                            <img src="resources/images/recomend1.png" alt="" onclick="locatoion.href='detail'">
                             <div class="team-overlay">
                                 <h3>BurgerKing</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend2.png" alt="">
@@ -150,13 +164,13 @@
                                 <h3>Starbucks</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend3.png" alt="">
@@ -164,13 +178,13 @@
                                 <h3>McDonald's</h3>
                                 <span>판매업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend4.png" alt="">
@@ -178,13 +192,12 @@
                                 <h3>KFC</h3>
                                 <span>사무직</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
                 </div> <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -215,7 +228,7 @@
                             <div class="portfolio-overlay">
                                 <h3>New Walk</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p1.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p1.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
