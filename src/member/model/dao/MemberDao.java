@@ -30,39 +30,6 @@ public class MemberDao {
 		
 	}
 	
-	/**
-	 * 로그인
-	 * @param conn
-	 * @param id
-	 * @param pwd
-	 * @return
-	 */
-	public Member loginMember(Connection conn, String id, String pwd) {
-		
-
-		
-		String sql = prop.getProperty("loginMember");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, id);
-			pstmt.setString(2, pwd);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				loginUser = new Member(rset.getInt(""))
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		return null;
-	}
 
 	/**
 	 * 개인 로그인
@@ -125,7 +92,6 @@ public class MemberDao {
 		Member loginUser = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
 		String sql = prop.getProperty("loginOwn");
 		
 		try {
@@ -154,15 +120,12 @@ public class MemberDao {
 									   rset.getString("checkonum")
 									  );
 			}
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(pstmt);
 		}
-		
 		return loginUser;
 	}
 

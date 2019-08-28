@@ -9,23 +9,6 @@ import member.model.vo.Member;
 
 public class MemberService {
 	
-	
-	/**
-	 * 1. 로그인
-	 * @param id
-	 * @param pwd
-	 * @return
-	 */
-	public Member loginMember(String id, String pwd) {
-
-		Connection conn = getConnection();
-		
-		Member loginUser = new MemberDao().loginMember(conn, id, pwd);
-		
-		close(conn);
-		
-		return loginUser;
-	}
 
 	/**
 	 * 개인 로그인

@@ -1,6 +1,8 @@
 package member.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,28 +40,37 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		
-		if(kind == 1) {
+		if(kind >= 1) {
 			// 개인고객 체크 로그인
 			Member loginUser = new MemberService().loginEmp(id, pwd);
+			if(loginUser != null) {
+				HttpSession session = request.getSession();
+				
+				session.setMaxInactiveInterval(600);
+				
+				session.setAttribute("loginUser", loginUser);
+				
+				response.sendRedirect(request.getContextPath());				
+			}
 			
 		}else {
 			// 기업고객 체크 로그인
 			Member loginUser = new MemberService().loginOwn(id, pwd);
+			if(loginUser != null) {
+				HttpSession session = request.getSession();
+				
+				session.setMaxInactiveInterval(600);
+				
+				session.setAttribute("loginUser", loginUser);
+				
+				response.sendRedirect(request.getContextPath());				
+			}
+		
+		
 		}
 		
+			
 		
-//		Member loginUser = new MemberService().loginMember(id, pwd);
-		
-		if(loginUser != null) {
-			HttpSession session = request.getSession();
-			
-			session.setMaxInactiveInterval(600);
-			
-			session.setAttribute("loginUser", loginUser);
-			
-			response.sendRedirect(request.getContextPath());
-			
-		}
 	
 	}
 
