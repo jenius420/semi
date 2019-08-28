@@ -14,6 +14,7 @@
 	
 	// 로그인 세션
 	Member loginUser = (Member).session.getAttribute("loginUser") ;
+
 %>
 
 
@@ -70,19 +71,19 @@
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         
-<<<<<<< HEAD
+
                                         <% if(loginUser == null){ %>
                                         <li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
                                         <%}else{ %>
                                         <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
                                         <%} %>
-=======
+
                                         
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
                                         
                                       
->>>>>>> c6fb410a032e54713c2d4e58d9d42eb343c49b3a
+
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
                                         <li><a href="#board">게시판</a></li>

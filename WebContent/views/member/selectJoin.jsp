@@ -19,20 +19,24 @@
 
 <style>
 
-    div{
+    .outer{
         /* border: 1px solid black; */
         
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        width: 410px;
+        height: 250px;
+        resize: none;
         
     }
 
     table{
         /* border: 1px solid black; */
-        background: rgb(176, 19, 242);
+        /* background: rgb(176, 19, 242); */
         border-radius: 10px 10px 10px 10px;
         color: white;
+        
     }
 
     td{
@@ -43,10 +47,24 @@
     }
 
     .btn{
-        background: rgb(176, 19, 242);
+        color: white;
+        background:  rgb(176, 19, 242);
+        border-radius: 10px 10px 10px 10px;
         width: 200px;
-        border: none;
+        height: 260px;
     }
+
+   #img1{
+       height: 200px;
+   }
+    .btn:hover{
+        cursor: pointer;
+        
+    }
+        
+    
+
+    
 
 
 
@@ -56,30 +74,31 @@
 </head>
 <body>
 
-    <div>
+    <div class="outer">
             <h2>회원가입</h2>
             <br>
-        <table>
-            <tr>
-                <th><h4>개인회원</h4></th>
-                <th><h4>기업회원</h4></th>
-            </tr>
-            <tr>
-                <td>알바정보가 필요한 분</td>
-                <td>알바생정보가 필요한 분</td>
-            </tr>
-            </table>
             
             <br>
             
             <table>
                 <tr>
                     <td>
-                        <button type="button" class="btn btn-secondary" onclick="empJoinMember();">개인회원 회원가입</button>
+                        <div class="btn" onclick="empJoinMember();">
+                            <img id="img1" src="../../resources/images/emp.png" alt="">
+                            <br>
+                            개인회원<br>
+                            알바 정보가 필요한 분
+                        </div>
                     </td>
                     
                     <td>
-                        <button type="button" class="btn btn-secondary" onclick="ownerJoinMember();">기업회원 회원가입</button>
+                        <div class="btn" onclick="ownerJoinMember();">
+                            <img id="img2" src="../../resources/images/owner.png" alt="">
+                            <br><br>
+                            기업회원 <br>
+                            알바생 정보가 필요한 분
+                            
+                        </div>
                         
                     </td>
 
@@ -93,7 +112,7 @@
         	function empJoinMember(){
         		
         		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
-        		window.opener.location.href = "<%= contextPath %>/empJoinMember.me";
+        		window.opener.location.href = "<%= contextPath %>/empJoin.me";
         		window.close();
         		
         	}
@@ -101,7 +120,7 @@
         	function ownerJoinMember(){
         		
         		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
-        		window.opener.location.href = "<%= contextPath %>/ownerJoinMember.me";
+        		window.opener.location.href = "<%= contextPath %>/ownerJoin.me";
         		
         		window.close();
         		
