@@ -262,7 +262,7 @@ hr {
   width: 100%;
   margin: 0 auto;
   z-index: 1000;
-  top: 0px;
+  top: 94px;
   -webkit-transition: all 150ms ease-in-out;
   -moz-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
@@ -294,7 +294,7 @@ hr {
 .logo-wrapper a {
   display: inline-block;
   overflow: hidden;
-  padding-left: 100px;
+  padding-left: 130px;
   line-height: 100px;
   text-transform: uppercase;
   color: white;
@@ -350,7 +350,7 @@ hr {
   font-size: 14px;
 }
 .menu-responsive ul li.active a {
-  color: #ec523f; �썝�옒 �깋源�
+  color: #ec523f; 원래 색깔
 }*/
 
 .flexslider {
