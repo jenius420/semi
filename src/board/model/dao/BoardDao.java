@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -30,6 +31,13 @@ private Properties prop = new Properties();
 
 	}
 	
+	/**
+	 * 게시판 리스트 조회용 호출
+	 * @param conn
+	 * @param currentPage
+	 * @param boardLimit
+	 * @return
+	 */
 	public ArrayList<Board> selectList(Connection conn, int currentPage, int boardLimit){
 		
 		ArrayList<Board> list = null;	
@@ -76,5 +84,120 @@ private Properties prop = new Properties();
 		return list;
 		
 	}
+	
+	
+	/**
+	 * 게시판 리스트 갯수 조회용 호출
+	 * @param conn
+	 * @return
+	 */
+	public int getListCount(Connection conn) {
+		int listCount = 0;
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("getListCount");
+		
+		try {
+			stmt = conn.createStatement();
+			
+			rset = stmt.executeQuery(sql);
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return listCount;
+		
+	}
+
+	
+	
+	/**
+	 * 조회수 증가시키는 호출
+	 * @param conn
+	 * @param tnum
+	 * @return
+	 */
+	public int increaseCount(Connection conn, int tNum) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, tNum);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	/**
+	 * 해당 게시글 조회하는 호출
+	 * @param tnum
+	 * @return
+	 */
+	public Board selectBoard(Connection conn, int tNum) {
+		
+		Board b = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, tNum);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				b = new Board(rset.getInt("tNum"),
+							  rset.getString("title"),
+							  rset.getInt("eNum"),
+							  rset.getString("eName"),
+							  rset.getDate("updateDate"),
+							  rset.getString("bBody"),
+							  rset.getString("photo"),
+							  rset.getInt("report"),
+							  rset.getString("invalidPost"),
+							  rset.getString("isNotice"),
+							  rset.getInt("boardCount"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return b;
+		
+		
+	}
+	
+	
 
 }

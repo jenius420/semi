@@ -804,6 +804,44 @@ hr {
   margin-top: 130px;
 }
 
+
+
+
+
+
+.outer{
+		width:900px;
+		height:500px;
+		background:black;
+		color:white;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:50px;
+	}
+	.listArea{
+		border:1px solid white;
+		text-align:center;
+	}
+	.tableArea{
+		width:650px;
+		height:350px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 body, p, div, h1, h2, h3, h4, h5, h6 {
 	font-family: "Open Sans", Arial, Verdana, Geneva, sans-serif;
