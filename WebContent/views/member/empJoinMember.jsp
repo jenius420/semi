@@ -142,7 +142,8 @@
 								<option value="108">018</option>
 								<option value="109">019</option>
 							</select> - 
-							<input type="number" size="23" maxlength="8" placeholder="- 제외하고 입력 해주세요">
+							<input type="number" size="23" maxlength="4">
+							<input type="number" size="23" maxlength="4">
 						</td>
 						<td></td>
 						
