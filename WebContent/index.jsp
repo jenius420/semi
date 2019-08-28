@@ -50,11 +50,11 @@
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         
-                                        <% if(loginUser == null){ %>
+                                        
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
-                                        <%}else{ %>
+                                        
                                         <li class="active" onclick="location.href='<%= request.getContextPath()%>/logout.me';"><a href="#">Logout</a></li>
-                                        <%} %>
+                                      
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
                                         <li><a href="#board">게시판</a></li>
@@ -314,23 +314,27 @@
 
 
         <div class="content-section" id="contact">
-            <div class="container">
-                <div class="row">
                     <div class="heading-section col-md-12 text-center">
+                        <h2>Connect Us</h2>
+                    </div>
+            <div class="container">
+                 <div class="row">
+                    <!-- <div class="heading-section col-md-12 text-center">
                         <h2>notice board</h2>
                         <p>우리들의 이야기가 궁금해?</p>
-                    </div> <!-- /.heading-section -->
-                </div> <!-- /.row -->
+                    </div> /.heading-section
+                </div> /.row
                 <div class="row">
                     <div class="col-md-12">
                        <div class="googlemap-wrapper">
                             <div id="map_canvas" class="map-canvas"></div>
-                        </div> <!-- /.googlemap-wrapper -->
-                    </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
-                <div class="row">
-                    <div class="col-md-7 col-sm-6">
-                        <p>
+                        </div> /.googlemap-wrapper
+                    </div> /.col-md-12
+                </div> /.row
+                <div class="row"> -->
+                
+                    <div class="col-md-77" align="center">
+                        <p class="connect">
                             (주) 돈조네트웍스 <br>                                         
                             사업자등록번호 : 123-12-123456 | 부가통신사업 : 제 021047호 <br>              
                             통신판매업신고 : 제2019-서울동작-07290호 <br>                                    
@@ -347,25 +351,7 @@
                         </ul>
                         <!-- spacing for mobile viewing --><br><br>
                     </div> <!-- /.col-md-7 -->
-                    <div class="col-md-5 col-sm-6">
-                        <div class="contact-form">
-                            <form method="post" name="contactform" id="contactform">
-                                <p>
-                                    <input name="name" type="text" id="name" placeholder="Name">
-                                </p>
-                                <p>
-                                    <input name="email" type="text" id="email" placeholder="Email"> 
-                                </p>
-                                <p>
-                                    <input name="subject" type="text" id="subject" placeholder="제목"> 
-                                </p>
-                                <p>
-                                    <textarea name="comments" id="comments" placeholder="문의 사항"></textarea>    
-                                </p>
-                                <input type="submit" class="mainBtn" id="submit" value="Send Message">
-                            </form>
-                        </div> <!-- /.contact-form -->
-                    </div> <!-- /.col-md-5 -->
+                     
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
@@ -388,34 +374,12 @@
         <script src="resources/js/bootstrap.js"></script>
         <script src="resources/js/plugins.js"></script>
         <script src="resources/js/main.js"></script>
-
-<!--         Google Map
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="resources/js/vendor/jquery.gmap3.min.js"></script>
         
-        Google Map Init
-        <script type="text/javascript">
-            jQuery(function($){
-                $('#map_canvas').gmap3({
-                    marker:{
-                        address: '37.769725, -122.462154' 
-                    },
-                        map:{
-                        options:{
-                        zoom: 15,
-                        scrollwheel: false,
-                        streetViewControl : true
-                        }
-                    }
-                }); -->
-
-                /* Simulate hover on iPad
-                 * http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
-                 --------------------------------------------------------------------------------------------------------------*/ 
+        
                 $('body').bind('touchstart', function() {});
             });
                   
         </script>
-        <!-- templatemo 406 flex -->
+        
     </body>
 </html>

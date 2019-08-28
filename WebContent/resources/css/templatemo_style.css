@@ -664,20 +664,20 @@ hr {
   visibility: visible;
 }
 
-.team-member {
+.team-recomend {
   margin-bottom: 30px;
 }
-.team-member .member-thumb {
+.team-recomend .recomend-thumb {
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
-.team-member .member-thumb img {
+.team-recomend .recomend-thumb img {
   width: 100%;
 }
-.team-member .member-thumb .team-overlay {
+.team-recomend .recomend-thumb .team-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -695,7 +695,7 @@ hr {
   -moz-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
-.team-member .member-thumb .team-overlay h3 {
+.team-recomend .recomend-thumb .team-overlay h3 {
   font-size: 18px;
   text-transform: uppercase;
   color: white;
@@ -704,20 +704,20 @@ hr {
   border-bottom: 1px solid white;
   margin-top: 64px;
 }
-.team-member .member-thumb .team-overlay span {
+.team-recomend .recomend-thumb .team-overlay span {
   text-transform: uppercase;
   font-weight: 300;
   margin-top: 10px;
   display: block;
 }
-.team-member .member-thumb .team-overlay ul.social {
+.team-recomend .recomend-thumb .team-overlay ul.social {
   display: block;
   margin-top: 20px;
 }
-.team-member .member-thumb .team-overlay ul.social li {
+.team-recomend .recomend-thumb .team-overlay ul.social li {
   display: inline-block;
 }
-.team-member .member-thumb .team-overlay ul.social li a {
+.team-recomend .recomend-thumb .team-overlay ul.social li a {
   width: 36px;
   height: 36px;
   background-color: white;
@@ -727,7 +727,7 @@ hr {
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
 }
-.team-member .member-thumb:hover .team-overlay {
+.team-recomend .recomend-thumb:hover .team-overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -772,6 +772,10 @@ hr {
 .board {
   height: 380px;
   border: 10px solid #efefef;
+}
+
+.connect{
+	align:center;
 }
 
 .contact-info {
