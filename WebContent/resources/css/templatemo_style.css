@@ -138,19 +138,13 @@ input[type="submit"] {
   -webkit-appearance: button;
 }
 
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
 
-input[type="search"]:-webkit-search-decoration {
-  -webkit-appearance: none;
-}
 
 .search{
   border: violet;
+  font-size: 50px;
+  padding-top: 50%;
+  margin-top: 50%;
 }
 
 textarea {
