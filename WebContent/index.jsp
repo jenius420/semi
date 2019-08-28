@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-<%@page import="member.model.vo.Member"%>
-=======
 <%@page import="main.model.vo.Main"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="member.model.vo.EmpMember"%>
->>>>>>> c6fb410a032e54713c2d4e58d9d42eb343c49b3a
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -13,7 +9,7 @@
 	String contextPath = request.getContextPath();
 	
 	// 로그인 세션
-	Member loginUser = (Member).session.getAttribute("loginUser") ;
+	Member loginUser = (Member)session.getAttribute("loginUser") ;
 
 %>
 
