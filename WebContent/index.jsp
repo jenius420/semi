@@ -7,16 +7,13 @@
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html class="no-js">
 <head>
         <meta charset="utf-8">
-        <title>Flex - Responsive HTML Template</title>
+        <title>Donjo - Albamoon site</title>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 
-Flex Template 
-http://www.templatemo.com/tm-406-flex
--->
+
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -35,30 +32,21 @@ http://www.templatemo.com/tm-406-flex
 
         <div class="site-main" id="sTop">
             <div class="site-header">
-            <!-- 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                           <ul class="social-icons">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-dribbble"></a></li>
-                                <li><a href="#" class="fa fa-linkedin"></a></li>
-                            </ul> 
-                        </div> <!-- /.col-md-12 -->
-                    </div> <!-- /.row -->
-                </div> <!-- /.container -->
-             -->
+            
+              
+             
                 <div class="main-header">
                     <div class="container">
                         <div id="menu-wrapper">
                             <div class="row">
                                 <div class="logo-wrapper col-md-2 col-sm-2">
+                                </div> <!-- /.logo-wrapper -->                                
+                                <div class="search-wrapper">
                                     <h1>
                                         <a href="#" class="search">Search</a>
                                     </h1>
-                                </div> <!-- /.logo-wrapper -->
-                                <div class="col-md-10 col-sm-10 main-menu text-right">
+                                </div> <!-- /.search-wrapper  -->
+                               <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>

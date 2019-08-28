@@ -14,10 +14,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
-.search{
-  margin-left: 15px;
-}
-
 body {
   line-height: 1;
 }
@@ -153,6 +149,10 @@ input[type="search"]:-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
+.search{
+  border: violet;
+}
+
 textarea {
   overflow: auto;
   vertical-align: top;
@@ -266,7 +266,6 @@ hr {
   -webkit-transition: all 150ms ease-in-out;
   -moz-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
-  background-color: purple;
 }
 
 .scrolled {
@@ -279,7 +278,7 @@ hr {
 }
 
 #menu-wrapper {
-  background-color: purple;
+  background-color: white;
   overflow: hidden;
   -moz-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
   -webkit-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
@@ -290,17 +289,33 @@ hr {
   background: url(../images/logo.png) no-repeat;
   height: 100px;
   background-position: 15px;
+  padding-left: 0%; /*수정*/
+  padding-right: 0%; /*수정*/
 }
-.logo-wrapper a {
+.search-wrapper{/*수정*/
+  width: 16%;
   display: inline-block;
   overflow: hidden;
-  padding-left: 100px;
+  /* padding-left: 10%; */
+  padding-top: 50%;
   line-height: 100px;
-  text-transform: uppercase;
-  color: white;
-  font-size: 32px;
-  font-weight: 700;
+  /* text-transform: uppercase; */
+  color: purple;
+  font-size: 100px;
 }
+
+#search{/*수정*/
+  width:10%;
+  padding-left: 0%;
+  padding-right: 0%; 
+}
+
+.toggle-wrapper{
+  display: inline-block;
+  width:60%;
+  float: right;
+}
+
 
 .main-menu ul li {
   display: inline-block;
@@ -312,13 +327,13 @@ hr {
 .main-menu ul li a {
   text-transform: uppercase;
   font-size: 14px;
-  color: rgb(195, 195, 213);
+  color: #444444;
   line-height: 100px;
   padding-top: 37px;
 }
 .main-menu ul li.active a {
-  border-top: 3px solid white;
-  color: white;
+  border-top: 3px solid purple;
+  color: purple;
 }
 
 .toggle-menu {
@@ -350,7 +365,7 @@ hr {
   font-size: 14px;
 }
 .menu-responsive ul li.active a {
-  color: #ec523f; �썝�옒 �깋源�
+  color: #ec523f; 원래 색깔
 }*/
 
 .flexslider {
