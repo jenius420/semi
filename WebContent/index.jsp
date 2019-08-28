@@ -49,7 +49,12 @@
                                <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
+                                        
+                                        <% if(loginUser == null){ %>
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
+                                        <%}else{ %>
+                                        <li class="active" onclick="location.href='<%= request.getContextPath()%>/logout.me';"><a href="#">Logout</a></li>
+                                        <%} %>
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
                                         <li><a href="#board">게시판</a></li>
