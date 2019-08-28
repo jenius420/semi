@@ -43,6 +43,9 @@ public class ManageResumeServlet extends HttpServlet {
 		Emp emp = new Emp();
 		emp.setEmpNum(1);
 		emp.seteName("규식");
+		emp.setPhone(022323455);
+		emp.setAddress("경기도 성남시 우리집");
+		emp.setEmail("sadkljf@fajowejf.com");
 		HttpSession session = request.getSession();
 		session.setAttribute("loginUser", emp);
 		

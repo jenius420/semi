@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 <%@page import="member.model.vo.Member"%>
+=======
+<%@page import="main.model.vo.Main"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="member.model.vo.EmpMember"%>
+>>>>>>> c6fb410a032e54713c2d4e58d9d42eb343c49b3a
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -10,17 +16,25 @@
 	Member loginUser = (Member).session.getAttribute("loginUser") ;
 
 %>
+
+
+<%-- <%  /* 수진  */
+
+	EmpMember em = (EmpMember)session.getAttribute("loginUser");
+
+	ArrayList<Main> recomendList = (ArrayList<Main>)request.getAttribute("recomendList"); 
+	ArrayList<Main> primiumList = (ArrayList<Main>)request.getAttribute("primiumList");
+
+
+%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html class="no-js">
 <head>
         <meta charset="utf-8">
-        <title>Flex - Responsive HTML Template</title>
+        <title>Donjo - Albamoon site</title>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 
-Flex Template 
-http://www.templatemo.com/tm-406-flex
--->
+
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -39,39 +53,37 @@ http://www.templatemo.com/tm-406-flex
 
         <div class="site-main" id="sTop">
             <div class="site-header">
-            <!-- 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                           <ul class="social-icons">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-dribbble"></a></li>
-                                <li><a href="#" class="fa fa-linkedin"></a></li>
-                            </ul> 
-                        </div> <!-- /.col-md-12 -->
-                    </div> <!-- /.row -->
-                </div> <!-- /.container -->
-             -->
+            
+              
+             
                 <div class="main-header">
                     <div class="container">
                         <div id="menu-wrapper">
                             <div class="row">
                                 <div class="logo-wrapper col-md-2 col-sm-2">
+                                </div> <!-- /.logo-wrapper -->                                
+                                <div class="search-wrapper">
                                     <h1>
-                                        <a href="#" class="search">Search</a>
+                                        <a href="#" class="search" style="font-size:2em;">Search</a>
                                     </h1>
-                                </div> <!-- /.logo-wrapper -->
-                                <div class="col-md-10 col-sm-10 main-menu text-right">
+                                </div> <!-- /.search-wrapper  -->
+                               <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         
+<<<<<<< HEAD
                                         <% if(loginUser == null){ %>
                                         <li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
                                         <%}else{ %>
                                         <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
                                         <%} %>
+=======
+                                        
+                                        <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
+                                        
+                                      
+>>>>>>> c6fb410a032e54713c2d4e58d9d42eb343c49b3a
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
                                         <li><a href="#board">게시판</a></li>
@@ -146,20 +158,21 @@ http://www.templatemo.com/tm-406-flex
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
+                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                            <img src="resources/images/recomend1.png" alt="">
+                            <img src="resources/images/recomend1.png" alt="" onclick="locatoion.href='detail'">
                             <div class="team-overlay">
                                 <h3>BurgerKing</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend2.png" alt="">
@@ -167,13 +180,13 @@ http://www.templatemo.com/tm-406-flex
                                 <h3>Starbucks</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend3.png" alt="">
@@ -181,13 +194,13 @@ http://www.templatemo.com/tm-406-flex
                                 <h3>McDonald's</h3>
                                 <span>판매업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend4.png" alt="">
@@ -195,13 +208,12 @@ http://www.templatemo.com/tm-406-flex
                                 <h3>KFC</h3>
                                 <span>사무직</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
                 </div> <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -232,7 +244,7 @@ http://www.templatemo.com/tm-406-flex
                             <div class="portfolio-overlay">
                                 <h3>New Walk</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p1.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p1.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -331,23 +343,27 @@ http://www.templatemo.com/tm-406-flex
 
 
         <div class="content-section" id="contact">
-            <div class="container">
-                <div class="row">
                     <div class="heading-section col-md-12 text-center">
+                        <h2>Connect Us</h2>
+                    </div>
+            <div class="container">
+                 <div class="row">
+                    <!-- <div class="heading-section col-md-12 text-center">
                         <h2>notice board</h2>
                         <p>우리들의 이야기가 궁금해?</p>
-                    </div> <!-- /.heading-section -->
-                </div> <!-- /.row -->
+                    </div> /.heading-section
+                </div> /.row
                 <div class="row">
                     <div class="col-md-12">
                        <div class="googlemap-wrapper">
                             <div id="map_canvas" class="map-canvas"></div>
-                        </div> <!-- /.googlemap-wrapper -->
-                    </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
-                <div class="row">
-                    <div class="col-md-7 col-sm-6">
-                        <p>
+                        </div> /.googlemap-wrapper
+                    </div> /.col-md-12
+                </div> /.row
+                <div class="row"> -->
+                
+                    <div class="col-md-77" align="center">
+                        <p class="connect">
                             (주) 돈조네트웍스 <br>                                         
                             사업자등록번호 : 123-12-123456 | 부가통신사업 : 제 021047호 <br>              
                             통신판매업신고 : 제2019-서울동작-07290호 <br>                                    
@@ -364,25 +380,7 @@ http://www.templatemo.com/tm-406-flex
                         </ul>
                         <!-- spacing for mobile viewing --><br><br>
                     </div> <!-- /.col-md-7 -->
-                    <div class="col-md-5 col-sm-6">
-                        <div class="contact-form">
-                            <form method="post" name="contactform" id="contactform">
-                                <p>
-                                    <input name="name" type="text" id="name" placeholder="Name">
-                                </p>
-                                <p>
-                                    <input name="email" type="text" id="email" placeholder="Email"> 
-                                </p>
-                                <p>
-                                    <input name="subject" type="text" id="subject" placeholder="제목"> 
-                                </p>
-                                <p>
-                                    <textarea name="comments" id="comments" placeholder="문의 사항"></textarea>    
-                                </p>
-                                <input type="submit" class="mainBtn" id="submit" value="Send Message">
-                            </form>
-                        </div> <!-- /.contact-form -->
-                    </div> <!-- /.col-md-5 -->
+                     
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
@@ -405,34 +403,12 @@ http://www.templatemo.com/tm-406-flex
         <script src="resources/js/bootstrap.js"></script>
         <script src="resources/js/plugins.js"></script>
         <script src="resources/js/main.js"></script>
-
-<!--         Google Map
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="resources/js/vendor/jquery.gmap3.min.js"></script>
         
-        Google Map Init
-        <script type="text/javascript">
-            jQuery(function($){
-                $('#map_canvas').gmap3({
-                    marker:{
-                        address: '37.769725, -122.462154' 
-                    },
-                        map:{
-                        options:{
-                        zoom: 15,
-                        scrollwheel: false,
-                        streetViewControl : true
-                        }
-                    }
-                }); -->
-
-                /* Simulate hover on iPad
-                 * http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
-                 --------------------------------------------------------------------------------------------------------------*/ 
+        
                 $('body').bind('touchstart', function() {});
             });
                   
         </script>
-        <!-- templatemo 406 flex -->
+        
     </body>
 </html>

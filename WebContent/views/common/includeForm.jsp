@@ -20,6 +20,7 @@
 <link href="resources/form/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
 <link href="resources/form/css/main.css" rel="stylesheet" media="all">
+<link href="resources/form/css/form.css" rel="stylesheet" media="all">
 
 <title>Insert title here</title>
 </head>
