@@ -296,8 +296,7 @@ hr {
   width: 16%;
   display: inline-block;
   overflow: hidden;
-  /* padding-left: 10%; */
-  padding-top: 50%;
+  padding-left: 130px;
   line-height: 100px;
   /* text-transform: uppercase; */
   color: purple;
