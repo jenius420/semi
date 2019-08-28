@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
+
 <title>회원 리스트</title>
 
 </head>

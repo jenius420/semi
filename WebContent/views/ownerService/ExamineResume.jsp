@@ -19,7 +19,6 @@ String edu = resume.getEdu();
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/displayStructure.css">
 <title>지원자모음에서 이력서 조회</title>
 </head>
 <body>

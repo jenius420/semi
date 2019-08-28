@@ -77,7 +77,7 @@ public class SubmitResumeServlet extends HttpServlet {
 				
 			}
 			
-			//String resumeTitle = request.getParameter("resumeTitle");
+	
 			int empNum = emp.getEmpNum();
 			int districtNum = Integer.parseInt(request.getParameter("districtNum"));
 			int typeNum = Integer.parseInt(request.getParameter("typeNum"));

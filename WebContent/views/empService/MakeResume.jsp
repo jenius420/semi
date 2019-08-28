@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="emp.model.vo.Emp"%>
 
 <%	
-	//String eName = emp.geteName();
-	//int phone = emp.getPhone();
-	//String address = emp.getAddress();
-	//String email = emp.getEmail();
+	Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+	String eName = emp.geteName();
+	int phone = emp.getPhone();
+	String address = emp.getAddress();
+	String email = emp.getEmail();
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="../common/includeForm.jsp"%>
+<link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <title>이력서 등록</title>
+
+
 </head>
 <body>
 
@@ -27,83 +30,130 @@
 		<div id="content-center">
 		
 		
+		<div class="outer">
+
+			<form action="<%=request.getContextPath()%>/submitResume.es;" method='get' class='speaker-form'  enctype="multipart/form-data">
+	
+				<div class='form-row'>
+				  <label class="lLabel">이름</label><p class="rLabel" style="width:180px;"><%=eName %></p>
+				  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>';">개인정보 수정하기</button>
+				</div>
+				<div class='form-row'>	
+				  <label class='lLabel'>전화번호</label><p class="rLabel"><%=phone %></p>
+				</div>
+				<div class='form-row'>
+				  <label class='lLabel'>주소</label> <p class="rLabel"><%=address %></p>
+				</div>
+				<div class='form-row'>
+				  <label class='lLabel'>이메일</label> <p class="rLabel"><%=email %></p>
+				</div>
+				<div style="height:30px;"></div>
+				
+	
+				<div class='form-row'>
+				  <label for='districtNum'>희망근무지(구)</label>
+				  <select id='districtNum' name='districtNum'>
+				    <option value='1'>강남구</option>
+				    <option value='s'>Small</option>
+				    <option value='m'>Medium</option>
+				    <option value='l'>Large</option>
+				  </select>
+				</div>
+				
+				<div class='form-row'>
+				  <label for='typeNum'>희망업종</label>
+				  <select id='typeNum' name='typeNum' style="font-size:2em;">
+				    <option value='1'>IT</option>
+				    <option value='s'>Small</option>
+				    <option value='m'>Medium</option>
+				    <option value='l'>Large</option>
+				  </select>
+				</div>
+				
+				<div class='form-row'>
+				  <label for='eduNum'>최종학력</label>
+				  <select id='eduNum' name='eduNum'>
+				    <option value='1'>대졸</option>
+				    <option value='s'>Small</option>
+				    <option value='m'>Medium</option>
+				    <option value='l'>Large</option>
+				  </select>
+				</div>
+				
+				<div class='form-row'>
+				  <label for='desireForm'>희망 급여</label>
+				  <select id='desireForm' name='desireForm'>
+				    <option value='1'>시급</option>
+				    <option value='2'>일급</option>
+				    <option value='3'>주급</option>
+				    <option value='4'>월급</option>
+				  </select>
+				  <input id='desireIncome' name='desireIncome' type='text' style="margin-left:20px;"/>
+				  <label for='desireIncome' style="text-align:left">원</label>
+				  
+				</div>
+	
+	
+	
+	
+				<div class='form-row'>
+				  <label for='comment'>하고싶은 말</label>
+				  <textarea id='comment' name='comment'></textarea>
+				</div>
+	
+				<div class='form-row'>
+				  <label class='checkbox-label' for='openSet'>
+				  <input id='openSet' name='openSet' type='checkbox' value='Y'/>
+				  <span>이력서 공개 설정</span>
+				  </label>
+				</div>
+				
+				<div class='form-row'>
+				  <button type="submit" class="btn" onclick="return submitCheck();">저장하기</button>
+				</div>
+				
+				<script>
+					function submitCheck(){
+						var result = confirm("이대로 저장하시겠습니까");
+						if(result){
+							//$(".speaker-form").submit();
+							return true;
+						}else{	
+							return false;
+						}
+					}
+				</script>
+	
+	
+				
+	
+	
+			</form>
+		</div>
 		
-		<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
-        <div class="wrapper wrapper--w960">
-            <div class="card card-2">
-                <div class="card-heading"></div>
-                <div class="card-body">
-                    <h2 class="title">Registration Info</h2>
-                    <form method="POST">
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Name" name="name">
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender">
-                                            <option disabled="disabled" selected="selected">Gender</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option>Other</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="class">
-                                    <option disabled="disabled" selected="selected">Class</option>
-                                    <option>Class 1</option>
-                                    <option>Class 2</option>
-                                    <option>Class 3</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2" type="text" placeholder="Registration Code" name="res_code">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Search</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 		
-		
-		
-		
-		
-		
-		
-		
+		<div class="space"></div>
+		<div class="space"></div>
+		<div class="space"></div>
+		<div class='form-row'>
+		  <label for='full-name'>Name</label>
+		  <input id='full-name' name='full-name' type='text'/>
+		</div>
+			
+
+		<div class='form-row'>
+		  <label for='full-name'>Name</label>
+		  <input id='talk-type-1' name='talk-type' type='radio' value='main-stage' />
+		  <label for='talk-type-1' class='radio-label'>Main Stage</label>
+		  <input id='talk-type-2' name='talk-type' type='radio' value='workshop' checked />
+		  <label for='talk-type-2' class='radio-label'>Workshop</label>
+		</div>
 		
 		
 		
 			<form id="resumeForm" action="<%=request.getContextPath()%>/submitResume.es" method="POST" enctype="multipart/form-data">
 				
-				제목 <input type="text" name="resumeTitle" id="resumeTitle"
-					placeholder="이력서 제목">
-					
-				이름
-				전화번호
-				이메일
+				
 				
 				사진
 				<div id="titleImgArea">
@@ -137,48 +187,10 @@
 					}
 				</script>
 				
-				희망근무지(구) 
-				<select name="district" id="district">
-					<option value="강남구">강남구</option>
-				</select> 
-				
-				희망업직종 
-				<select name="type" id="type">
-					<option value="IT">IT</option>
-				</select> 
-				
-				최종학력 
-				<select name="edu" id="edu">
-					<option value="대학졸업">대학졸업</option>
-				</select> 
-				
-				희망급여형태 
-				<select name="desireForm" id="desireForm">
-					<option value="시급">시급</option>
-				</select> 
-				
-				희망급여 
-				<input type="text" name="desireIncome" id="desireIncome">원
-				
-				
-				
-				하고싶은말
-				<textarea name="comment" id="comment" cols="30" rows="10" style="resize:none;"></textarea>
-				
-				이력서공개설정 	
-				<input type="checkbox" name="openSet" id="openSet"  value="Y" checked>
 				
 				<input type="hidden" value="보여주면 안 되는데 같이 넘겨야 하는 경우">
 				
-				<input type="submit" value="저장완료" validation 작성해야함>
-				<input type="reset" value="초기화">
-				<button type="button" onclick="javascript:history.back();">이전 화면으로</button>
-		
 			</form>
-			
-			
-			
-			
 			
 			
 			</div> <!-- /메인콘텐트 -->
