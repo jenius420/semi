@@ -12,6 +12,7 @@ import java.util.Properties;
 import emp.model.vo.Emp;
 import empService.model.vo.EmpEvaluation;
 import empService.model.vo.EmpEvaluationBefore;
+import empService.model.vo.HopeEnt;
 import empService.model.vo.Resume;
 import owner.model.vo.Owner;
 import ownerService.model.vo.Appliant;
@@ -109,42 +110,43 @@ public class EmpServiceDao {
 		
 	}
 	
-	public ArrayList<Integer> selectInterestOwnerNum(Connection conn, int empNum){
-		
-		ArrayList<Integer> list = new ArrayList<>();
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = prop.getProperty("selectInterestOwnerNum");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, empNum);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				
-				list.add(rs.getInt("ONUM"));
-
-			}
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
+//	디컴
+//	public ArrayList<Integer> selectInterestOwnerNum(Connection conn, int empNum){
+//		
+//		ArrayList<Integer> list = new ArrayList<>();
+//		
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		String sql = prop.getProperty("selectInterestOwnerNum");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, empNum);
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				
+//				list.add(rs.getInt("ONUM"));
+//
+//			}
+//			
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return list;
+//		
+//	}
 	
-	public ArrayList<Owner> selectInterestOwner(Connection conn, ArrayList<Integer> listNum){
+	public ArrayList<HopeEnt> selectInterestOwner(Connection conn, int empNum){
 		
-		ArrayList<Owner> list = new ArrayList<>();	
-		Owner owner = null;
+		ArrayList<HopeEnt> list = new ArrayList<>();	
+		HopeEnt he = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -153,25 +155,29 @@ public class EmpServiceDao {
 		
 		try {
 			
-			for(int i=0; i<listNum.size(); i++) {
+
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, listNum.get(i));
+				pstmt.setInt(1, empNum);
 				
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
 					
-					owner = new Owner();
+					he = new HopeEnt();
 					
-					owner.setoNum(rs.getInt("ONUM"));
-					owner.setOpName(rs.getString("OPNAME"));
-					owner.setoTel(rs.getInt("OTEL"));
-					owner.setType(rs.getString("TYPENAME"));
+					he.sethNum(rs.getInt("HNO"));
+					he.seteNum(rs.getInt("ENUM"));
+					he.setoNum(rs.getInt("ONUM"));
+					he.setOpName(rs.getString("OPNAME"));
+					he.setOpAddress(rs.getString("OPADDRESS"));
+					he.setPhone(rs.getInt("PHONE"));
+					he.setType(rs.getString("TYPENAME"));
+					he.setDeleteornot(rs.getString("DELETEORNOT"));
 
-					list.add(owner);
+					list.add(he);
 				}
-			}
+
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -209,7 +215,7 @@ public class EmpServiceDao {
 		return result;
 	}
 	
-	public ArrayList<Incruit> selectInterestIncruit(Connection conn, ArrayList<Owner> oList) {
+	public ArrayList<Incruit> selectInterestIncruit(Connection conn, ArrayList<HopeEnt> oList) {
 		
 		ArrayList<Incruit> list = new ArrayList<>();	
 		Incruit incruit = null;

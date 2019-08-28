@@ -9,6 +9,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="resources/css/display.css">
 <title>개인서비스 메뉴바</title>
 <style>
 	
@@ -24,7 +26,7 @@
 
 }
 .esm1{
- 	padding: 8px 14px;
+ 	padding: 6px 14px;
     background-color: rgb(176,18,241);
     color: white;
     height:35px;

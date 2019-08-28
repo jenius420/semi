@@ -36,6 +36,11 @@ public class RecomendServlet extends HttpServlet {
 		String Id = request.getParameter("id");
 	
 		ArrayList<Main> list = new MainService().selectRecomendList("id");
+		
+		
+		
+		
+		
 
 		
 		request.setAttribute("list", list);

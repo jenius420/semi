@@ -29,8 +29,6 @@ onclick="history.go(-1);"
 		});
 	});
 	
-	서블렛에서는 아래로 받아줘야함
-	int tNum = Integer.parseInt(requset.getParameter("tNum"));
 
 </script>
 

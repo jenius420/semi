@@ -59,7 +59,7 @@
     </div>
 
     <div>
-        <form action="<%= contextPath %>/login.me" method="post">
+        <form action="<%= contextPath %>/login.me" method="post" onsubmit="return validate();">
             <table>
                 <tr>
                     <td><input type="text" name="userId" id="userId" maxlength="15" placeholder="아이디"></td>
@@ -83,6 +83,24 @@
             </div>
         </form>
     </div>
+    
+    <script type="text/javascript">
+    	function validate(){
+    		if($("#userId").val().trim().length == 0){
+    			alert("아이디를 입력해주세요.");
+    			$("#userId").focus();
+    			return false;
+    		}
+    		
+    		if($("#userPwd").val().trim().length == 0){
+    			alert("비밀번호를 입력해주세요.");
+    			$("#userPwd").focus();
+    			return false;
+    		}
+    		return true;
+    	}
+    
+    </script>
     
 
     

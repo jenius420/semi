@@ -28,7 +28,7 @@ public class SuitableIncruitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/views/empService/suitableIncruit.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/empService/SuitableIncruit.jsp").forward(request, response);
 	}
 
 	/**
