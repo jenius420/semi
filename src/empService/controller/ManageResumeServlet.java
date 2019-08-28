@@ -51,7 +51,14 @@ public class ManageResumeServlet extends HttpServlet {
 		
 		//ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
 		ArrayList<Resume> list = new ArrayList<>();
-		//request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
+		Resume resume = new Resume();
+		Resume resume2 = new Resume();
+		resume.setComment("ㅋ");
+		resume.setrNum(2);
+		resume2.setrNum(3);
+		resume2.setDesireIncome(10000);
+		list.add(resume);
+		list.add(resume2);
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);

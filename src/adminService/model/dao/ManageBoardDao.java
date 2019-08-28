@@ -44,6 +44,7 @@ public class ManageBoardDao {
 		String sql = prop.getProperty("selectBoardReportList");
 		
 		try {
+			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {

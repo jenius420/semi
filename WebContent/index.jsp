@@ -14,7 +14,6 @@
 	
 	// 로그인 세션
 	Member loginUser = (Member).session.getAttribute("loginUser") ;
-
 %>
 
 

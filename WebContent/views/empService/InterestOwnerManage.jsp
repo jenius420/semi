@@ -89,7 +89,7 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 										<script>
 											function deleteInter(oNum){
 												if(confirm("삭제 하시겠습니까")){
-													location.href='<%=request.getContextPath()%>/deleteInterestOwnerServlet.es?oNum'+oNum;
+													location.href='<%=request.getContextPath()%>/deleteInterestOwner.es?oNum'+oNum;
 												}else{
 													return;
 												}

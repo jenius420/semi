@@ -7,6 +7,7 @@ public class Resume {
 	private int rNum; // key
 	private int empNum; // 구직자key
 	private String eName;
+	private String address;
 	private int phone;
 	private String email;
 	private int districtNum;
@@ -58,13 +59,14 @@ public class Resume {
 
 
 
-	public Resume(int rNum, int empNum, String eName, int phone, String email, String district, String type,
+	public Resume(int rNum, int empNum, String eName, String address, int phone, String email, String district, String type,
 			String comment, Date updateDate, String invalid, String desireForm, int desireIncome, String openSet,
 			String edu, int pNum, String saveName) {
 		super();
 		this.rNum = rNum;
 		this.empNum = empNum;
 		this.eName = eName;
+		this.address =address;
 		this.phone = phone;
 		this.email = email;
 		this.district = district;
@@ -82,6 +84,18 @@ public class Resume {
 
 	
 	
+	public String getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+
 	public int getrNum() {
 		return rNum;
 	}

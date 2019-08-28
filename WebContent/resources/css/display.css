@@ -74,13 +74,40 @@ box-sizing: border-box;
 	border-radius:5px;	
 }
 
-.gs-btn:hover{
+.gs-btn:hover, #fileArea #upload:hover{
 	background:#c472e6;	
 }
-.gs-btn:active, .gs-btn:focus{
+.gs-btn:active, .gs-btn:focus, #fileArea #upload:active{
 	background:#944fb0;	
 }
 
 .gs-btn-parent{
-text-align: right;
+text-align: center;
+}
+
+#fileArea #upload{
+display: block;
+  padding: 2px;
+  color: #fff;
+  font-size: 15px;
+  line-height: normal;
+  vertical-align: bottom;
+  text-align:center;
+  background-color: #944fb0;
+  cursor: pointer;
+	width:60px;
+  border-radius: .25em;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+ #fileArea input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }

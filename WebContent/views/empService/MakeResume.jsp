@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="emp.model.vo.Emp"%>
+	pageEncoding="UTF-8" import="emp.model.vo.Emp, java.util.ArrayList, common.model.vo.District, common.model.vo.JobType"%>
 
 <%	
 	Emp emp = (Emp)request.getSession().getAttribute("loginUser");
@@ -7,6 +7,9 @@
 	int phone = emp.getPhone();
 	String address = emp.getAddress();
 	String email = emp.getEmail();
+	
+	ArrayList<District> dList = (ArrayList<District>)request.getAttribute("dList");
+	ArrayList<JobType> tList = (ArrayList<JobType>)request.getAttribute("tList");
 %>
 <!DOCTYPE html>
 <html>
@@ -33,6 +36,28 @@
 		<div class="outer">
 
 			<form action="<%=request.getContextPath()%>/submitResume.es;" method='get' class='speaker-form'  enctype="multipart/form-data">
+		
+				<div class='form-row' id="fileArea" style="margin-bottom:20px;">
+				  <label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
+				  <img id="titleImg" width="100" height="100">
+				  <label for="photo" id="upload">업로드</label>
+				  <input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">
+				  
+				  </div>
+
+				<script>	
+					// 파일 첨부했을 때 미리보기 공간에 미리보기 가능하게 하는 함수
+					function loadImg(value){
+						if(value.files && value.files[0]){
+		
+							var reader = new FileReader();
+							reader.onload = function(e){	
+								$("#titleImg").attr("src", e.target.result);
+							}
+							reader.readAsDataURL(value.files[0]);
+						}
+					}
+				</script>
 	
 				<div class='form-row'>
 				  <label class="lLabel">이름</label><p class="rLabel" style="width:180px;"><%=eName %></p>
@@ -53,49 +78,44 @@
 				<div class='form-row'>
 				  <label for='districtNum'>희망근무지(구)</label>
 				  <select id='districtNum' name='districtNum'>
-				    <option value='1'>강남구</option>
-				    <option value='s'>Small</option>
-				    <option value='m'>Medium</option>
-				    <option value='l'>Large</option>
+				  	<%for(District d : dList) {%>
+				  		<option value='<%=d.getDistrictNum()%>'><%=d.getDistrictName() %></option>
+				  	<%}%>
 				  </select>
 				</div>
 				
 				<div class='form-row'>
 				  <label for='typeNum'>희망업종</label>
-				  <select id='typeNum' name='typeNum' style="font-size:2em;">
-				    <option value='1'>IT</option>
-				    <option value='s'>Small</option>
-				    <option value='m'>Medium</option>
-				    <option value='l'>Large</option>
+				  <select id='typeNum' name='typeNum' style="width:300px;">
+					<%for(JobType t : tList) {%>
+				  		<option value='<%=t.getTypeNum()%>' ><%=t.getCategoryName()%> :: <%=t.getTypeName()%></option>
+				  	<%}%>
 				  </select>
 				</div>
 				
 				<div class='form-row'>
 				  <label for='eduNum'>최종학력</label>
 				  <select id='eduNum' name='eduNum'>
-				    <option value='1'>대졸</option>
-				    <option value='s'>Small</option>
-				    <option value='m'>Medium</option>
-				    <option value='l'>Large</option>
+				    <option value='대졸'>대졸</option>
+				    <option value='대학 재학생'>대학 재학생</option>
+				    <option value='대학 휴학생'>대학 휴학생</option>
+				    <option value='고졸'>고졸</option>
 				  </select>
 				</div>
 				
 				<div class='form-row'>
 				  <label for='desireForm'>희망 급여</label>
 				  <select id='desireForm' name='desireForm'>
-				    <option value='1'>시급</option>
-				    <option value='2'>일급</option>
-				    <option value='3'>주급</option>
-				    <option value='4'>월급</option>
+				    <option value='시급'>시급</option>
+				    <option value='일급'>일급</option>
+				    <option value='주급'>주급</option>
+				    <option value='월급'>월급</option>
 				  </select>
 				  <input id='desireIncome' name='desireIncome' type='text' style="margin-left:20px;"/>
 				  <label for='desireIncome' style="text-align:left">원</label>
 				  
 				</div>
-	
-	
-	
-	
+
 				<div class='form-row'>
 				  <label for='comment'>하고싶은 말</label>
 				  <textarea id='comment' name='comment'></textarea>
@@ -123,77 +143,13 @@
 						}
 					}
 				</script>
-	
-	
-				
-	
-	
-			</form>
-		</div>
-		
-		
-		<div class="space"></div>
-		<div class="space"></div>
-		<div class="space"></div>
-		<div class='form-row'>
-		  <label for='full-name'>Name</label>
-		  <input id='full-name' name='full-name' type='text'/>
-		</div>
-			
 
-		<div class='form-row'>
-		  <label for='full-name'>Name</label>
-		  <input id='talk-type-1' name='talk-type' type='radio' value='main-stage' />
-		  <label for='talk-type-1' class='radio-label'>Main Stage</label>
-		  <input id='talk-type-2' name='talk-type' type='radio' value='workshop' checked />
-		  <label for='talk-type-2' class='radio-label'>Workshop</label>
-		</div>
-		
-		
-		
-			<form id="resumeForm" action="<%=request.getContextPath()%>/submitResume.es" method="POST" enctype="multipart/form-data">
-				
-				
-				
-				사진
-				<div id="titleImgArea">
-					<img id="titleImg" width="350" height="200">
-				</div>
-				
-				<div id="fileArea">
-					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this);">
-		
-				</div>
-				
-				<script>
-					
-					// 파일 첨부했을 때 미리보기 공간에 미리보기 가능하게 하는 함수
-					function loadImg(value){
-						// value => input태그
-						// num => 조건문으로 작업
-						
-						// file이 존재하는지 
-						if(value.files && value.files[0]){
-		
-							var reader = new FileReader();
-		
-							reader.onload = function(e){	
-								$("#titleImg").attr("src", e.target.result);
-							}
-		
-							reader.readAsDataURL(value.files[0]);
-							
-						}
-					}
-				</script>
-				
-				
-				<input type="hidden" value="보여주면 안 되는데 같이 넘겨야 하는 경우">
-				
 			</form>
+		</div>
+
 			
 			
-			</div> <!-- /메인콘텐트 -->
+		</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>
 		
