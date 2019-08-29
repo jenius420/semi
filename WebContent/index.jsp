@@ -83,7 +83,7 @@ http://www.templatemo.com/tm-406-flex
                                 </div> <!-- /.logo-wrapper -->
                                 <div class="search-wrapper"> <!-- 수정 -->
                                     <h1>
-                                        <a href="#" class="search">Search</a>
+                                        <input type="text" class="search" placeholder="아아여기hover하고싶다아아아아아아">
                                     </h1>
                                 </div>
                                 <div class="col-md-10 col-sm-10 main-menu text-right toggle-wrapper">
@@ -408,6 +408,18 @@ http://www.templatemo.com/tm-406-flex
         <script src="resources/js/plugins.js"></script>
         <script src="resources/js/main.js"></script>
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
 
                
