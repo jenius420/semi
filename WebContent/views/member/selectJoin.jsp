@@ -55,8 +55,15 @@
     }
 
    #img1{
+       width: 100%;
        height: 200px;
    }
+
+   #img2{
+       height: 180px;
+   }
+
+
     .btn:hover{
         cursor: pointer;
         

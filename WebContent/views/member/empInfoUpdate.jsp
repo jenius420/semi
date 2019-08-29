@@ -122,16 +122,7 @@
 
                 <tr>
                     <td><b>주소</b></td>
-                    <td>
-                        <input type="text" id="postcode" class="postcodify_postcode" readonly placeholder="우편번호">
-                        <b id="postcodify">주소 찾기</b>
-                                           
-                    </td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td colspan="2"><input type="text" id="address" size="35" name="" class="postcodify_address" readonly placeholder="도로명주소" /></td>
+                    <td colspan="2"><input type="text" id="address" size="35" id="postcodify" name="" class="postcodify_address" readonly placeholder="주소입력" /></td>
                 </tr>
                 <tr>
                     <td></td>

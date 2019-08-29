@@ -32,7 +32,7 @@ public class MemberDao {
 	
 
 	/**
-	 * °³ÀÎ ·Î±×ÀÎ
+	 * ê°œì¸ ë¡œê·¸ì¸
 	 * @param conn
 	 * @param id
 	 * @param pwd
@@ -50,24 +50,20 @@ public class MemberDao {
 			pstmt.setString(2, pwd);
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				loginUser = new Member(rset.getInt("onum"),
-									   rset.getString("oid"),
-									   rset.getString("opwd"),
+				loginUser = new Member(rset.getInt("enum"),
+									   rset.getString("eid"),
+									   rset.getString("epwd"),
 									   rset.getString("eName"),
-									   rset.getInt("ecnum"),
+									   rset.getString("ecnum"),
 									   rset.getInt("dongnum"),
-									   rset.getInt("eaddress"),
+									   rset.getInt("roadnum"),
+									   rset.getString("eaddress"),
 									   rset.getString("phone"),
 									   rset.getString("email"),
 									   rset.getString("mailaccept"),
 									   rset.getString("smsaccept"),
 									   rset.getString("invalidid"),
-									   rset.getInt("warningcount"),
-									   rset.getInt("onum1"),
-									   rset.getInt("onum2"),
-									   rset.getInt("onum3"),
-									   rset.getInt("onum4"),
-									   rset.getInt("onum5")
+									   rset.getInt("warningcount")
 						);
 			}
 		} catch (SQLException e) {
@@ -81,7 +77,7 @@ public class MemberDao {
 	}
 
 	/**
-	 * ±â¾÷ ·Î±×ÀÎ
+	 * ì‚¬ì—…ì ë¡œê·¸ì¸
 	 * @param conn
 	 * @param id
 	 * @param pwd
@@ -102,15 +98,16 @@ public class MemberDao {
 			
 			if(rset.next()) {
 				loginUser = new Member(rset.getInt("onum"),
-									   rset.getString("oId"),
-									   rset.getString("oPwd"),
-									   rset.getString("opName"),
-									   rset.getInt("opNum"),
-									   rset.getInt("dongNum"),
+									   rset.getString("oid"),
+									   rset.getString("opwd"),
+									   rset.getString("opname"),
+									   rset.getInt("opnum"),
+									   rset.getInt("dongnum"),
+									   rset.getInt("roadnum"),
 									   rset.getString("opaddress"),
 									   rset.getString("oName"),
 									   rset.getString("otel"),
-									   rset.getInt("ocnum"),
+									   rset.getString("ocnum"),
 									   rset.getString("phone"),
 									   rset.getString("email"),
 									   rset.getInt("typenum"),
