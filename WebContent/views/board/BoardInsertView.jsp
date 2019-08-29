@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 	.outer{
 		width:900px;
@@ -69,7 +70,7 @@
 						<td colspan="3"><input type="text" size="60" name="title"></td>
 					</tr>
 					<tr>
-						<th>첨부이미지</th>
+						<th>첨부</th>
 						<td>
 							<div id="contentImgArea1">
 								<img id="contentImg1" width="120" height="100">
@@ -135,9 +136,9 @@
 							reader.onload = function(e){
 								
 								switch(num){
-								case 2: $("#contentImg1").attr("src", e.target.result); break;
-								case 3: $("#contentImg2").attr("src", e.target.result); break;
-								case 4: $("#contentImg3").attr("src", e.target.result); break;
+								case 1: $("#contentImg1").attr("src", e.target.result); break;
+								case 2: $("#contentImg2").attr("src", e.target.result); break;
+								case 3: $("#contentImg3").attr("src", e.target.result); break;
 								}
 								
 							}
