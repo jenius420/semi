@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import common.model.vo.Attachment;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
-import owner.model.vo.Owner;
+import ownerService.model.vo.Owner;
 import ownerService.model.service.IncruitService;
 
 /**

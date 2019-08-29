@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" import="emp.model.vo.Emp, empService.model.vo.Resume, java.util.ArrayList"%>
 	
 <%
-Emp emp = (Emp) session.getAttribute("loginUser");
+Emp emp = (Emp) session.getAttribute("emp");
 String name = emp.geteName();
 
 ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");

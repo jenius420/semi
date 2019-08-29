@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
+import empService.model.service.EmpServiceService;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
+import ownerService.model.service.OwnerServiceService;
 
 /**
  * Servlet implementation class ManageResumeServlet
@@ -40,25 +42,10 @@ public class ManageResumeServlet extends HttpServlet {
 		//Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
 		//샘플 데이터
-		Emp emp = new Emp();
-		emp.setEmpNum(1);
-		emp.seteName("규식");
-		emp.setPhone(022323455);
-		emp.setAddress("경기도 성남시 우리집");
-		emp.setEmail("sadkljf@fajowejf.com");
-		HttpSession session = request.getSession();
-		session.setAttribute("loginUser", emp);
+		Emp emp = new EmpServiceService().selectEmp(2);
 		
-		//ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
-		ArrayList<Resume> list = new ArrayList<>();
-		Resume resume = new Resume();
-		Resume resume2 = new Resume();
-		resume.setComment("ㅋ");
-		resume.setrNum(2);
-		resume2.setrNum(3);
-		resume2.setDesireIncome(10000);
-		list.add(resume);
-		list.add(resume2);
+		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);

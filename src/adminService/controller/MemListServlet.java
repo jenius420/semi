@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import adminService.model.service.ManageMemService;
-import emp.model.vo.Emp;
-import member.model.vo.EmpMember;
-import member.model.vo.OwnerMember;
-import owner.model.vo.Owner;
+import empService.model.vo.Emp;
+import ownerService.model.vo.Owner;
 
 /**
  * Servlet implementation class MemListServlet
@@ -38,8 +36,8 @@ public class MemListServlet extends HttpServlet {
 //		ArrayList<EmpMember> empList = new ManageMemService().selectEmpList();
 //		ArrayList<OwnerMember> ownerList = new ManageMemService().selectOwnerList();
 		
-		ArrayList<EmpMember> empList = new ArrayList<>();
-		ArrayList<OwnerMember> ownerList = new ArrayList<>();
+		ArrayList<Emp> empList = new ArrayList<>();
+		ArrayList<Owner> ownerList = new ArrayList<>();
 		
 		request.setAttribute("empList", empList);
 		request.setAttribute("ownerList", ownerList);

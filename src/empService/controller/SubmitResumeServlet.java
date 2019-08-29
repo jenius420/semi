@@ -16,11 +16,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import common.model.vo.Attachment;
 import common.model.vo.MyFileRenamePolicy;
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
 
@@ -43,22 +42,22 @@ public class SubmitResumeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("로그1");
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
-		
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
+		System.out.println("로그2");
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
-			
+			System.out.println("로그3");
 			int maxSize = 1024 * 1024 * 10;
 			
 			String resources = request.getSession().getServletContext().getRealPath("/resources");
-			
+			System.out.println("로그4");
 			String savePath = resources + "/uploadFiles/";
-			
+			System.out.println("savePath:" + savePath);
 			MultipartRequest multiRequest =  new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
-			
+		
 			Enumeration<String> files= multiRequest.getFileNames();
 			
 			String changeName = "";
@@ -67,7 +66,7 @@ public class SubmitResumeServlet extends HttpServlet {
 			while(files.hasMoreElements()) {
 				
 				String name = files.nextElement();	// files에 담겨있는 파일 하나씩 뽑아내기
-				
+				System.out.println(name);
 				if(multiRequest.getFilesystemName(name) != null) {
 					
 					changeName = savePath + multiRequest.getFilesystemName(name);
@@ -76,24 +75,24 @@ public class SubmitResumeServlet extends HttpServlet {
 				}
 				
 			}
-			
-	
+			System.out.println(multiRequest.getParameter("districtNum"));
+		
 			int empNum = emp.getEmpNum();
-			int districtNum = Integer.parseInt(request.getParameter("districtNum"));
-			int typeNum = Integer.parseInt(request.getParameter("typeNum"));
-			int eduNum = Integer.parseInt(request.getParameter("eduNum"));
-			String desireForm = request.getParameter("desireForm");
-			int desireIncome = Integer.parseInt(request.getParameter("desireIncome"));
-			String comment = request.getParameter("comment");
-			String openSet = (request.getParameter("openSet")=="Y") ? "Y":"N";
-			String picture = request.getParameter("");
+			int districtNum = Integer.parseInt(multiRequest.getParameter("districtNum"));
+			int typeNum = Integer.parseInt(multiRequest.getParameter("typeNum"));
+			String edu =multiRequest.getParameter("edu");
+			String desireForm = multiRequest.getParameter("desireForm");
+			int desireIncome = Integer.parseInt(multiRequest.getParameter("desireIncome"));
+			String comment = multiRequest.getParameter("comment");
+			String openSet = (multiRequest.getParameter("openSet")=="Y") ? "Y":"N";
+			String picture = multiRequest.getParameter("");
 			
 			Resume resume = new Resume();
 			
 			resume.setEmpNum(empNum);
 			resume.setDistrictNum(districtNum);
 			resume.setTypeNum(typeNum);
-			resume.setEduNum(eduNum);
+			resume.setEdu(edu);
 			resume.setDesireForm(desireForm);
 			resume.setDesireIncome(desireIncome);
 			resume.setComment(comment);
@@ -106,7 +105,7 @@ public class SubmitResumeServlet extends HttpServlet {
 			
 			int result = new ResumeService().enrollResume(resume, at);
 			
-			
+			System.out.println("result:"+result);
 			if(result > 0) {
 				request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
 				
@@ -122,6 +121,8 @@ public class SubmitResumeServlet extends HttpServlet {
 		
 
 	}
+	
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

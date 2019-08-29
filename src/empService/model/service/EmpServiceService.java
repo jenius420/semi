@@ -5,11 +5,9 @@ import static common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import emp.model.vo.Emp;
 
 import empService.model.dao.EmpServiceDao;
-import empService.model.vo.HopeEnt;
-import owner.model.vo.Owner;
+import empService.model.vo.*;
 import ownerService.model.vo.Appliant;
 import ownerService.model.vo.Incruit;
 
@@ -112,6 +110,18 @@ public class EmpServiceService {
 		}
 		
 		return result;
+		
+	}
+	
+	public Emp selectEmp(int eNum) {
+		
+		Connection conn = getConnection();
+		
+		Emp emp = new EmpServiceDao().selectEmp(conn, eNum);
+		
+		close(conn);
+
+		return emp;
 		
 	}
 	

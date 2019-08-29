@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import adminService.model.dao.ManageMemDao;
 import board.model.dao.BoardDao;
 import board.model.vo.Board;
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 
 import static common.JDBCTemplate.*;
 

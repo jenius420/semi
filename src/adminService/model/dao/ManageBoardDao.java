@@ -14,7 +14,7 @@ import java.util.Properties;
 
 import board.model.vo.Board;
 import board.model.vo.Comment;
-import owner.model.vo.Owner;
+import ownerService.model.vo.Owner;
 import ownerService.model.vo.Incruit;
 
 public class ManageBoardDao {

@@ -8,7 +8,7 @@ public class Resume {
 	private int empNum; // 구직자key
 	private String eName;
 	private String address;
-	private int phone;
+	private String phone;
 	private String email;
 	private int districtNum;
 	private String district;
@@ -20,7 +20,6 @@ public class Resume {
 	private String desireForm;
 	private int desireIncome;
 	private String openSet;
-	private int eduNum;
 	private String edu;
 	private int pNum;
 	private String saveName;
@@ -30,15 +29,15 @@ public class Resume {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 
-	public Resume(int rNum, int empNum, String eName, int phone, String email, int districtNum, String district,
-			int typeNum, String type, String comment, Date updateDate, String invalid, String desireForm,
-			int desireIncome, String openSet, int eduNum, String edu, int pNum, String saveName) {
+	public Resume(int rNum, int empNum, String eName, String address, String phone, String email, int districtNum,
+			String district, int typeNum, String type, String comment, Date updateDate, String invalid,
+			String desireForm, int desireIncome, String openSet, String edu, int pNum, String saveName) {
 		super();
 		this.rNum = rNum;
 		this.empNum = empNum;
 		this.eName = eName;
+		this.address = address;
 		this.phone = phone;
 		this.email = email;
 		this.districtNum = districtNum;
@@ -51,7 +50,6 @@ public class Resume {
 		this.desireForm = desireForm;
 		this.desireIncome = desireIncome;
 		this.openSet = openSet;
-		this.eduNum = eduNum;
 		this.edu = edu;
 		this.pNum = pNum;
 		this.saveName = saveName;
@@ -59,17 +57,20 @@ public class Resume {
 
 
 
-	public Resume(int rNum, int empNum, String eName, String address, int phone, String email, String district, String type,
-			String comment, Date updateDate, String invalid, String desireForm, int desireIncome, String openSet,
-			String edu, int pNum, String saveName) {
+	
+	public Resume(int rNum, int empNum, String eName, String address, String phone, String email, int districtNum,
+			String district, int typeNum, String type, String comment, Date updateDate, String invalid,
+			String desireForm, int desireIncome, String openSet, String edu) {
 		super();
 		this.rNum = rNum;
 		this.empNum = empNum;
 		this.eName = eName;
-		this.address =address;
+		this.address = address;
 		this.phone = phone;
 		this.email = email;
+		this.districtNum = districtNum;
 		this.district = district;
+		this.typeNum = typeNum;
 		this.type = type;
 		this.comment = comment;
 		this.updateDate = updateDate;
@@ -78,12 +79,9 @@ public class Resume {
 		this.desireIncome = desireIncome;
 		this.openSet = openSet;
 		this.edu = edu;
-		this.pNum = pNum;
-		this.saveName = saveName;
 	}
 
-	
-	
+
 	public String getAddress() {
 		return address;
 	}
@@ -131,17 +129,6 @@ public class Resume {
 	}
 
 
-
-	public int getEduNum() {
-		return eduNum;
-	}
-
-
-
-	public void setEduNum(int eduNum) {
-		this.eduNum = eduNum;
-	}
-
 	public int getEmpNum() {
 		return empNum;
 	}
@@ -158,11 +145,11 @@ public class Resume {
 		this.eName = eName;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

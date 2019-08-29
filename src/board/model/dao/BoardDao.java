@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import board.model.vo.Board;
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 
 public class BoardDao {
 	

@@ -1,4 +1,4 @@
-package owner.model.vo;
+package ownerService.model.vo;
 
 public class Owner {
 	
@@ -7,14 +7,15 @@ public class Owner {
 	private String oPwd;
 	private String opName;
 	private int opNum;
-	private String dong;
+	private int dongNum;
+	private int roadNum;
 	private String opAddress;
 	private String oName;
-	private int oTel;
-	private int ocNum;
-	private int phone;
+	private String oTel;
+	private String ocNum;
+	private String phone;
 	private String email;
-	private String type;
+	private int typeNum;
 	private String mailAccept;
 	private String smsAccept;
 	private String invalidId;
@@ -25,23 +26,24 @@ public class Owner {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Owner(int oNum, String oId, String oPwd, String opName, int opNum, String dong, String opAddress,
-			String oName, int oTel, int ocNum, int phone, String email, String type, String mailAccept,
-			String smsAccept, String invalidId, String checkONum) {
+	public Owner(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, int roadNum,
+			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
+			String mailAccept, String smsAccept, String invalidId, String checkONum) {
 		super();
 		this.oNum = oNum;
 		this.oId = oId;
 		this.oPwd = oPwd;
 		this.opName = opName;
 		this.opNum = opNum;
-		this.dong = dong;
+		this.dongNum = dongNum;
+		this.roadNum = roadNum;
 		this.opAddress = opAddress;
 		this.oName = oName;
 		this.oTel = oTel;
 		this.ocNum = ocNum;
 		this.phone = phone;
 		this.email = email;
-		this.type = type;
+		this.typeNum = typeNum;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
 		this.invalidId = invalidId;
@@ -88,12 +90,20 @@ public class Owner {
 		this.opNum = opNum;
 	}
 
-	public String getDong() {
-		return dong;
+	public int getDongNum() {
+		return dongNum;
 	}
 
-	public void setDong(String dong) {
-		this.dong = dong;
+	public void setDongNum(int dongNum) {
+		this.dongNum = dongNum;
+	}
+
+	public int getRoadNum() {
+		return roadNum;
+	}
+
+	public void setRoadNum(int roadNum) {
+		this.roadNum = roadNum;
 	}
 
 	public String getOpAddress() {
@@ -112,27 +122,27 @@ public class Owner {
 		this.oName = oName;
 	}
 
-	public int getoTel() {
+	public String getoTel() {
 		return oTel;
 	}
 
-	public void setoTel(int oTel) {
+	public void setoTel(String oTel) {
 		this.oTel = oTel;
 	}
 
-	public int getOcNum() {
+	public String getOcNum() {
 		return ocNum;
 	}
 
-	public void setOcNum(int ocNum) {
+	public void setOcNum(String ocNum) {
 		this.ocNum = ocNum;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -144,13 +154,12 @@ public class Owner {
 		this.email = email;
 	}
 
-
-	public String getType() {
-		return type;
+	public int getTypeNum() {
+		return typeNum;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypeNum(int typeNum) {
+		this.typeNum = typeNum;
 	}
 
 	public String getMailAccept() {
@@ -184,6 +193,7 @@ public class Owner {
 	public void setCheckONum(String checkONum) {
 		this.checkONum = checkONum;
 	}
+
 	
 	
 

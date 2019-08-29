@@ -50,7 +50,7 @@ public class ResumeDao {
 			pstmt.setString(5, resume.getDesireForm());
 			pstmt.setInt(6, resume.getDesireIncome());
 			pstmt.setString(7, resume.getOpenSet());
-			pstmt.setInt(8, resume.getEduNum());
+			pstmt.setString(8, resume.getEdu());
 //			
 
 			result = pstmt.executeUpdate();
@@ -167,9 +167,11 @@ public class ResumeDao {
 									rs.getInt("ENUM"),
 									rs.getString("ENAME"),
 									rs.getString("EADDRESS"),
-									rs.getInt("PHONE"),
+									rs.getString("PHONE"),
 									rs.getString("EMAIL"),
+									rs.getInt("DISTRICTNum"),
 									rs.getString("DISTRICTNAME"),
+									rs.getInt("TYPENUM"),
 									rs.getString("TYPENAME"),
 									rs.getString("COMMENT"),
 									rs.getDate("UPDATEDATE"),
@@ -177,9 +179,7 @@ public class ResumeDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNAME"),
-									rs.getInt("PNUM"),
-									rs.getString("SAVENAME")
+									rs.getString("FINALEDUNUM")
 				);
 			}
 				
@@ -239,7 +239,7 @@ public class ResumeDao {
 			
 			pstmt.setInt(1, resume.getDistrictNum());
 			pstmt.setInt(2, resume.getTypeNum());
-			pstmt.setInt(3, resume.getEduNum());
+			//pstmt.setInt(3, resume.getEduNum());
 			pstmt.setString(4, resume.getDesireForm());
 			pstmt.setInt(5, resume.getDesireIncome());
 			pstmt.setString(6, resume.getComment());
@@ -307,9 +307,11 @@ public class ResumeDao {
 									rs.getInt("ENUM"),
 									rs.getString("ENAME"),
 									rs.getString("EADDRESS"),
-									rs.getInt("PHONE"),
+									rs.getString("PHONE"),
 									rs.getString("EMAIL"),
+									rs.getInt("DISTRICTNum"),
 									rs.getString("DISTRICTNAME"),
+									rs.getInt("TYPENUM"),
 									rs.getString("TYPENAME"),
 									rs.getString("COMMENT"),
 									rs.getDate("UPDATEDATE"),
@@ -317,9 +319,7 @@ public class ResumeDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNAME"),
-									rs.getInt("PNUM"),
-									rs.getString("SAVENAME")
+									rs.getString("FINALEDUNUM")
 				);
 				
 				list.add(resume);

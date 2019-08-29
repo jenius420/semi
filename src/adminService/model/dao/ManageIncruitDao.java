@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import ownerService.model.vo.Incruit;
 import ownerService.model.vo.IncruitProduct;
 
