@@ -373,7 +373,7 @@ http://www.templatemo.com/tm-406-flex
                         </p>
                         <ul class="contact-info">
                             <li>Phone: 010-3514-1361</li>
-                            <li>Email: <a href="help@alamoon.co.kr">help@alamoon.co.kr</a></li>
+                            <li>Email: <a href="help@albamoon.co.kr">help@albamoon.co.kr</a></li>
                             <li>Address: 서울시 동작구 사당동 사당로</li>
                         </ul>
                         <!-- spacing for mobile viewing --><br><br>
