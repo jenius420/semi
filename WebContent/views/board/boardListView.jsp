@@ -108,9 +108,9 @@
 			
 			<button type="submit">검색하기</button>
 			
-			<%if(loginUser != null){ %>
+			<%-- <%if(loginUser != null){ %> --%>
 			<button onclick="location.href='<%= request.getContextPath() %>/insertForm.bo'">작성하기</button>
-			<%} %>
+			<%-- <%} %> --%>
 			
 		</div>
 		
@@ -124,11 +124,11 @@
 				
 				var bId = $(this).parent().children().eq(0).text();
 				
-				<% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게
+				<%-- <% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게 --%>
 					location.href="<%= request.getContextPath() %>/detail.bo?tNum=" + tNum;
-				<%}else{ %>
+				<%-- <%}else{ %> --%>
 					alert("로그인해야만 상세보기가 가능합니다!");
-				<%}%>
+				<%-- <%}%> --%>
 			});
 		});
 	</script>
