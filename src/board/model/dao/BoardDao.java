@@ -240,7 +240,7 @@ private Properties prop = new Properties();
 	 * @param fileList
 	 * @return
 	 */
-	public int insertAttachment(Connection conn, ArrayList<Attachment> fileList) {
+	public int insertAttachment(Connection conn, ArrayList<Attachment> fileList, Board b) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -254,9 +254,10 @@ private Properties prop = new Properties();
 				Attachment at = fileList.get(i);
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, at.getOriginName());
-				pstmt.setString(2, at.getChangeName());
+				pstmt.setInt(1, b.geteNum());
 				pstmt.setString(3, at.getFilePath());
+				pstmt.setString(2, at.getOriginName());
+				pstmt.setString(4, at.getChangeName());
 				
 				result = pstmt.executeUpdate();
 				

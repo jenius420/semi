@@ -73,7 +73,7 @@ public class BoardService {
 Connection conn = getConnection();
 		
 		int result1 = new BoardDao().insertBoard(conn, b);
-		int result2 = new BoardDao().insertAttachment(conn, fileList);
+		int result2 = new BoardDao().insertAttachment(conn, fileList, b);
 		
 		if(result1 > 0 && result2 > 0) {
 			commit(conn);
