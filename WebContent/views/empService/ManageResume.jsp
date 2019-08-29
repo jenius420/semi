@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="emp.model.vo.Emp, empService.model.vo.Resume, java.util.ArrayList"%>
+	pageEncoding="UTF-8" import="empService.model.vo.Emp, empService.model.vo.Resume, java.util.ArrayList"%>
 	
 <%
 Emp emp = (Emp) session.getAttribute("emp");
 String name = emp.geteName();
+String phone = emp.getPhone();
+String address = emp.getAddress();
+String email = emp.getEmail();
 
 ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 
@@ -15,7 +18,6 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <%@ include file="../common/includeTable.jsp"%>
-
 
 <style>
 
@@ -90,23 +92,20 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 										<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 									<%}else{ %>
 										<% for(Resume a : list) {%>
-										<tr class="row100 body" onclick="location.href='<%=request.getContextPath()%>/selectResume.es?rNum='+<%=a.getrNum()%>;">
+										<tr class="row100 body" onclick="test(<%=a.getrNum()%>);">
 											<td class="cell100 column1"><%=a.getDistrict()%></td>
-											<td class="cell100 column2"><%=a.getType()%></td>
+											<td class="cell100 column2"><%=a.getCategory()%> :: <%=a.getType()%></td>
 											<td class="cell100 column3"><%=a.getDesireForm()%> <%=a.getDesireIncome()%>원</td>
 											<td class="cell100 column4"><%=a.getUpdateDate()%></td>
-											<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteResume('<%=a.getrNum() %>');"></td>
+											<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteResume();">
+											<form action="" id="detailForm" method="post">
+												<input type="hidden" name="rNum" value="<%= a.getrNum() %>">
+											</form></td>
 										</tr>
 										<%}}%>
-										<script>
-											function deleteResume(rNum){
-												if(confirm("삭제 하시겠습니까")){
-													location.href='<%=request.getContextPath()%>/deleteResume.es?rNum='+rNum;
-												}else{
-													return;
-												}
-											}
-										</script>
+										
+										
+										
 										
 								</tbody>
 							</table>
@@ -120,9 +119,25 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 			
 			<br>
 			<div class="gs-btn-parent">
-				<button class="gs-btn" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';" style="margin:auto;">이력서 작성하기</button>
+				<button class="gs-btn" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';" >이력서 작성하기</button>
 			</div>
-			
+			<script>
+				function deleteResume(){
+					
+					var con = confirm("정말로 삭제하시겠습니까?");
+					
+					if(con){
+						$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteResume.es");
+						$("#detailForm").submit();
+					}else{
+						return false;
+					}
+				}
+				
+				function test(rNum){
+					location.href='<%=request.getContextPath()%>/selectResume.es?rNum='+ rNum;
+				}
+			</script>
 		
 
 			이력서 선텍 selectResume.es input rNum

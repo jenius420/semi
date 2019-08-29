@@ -42,18 +42,18 @@ public class SubmitResumeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("로그1");
+
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("emp");
-		System.out.println("로그2");
+		Emp emp = (Emp)(request.getSession().getAttribute("emp"));
+		System.out.println(emp.getEmpNum());
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
-			System.out.println("로그3");
+
 			int maxSize = 1024 * 1024 * 10;
 			
 			String resources = request.getSession().getServletContext().getRealPath("/resources");
-			System.out.println("로그4");
+			
 			String savePath = resources + "/uploadFiles/";
 			System.out.println("savePath:" + savePath);
 			MultipartRequest multiRequest =  new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
@@ -75,7 +75,7 @@ public class SubmitResumeServlet extends HttpServlet {
 				}
 				
 			}
-			System.out.println(multiRequest.getParameter("districtNum"));
+	
 		
 			int empNum = emp.getEmpNum();
 			int districtNum = Integer.parseInt(multiRequest.getParameter("districtNum"));
@@ -105,9 +105,9 @@ public class SubmitResumeServlet extends HttpServlet {
 			
 			int result = new ResumeService().enrollResume(resume, at);
 			
-			System.out.println("result:"+result);
+		
 			if(result > 0) {
-				request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
+				response.sendRedirect("manageResume.es");
 				
 			}else {
 				

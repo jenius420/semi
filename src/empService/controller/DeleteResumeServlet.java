@@ -36,8 +36,7 @@ public class DeleteResumeServlet extends HttpServlet {
 		int result = new ResumeService().deleteResume(rNum);
 		
 		if(result > 0) {
-			request.setAttribute("msg", "이력서 삭제 성공");	
-			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
+			response.sendRedirect("manageResume.es");
 		}else {
 			request.setAttribute("msg", "이력서 삭제에 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
