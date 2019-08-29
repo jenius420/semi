@@ -165,7 +165,7 @@ http://www.templatemo.com/tm-406-flex
                                 	
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                                   	<a href="resources/images/recomend1.png" data-rel="lightbox" class="expand">
+                                   	<a href="resources/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend1.png" alt="">
                             <div class="team-overlay">
                                 <h3>BurgerKing</h3>
@@ -360,7 +360,7 @@ http://www.templatemo.com/tm-406-flex
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row" >
-                    <div class="col-md-7" style="text-align:center" >
+                    <div style="text-align:center" >
                         <p >
                             (주) 돈조네트웍스 <br>                                         
                             사업자등록번호 : 123-12-123456 | 부가통신사업 : 제 021047호 <br>              
