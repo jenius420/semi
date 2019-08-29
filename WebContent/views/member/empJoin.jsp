@@ -165,26 +165,19 @@
 
 					</tr>
 
+					
 					<tr>
-							<tr>
-									<td><b>주소</b></td>
-									<td>
-										<div id="postcodify">검색</div>												   
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>
-										<input type="text" id="address" size="35" id="postcodify" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td><input type="text" size="35" id="details" name="" class="extra_info" placeholder="상세주소"></td>
-									
-								</tr>
-
+						<td><b>주소</b></td>
+						<td>
+							<input type="text"  size="30" id="postcodify" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
+						</td>
 					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" size="30" id="details" name="" class="extra_info" placeholder="상세주소"></td>
+						
+					</tr>
+					
 
 
 

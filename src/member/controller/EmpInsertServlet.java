@@ -17,13 +17,13 @@ import member.model.vo.Member;
  * Servlet implementation class EmpInser
  */
 @WebServlet("/empInsert.me")
-public class EmpInsert extends HttpServlet {
+public class EmpInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpInsert() {
+    public EmpInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,16 +49,7 @@ public class EmpInsert extends HttpServlet {
 		String maileAccept = request.getParameter("mailAccept");	// 메일수신
 		String smsAccept = request.getParameter("smsAccept");		// 문자수신
 		
-		Member mem = new Member(id, pwd, name, ecNum, phone, email, maileAccept, smsAccept);
 		
-		int result = new MemberService().empInsert(mem);
-		
-		if(result > 0) {
-			
-			request.getSession().setAttribute("msg", "회원가입완료");
-			
-			response.sendRedirect(request.getContextPath());
-		}
 		
 		
 		

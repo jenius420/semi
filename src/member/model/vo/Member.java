@@ -7,7 +7,7 @@ public class Member {
 	private String eId;			// 아이디
 	private String ePwd;		// 비밀번호
 	private String eName;		// 이름
-	private String ecNum;			// 주민번호
+	private String ecNum;		// 주민번호
 	private String eAddress;	// 나머지 주소
 	private int warningCount;	// 경고횟수
 
@@ -71,20 +71,24 @@ public class Member {
 		this.warningCount = warningCount;
 	}
 	
+	
 	// 개인 회원 가입
-	public Member(String eId, String ePwd, String eName, String ecNum, String phone, String email, String mailAccept,
-			String smsAccept) {
+	public Member(String eId, String ePwd, String eName, String ecNum, int dongNum, int roadNum, String phone,
+			String email, String mailAccept, String smsAccept, String invalidId, int warningCount) {
 		super();
 		this.eId = eId;
 		this.ePwd = ePwd;
 		this.eName = eName;
 		this.ecNum = ecNum;
+		this.dongNum = dongNum;
+		this.roadNum = roadNum;
 		this.phone = phone;
 		this.email = email;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
+		this.invalidId = invalidId;
+		this.warningCount = warningCount;
 	}
-
 
 	// 사장
 	public Member(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, int roadNum,
