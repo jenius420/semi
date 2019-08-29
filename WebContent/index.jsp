@@ -25,14 +25,15 @@
 %> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="no-js">
-<head>
+ <head>
         <meta charset="utf-8">
         <title>Donjo - Albamoon site</title>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
+<!-- 
+Flex Template 
+http://www.templatemo.com/tm-406-flex
+-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -42,6 +43,25 @@
         <link rel="stylesheet" href="resources/css/templatemo_style.css">
 
         <script src="resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        
+        
+        <!-- Place somewhere in the <head> of your document -->
+<link rel="stylesheet" href="flexslider.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="resources/js/jquery.flexslider.js"></script>
+
+<!-- Place in the <head>, after the three links -->
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider();
+  });
+</script>
+        
+        
+        
+        
+        
+        
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -51,41 +71,29 @@
 
         <div class="site-main" id="sTop">
             <div class="site-header">
-            
               
-             
+                    
+                
                 <div class="main-header">
                     <div class="container">
                         <div id="menu-wrapper">
                             <div class="row">
                                 <div class="logo-wrapper col-md-2 col-sm-2">
-                                </div> <!-- /.logo-wrapper -->                                
-                                <div class="search-wrapper">
-                                 	<!-- <a href="#" class="search" style="font-size:1em;">Search</a> -->
-                                </div> <!-- /.search-wrapper  -->
-                               <div class="col-md-10 col-sm-10 main-menu text-right">
+                                </div> <!-- /.logo-wrapper -->
+                                <div class="search-wrapper"> <!-- 수정 -->
+                                    <h1>
+                                        <a href="#" class="search">Search</a>
+                                    </h1>
+                                </div>
+                                <div class="col-md-10 col-sm-10 main-menu text-right toggle-wrapper">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
-                                        
-
-                                       <%--  <% if(loginUser == null){ %>
-                                        <li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
-                                        
-                                        <%}else{ %>
-                                        <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
-                                        <%} %> --%>
-
-                                        
-                                        <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
-                                        
-                                      
-
+                                        <li class="active"><a href="#">Login</a></li>
                                         <li><a href="#location">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
                                         <li><a href="#board">게시판</a></li>
-                                        <li><a href="<%=request.getContextPath()%>/manageResume.es">개인서비스</a></li>
-                                        <li><a href="<%=request.getContextPath()%>/incruitList.os">기업서비스</a></li> 
-                                        <li><a href="<%=request.getContextPath()%>/memList.as">관리자서비스</a></li>                                 
+                                        <li><a href="#personalService">개인서비스</a></li> 
+                                        <li><a href="#businesService">기업서비스</a></li>                                 
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->
@@ -156,58 +164,58 @@
                 <div class="row">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
-                            <img src="resources/images/recomend1.png" alt="" onclick="locatoion.href='detail'">
+                            <img src="resources/images/recomend1.png" alt="">
                             <div class="team-overlay">
                                 <h3>BurgerKing</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <i class="fa fa-search"></i>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
                                 </ul>
                             </div> <!-- /.team-overlay -->
-                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend2.png" alt="">
                             <div class="team-overlay">
                                 <h3>Starbucks</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <i class="fa fa-search"></i>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
                                 </ul>
                             </div> <!-- /.team-overlay -->
-                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend3.png" alt="">
                             <div class="team-overlay">
                                 <h3>McDonald's</h3>
                                 <span>판매업</span>
                                 <ul class="social">
-                                    <i class="fa fa-search"></i>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
                                 </ul>
                             </div> <!-- /.team-overlay -->
-                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend4.png" alt="">
                             <div class="team-overlay">
                                 <h3>KFC</h3>
                                 <span>사무직</span>
                                 <ul class="social">
-                                    <i class="fa fa-search"></i>
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
                                 </ul>
                             </div> <!-- /.team-overlay -->
-                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
                 </div> <!-- /.row -->
@@ -252,7 +260,7 @@
                             <div class="portfolio-overlay">
                                 <h3>Boat</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p2.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -264,7 +272,7 @@
                             <div class="portfolio-overlay">
                                 <h3>Urban</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p7.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p7.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -276,7 +284,7 @@
                             <div class="portfolio-overlay">
                                 <h3>Cycling</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p8.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p8.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -288,7 +296,7 @@
                             <div class="portfolio-overlay">
                                 <h3>Digital Era</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p3.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p3.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -300,7 +308,7 @@
                             <div class="portfolio-overlay">
                                 <h3>Horizon</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p4.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p4.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -312,7 +320,7 @@
                             <div class="portfolio-overlay">
                                 <h3>Aquatic City</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p5.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p5.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -324,7 +332,7 @@
                             <div class="portfolio-overlay">
                                 <h3>New Path</h3>
                                 <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-                                <a href="images/gallery/p6.jpg" data-rel="lightbox" class="expand">
+                                <a href="resources/images/gallery/p6.jpg" data-rel="lightbox" class="expand">
                                     <i class="fa fa-search"></i>
                                 </a>
                             </div> <!-- /.portfolio-overlay -->
@@ -339,27 +347,23 @@
 
 
         <div class="content-section" id="contact">
-                    <div class="heading-section col-md-12 text-center">
-                        <h2>Connect Us</h2>
-                    </div>
             <div class="container">
-                 <div class="row">
-                    <!-- <div class="heading-section col-md-12 text-center">
+                <div class="row">
+                    <div class="heading-section col-md-12 text-center">
                         <h2>notice board</h2>
                         <p>우리들의 이야기가 궁금해?</p>
-                    </div> /.heading-section
-                </div> /.row
+                    </div> <!-- /.heading-section -->
+                </div> <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12">
-                       <div class="googlemap-wrapper">
-                            <div id="map_canvas" class="map-canvas"></div>
-                        </div> /.googlemap-wrapper
-                    </div> /.col-md-12
-                </div> /.row
-                <div class="row"> -->
-                
-                    <div class="col-md-77" align="center">
-                        <p class="connect">
+                       <div class="board-wrapper">
+                            <div id="board" class="board"></div>
+                        </div> <!-- /.googlemap-wrapper -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-7 col-sm-6">
+                        <p>
                             (주) 돈조네트웍스 <br>                                         
                             사업자등록번호 : 123-12-123456 | 부가통신사업 : 제 021047호 <br>              
                             통신판매업신고 : 제2019-서울동작-07290호 <br>                                    
@@ -376,7 +380,25 @@
                         </ul>
                         <!-- spacing for mobile viewing --><br><br>
                     </div> <!-- /.col-md-7 -->
-                     
+                    <div class="col-md-5 col-sm-6">
+                        <div class="contact-form">
+                            <form method="post" name="contactform" id="contactform">
+                                <p>
+                                    <input name="name" type="text" id="name" placeholder="Name">
+                                </p>
+                                <p>
+                                    <input name="email" type="text" id="email" placeholder="Email"> 
+                                </p>
+                                <p>
+                                    <input name="subject" type="text" id="subject" placeholder="제목"> 
+                                </p>
+                                <p>
+                                    <textarea name="comments" id="comments" placeholder="문의 사항"></textarea>    
+                                </p>
+                                <input type="submit" class="mainBtn" id="submit" value="Send Message">
+                            </form>
+                        </div> <!-- /.contact-form -->
+                    </div> <!-- /.col-md-5 -->
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
@@ -395,16 +417,15 @@
         </div> <!-- /#footer -->
         
         <script src="resources/js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="resources/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
         <script src="resources/js/bootstrap.js"></script>
         <script src="resources/js/plugins.js"></script>
         <script src="resources/js/main.js"></script>
+
         
+
+               
         
-                $('body').bind('touchstart', function() {});
-            });
-                  
-        </script>
-        
+        <!-- templatemo 406 flex -->
     </body>
 </html>

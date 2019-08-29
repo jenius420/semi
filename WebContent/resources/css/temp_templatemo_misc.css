@@ -30,8 +30,8 @@
 /* Font-face Icons */
 @font-face {
   font-family: 'flexslider-icon';
-  src: url("../resources/fonts/flexslider-icon.eot");
-  src: url("../resources/fonts/flexslider-icon.eot?#iefix") format("embedded-opentype"), url("../resources/fonts/flexslider-icon.woff") format("woff"), url("../resources/fonts/flexslider-icon.ttf") format("truetype"), url("../resources/fonts/flexslider-icon.svg#flexslider-icon") format("svg");
+  src: url("../fonts/flexslider-icon.eot");
+  src: url("../fonts/flexslider-icon.eot?#iefix") format("embedded-opentype"), url("../fonts/flexslider-icon.woff") format("woff"), url("../fonts/flexslider-icon.ttf") format("truetype"), url("../fonts/flexslider-icon.svg#flexslider-icon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -296,7 +296,7 @@ html[xmlns] .slides {
   left: 0;
   background: black;
   /* IE Fallback (Solid Colour) */
-  background: url(data:resources/images/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIElEQVQ4T2NkYGDYDMRkA8ZRAxhGw4BhNAyA+WAYpAMAIFgLQfO9BoEAAAAASUVORK5CYII=);
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIElEQVQ4T2NkYGDYDMRkA8ZRAxhGw4BhNAyA+WAYpAMAIFgLQfO9BoEAAAAASUVORK5CYII=);
   background: rgba(0, 0, 0, 0.7);
   -webkit-filter: none !important;
 }
@@ -315,7 +315,7 @@ body.blurred > * {
 }
 
 .lightbox-loading {
-  background: url(../resources/images/loading.gif) center center no-repeat;
+  background: url(../images/loading.gif) center center no-repeat;
   width: 31px;
   height: 31px;
   margin: -16px 0 0 -16px;
@@ -373,17 +373,17 @@ body.blurred > * {
 .lightbox-close {
   right: 10px;
   top: 10px;
-  background-image: url("../resources/images/close.png");
+  background-image: url("../images/close.png");
 }
 
 .lightbox-next {
   right: 10px;
   top: 48%;
-  background-image: url("../resources/images/next.png");
+  background-image: url("../images/next.png");
 }
 
 .lightbox-previous {
   left: 10px;
   top: 48%;
-  background-image: url("../resources/images/previous.png");
+  background-image: url("../images/previous.png");
 }

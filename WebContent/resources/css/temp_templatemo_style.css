@@ -138,19 +138,13 @@ input[type="submit"] {
   -webkit-appearance: button;
 }
 
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
 
-input[type="search"]:-webkit-search-decoration {
-  -webkit-appearance: none;
-}
 
 .search{
   border: violet;
+  font-size: 50px;
+  padding-top: 50%;
+  margin-top: 50%;
 }
 
 textarea {
@@ -163,7 +157,7 @@ body {
   font-size: .83em;
   line-height: 1.75;
   color: #666666;
-  background-color: white;
+  background-color: purple;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
@@ -220,8 +214,8 @@ textarea:focus {
 }
 
 .main-btn {
-  color: white;
-  border: 1px solid white;
+  color: purple;
+  border: 1px solid purple;
   padding: 12px 20px;
   text-transform: uppercase;
   font-weight: 700;
@@ -248,7 +242,7 @@ hr {
 .site-header ul.social-icons li a {
   width: 36px;
   height: 36px;
-  background-color: white;
+  background-color: purple;
   color: #444444;
   text-align: center;
   line-height: 36px;
@@ -278,7 +272,7 @@ hr {
 }
 
 #menu-wrapper {
-  background-color: white;
+  background-color: purple;
   overflow: hidden;
   -moz-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
   -webkit-box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.07);
@@ -296,12 +290,11 @@ hr {
   width: 16%;
   display: inline-block;
   overflow: hidden;
-  /* padding-left: 10%; */
-  padding-top: 2%;
+  padding-left: 130px;
   line-height: 100px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: purple;
-  font-size: 50px;
+  font-size: 100px;
 }
 
 #search{/*수정*/
@@ -347,7 +340,7 @@ hr {
   font-size: 14px;
   background: purple;
   display: inline-block;
-  color: white;
+  color: purple;
   cursor:pointer;
 }
 
@@ -360,7 +353,7 @@ hr {
 }
 .menu-responsive ul li a {
   display: block;
-  color: white;
+  color: purple;
   text-transform: uppercase;
   font-size: 14px;
 }
@@ -390,16 +383,16 @@ hr {
   left: 0;
 }
 .flexslider .slider-caption h2 {
-  color: white;
+  color: purple;
   text-transform: uppercase;
   font-size: 36px;
   font-weight: 700;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid purple;
   padding-bottom: 10px;
   display: inline-block;
 }
 .flexslider .slider-caption p {
-  color: white;
+  color: purple;
   text-transform: uppercase;
   font-size: 18px;
   margin-top: 20px;
@@ -407,7 +400,7 @@ hr {
   display: block;
 }
 .flexslider .slider-caption a.slider-btn {
-  color: white;
+  color: purple;
   background-color: purple;
   padding: 12px 20px;
   border-radius: 4px;
@@ -543,7 +536,7 @@ hr {
 
 .service-item {
   position: relative;
-  color: white;
+  color: purple;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -579,10 +572,10 @@ hr {
 .service-item .service-content h3 {
   font-size: 18px;
   text-transform: uppercase;
-  color: white;
+  color: purple;
   display: inline-block;
   padding-bottom: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid purple;
   margin-bottom: 15px;
 }
 .service-item:hover .service-icon {
@@ -629,7 +622,7 @@ hr {
   left: 0;
   padding: 25px;
   text-align: center;
-  color: white;
+  color: purple;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 200ms ease-in-out;
@@ -639,11 +632,11 @@ hr {
 .portfolio-item .portfolio-thumb .portfolio-overlay h3 {
   font-size: 18px;
   text-transform: uppercase;
-  color: white;
+  color: purple;
   padding-bottom: 10px;
   margin-bottom: 10px;
   display: inline-block;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid purple;
 }
 .portfolio-item .portfolio-thumb .portfolio-overlay a.expand {
   margin-top: 15px;
@@ -652,7 +645,7 @@ hr {
   border-radius: 18px;
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
-  background-color: white;
+  background-color: purple;
   display: inline-block;
   text-align: center;
 }
@@ -664,20 +657,20 @@ hr {
   visibility: visible;
 }
 
-.team-member {
+.team-recomend {
   margin-bottom: 30px;
 }
-.team-member .member-thumb {
+.team-recomend .recomend-thumb {
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
-.team-member .member-thumb img {
+.team-recomend .recomend-thumb img {
   width: 100%;
 }
-.team-member .member-thumb .team-overlay {
+.team-recomend .recomend-thumb .team-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -688,46 +681,46 @@ hr {
   top: 0;
   left: 0;
   background-color: purple;
-  color: white;
+  color: purple;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
-.team-member .member-thumb .team-overlay h3 {
+.team-recomend .recomend-thumb .team-overlay h3 {
   font-size: 18px;
   text-transform: uppercase;
-  color: white;
+  color: purple;
   display: inline-block;
   padding-bottom: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid purple;
   margin-top: 64px;
 }
-.team-member .member-thumb .team-overlay span {
+.team-recomend .recomend-thumb .team-overlay span {
   text-transform: uppercase;
   font-weight: 300;
   margin-top: 10px;
   display: block;
 }
-.team-member .member-thumb .team-overlay ul.social {
+.team-recomend .recomend-thumb .team-overlay ul.social {
   display: block;
   margin-top: 20px;
 }
-.team-member .member-thumb .team-overlay ul.social li {
+.team-recomend .recomend-thumb .team-overlay ul.social li {
   display: inline-block;
 }
-.team-member .member-thumb .team-overlay ul.social li a {
+.team-recomend .recomend-thumb .team-overlay ul.social li a {
   width: 36px;
   height: 36px;
-  background-color: white;
+  background-color: purple;
   line-height: 40px;
   color: purple;
   border-radius: 18px;
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
 }
-.team-member .member-thumb:hover .team-overlay {
+.team-recomend .recomend-thumb:hover .team-overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -774,6 +767,10 @@ hr {
   border: 10px solid #efefef;
 }
 
+.connect{
+	align:center;
+}
+
 .contact-info {
   margin-top: 40px;
 }
@@ -789,7 +786,7 @@ hr {
 }
 .contact-form .mainBtn {
   margin-top: 15px;
-  color: white;
+  color: purple;
   background-color: purple;
   text-transform: uppercase;
   border: 0;
@@ -797,7 +794,7 @@ hr {
 
 #go-top {
   background-color: purple;
-  color: white;
+  color: purple;
   padding: 15px 40px;
   text-transform: uppercase;
   font-weight: 700;
@@ -806,6 +803,44 @@ hr {
 #footer {
   margin-top: 130px;
 }
+
+
+
+
+
+
+.outer{
+		width:900px;
+		height:500px;
+		background:black;
+		color:purple;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:50px;
+	}
+	.listArea{
+		border:1px solid purple;
+		text-align:center;
+	}
+	.tableArea{
+		width:650px;
+		height:350px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 body, p, div, h1, h2, h3, h4, h5, h6 {
