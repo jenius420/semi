@@ -358,20 +358,13 @@ http://www.templatemo.com/tm-406-flex
             <div class="container">
                 <div class="row">
                     <div class="heading-section col-md-12 text-center">
-                        <h2>notice board</h2>
-                        <p>우리들의 이야기가 궁금해?</p>
+                        <h2>Connect US</h2>
+                        <p>서울의 모든 알바, 알바문</p>
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
-                <div class="row">
-                    <div class="col-md-12">
-                       <div class="board-wrapper">
-                            <div id="board" class="board"></div>
-                        </div> <!-- /.googlemap-wrapper -->
-                    </div> <!-- /.col-md-12 -->
-                </div> <!-- /.row -->
-                <div class="row">
-                    <div class="col-md-7 col-sm-6">
-                        <p>
+                <div class="row" >
+                    <div class="col-md-7" style="text-align:center" >
+                        <p >
                             (주) 돈조네트웍스 <br>                                         
                             사업자등록번호 : 123-12-123456 | 부가통신사업 : 제 021047호 <br>              
                             통신판매업신고 : 제2019-서울동작-07290호 <br>                                    
@@ -388,25 +381,7 @@ http://www.templatemo.com/tm-406-flex
                         </ul>
                         <!-- spacing for mobile viewing --><br><br>
                     </div> <!-- /.col-md-7 -->
-                    <div class="col-md-5 col-sm-6">
-                        <div class="contact-form">
-                            <form method="post" name="contactform" id="contactform">
-                                <p>
-                                    <input name="name" type="text" id="name" placeholder="Name">
-                                </p>
-                                <p>
-                                    <input name="email" type="text" id="email" placeholder="Email"> 
-                                </p>
-                                <p>
-                                    <input name="subject" type="text" id="subject" placeholder="제목"> 
-                                </p>
-                                <p>
-                                    <textarea name="comments" id="comments" placeholder="문의 사항"></textarea>    
-                                </p>
-                                <input type="submit" class="mainBtn" id="submit" value="Send Message">
-                            </form>
-                        </div> <!-- /.contact-form -->
-                    </div> <!-- /.col-md-5 -->
+                   
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
