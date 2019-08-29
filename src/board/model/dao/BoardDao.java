@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import board.model.vo.Board;
+import common.model.vo.Attachment;
 import empService.model.vo.Emp;
 
 public class BoardDao {
@@ -195,6 +196,85 @@ private Properties prop = new Properties();
 		
 		return b;
 		
+		
+	}
+	
+	
+	/**
+	 *  게시글 작성하기
+	 * @param conn
+	 * @param b
+	 * @return
+	 */
+	public int insertBoard(Connection conn, Board b) {
+		
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, b.getTitle());
+			pstmt.setInt(2, b.geteNum());
+			pstmt.setString(3, b.getbBody());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	/**
+	 * 	게시글 사진올리기
+	 * @param conn
+	 * @param fileList
+	 * @return
+	 */
+	public int insertAttachment(Connection conn, ArrayList<Attachment> fileList) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertAttachment");
+		
+		try {
+			
+			for(int i=0; i<fileList.size(); i++) {
+				
+				Attachment at = fileList.get(i);
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, at.getOriginName());
+				pstmt.setString(2, at.getChangeName());
+				pstmt.setString(3, at.getFilePath());
+				
+				result = pstmt.executeUpdate();
+				
+				if(result <= 0) {
+					break;
+				}
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 		
 	}
 	
