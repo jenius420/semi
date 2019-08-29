@@ -1,6 +1,6 @@
 <%@page import="main.model.vo.Main"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="member.model.vo.Member"%>
+<%-- <%@page import="member.model.vo.Member"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,7 +9,7 @@
 	String contextPath = request.getContextPath();
 	
 	// 로그인 세션
-	Member loginUser = (Member)session.getAttribute("loginUser") ;
+	/* Member loginUser = (Member)session.getAttribute("loginUser") ; */
 
 %>
 
@@ -67,7 +67,7 @@
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         
-
+<%-- 
                                         <% if(loginUser == null){ %>
                                         <li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
@@ -77,7 +77,7 @@
 
                                         
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
-                                        
+                                         --%>
                                       
 
                                         <li><a href="#location">지역별</a></li>
