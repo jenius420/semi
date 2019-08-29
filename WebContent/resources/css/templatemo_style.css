@@ -304,8 +304,17 @@ hr {
   text-transform: uppercase;
   color: purple;
   font-size: 20px;
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
 }
+
+#test {
+	width:100%;
+	border:none;
+	margin-top:5%;
+	background:#f2e6ff;
+	border-radius:10%;
+}
+
 
 #search{/*수정*/
   width:10%;
