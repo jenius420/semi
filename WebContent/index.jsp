@@ -9,7 +9,7 @@
 	String contextPath = request.getContextPath();
 	
 	// 로그인 세션
-	// Member loginUser = (Member)session.getAttribute("loginUser") ;
+	/* Member loginUser = (Member)session.getAttribute("loginUser") ; */
 
 %>
 
@@ -162,6 +162,7 @@ http://www.templatemo.com/tm-406-flex
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
+                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend1.png" alt="">
@@ -176,6 +177,8 @@ http://www.templatemo.com/tm-406-flex
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend2.png" alt="">
@@ -190,6 +193,8 @@ http://www.templatemo.com/tm-406-flex
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend3.png" alt="">
@@ -204,6 +209,8 @@ http://www.templatemo.com/tm-406-flex
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
                             <img src="resources/images/recomend4.png" alt="">
@@ -218,6 +225,7 @@ http://www.templatemo.com/tm-406-flex
                             </div> <!-- /.team-overlay -->
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
+                                 	</a>
                 </div> <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 text-center">
