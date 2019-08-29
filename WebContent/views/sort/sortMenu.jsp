@@ -36,7 +36,10 @@
 
 	<script>
 	
-		
+		$(function(){
+			
+			
+		}
 	
 	</script>
 </body>
