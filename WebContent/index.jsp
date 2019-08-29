@@ -162,70 +162,67 @@ http://www.templatemo.com/tm-406-flex
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
-                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
+                                	
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                   	<a href="resources/images/recomend1.png" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend1.png" alt="">
                             <div class="team-overlay">
                                 <h3>BurgerKing</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    	<i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
+                                 	
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                    <a href="resources/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend2.png" alt="">
                             <div class="team-overlay">
                                 <h3>Starbucks</h3>
                                 <span>제조업</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    	<i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
+                                 	
+                                 	
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                    <a href="resources/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend3.png" alt="">
                             <div class="team-overlay">
                                 <h3>McDonald's</h3>
                                 <span>판매업</span>
-                                <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
-                                </ul>
+                                    	<i class="fa fa-search"></i>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
+                                 	
+                                 	
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                    <a href="resources/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend4.png" alt="">
                             <div class="team-overlay">
                                 <h3>KFC</h3>
                                 <span>사무직</span>
                                 <ul class="social">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-twitter"></a></li>
-                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    	<i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
+                                 	
                 </div> <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 text-center">
