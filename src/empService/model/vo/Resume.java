@@ -14,6 +14,7 @@ public class Resume {
 	private String district;
 	private int typeNum;
 	private String type;
+	private String category;
 	private String comment;
 	private Date updateDate;
 	private String invalid;
@@ -31,7 +32,7 @@ public class Resume {
 	
 
 	public Resume(int rNum, int empNum, String eName, String address, String phone, String email, int districtNum,
-			String district, int typeNum, String type, String comment, Date updateDate, String invalid,
+			String district, int typeNum, String type, String category, String comment, Date updateDate, String invalid,
 			String desireForm, int desireIncome, String openSet, String edu, int pNum, String saveName) {
 		super();
 		this.rNum = rNum;
@@ -44,6 +45,7 @@ public class Resume {
 		this.district = district;
 		this.typeNum = typeNum;
 		this.type = type;
+		this.category = category;
 		this.comment = comment;
 		this.updateDate = updateDate;
 		this.invalid = invalid;
@@ -59,7 +61,7 @@ public class Resume {
 
 	
 	public Resume(int rNum, int empNum, String eName, String address, String phone, String email, int districtNum,
-			String district, int typeNum, String type, String comment, Date updateDate, String invalid,
+			String district, int typeNum, String type, String category, String comment, Date updateDate, String invalid,
 			String desireForm, int desireIncome, String openSet, String edu) {
 		super();
 		this.rNum = rNum;
@@ -72,6 +74,7 @@ public class Resume {
 		this.district = district;
 		this.typeNum = typeNum;
 		this.type = type;
+		this.category = category;
 		this.comment = comment;
 		this.updateDate = updateDate;
 		this.invalid = invalid;
@@ -247,6 +250,16 @@ public class Resume {
 
 	public void setSaveName(String saveName) {
 		this.saveName = saveName;
+	}
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="emp.model.vo.Emp, owner.model.vo.Owner"%>
+    pageEncoding="UTF-8" import="empService.model.vo.Emp, ownerService.model.vo.Owner"%>
 <%
 	ArrayList<Emp> empList = (ArrayList<Emp>)request.getAttribute("empList");
 	ArrayList<Owner> ownerList = (ArrayList<Owner>)request.getAttribute("ownerList");

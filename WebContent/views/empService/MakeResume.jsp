@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="emp.model.vo.Emp, java.util.ArrayList, common.model.vo.District, common.model.vo.JobType"%>
+	pageEncoding="UTF-8" import="empService.model.vo.Emp, java.util.ArrayList, common.model.vo.District, common.model.vo.JobType"%>
 
 <%	
 	Emp emp = (Emp)request.getSession().getAttribute("emp");
 	String eName = emp.geteName();
-	int phone = emp.getPhone();
+	String phone = emp.getPhone();
 	String address = emp.getAddress();
 	String email = emp.getEmail();
 	
 	ArrayList<District> dList = (ArrayList<District>)request.getAttribute("dList");
 	ArrayList<JobType> tList = (ArrayList<JobType>)request.getAttribute("tList");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +65,7 @@
 				  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>';">개인정보 수정하기</button>
 				</div>
 				<div class='form-row'>	
-				  <label class='lLabel'>전화번호</label><p class="rLabel"><%=phone %></p>
+				  <label class='lLabel'>전화번호</label><p class="rLabel"><%=emp.getPhone() %></p>
 				</div>
 				<div class='form-row'>
 				  <label class='lLabel'>주소</label> <p class="rLabel"><%=address %></p>

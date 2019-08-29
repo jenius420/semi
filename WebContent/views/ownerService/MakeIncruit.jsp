@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="owner.model.vo.Owner"%>
+    import="ownerService.model.vo.Owner"%>
 <%	
 	Owner owner= (Owner) session.getAttribute("loginUser");
 
 	String opName = owner.getOpName(); // 업체명
-	String type = owner.getType(); // 업직종
+	String type = owner.getTypeNum(); // 업직종
 	String oName = owner.getoName(); // 업자명
-	int phone = owner.getPhone(); // 전화번호
+	String phone = owner.getPhone(); // 전화번호
 
 %>
 <!DOCTYPE html >

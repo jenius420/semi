@@ -54,7 +54,7 @@ public class ManageMemDao {
 				emp.setEmpNum(rs.getInt("ENUM"));
 				emp.seteId(rs.getString("EID"));
 				emp.seteName(rs.getString("ENAME"));
-				emp.setEcNum(rs.getInt("ECNUM"));
+				emp.setEcNum(rs.getString("ECNUM"));
 				emp.setPhone(rs.getString("PHONE"));
 				emp.setEmail(rs.getString("EMAIL"));
 				emp.setInvalid(rs.getString("INVALIDID"));

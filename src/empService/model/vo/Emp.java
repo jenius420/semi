@@ -7,7 +7,7 @@ public class Emp {
 	private String eId;
 	private String ePwd;
 	private String eName;
-	private int ecNum;
+	private String ecNum;
 	private int dongNum;
 	private int roadNum;
 	private String address;
@@ -23,7 +23,7 @@ public class Emp {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Emp(int empNum, String eId, String ePwd, String eName, int ecNum, int dongNum, int roadNum, String address,
+	public Emp(int empNum, String eId, String ePwd, String eName, String ecNum, int dongNum, int roadNum, String address,
 			String phone, String email, String mailAccept, String smsAccept, String invalid, int warningCount) {
 		super();
 		this.empNum = empNum;
@@ -74,11 +74,11 @@ public class Emp {
 		this.eName = eName;
 	}
 
-	public int getEcNum() {
+	public String getEcNum() {
 		return ecNum;
 	}
 
-	public void setEcNum(int ecNum) {
+	public void setEcNum(String ecNum) {
 		this.ecNum = ecNum;
 	}
 

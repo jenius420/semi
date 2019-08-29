@@ -306,7 +306,7 @@ public class EmpServiceDao {
 					emp.seteId(rs.getString("EID"));
 					emp.setePwd(rs.getString("EPWD"));
 					emp.seteName(rs.getString("ENAME"));
-					emp.setEcNum(rs.getInt("ECNUM"));
+					emp.setEcNum(rs.getString("ECNUM"));
 					emp.setDongNum(rs.getInt("DONGNUM"));
 					emp.setRoadNum(rs.getInt("ROADNUM"));
 					emp.setAddress(rs.getString("EADDRESS"));
