@@ -1,6 +1,6 @@
 <%@page import="main.model.vo.Main"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="member.model.vo.Member"%>
+<%-- <%@page import="member.model.vo.Member"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,7 +9,7 @@
 	String contextPath = request.getContextPath();
 	
 	// 로그인 세션
-	Member loginUser = (Member)session.getAttribute("loginUser") ;
+	// Member loginUser = (Member)session.getAttribute("loginUser") ;
 
 %>
 
@@ -30,6 +30,8 @@
         <title>Donjo - Albamoon site</title>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         
@@ -59,21 +61,19 @@
                                 <div class="logo-wrapper col-md-2 col-sm-2">
                                 </div> <!-- /.logo-wrapper -->                                
                                 <div class="search-wrapper">
-                                    <h1>
-                                        <a href="#" class="search" style="font-size:2em;">Search</a>
-                                    </h1>
+                                 	<!-- <a href="#" class="search" style="font-size:1em;">Search</a> -->
                                 </div> <!-- /.search-wrapper  -->
                                <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         
 
-                                        <% if(loginUser == null){ %>
+                                       <%--  <% if(loginUser == null){ %>
                                         <li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
                                         <%}else{ %>
                                         <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
-                                        <%} %>
+                                        <%} %> --%>
 
                                         
                                         <li class="active" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')"><a href="#">Login</a></li>
@@ -154,9 +154,9 @@
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
-                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend1.png" alt="" onclick="locatoion.href='detail'">
                             <div class="team-overlay">
                                 <h3>BurgerKing</h3>
@@ -165,12 +165,12 @@
                                     <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend2.png" alt="">
                             <div class="team-overlay">
                                 <h3>Starbucks</h3>
@@ -179,12 +179,12 @@
                                     <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend3.png" alt="">
                             <div class="team-overlay">
                                 <h3>McDonald's</h3>
@@ -193,12 +193,12 @@
                                     <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
-                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                     <div class="team-member col-md-3 col-sm-6">
                         <div class="member-thumb">
+                                 	<a href="상세페이지로~~~~~~~~~~" data-rel="lightbox" class="expand">
                             <img src="resources/images/recomend4.png" alt="">
                             <div class="team-overlay">
                                 <h3>KFC</h3>
@@ -207,9 +207,9 @@
                                     <i class="fa fa-search"></i>
                                 </ul>
                             </div> <!-- /.team-overlay -->
+                                 	</a>
                         </div> <!-- /.member-thumb -->
                     </div> <!-- /.team-member -->
-                                 	</a>
                 </div> <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 text-center">
