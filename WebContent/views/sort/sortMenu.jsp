@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%
+	/* ArrayList<> list = (ArrayList<>)request.getAttribute("list"); */ /* 구인글 리스트 넣기 */
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,10 +17,6 @@
  	div{
  		float:right;
  	}
- 	.sort{
- 		color:purple;
- 		font-weight:bold;
- 	}
  	.sorta{
  		color:purple;
  	}
@@ -27,16 +27,17 @@
 <body>
 
 	<div>
-		<a class="sort">정렬조건</a>
-	       <ul>
-	         <li><a href="" class="sorta" onclick="">등록일순</a></li>
-	         <li><a href="" class="sorta" onclick="">시급순</a></li>
-	         <li><a href="" class="sorta" onclick="">일급순</a></li>
-	         <li><a href="" class="sorta" onclick="">주급순</a></li>
-	         <li><a href="" class="sorta" onclick="">월급순</a></li>
-	         <li><a href="" class="sorta" onclick="">연봉순</a></li>
-	     </ul>
+       <a href="" class="sorta" onclick="">등록일순</a>
+       <a href="" class="sorta" onclick="">시급순</a>
+       <a href="" class="sorta" onclick="">일급순</a>
+       <a href="" class="sorta" onclick="">월급순</a>
+       <a href="" class="sorta" onclick="">연봉순</a>
 	</div>
 
+	<script>
+	
+		
+	
+	</script>
 </body>
 </html>
