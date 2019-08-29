@@ -11,7 +11,7 @@ public class MemberService {
 	
 
 	/**
-	 * °³ÀÎ ·Î±×ÀÎ
+	 * ê°œì¸ íšŒì›ê°€ì…
 	 * @param id
 	 * @param pwd
 	 * @return
@@ -29,7 +29,7 @@ public class MemberService {
 
 	
 	/**
-	 * »çÀå ·Î±×ÀÎ
+	 * ì‚¬ì—…ì íšŒì›ê°€ì…
 	 * @param id
 	 * @param pwd
 	 * @return
@@ -43,6 +43,17 @@ public class MemberService {
 		close(conn);
 		
 		return loginUser;
+	}
+
+
+	/**
+	 * ê°œì¸ íšŒì› ê°€ì…
+	 * @param mem
+	 * @return
+	 */
+	public int empInsert(Member mem) {
+		
+		return 0;
 	}
 	
 	

@@ -40,13 +40,13 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		
-		if(kind >= 1) {
-			// °³ÀÎ°í°´ Ã¼Å© ·Î±×ÀÎ
+		if(kind == 1) {
+			// ê°œì¸ ë¡œê·¸ì¸
 			Member loginUser = new MemberService().loginEmp(id, pwd);
 			if(loginUser != null) {
 				HttpSession session = request.getSession();
 				
-				session.setMaxInactiveInterval(600);
+				//session.setMaxInactiveInterval(600);
 				
 				session.setAttribute("loginUser", loginUser);
 				
@@ -54,12 +54,12 @@ public class LoginServlet extends HttpServlet {
 			}
 			
 		}else {
-			// ±â¾÷°í°´ Ã¼Å© ·Î±×ÀÎ
+			// ì‚¬ì—…ì ë¡œê·¸ì¸
 			Member loginUser = new MemberService().loginOwn(id, pwd);
 			if(loginUser != null) {
 				HttpSession session = request.getSession();
 				
-				session.setMaxInactiveInterval(600);
+				//session.setMaxInactiveInterval(600);
 				
 				session.setAttribute("loginUser", loginUser);
 				

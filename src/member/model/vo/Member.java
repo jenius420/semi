@@ -2,41 +2,45 @@ package member.model.vo;
 
 public class Member {
 	
-	private int eNum;			// °³ÀÎÈ¸¿ø¹øÈ£
-	private String eId;			// °³ÀÎ ¾ÆÀÌµğ
-	private String ePwd;		// °³ÀÎ ºñ¹ø
-	private String eName;		// °³ÀÎ ÀÌ¸§
-	private int ecNum;			// °³ÀÎÁÖ¹ø
-	private int eAddress;		// °³ÀÎ³ª¸ÓÁöÁÖ¼Ò
-	private int warningCount;	// °æ°íÈ½¼ö
-	private int oNum1;			// Èñ¸Á±â¾÷1
-	private int oNum2;			// Èñ¸Á±â¾÷2
-	private int oNum3;			// Èñ¸Á±â¾÷3
-	private int oNum4;			// Èñ¸Á±â¾÷4
-	private int oNum5;			// Èñ¸Á±â¾÷5
+	// ê°œì¸ íšŒì›
+	private int eNum;			// íšŒì›ë²ˆí˜¸
+	private String eId;			// ì•„ì´ë””
+	private String ePwd;		// ë¹„ë°€ë²ˆí˜¸
+	private String eName;		// ì´ë¦„
+	private String ecNum;		// ì£¼ë¯¼ë²ˆí˜¸
+	private String eAddress;	// ë‚˜ë¨¸ì§€ ì£¼ì†Œ
+	private int warningCount;	// ê²½ê³ íšŸìˆ˜
+
+
+	// ì‚¬ì—…ì íšŒì›
+	private int oNum;			// íšŒì›ë²ˆí˜¸
+	private String oId;			// ì•„ì´ë””
+	private String oPwd;		// ë¹„ë°€ë²ˆí˜¸
+	private String opName;		// ì‚¬ì—…ì¥ ëª…
+	private int opNum;			// ì‚¬ì—…ì ë²ˆí˜¸
+	private String opAddress;	// ë‚˜ë¨¸ì§€ ì£¼ì†Œ
+	private String oName;		// ì´ë¦„
+	private String otel;		// ì‚¬ì—…ì¥ ì „í™”ë²ˆí˜¸
+	private String ocnum;			// ì‚¬ì—…ì ì£¼ë¯¼ë²ˆí˜¸
+	private int typeNum;		// ì—…ì§ì¢… ë²ˆí˜¸ 
+	private String checkoNum;	// ì‚¬ì—…ìë²ˆí˜¸ í™•ì¸ ì—¬ë¶€
 	
 	
-	private int oNum;			// »ç¾÷ÀÚÈ¸¿ø¹øÈ£
-	private String oId;			// »ç¾÷ÀÚ ¾ÆÀÌµğ
-	private String oPwd;		// »ç¾÷ÀÚ ºñ¹ø
-	private String opName;		// »ç¾÷Àå¸í
-	private int opNum;			// »ç¾÷Àå¹øÈ£
-		
+	// ê³µí†µ
 	
-	private String opAddress;	// »ç¾÷Àå³ª¸ÓÁöÁÖ¼Ò
-	private String oName;		// »ç¾÷ÀÚ ÀÌ¸§
-	private String otel;		// »ç¾÷Àå ÀüÈ­¹øÈ£
-	private int ocnum;			// »ç¾÷ÀÚ ÁÖ¹ø
-	private int typeNum;		// ¾÷Á÷Á¾¹øÈ£
-	private String checkoNum;	// »ç¾÷ÀÚ ¹øÈ£ È®ÀÎ ¿©ºÎ
-	
-	
-	private int dongNum;		// µ¿¹øÈ£(°øÅë)
-	private String phone;		// Æù¹øÈ£(°øÅë)
-	private String email;		// ÀÌ¸ŞÀÏ(°øÅë)
-	private String mailAccept;	// ¸ŞÀÏ ¼ö½Å µ¿ÀÇ(°øÅë)
-	private String smsAccept;	// sms¼ö½Åµ¿ÀÇ(°øÅë)
-	private String invalidId;	// Å»ÅğÀ¯¹«(°øÅë)
+	private int dongNum;		// ë™ ë²ˆí˜¸
+	private int roadNum;		// ë„ë¡œëª… ë²ˆí˜¸
+	private String phone;		// í°ë²ˆí˜¸
+	private String email;		// ì´ë©”ì¼
+	private String mailAccept;	// ë©”ì¼ ìˆ˜ì‹  ë™ì˜
+	private String smsAccept;	// smsìˆ˜ì‹ ë™ì˜
+	private String invalidId;	// íƒˆí‡´ ìœ ë¬´
+	//private int dongNum;		
+	//private String phone;		
+	//private String email;		
+	//private String mailAccept;
+	//private String smsAccept;	
+	//private String invalidId;	
 	
 	
 	
@@ -46,28 +50,10 @@ public class Member {
 		super();
 	}
 	
-	
-	// °³ÀÎ È¸¿ø °¡ÀÔ
-	public Member(int oNum, String oId, String oPwd, String eName, int ecNum, String phone, String email, String mailAccept,
-			String smsAccept, String invalidId) {
-		super();
-		this.oNum = oNum;
-		this.oId = oId;
-		this.oPwd = oPwd;
-		this.eName = eName;
-		this.ecNum = ecNum;
-		this.phone = phone;
-		this.email = email;
-		this.mailAccept = mailAccept;
-		this.smsAccept = smsAccept;
-		this.invalidId = invalidId;
-	}
 
-
-	// °³ÀÎÈ¸¿ø
-	public Member(int eNum, String eId, String ePwd, String eName, int ecNum, int dongNum, int eAddress, String phone,
-			String email, String mailAccept, String smsAccept, String invalidId, int warningCount, int oNum1, int oNum2, int oNum3,
-			int oNum4, int oNum5) {
+	// ê°œì¸
+	public Member(int eNum, String eId, String ePwd, String eName, String ecNum, int dongNum, int roadNum, String eAddress,
+			String phone, String email, String mailAccept, String smsAccept, String invalidId, int warningCount) {
 		super();
 		this.eNum = eNum;
 		this.eId = eId;
@@ -75,6 +61,7 @@ public class Member {
 		this.eName = eName;
 		this.ecNum = ecNum;
 		this.dongNum = dongNum;
+		this.roadNum = roadNum;
 		this.eAddress = eAddress;
 		this.phone = phone;
 		this.email = email;
@@ -82,17 +69,31 @@ public class Member {
 		this.smsAccept = smsAccept;
 		this.invalidId = invalidId;
 		this.warningCount = warningCount;
-		this.oNum1 = oNum1;
-		this.oNum2 = oNum2;
-		this.oNum3 = oNum3;
-		this.oNum4 = oNum4;
-		this.oNum5 = oNum5;
+	}
+	
+	
+	// ê°œì¸ íšŒì› ê°€ì…
+	public Member(String eId, String ePwd, String eName, String ecNum, int dongNum, int roadNum, String phone,
+			String email, String mailAccept, String smsAccept, String invalidId, int warningCount) {
+		super();
+		this.eId = eId;
+		this.ePwd = ePwd;
+		this.eName = eName;
+		this.ecNum = ecNum;
+		this.dongNum = dongNum;
+		this.roadNum = roadNum;
+		this.phone = phone;
+		this.email = email;
+		this.mailAccept = mailAccept;
+		this.smsAccept = smsAccept;
+		this.invalidId = invalidId;
+		this.warningCount = warningCount;
 	}
 
-	// »ç¾÷ÀÚ
-	public Member(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, String opAddress,
-			String oName, String otel, int ocnum, String phone, String email, int typeNum, String mailAccept,
-			String smsAccept, String invalidId, String checkoNum) {
+	// ì‚¬ì¥
+	public Member(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, int roadNum,
+			String opAddress, String oName, String otel, String ocnum, String phone, String email, int typeNum,
+			String mailAccept, String smsAccept, String invalidId, String checkoNum) {
 		super();
 		this.oNum = oNum;
 		this.oId = oId;
@@ -100,6 +101,7 @@ public class Member {
 		this.opName = opName;
 		this.opNum = opNum;
 		this.dongNum = dongNum;
+		this.roadNum = roadNum;
 		this.opAddress = opAddress;
 		this.oName = oName;
 		this.otel = otel;
@@ -154,22 +156,22 @@ public class Member {
 	}
 
 
-	public int getEcNum() {
+	public String getEcNum() {
 		return ecNum;
 	}
 
 
-	public void setEcNum(int ecNum) {
+	public void setEcNum(String ecNum) {
 		this.ecNum = ecNum;
 	}
 
 
-	public int geteAddress() {
+	public String geteAddress() {
 		return eAddress;
 	}
 
 
-	public void seteAddress(int eAddress) {
+	public void seteAddress(String eAddress) {
 		this.eAddress = eAddress;
 	}
 
@@ -181,56 +183,6 @@ public class Member {
 
 	public void setWarningCount(int warningCount) {
 		this.warningCount = warningCount;
-	}
-
-
-	public int getoNum1() {
-		return oNum1;
-	}
-
-
-	public void setoNum1(int oNum1) {
-		this.oNum1 = oNum1;
-	}
-
-
-	public int getoNum2() {
-		return oNum2;
-	}
-
-
-	public void setoNum2(int oNum2) {
-		this.oNum2 = oNum2;
-	}
-
-
-	public int getoNum3() {
-		return oNum3;
-	}
-
-
-	public void setoNum3(int oNum3) {
-		this.oNum3 = oNum3;
-	}
-
-
-	public int getoNum4() {
-		return oNum4;
-	}
-
-
-	public void setoNum4(int oNum4) {
-		this.oNum4 = oNum4;
-	}
-
-
-	public int getoNum5() {
-		return oNum5;
-	}
-
-
-	public void setoNum5(int oNum5) {
-		this.oNum5 = oNum5;
 	}
 
 
@@ -284,16 +236,6 @@ public class Member {
 	}
 
 
-	public int getDongNum() {
-		return dongNum;
-	}
-
-
-	public void setDongNum(int dongNum) {
-		this.dongNum = dongNum;
-	}
-
-
 	public String getOpAddress() {
 		return opAddress;
 	}
@@ -324,13 +266,53 @@ public class Member {
 	}
 
 
-	public int getOcnum() {
+	public String getOcnum() {
 		return ocnum;
 	}
 
 
-	public void setOcnum(int ocnum) {
+	public void setOcnum(String ocnum) {
 		this.ocnum = ocnum;
+	}
+
+
+	public int getTypeNum() {
+		return typeNum;
+	}
+
+
+	public void setTypeNum(int typeNum) {
+		this.typeNum = typeNum;
+	}
+
+
+	public String getCheckoNum() {
+		return checkoNum;
+	}
+
+
+	public void setCheckoNum(String checkoNum) {
+		this.checkoNum = checkoNum;
+	}
+
+
+	public int getDongNum() {
+		return dongNum;
+	}
+
+
+	public void setDongNum(int dongNum) {
+		this.dongNum = dongNum;
+	}
+
+
+	public int getRoadNum() {
+		return roadNum;
+	}
+
+
+	public void setRoadNum(int roadNum) {
+		this.roadNum = roadNum;
 	}
 
 
@@ -351,16 +333,6 @@ public class Member {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-
-	public int getTypeNum() {
-		return typeNum;
-	}
-
-
-	public void setTypeNum(int typeNum) {
-		this.typeNum = typeNum;
 	}
 
 
@@ -394,27 +366,21 @@ public class Member {
 	}
 
 
-	public String getCheckoNum() {
-		return checkoNum;
-	}
-
-
-	public void setCheckoNum(String checkoNum) {
-		this.checkoNum = checkoNum;
-	}
-
-
-	
 	@Override
 	public String toString() {
 		return "Member [eNum=" + eNum + ", eId=" + eId + ", ePwd=" + ePwd + ", eName=" + eName + ", ecNum=" + ecNum
-				+ ", eAddress=" + eAddress + ", warningCount=" + warningCount + ", oNum1=" + oNum1 + ", oNum2=" + oNum2
-				+ ", oNum3=" + oNum3 + ", oNum4=" + oNum4 + ", oNum5=" + oNum5 + ", oNum=" + oNum + ", oId=" + oId
+				+ ", eAddress=" + eAddress + ", warningCount=" + warningCount + ", oNum=" + oNum + ", oId=" + oId
 				+ ", oPwd=" + oPwd + ", opName=" + opName + ", opNum=" + opNum + ", opAddress=" + opAddress + ", oName="
 				+ oName + ", otel=" + otel + ", ocnum=" + ocnum + ", typeNum=" + typeNum + ", checkoNum=" + checkoNum
-				+ ", dongNum=" + dongNum + ", phone=" + phone + ", email=" + email + ", mailAccept=" + mailAccept
-				+ ", smsAccept=" + smsAccept + ", invalidId=" + invalidId + "]";
+				+ ", dongNum=" + dongNum + ", roadNum=" + roadNum + ", phone=" + phone + ", email=" + email
+				+ ", mailAccept=" + mailAccept + ", smsAccept=" + smsAccept + ", invalidId=" + invalidId + "]";
 	}
+	
+	
+
+
+
+
 	
 	
 	

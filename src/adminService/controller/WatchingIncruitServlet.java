@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import adminService.model.service.ManageIncruitService;
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import ownerService.model.vo.Incruit;
 
 /**

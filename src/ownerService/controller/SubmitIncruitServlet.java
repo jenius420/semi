@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
-import owner.model.vo.Owner;
+import ownerService.model.vo.Owner;
 import ownerService.model.service.IncruitService;
 import ownerService.model.vo.Incruit;
 

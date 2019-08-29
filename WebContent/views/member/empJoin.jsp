@@ -9,7 +9,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<title>개인 회원 가입</title>
 <style>
 
 	form{
@@ -50,8 +52,14 @@
 
 	input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    
-}
+
+	}
+
+	.postcodify:hover{
+		cursor: pointer;
+	}
+
+	
 
 
 
@@ -72,10 +80,7 @@
 		<!--<b>이용약관에 모두 동의 합니다</b>
 		<input type="checkbox">-->
 			
-			<hr>
-			
-			
-			
+			<hr>		
 			
 			<br><br>
 			
@@ -85,41 +90,59 @@
 
 					<tr>
 						<td><b>아이디</b></td>
-						<td><input name="id" id="id" type="text" size="35" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
+						<td><input name="id" id="id" type="text" size="30" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
 						<td width="170px"><label id="idResult"></label></td>
 					</tr>
 
 					<tr>
 						<td><b>비밀번호</b></td>
-						<td><input name="pwd" id="pwd" type="password" size="35" maxlength="16" placeholder="8~16자 영문, 숫자, 특수문자 입력"></input></td>
+						<td><input name="pwd" id="pwd" type="password" size="30" maxlength="16" placeholder="8~16자 영문, 숫자, 특수문자 입력"></input></td>
 						<td><label id="pwdResult1"></label></td>
 					</tr>
 			
 					<tr>
 						<td><b>비밀번호확인</b></td>
-						<td><input id="pwd2" type="password" size="35" maxlength="16" placeholder="비밀번호 확인"></td>		
+						<td><input id="pwd2" type="password" size="30" maxlength="16" placeholder="비밀번호 확인"></td>		
 						<td><label id="pwdResult2"></label></td>
 					</tr>
 
 					<tr>
 						<td><b>성명</b></td>
-						<td><input id="name" name="name" type="text" size="35" maxlength="5" placeholder="성명 입력"></input></td>
+						<td><input id="eName" name="eName" type="text" size="30" maxlength="5" placeholder="성명 입력"></input></td>
 						<td><label id="nameResult"></label></td>
 					</tr>
 				
 					<tr>
 						<td><b>주민등록번호</b></td>
 						<td>
-							<input id="ecNum1" name="ecNum1" type="number" size="13" maxlength="6" placeholder=""></input> - 
-							<input id="ecNum2" name="ecNum2" type="password" size="14" maxlength="7" placeholder=""></input>
+							<input id="ecNum1" name="ecNum1" type="number"  style="width:80px;" maxlength="6"></input> - 
+							<input id="ecNum2" name="ecNum2" type="password" size="11" maxlength="7"></input>
 							<td><label id="ecNumResult"></label></td>
 						</td>
 					</tr>
 
+				</tr>
+				<tr>
+					<td><b>휴대전화</b></td>
+					<td>
+						<select name="phone1">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="019">019</option>
+						</select> - 
+						<input type="number" style="width:55px;" maxlength="4"> -
+						<input type="number" style="width:55px;" maxlength="4">
+					</td>
+					<td></td>
+					
+
 					<tr>
 						<td><b>메일주소</b></td>
 						<td>
-							<input id="email1" name="email1" type="text" size="17"></input> @
+							<input id="email1" name="email1" type="text" size="13"></input> @
 							<select id="email2" name="email2"> 
 								<option value="@gmail.com">gmail.com</option>
 								<option value="@naver.com">naver.com</option>
@@ -130,33 +153,33 @@
 						</td>
 						<td><label id="emailResult"></label></td>
 						
-					</tr>
-					<tr>
-						<td><b>휴대전화</b></td>
-						<td>
-							<select name="phone1">
-								<option value="010">010</option>
-								<option value="011">011</option>
-								<option value="016">016</option>
-								<option value="107">017</option>
-								<option value="108">018</option>
-								<option value="109">019</option>
-							</select> - 
-							<input type="number" size="23" maxlength="4">
-							<input type="number" size="23" maxlength="4">
-						</td>
-						<td></td>
-						
+					
 					</tr>
 
 					<tr>
 						<td></td>
 						<td>
 							<input name="mailaccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
-							<input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의</td>
+							<input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의
 						</td>
 
 					</tr>
+
+					
+					<tr>
+						<td><b>주소</b></td>
+						<td>
+							<input type="text"  size="30" id="postcodify" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="text" size="30" id="details" name="" class="extra_info" placeholder="상세주소"></td>
+						
+					</tr>
+					
+
+
 
 			</table>
 			<br><br>
@@ -175,15 +198,11 @@
 		var pwdResult1 = document.getElementById("pwdResult1");
 		var pwdw = document.getElementById("pwdw");
 		var pwdResult2 = document.getElementById("pwdResult2");
-		var name = document.getElementById("name");
+		var eName = document.getElementById("eName");
 		var nameResult = document.getElementById("nameResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
 		var emailResult = document.getElementById("emailResult");
-
-		function onreset(){
-			
-		}
 
 		$(function(){
 			$(id).on('blur', function(e){
@@ -224,22 +243,23 @@
 				}
 			});
 
-			$(name).on('blur', function(e){
-				if(!(/^[가-힣]{2,5}$/.test(name.value))){
+			$(eName).on('blur', function(e){
+				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
-					name.focus();
+					eName.focus();
 				}
 			});
 
-
-			$(email1).on('blur', function(e){
-				if(!(/^[a-z0-9]{,}$/.test(email1.value))){
-					$(emailResult).text("이메일을 확인 해주세요");
-					email1.value="";
-					email1.focus();
-				}
-
-			});
+			$(".postcodify").postcodifyPopUp({
+        
+			/*
+			insertPostcode5 : "#postcode",
+			insertAddress : "#address",
+			insertDetails : "#details",
+			insertExtraInfo : "#extra_info",
+			hideOldAddresses : false
+			*/
+            }); 
 
 
 

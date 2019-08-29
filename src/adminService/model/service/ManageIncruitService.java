@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import adminService.model.dao.ManageIncruitDao;
 import adminService.model.dao.ManageMemDao;
-import owner.model.vo.Owner;
+import ownerService.model.vo.Owner;
 import ownerService.model.vo.Incruit;
 import ownerService.model.vo.IncruitProduct;
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import empService.model.service.EmpServiceService;
 import ownerService.model.vo.Appliant;
 

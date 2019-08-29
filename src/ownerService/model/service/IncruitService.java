@@ -9,7 +9,7 @@ import static common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import empService.model.vo.Resume;
 
 

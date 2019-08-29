@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 import ownerService.model.vo.Filter;
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import empService.model.vo.Resume;
 import ownerService.model.vo.Appliant;
 import ownerService.model.vo.Incruit;
@@ -380,9 +380,12 @@ public class IncruitDao {
 									rs.getInt("RNUM"),
 									rs.getInt("ENUM"),
 									rs.getString("ENAME"),
-									rs.getInt("PHONE"),
+									rs.getString("EADDRESS"),
+									rs.getString("PHONE"),
 									rs.getString("EMAIL"),
+									rs.getInt("DISTRICTNum"),
 									rs.getString("DISTRICTNAME"),
+									rs.getInt("TYPENUM"),
 									rs.getString("TYPENAME"),
 									rs.getString("COMMENT"),
 									rs.getDate("UPDATEDATE"),
@@ -390,9 +393,7 @@ public class IncruitDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNAME"),
-									rs.getInt("PNUM"),
-									rs.getString("SAVENAME")
+									rs.getString("FINALEDUNUM")
 									);
 				list.add(resume);
 			}
@@ -428,9 +429,12 @@ public class IncruitDao {
 									rs.getInt("RNUM"),
 									rs.getInt("ENUM"),
 									rs.getString("ENAME"),
-									rs.getInt("PHONE"),
+									rs.getString("EADDRESS"),
+									rs.getString("PHONE"),
 									rs.getString("EMAIL"),
+									rs.getInt("DISTRICTNum"),
 									rs.getString("DISTRICTNAME"),
+									rs.getInt("TYPENUM"),
 									rs.getString("TYPENAME"),
 									rs.getString("COMMENT"),
 									rs.getDate("UPDATEDATE"),
@@ -438,9 +442,7 @@ public class IncruitDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNAME"),
-									rs.getInt("PNUM"),
-									rs.getString("SAVENAME")
+									rs.getString("FINALEDUNUM")
 									);
 			}
 			

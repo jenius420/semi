@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import adminService.model.dao.ManageMemDao;
 import board.model.dao.BoardDao;
 import board.model.vo.Board;
-import emp.model.vo.Emp;
+import common.model.vo.Attachment;
+import empService.model.vo.Emp;
 
 import static common.JDBCTemplate.*;
 
@@ -65,6 +66,25 @@ public class BoardService {
 		close(conn);
 		
 		return b;
+	}
+	
+	public int insertBoard(Board b, ArrayList<Attachment> fileList ) {
+		
+Connection conn = getConnection();
+		
+		int result1 = new BoardDao().insertBoard(conn, b);
+		int result2 = new BoardDao().insertAttachment(conn, fileList);
+		
+		if(result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result1;
+		
 	}
 
 }

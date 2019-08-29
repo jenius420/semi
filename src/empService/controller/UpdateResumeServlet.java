@@ -16,7 +16,7 @@ import com.oreilly.servlet.MultipartRequest;
 
 import common.model.vo.Attachment;
 import common.model.vo.MyFileRenamePolicy;
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
 

@@ -9,14 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import emp.model.vo.Emp;
-import empService.model.vo.EmpEvaluation;
-import empService.model.vo.EmpEvaluationBefore;
-import empService.model.vo.HopeEnt;
-import empService.model.vo.Resume;
-import owner.model.vo.Owner;
+import empService.model.vo.*;
 import ownerService.model.vo.Appliant;
-import ownerService.model.vo.Incruit;
+import ownerService.model.vo.*;
 
 import static common.JDBCTemplate.*;
 
@@ -285,6 +280,55 @@ public class EmpServiceDao {
 		}
 
 		return result;
+	}
+	
+	public Emp selectEmp(Connection conn, int eNum) {
+		
+		Emp emp = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+				
+		String sql = prop.getProperty("selectEmp");
+		
+		try {
+						
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, eNum);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					emp = new Emp();
+					
+					emp.setEmpNum(rs.getInt("ENUM"));
+					emp.seteId(rs.getString("EID"));
+					emp.setePwd(rs.getString("EPWD"));
+					emp.seteName(rs.getString("ENAME"));
+					emp.setEcNum(rs.getString("ECNUM"));
+					emp.setDongNum(rs.getInt("DONGNUM"));
+					emp.setRoadNum(rs.getInt("ROADNUM"));
+					emp.setAddress(rs.getString("EADDRESS"));
+					emp.setPhone(rs.getString("PHONE"));
+					emp.setEmail(rs.getString("EMAIL"));
+					emp.setMailAccept(rs.getString("MAILACCEPT"));
+					emp.setSmsAccept(rs.getString("SMSACCEPT"));
+					emp.setInvalid(rs.getString("INVALIDID"));
+					emp.setWarningCount(rs.getInt("WARNINGCOUNT"));
+
+				}
+		
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return emp;
+		
 	}
 	
 

@@ -138,13 +138,19 @@ input[type="submit"] {
   -webkit-appearance: button;
 }
 
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
 
+input[type="search"]:-webkit-search-decoration {
+  -webkit-appearance: none;
+}
 
 .search{
   border: violet;
-  font-size: 50px;
-  padding-top: 50%;
-  margin-top: 50%;
 }
 
 textarea {
@@ -290,11 +296,12 @@ hr {
   width: 16%;
   display: inline-block;
   overflow: hidden;
-  padding-left: 130px;
+  /* padding-left: 10%; */
+  padding-top: 2%;
   line-height: 100px;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   color: purple;
-  font-size: 100px;
+  font-size: 50px;
 }
 
 #search{/*수정*/
@@ -657,20 +664,20 @@ hr {
   visibility: visible;
 }
 
-.team-recomend {
+.team-member {
   margin-bottom: 30px;
 }
-.team-recomend .recomend-thumb {
+.team-member .member-thumb {
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
-.team-recomend .recomend-thumb img {
+.team-member .member-thumb img {
   width: 100%;
 }
-.team-recomend .recomend-thumb .team-overlay {
+.team-member .member-thumb .team-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -688,7 +695,7 @@ hr {
   -moz-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
-.team-recomend .recomend-thumb .team-overlay h3 {
+.team-member .member-thumb .team-overlay h3 {
   font-size: 18px;
   text-transform: uppercase;
   color: white;
@@ -697,20 +704,20 @@ hr {
   border-bottom: 1px solid white;
   margin-top: 64px;
 }
-.team-recomend .recomend-thumb .team-overlay span {
+.team-member .member-thumb .team-overlay span {
   text-transform: uppercase;
   font-weight: 300;
   margin-top: 10px;
   display: block;
 }
-.team-recomend .recomend-thumb .team-overlay ul.social {
+.team-member .member-thumb .team-overlay ul.social {
   display: block;
   margin-top: 20px;
 }
-.team-recomend .recomend-thumb .team-overlay ul.social li {
+.team-member .member-thumb .team-overlay ul.social li {
   display: inline-block;
 }
-.team-recomend .recomend-thumb .team-overlay ul.social li a {
+.team-member .member-thumb .team-overlay ul.social li a {
   width: 36px;
   height: 36px;
   background-color: white;
@@ -720,7 +727,7 @@ hr {
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
 }
-.team-recomend .recomend-thumb:hover .team-overlay {
+.team-member .member-thumb:hover .team-overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -767,10 +774,6 @@ hr {
   border: 10px solid #efefef;
 }
 
-.connect{
-	align:center;
-}
-
 .contact-info {
   margin-top: 40px;
 }
@@ -803,44 +806,6 @@ hr {
 #footer {
   margin-top: 130px;
 }
-
-
-
-
-
-
-.outer{
-		width:900px;
-		height:500px;
-		background:black;
-		color:white;
-		margin-left:auto;
-		margin-right:auto;
-		margin-top:50px;
-	}
-	.listArea{
-		border:1px solid white;
-		text-align:center;
-	}
-	.tableArea{
-		width:650px;
-		height:350px;
-		margin-left:auto;
-		margin-right:auto;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 body, p, div, h1, h2, h3, h4, h5, h6 {

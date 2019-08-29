@@ -5,7 +5,7 @@
 
 int rNum = resume.getrNum();
 String eName = resume.geteName();
-int phone = resume.getPhone();
+String phone = resume.getPhone();
 String email = resume.getEmail();
 String district = resume.getDistrict();
 String type = resume.getType();

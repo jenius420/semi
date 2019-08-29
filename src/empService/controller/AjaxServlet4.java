@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import emp.model.vo.Emp;
+import empService.model.vo.Emp;
 
 /**
  * Servlet implementation class AjaxServlet3
