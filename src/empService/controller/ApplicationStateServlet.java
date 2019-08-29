@@ -36,9 +36,10 @@ public class ApplicationStateServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
 		ArrayList<Appliant> list = new EmpServiceService().selectApplicationState(emp.getEmpNum());
+		
 		
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("/views/empService/ApplicationState.jsp").forward(request, response);

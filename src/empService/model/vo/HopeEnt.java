@@ -6,7 +6,7 @@ public class HopeEnt {
 	private int eNum;
 	private int oNum;
 	private String opName;
-	private int phone;
+	private String phone;
 	private String opAddress;
 	private String type;
 	private String deleteornot;
@@ -18,7 +18,7 @@ public class HopeEnt {
 
 
 
-	public HopeEnt(int hNum, int eNum, int oNum, String opName, int phone, String opAddress, String type,
+	public HopeEnt(int hNum, int eNum, int oNum, String opName, String phone, String opAddress, String type,
 			String deleteornot) {
 		super();
 		this.hNum = hNum;
@@ -37,11 +37,11 @@ public class HopeEnt {
 		return hNum;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 

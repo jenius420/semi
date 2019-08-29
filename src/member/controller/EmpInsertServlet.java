@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import javafx.scene.control.Alert;
 import member.model.service.MemberService;
 import member.model.vo.Member;
 
@@ -48,6 +47,29 @@ public class EmpInsertServlet extends HttpServlet {
 		String email = email1 + email2;								// 이메일 결합
 		String maileAccept = request.getParameter("mailAccept");	// 메일수신
 		String smsAccept = request.getParameter("smsAccept");		// 문자수신
+		String address = request.getParameter("address");			// 주소
+		String eAddress = request.getParameter("eAddress");			// 나머지주소
+		
+		
+		String[] splitAddress = address.split(" ");
+		String roadName = 
+				splitAddress[0] + splitAddress[1] + splitAddress[2];// 도로명 본번
+		
+		int roadMain = Integer.parseInt(splitAddress[3]);			// 도로명 본번
+		splitAddress = address.split("-");
+		int roadSub = Integer.parseInt(splitAddress[0]);			// 도로명 부번
+		
+		
+		Member mem = new Member(id, pwd, name, ecNum, eAddress, phone, email, maileAccept, smsAccept);
+		
+		int result = new MemberService().empInsert(mem);
+		
+		if(result > 0) {
+			
+			request.getSession().setAttribute("msg", "회원가입성공");
+			
+			response.sendRedirect(request.getContextPath());
+		}
 		
 		
 		

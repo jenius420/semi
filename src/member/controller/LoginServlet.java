@@ -32,53 +32,53 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int kind = Integer.parseInt(request.getParameter("kind"));
-		String id = request.getParameter("userId");
-		String pwd = request.getParameter("userPwd");
-		
-		
-		
-		if(kind == 1) {
-			// 개인 로그인
-			Member loginUser = new MemberService().loginEmp(id, pwd);
-			if(loginUser != null) {
-				HttpSession session = request.getSession();
-				
-				//session.setMaxInactiveInterval(600);
-				
-				session.setAttribute("loginUser", loginUser);
-				
-				response.sendRedirect(request.getContextPath());				
-			}
-			
-		}else {
-			// 사업자 로그인
-			Member loginUser = new MemberService().loginOwn(id, pwd);
-			if(loginUser != null) {
-				HttpSession session = request.getSession();
-				
-				//session.setMaxInactiveInterval(600);
-				
-				session.setAttribute("loginUser", loginUser);
-				
-				response.sendRedirect(request.getContextPath());				
-			}
-		
-		
-		}
-		
-			
-		
-	
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	int kind = Integer.parseInt(request.getParameter("kind"));
+    	String id = request.getParameter("userId");
+    	String pwd = request.getParameter("userPwd");
+    	
+    	
+    	
+    	if(kind == 1) {
+    		// 개인 로그인
+    		Member loginUser = new MemberService().loginEmp(id, pwd);
+    		if(loginUser != null) {
+    			HttpSession session = request.getSession();
+    			
+    			//session.setMaxInactiveInterval(600);
+    			
+    			session.setAttribute("loginUser", loginUser);
+    			
+    			response.sendRedirect(request.getContextPath());				
+    		}
+    		
+    	}else {
+    		// 사업자 로그인
+    		Member loginUser = new MemberService().loginOwn(id, pwd);
+    		if(loginUser != null) {
+    			HttpSession session = request.getSession();
+    			
+    			//session.setMaxInactiveInterval(600);
+    			
+    			session.setAttribute("loginUser", loginUser);
+    			
+    			response.sendRedirect(request.getContextPath());				
+    		}
+    		
+    		
+    	}
+    	
+    	
+    	
+    	
+    }
+    
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

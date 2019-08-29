@@ -56,7 +56,7 @@ public class EmpEvalService {
 
 		if (result > 0) {
 			
-			int result2 = new EmpEvalDao().updateAppliant(conn, empEval);
+			int result2 = new EmpEvalDao().appliantAddSevalNum(conn, empEval.getApplyNum());
 			
 			if(result2 > 0) {
 				commit(conn);

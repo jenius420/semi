@@ -29,20 +29,14 @@ public class EmpServiceService {
 		return list;
 	}
 	
-	public int cancleAppliant(String[] applyArr) {
+	public int cancleAppliant(int applyNum) {
 		
 		Connection conn = getConnection();
 		
 		int result = 0;
-		
-		for(String s: applyArr) {
+	
+		result = new EmpServiceDao().cancleAppliant(conn, applyNum);
 			
-			result = new EmpServiceDao().cancleAppliant(conn, Integer.parseInt(s));
-			
-			if(result == 0) {
-				break;
-			}
-		}
 		
 		if(result > 0) {
 			commit(conn);

@@ -57,8 +57,6 @@ public class EmpEvalDao {
 				eval.setSevalPoint(rs.getInt("SEVALPOINT"));
 				eval.seteComment(rs.getString("ECOMMENT"));
 				eval.setEnrollDate(rs.getDate("ENROLLDATE"));
-				eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
-				eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
 				
 				list.add(eval);
 				
@@ -98,12 +96,11 @@ public class EmpEvalDao {
 				
 					eval.setApplyNum(rs.getInt("APPLYNUM"));
 					eval.seteNum(rs.getInt("ENUM"));
+					eval.seteNum(rs.getInt("RNUM"));
 					eval.seteNum(rs.getInt("ONUM"));
 					eval.setwNum(rs.getInt("WNUM"));
 					eval.setwTitle(rs.getString("WTITLE"));
 					eval.setOpName(rs.getString("OPNAME"));
-					eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
-					eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
 					
 					list.add(eval);
 		
@@ -149,18 +146,18 @@ public class EmpEvalDao {
 		
 	}
 	
-	public int updateAppliant(Connection conn, EmpEvaluation empEval) {
+	public int appliantAddSevalNum(Connection conn, int applyNum) {
 		
 		int result = 0;
 
 		PreparedStatement pstmt = null;
 
-		String sql = prop.getProperty("updateAppliant");
+		String sql = prop.getProperty("appliantAddSevalNum");
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, empEval.getApplyNum());
+			pstmt.setInt(1, applyNum);
 
 			result = pstmt.executeUpdate();
 
@@ -226,8 +223,6 @@ public class EmpEvalDao {
 					eval.setSevalPoint(rs.getInt("SEVALPOINT"));
 					eval.seteComment(rs.getString("ECOMMENT"));
 					eval.setEnrollDate(rs.getDate("ENROLLDATE"));
-					eval.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
-					eval.setWorkEndTerm(rs.getDate("WORKENDTERM"));
 					
 					list.add(eval);
 		

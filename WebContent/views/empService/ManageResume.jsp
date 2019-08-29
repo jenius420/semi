@@ -28,7 +28,7 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 }
 
 .column2 {
-  width: 20%;
+  width: 30%;
   text-align: center;
 }
 
@@ -38,12 +38,12 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 }
 
 .column4 {
-  width: 20%;
+  width: 15%;
    text-align: center;
 }
 
 .column5 {
-  width: 20%;
+  width: 15%;
    text-align: center;
 }
 
@@ -78,7 +78,7 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 										<th class="cell100 column2">희망업종</th>
 										<th class="cell100 column3">희망급여</th>
 										<th class="cell100 column4">등록일</th>
-										<th class="cell100 column5">이력서 삭제</th>
+										<th class="cell100 column5">이력서 공개여부</th>
 									</tr>
 								</thead>
 							</table>
@@ -91,16 +91,15 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 									<%if(list.isEmpty()){%>
 										<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 									<%}else{ %>
-										<% for(Resume a : list) {%>
-										<tr class="row100 body" onclick="test(<%=a.getrNum()%>);">
+										<% for(Resume a : list) {
+											String openSet = null;
+											if(a.getOpenSet().equals("Y")){openSet = "공개";}else{openSet="비공개";}%>
+										<tr class="row100 body" onclick="selectResume(<%=a.getrNum()%>);">
 											<td class="cell100 column1"><%=a.getDistrict()%></td>
 											<td class="cell100 column2"><%=a.getCategory()%> :: <%=a.getType()%></td>
 											<td class="cell100 column3"><%=a.getDesireForm()%> <%=a.getDesireIncome()%>원</td>
 											<td class="cell100 column4"><%=a.getUpdateDate()%></td>
-											<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteResume();">
-											<form action="" id="detailForm" method="post">
-												<input type="hidden" name="rNum" value="<%= a.getrNum() %>">
-											</form></td>
+											<td class="cell100 column5"><%=openSet%></td>
 										</tr>
 										<%}}%>
 										
@@ -121,29 +120,17 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 			<div class="gs-btn-parent">
 				<button class="gs-btn" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';" >이력서 작성하기</button>
 			</div>
+			
 			<script>
-				function deleteResume(){
-					
-					var con = confirm("정말로 삭제하시겠습니까?");
-					
-					if(con){
-						$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteResume.es");
-						$("#detailForm").submit();
-					}else{
-						return false;
-					}
-				}
 				
-				function test(rNum){
+				function selectResume(rNum){
 					location.href='<%=request.getContextPath()%>/selectResume.es?rNum='+ rNum;
-				}
+					}
 			</script>
+			
+			
 		
-
-			이력서 선텍 selectResume.es input rNum
-			
-			
-			
+		
 		</div> <!-- /메인콘텐트 -->
 		
 	<div id="content-right"></div>

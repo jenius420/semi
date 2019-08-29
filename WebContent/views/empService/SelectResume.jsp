@@ -46,7 +46,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 		
 				<div class='form-row' id="fileArea" style="margin-bottom:20px;">
 				  <label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
-				<img id="titleImg" dth="100" height="100" src="<%= request.getContextPath() %>/<%= at.getChangeName() %>">
+				<img id="titleImg" dth="100" height="100" src="<%=request.getContextPath()%>/resources/uploadFiles/<%= at.getChangeName() %>">
 				  <input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">  
 				  </div>
 
@@ -58,10 +58,10 @@ Attachment at = (Attachment)request.getAttribute("at");
 				  <label class='lLabel'>전화번호</label><p class="rLabel"><%=phone %></p>
 				</div>
 				<div class='form-row'>
-				  <label class='lLabel'>주소</label> <p class="rLabel"><%=address %></p>
+				  <label class='lLabel'>주소</label><p class="rLabel"><%=address %></p>
 				</div>
 				<div class='form-row'>
-				  <label class='lLabel'>이메일</label> <p class="rLabel"><%=email %></p>
+				  <label class='lLabel'>이메일</label><p class="rLabel"><%=email %></p>
 				</div>
 				<div style="height:30px;"></div>
 				
@@ -105,7 +105,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 				<div class='form-row'>
 				  <label class='checkbox-label' for='openSet'>
 				  <%if(openSet.equals("Y")){ %>
-				  	<input id='openSet' name='openSet' type='checkbox' value='Y' checked/>
+				  	<input id='openSet' name='openSet' type='checkbox' value='Y' checked />
 				  <%}else{ %>
 				  	<input id='openSet' name='openSet' type='checkbox' value='Y'/>
 				  <%} %>
@@ -115,8 +115,8 @@ Attachment at = (Attachment)request.getAttribute("at");
 				
 				<div class='form-row'>
 
-				  <button type="button" class="btn" onclick="deleteResume('<%=rNum %>');">삭제</button>
-				  <button type="button" class="btn" onclick="javascript:history.back();">뒤로가기</button>
+				  <button type="button" class="btn" onclick="deleteResume(<%=rNum %>);">삭제</button>
+				  <button type="button" class="btn" onclick="javascript:history.back();" style="margin-left:20px; padding-left:30px; padding-right:30px;">뒤로가기</button>
 				</div>
 				
 			</form>
@@ -132,12 +132,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 			}
 		</script>
 		
-		
-
-	 디컴 수정 updateResume.es input resume,at 
-	 삭제 deleteResume.es input rNum
-	
-	
+	'changeName='+'<%=at.getChangeName()%>'
 			</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>

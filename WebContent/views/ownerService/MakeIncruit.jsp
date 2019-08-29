@@ -5,7 +5,7 @@
 	Owner owner= (Owner) session.getAttribute("loginUser");
 
 	String opName = owner.getOpName(); // 업체명
-	String type = owner.getTypeNum(); // 업직종
+	int type = owner.getTypeNum(); // 업직종
 	String oName = owner.getoName(); // 업자명
 	String phone = owner.getPhone(); // 전화번호
 

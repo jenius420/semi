@@ -45,6 +45,27 @@ onclick="history.go(-1);"
 	}
 </script>
 
+삭제 버튼
+<!--  <input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteResume();">
+											<form action="" id="detailForm" method="post">
+												<input type="hidden" name="rNum" value="<%=  %>">
+											</form>-->
+
+function deleteResume(){
+					
+					var con = confirm("정말로 삭제하시겠습니까?");
+					
+					if(con){
+						$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteResume.es");
+						$("#detailForm").submit();
+					}else{
+						return false;
+					}
+				}
+				
+
+
+
 
 이미지 업로드
 이미지 파일 업로드 form태그에는 enctype="multipart/form-data" 속성을 추가해야 함. input타입은 file임

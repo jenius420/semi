@@ -36,7 +36,7 @@ public class DeleteInterestOwnerServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
 		int eNum = emp.getEmpNum();
 		int oNum = Integer.parseInt(request.getParameter("oNum"));

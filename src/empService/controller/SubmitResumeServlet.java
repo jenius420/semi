@@ -46,7 +46,7 @@ public class SubmitResumeServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Emp emp = (Emp)(request.getSession().getAttribute("emp"));
-		System.out.println(emp.getEmpNum());
+
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 
@@ -55,7 +55,7 @@ public class SubmitResumeServlet extends HttpServlet {
 			String resources = request.getSession().getServletContext().getRealPath("/resources");
 			
 			String savePath = resources + "/uploadFiles/";
-			System.out.println("savePath:" + savePath);
+		
 			MultipartRequest multiRequest =  new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
 			Enumeration<String> files= multiRequest.getFileNames();
@@ -66,10 +66,10 @@ public class SubmitResumeServlet extends HttpServlet {
 			while(files.hasMoreElements()) {
 				
 				String name = files.nextElement();	// files에 담겨있는 파일 하나씩 뽑아내기
-				System.out.println(name);
+				
 				if(multiRequest.getFilesystemName(name) != null) {
 					
-					changeName = savePath + multiRequest.getFilesystemName(name);
+					changeName = multiRequest.getFilesystemName(name);
 					originName = multiRequest.getOriginalFileName(name);
 
 				}
@@ -84,8 +84,7 @@ public class SubmitResumeServlet extends HttpServlet {
 			String desireForm = multiRequest.getParameter("desireForm");
 			int desireIncome = Integer.parseInt(multiRequest.getParameter("desireIncome"));
 			String comment = multiRequest.getParameter("comment");
-			String openSet = (multiRequest.getParameter("openSet")=="Y") ? "Y":"N";
-			String picture = multiRequest.getParameter("");
+			String openSet = (multiRequest.getParameter("openSet").equals("Y")) ? "Y":"N";
 			
 			Resume resume = new Resume();
 			
