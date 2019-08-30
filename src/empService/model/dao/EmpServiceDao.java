@@ -167,8 +167,9 @@ public class EmpServiceDao {
 					he.setOpAddress(rs.getString("OPADDRESS"));
 					he.setPhone(rs.getString("PHONE"));
 					he.setType(rs.getString("TYPENAME"));
+					he.setCategory(rs.getString("CATEGORYNAME"));
 					he.setDeleteornot(rs.getString("DELETEORNOT"));
-
+					
 					list.add(he);
 				}
 
@@ -184,20 +185,94 @@ public class EmpServiceDao {
 		
 	}
 	
-	public int deleteInterestOwnerServlet(Connection conn , int eNum, int oNum) {
+
+	public ArrayList<HopeEnt> addDong(Connection conn, ArrayList<HopeEnt> iList) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("addDong");
+		
+		try {
+				
+				for(HopeEnt hs: iList) {
+					
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, hs.getoNum());
+					
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()) {
+					
+						hs.setOpName(rs.getString("OPNAME"));
+						hs.setOpAddress(rs.getString("OPADDRESS"));
+						hs.setDong(rs.getString("DONG"));
+						hs.setRoadName(rs.getString("RoadName"));
+	
+					}
+				}
+
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return iList;
+	}
+	
+	public ArrayList<Incruit> addDong2(Connection conn, ArrayList<Incruit> iList) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("addDong");
+		
+		try {
+				
+				for(Incruit hs: iList) {
+					
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, hs.getoNum());
+					
+					rs = pstmt.executeQuery();
+					
+					while(rs.next()) {
+					
+						hs.setOpName(rs.getString("OPNAME"));
+						hs.setAddress(rs.getString("OPADDRESS"));
+						hs.setDong(rs.getString("DONG"));
+						hs.setRoadName(rs.getString("RoadName"));
+	
+					}
+				}
+
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return iList;
+	}
+	
+	public int deleteInterestOwner(Connection conn , int hNum) {
 		
 		int result = 0;
 
 		PreparedStatement pstmt = null;
 
-		String sql = prop.getProperty("deleteInterestOwnerServlet");
+		String sql = prop.getProperty("deleteInterestOwner");
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, eNum);
-			pstmt.setInt(2, oNum);
-	
+			pstmt.setInt(1, hNum);
+
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -209,7 +284,7 @@ public class EmpServiceDao {
 		return result;
 	}
 	
-	public ArrayList<Incruit> selectInterestIncruit(Connection conn, ArrayList<HopeEnt> oList) {
+	public ArrayList<Incruit> selectInterestIncruit(Connection conn, ArrayList<HopeEnt> hList) {
 		
 		ArrayList<Incruit> list = new ArrayList<>();	
 		Incruit incruit = null;
@@ -222,10 +297,10 @@ public class EmpServiceDao {
 		
 		try {
 			
-			for(int i=0; i<oList.size(); i++) {
+			for(int i=0; i<hList.size(); i++) {
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, oList.get(i).getoNum());
+				pstmt.setInt(1, hList.get(i).getoNum());
 				
 				rs = pstmt.executeQuery();
 				
@@ -236,10 +311,15 @@ public class EmpServiceDao {
 					incruit.setwNum(rs.getInt("WNUM"));
 					incruit.setwTitle(rs.getString("WTITLE"));
 					incruit.setOpName(rs.getString("OPNAME"));
-					incruit.setWorkStartTerm(rs.getDate("WORKSTARTTERM"));
-					incruit.setWorkEndTerm(rs.getDate("WORKENDTERM"));
+					incruit.setTermName(rs.getString("TERMNAME"));
+					incruit.setWorkDay(rs.getString("WORKDAY"));
+					incruit.setWorkTime(rs.getString("WORKTIME"));
+					incruit.setCategory(rs.getString("CATEGORYNAME"));
+					incruit.setType(rs.getString("TYPENAME"));
 					incruit.setSalaryForm(rs.getString("WORKFORM"));
 					incruit.setSalary(rs.getInt("SALARY"));
+					incruit.setDoneDate(rs.getDate("ENDDATE"));
+					incruit.setAddress(rs.getString("OPADDRESS"));
 				
 					list.add(incruit);
 				}
@@ -255,6 +335,7 @@ public class EmpServiceDao {
 		return list;
 		
 	}
+	
 	
 	public int apply(Connection conn, int wNum, int rNum) {
 		

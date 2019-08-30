@@ -37,14 +37,13 @@ public class DeleteInterestOwnerServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Emp emp = (Emp)request.getSession().getAttribute("emp");
+
+		int hNo = Integer.parseInt(request.getParameter("hNo"));
 		
-		int eNum = emp.getEmpNum();
-		int oNum = Integer.parseInt(request.getParameter("oNum"));
-		
-		int result = new EmpServiceService().deleteInterestOwnerServlet(eNum, oNum);
+		int result = new EmpServiceService().deleteInterestOwner(hNo);
 		
 		if(result > 0) {
-			response.sendRedirect("/interestOwner.es");
+			response.sendRedirect("interestOwner.es");
 		}else {
 			request.setAttribute("msg", "요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);

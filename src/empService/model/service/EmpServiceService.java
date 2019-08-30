@@ -53,20 +53,21 @@ public class EmpServiceService {
 		Connection conn = getConnection();
 
 		ArrayList<HopeEnt> iList = new EmpServiceDao().selectInterestOwner(conn, empNum);
+		ArrayList<HopeEnt> hList = new EmpServiceDao().addDong(conn, iList);
 		
 		close(conn);
 
-		return iList;
+		return hList;
 		
 	}
 	
-	public int deleteInterestOwnerServlet(int eNum, int oNum) {
+	public int deleteInterestOwner(int hNum) {
 		
 		Connection conn = getConnection();
 		
 		int result = 0;
 		
-		result = new EmpServiceDao().deleteInterestOwnerServlet(conn, eNum, oNum);
+		result = new EmpServiceDao().deleteInterestOwner(conn, hNum);
 
 		if(result > 0) {
 			commit(conn);
@@ -78,15 +79,16 @@ public class EmpServiceService {
 		
 	}
 	
-	public ArrayList<Incruit> selectInterestIncruit(ArrayList<HopeEnt> oList) {
+	public ArrayList<Incruit> selectInterestIncruit(ArrayList<HopeEnt> hList) {
 		
 		Connection conn = getConnection();
 
-		ArrayList<Incruit> list = new EmpServiceDao().selectInterestIncruit(conn, oList);
+		ArrayList<Incruit> iList = new EmpServiceDao().selectInterestIncruit(conn, hList);
+		ArrayList<Incruit> iList2 = new EmpServiceDao().addDong2(conn, iList);
 		
 		close(conn);
 
-		return list;
+		return iList2;
 	}
 	
 	public int apply(int wNum, int rNum) {

@@ -72,7 +72,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 								<thead>
 									<tr class="row100 head">
 										<th class="cell100 column1">제목</th>
-										<th class="cell100 column2">사업자</th>
+										<th class="cell100 column2">업체명</th>
 										<th class="cell100 column3">마감일</th>
 										<th class="cell100 column4">지원일</th>
 										<th class="cell100 column5">지원상태</th>

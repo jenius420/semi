@@ -1,33 +1,30 @@
- package empService.controller;
+package sort.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import empService.model.vo.Emp;
-import empService.model.service.EmpServiceService;
-import empService.model.vo.HopeEnt;
-import ownerService.model.vo.Owner;
-import ownerService.model.vo.Incruit;
+import com.google.gson.Gson;
+
+import sort.model.service.RecruitService;
+import sort.model.vo.Recruit;
 
 /**
- * Servlet implementation class InterestOwnerManageServlet
+ * Servlet implementation class SortAjaxServlet2
  */
-@WebServlet("/interestOwner.es")
-public class InterestOwnerManageServlet extends HttpServlet {
+@WebServlet("/ajax2.do")
+public class SortAjaxServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InterestOwnerManageServlet() {
+    public SortAjaxServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,18 +34,16 @@ public class InterestOwnerManageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("utf-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("emp");
+		String workform = request.getParameter("workform");
 		
-		ArrayList<HopeEnt> hList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(hList);
-
+		ArrayList<Recruit> list = new RecruitService().selectHourly(workform);
 		
-		request.setAttribute("hList", hList);
-		request.setAttribute("wList", wList);
-		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
-
+		request.getRequestDispatcher("views/sort/sortMenu.jsp").forward(request, response);
+	
+		Gson gson = new Gson();
+		gson.toJson(list, response.getWriter());
 	}
 
 	/**
