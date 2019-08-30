@@ -18,9 +18,11 @@
 		/* border: 1px solid black; */
 		width: 650px;
         resize: none;
+		
 	}
 
 	table{
+		
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: auto;
@@ -72,22 +74,22 @@
 
 	
 
-
-	<div class="output">
-		<br>
-		<h2 align="center">개인회원 가입</h2>
+	
+	<div class="output" align="center">
 		
 		<!--<b>이용약관에 모두 동의 합니다</b>
-		<input type="checkbox">-->
+			<input type="checkbox">-->
 			
-			<hr>		
 			
 			<br><br>
 			
 			<form id="joinForm" onsubmit="return joinValidate();" method="post" action="<%= request.getContextPath()%>/empInsert.me ">
-				<table class="table2">
+			
+				<h2>개인회원 가입</h2>
 				
-
+				<hr>		
+				
+				<table  class="table2">
 					<tr>
 						<td><b>아이디</b></td>
 						<td><input name="id" id="id" type="text" size="30" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
@@ -168,13 +170,13 @@
 					
 					<tr>
 						<td><b>주소</b></td>
-						<td>
-							<input type="text"  size="30" id="postcodify" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
+						<td colspan="2">
+							<input type="text" size="80" id="addres" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
 						</td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="text" size="30" id="details" name="" class="extra_info" placeholder="상세주소"></td>
+						<td colspan="2"><input type="text" size="80" id="eAddress" name="" class="extra_info" placeholder="상세주소"></td>
 						
 					</tr>
 					
@@ -210,7 +212,7 @@
 				if(!(/^[a-z0-9]{4,}$/.test(id.value))){
 					$(idResult).text("사용할 수 없는 아이디 입니다.");
 					
-					id.focus();
+					//id.focus();
 								
 				}else{
 					$(idResult).text("사용 가능한 아이디 입니다.");
@@ -225,7 +227,7 @@
 					$(pwdResult1).text("비밀번호를 확인 해주세요.");					
 					pwd.value="";
 					pwd2.value="";
-					pwd.focus();
+					//pwd.focus();
 				}else{
 					$(pwdResult1).text("사용 가능한 비밀번호 입니다.");
 					
@@ -237,7 +239,7 @@
 					$(pwdResult2).text("비밀번호가 일치 하지 않습니다.");
 					pwd.value="";
 					pwd2.value="";
-					pwd.focus();
+					// pwd.focus();
 				}else{
 					$(pwdResult2).text("비밀번호가 일치 합니다.");
 				}
@@ -246,7 +248,7 @@
 			$(eName).on('blur', function(e){
 				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
-					eName.focus();
+					//eName.focus();
 				}
 			});
 

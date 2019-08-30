@@ -73,21 +73,19 @@ public class Member {
 	
 	
 	// 개인 회원 가입
-	public Member(String eId, String ePwd, String eName, String ecNum, int dongNum, int roadNum, String phone,
-			String email, String mailAccept, String smsAccept, String invalidId, int warningCount) {
+	public Member(String eId, String ePwd, String eName, String ecNum, String eAddress, String phone,
+			String email, String mailAccept, String smsAccept) {
 		super();
 		this.eId = eId;
 		this.ePwd = ePwd;
 		this.eName = eName;
 		this.ecNum = ecNum;
-		this.dongNum = dongNum;
-		this.roadNum = roadNum;
+		this.eAddress = eAddress;
 		this.phone = phone;
 		this.email = email;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
-		this.invalidId = invalidId;
-		this.warningCount = warningCount;
+		
 	}
 
 	// 사장

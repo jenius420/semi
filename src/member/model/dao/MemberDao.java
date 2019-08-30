@@ -126,4 +126,46 @@ public class MemberDao {
 		return loginUser;
 	}
 
+
+	/**
+	 * 개인 가입
+	 * @param conn
+	 * @param mem
+	 * @return
+	 */
+	public int empInsert(Connection conn, Member mem) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("empInsert");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mem.geteId());
+			pstmt.setString(2, mem.getePwd());
+			pstmt.setString(3, mem.geteName());
+			pstmt.setString(5, mem.getEcNum());
+			pstmt.setString(6, mem.geteAddress());
+			pstmt.setString(7, mem.getPhone());
+			pstmt.setString(8, mem.getMailAccept());
+			pstmt.setString(9, mem.getSmsAccept());
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	
+	
+	
+	
+	
+	
 }

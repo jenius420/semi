@@ -90,7 +90,7 @@
             <table>
                 <tr>
                     <td>
-                        <div class="btn" onclick="empJoinMember();">
+                        <div class="btn" onclick="empInsert();">
                             <img id="img1" src="../../resources/images/emp.png" alt="">
                             <br>
                             개인회원<br>
@@ -99,7 +99,7 @@
                     </td>
                     
                     <td>
-                        <div class="btn" onclick="ownerJoinMember();">
+                        <div class="btn" onclick="ownInsert();">
                             <img id="img2" src="../../resources/images/owner.png" alt="">
                             <br><br>
                             기업회원 <br>
@@ -116,18 +116,18 @@
         <script>
         
 
-        	function empJoinMember(){
+        	function empInsert(){
         		
         		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
-        		window.opener.location.href = "<%= contextPath %>/empJoin.me";
+        		window.opener.location.href = "<%= contextPath %>/empInsert.me";
         		window.close();
         		
         	}
 
-        	function ownerJoinMember(){
+        	function ownInsert(){
         		
         		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
-        		window.opener.location.href = "<%= contextPath %>/ownerJoin.me";
+        		window.opener.location.href = "<%= contextPath %>/ownInsert.me";
         		
         		window.close();
         		

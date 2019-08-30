@@ -53,7 +53,19 @@ public class MemberService {
 	 */
 	public int empInsert(Member mem) {
 		
-		return 0;
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().empInsert(conn, mem);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			commit(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 	
 	

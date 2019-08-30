@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ownerJoin.me")
 public class OwnerJoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public OwnerJoinServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+	
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public OwnerJoinServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -29,7 +29,7 @@ public class OwnerJoinServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("views/member/ownerJoin.jsp").forward(request, response);
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
