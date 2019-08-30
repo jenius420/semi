@@ -100,15 +100,16 @@
                 <tr>
                     <td><b>휴대전화</b></td>
                     <td>
-                        <select name="phone1">
-                            <option value="010">010</option>
-                            <option value="011">011</option>
-                            <option value="016">016</option>
-                            <option value="107">017</option>
-                            <option value="108">018</option>
-                            <option value="109">019</option>
-                        </select> - 
-                        <input type="number" size="25" maxlength="8">
+                        <select style="width:45px;" name="phone1">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="018">018</option>
+							<option value="019">019</option>
+						</select> - 
+						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4"> -
+						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4">
                     </td>
                 </tr>
 
@@ -176,6 +177,12 @@
             }); 
 
         });
+
+        function maxLengthCheck(object){
+   			if (object.value.length > object.maxLength){
+    			object.value = object.value.slice(0, object.maxLength);
+   			}   
+  		}
 
         
     </script>
