@@ -33,36 +33,48 @@
        <a class="sorta" id="monthly">월급순</a>
        <a class="sorta" id="yearly">연봉순</a>
 	</div>
+	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
+	
+	<!-- Gson으로 list 가져오기 -->
 	<script>
 	
 		// 1. 등록일순 출력하는 함수
 		$(function(){
-	 		$("").click(function(){
+	 		$("#recently").click(function(){
 			
 	 		});
 	 	});
+		
 		// 2. 시급순 출력하는 함수
-		function hourly(){
+		$(function(){
+	 		$("#hourly").click(function(){
 			
-		}
+	 		});
+	 	});
 		
 		// 3. 일급순 출력하는 함수
-		function dayly(){
+		$(function(){
+	 		$("#dayly").click(function(){
 			
-		}
+	 		});
+	 	});
 		
 		// 4. 월급순 출력하는 함수
-		function monthly(){
+		$(function(){
+	 		$("#monthly").click(function(){
 			
-		}
+	 		});
+	 	});
 		
 		// 5. 연봉순 출력하는 함수
-		function yearly(){
+		$(function(){
+	 		$("#yearly").click(function(){
 			
-		}
+	 		});
+	 	});
 	
 	</script>
 </body>
