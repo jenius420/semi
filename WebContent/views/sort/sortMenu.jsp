@@ -45,6 +45,9 @@
 		$(function(){
 	 		$("#recently").click(function(){
 			
+	 			$.ajax({
+	 				url:"ajax1.do"
+	 			});
 	 		});
 	 	});
 		
