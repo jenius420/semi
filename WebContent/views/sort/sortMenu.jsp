@@ -27,17 +27,40 @@
 <body>
 
 	<div>
-       <a href="" class="sorta" onclick="">등록일순</a>
-       <a href="" class="sorta" onclick="">시급순</a>
-       <a href="" class="sorta" onclick="">일급순</a>
-       <a href="" class="sorta" onclick="">월급순</a>
-       <a href="" class="sorta" onclick="">연봉순</a>
+       <a class="sorta" id="recently">등록일순</a>
+       <a class="sorta" id="hourly">시급순</a>
+       <a class="sorta" id="dayly">일급순</a>
+       <a class="sorta" id="monthly">월급순</a>
+       <a class="sorta" id="yearly">연봉순</a>
 	</div>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
 	<script>
 	
+		// 1. 등록일순 출력하는 함수
 		$(function(){
+	 		$("").click(function(){
 			
+	 		});
+	 	});
+		// 2. 시급순 출력하는 함수
+		function hourly(){
+			
+		}
+		
+		// 3. 일급순 출력하는 함수
+		function dayly(){
+			
+		}
+		
+		// 4. 월급순 출력하는 함수
+		function monthly(){
+			
+		}
+		
+		// 5. 연봉순 출력하는 함수
+		function yearly(){
 			
 		}
 	
