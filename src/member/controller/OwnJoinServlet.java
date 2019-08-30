@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class OwnerJoinMember
  */
-@WebServlet("/ownerJoin.me")
-public class OwnerJoinServlet extends HttpServlet {
+@WebServlet("/ownJoin.me")
+public class OwnJoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public OwnerJoinServlet() {
+	public OwnJoinServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
