@@ -36,11 +36,12 @@ public class CloseIncruitServlet extends HttpServlet {
 		
 		int result = new IncruitService().closeIncruit(wNum);
 		
-		// 비동기 처리?
-		request.setAttribute("msg", "마감 완료");
-		request.getRequestDispatcher("/views/ownerService/IncruitList.jsp").forward(request, response);
-
-		response.sendRedirect("incruitList.as?msg=마감 완료"); 
+		if(result > 0) {
+			response.sendRedirect("incruitList.os"); 
+		}else {
+			request.setAttribute("msg", "공고 수정에 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

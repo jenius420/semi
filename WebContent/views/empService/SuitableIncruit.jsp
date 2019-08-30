@@ -25,14 +25,34 @@
 
 이력서 선택 버튼 > 팝업으로 선택 처리
 <div id="selectResume" onclick="selectResume();">이력서 선택</div>
+
 <script>
+
     function selectResume(){
         window.open("여기에 팝업 여는 서블릿으로 처리해야함.인풋=empnum views/empService/SelectResumePU.jsp", "이력서 선택", "width=1000, height=300, left=100, top=50");
     }
     function setChildValue(value){
         document.getElementById("test").innerHTML = value;
+        ///views/empService/SelectResumePU.jsp
+    }
+    
+    function popup(){
+    	
+        window.open("<%=request.getContextPath()%>/manageResume.es", "선택창", "width=400, height=500, toolbar=no, menubar=no, scrollbars=yes, resizable=no, left="+screen.width/3 + ",top="+screen.height/4);
+    }
+
+    function setChildValue(name){
+
+    document.getElementById("test").innerHTML = name;
+    location.href="<%=request.getContextPath()%>/watchingIncruit2.es?wNum=" + num;
     }
 </script>
+
+    <a href = "javascript:popup()" >팝업</a>
+<br><br>
+    <b id="test">나나</b>
+    <br><br>
+
 
 선택한 이력서의 간략한 정보 출력 (선택 전에는 숨김) > 팝업에서 선택한 정보를 가져와야함 : 서블릿 추가
 공고 리스트 > 그 정보에 맞는 조건쿼리로 리스트 가져와야 함 selectSuitableIncruit.es 호출 input rNum...... 이부분 어려운데 비동기로 해야할지?

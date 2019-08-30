@@ -8,7 +8,15 @@ public class Owner {
 	private String opName;
 	private int opNum;
 	private int dongNum;
+	private String dongName;
+	private int dongMain;
+	private int dongSub;
 	private int roadNum;
+	private String roadName;
+	private int roadMain;
+	private int roadSub;
+	private int districtNum;
+	private String district;
 	private String opAddress;
 	private String oName;
 	private String oTel;
@@ -16,6 +24,8 @@ public class Owner {
 	private String phone;
 	private String email;
 	private int typeNum;
+	private String type;
+	private String category;
 	private String mailAccept;
 	private String smsAccept;
 	private String invalidId;
@@ -25,6 +35,52 @@ public class Owner {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	
+
+
+
+	public Owner(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, String dongName,
+			int dongMain, int dongSub, int roadNum, String roadName, int roadMain, int roadSub, int districtNum,
+			String district, String opAddress, String oName, String oTel, String ocNum, String phone, String email,
+			int typeNum, String type, String category, String mailAccept, String smsAccept, String invalidId,
+			String checkONum) {
+		super();
+		this.oNum = oNum;
+		this.oId = oId;
+		this.oPwd = oPwd;
+		this.opName = opName;
+		this.opNum = opNum;
+		this.dongNum = dongNum;
+		this.dongName = dongName;
+		this.dongMain = dongMain;
+		this.dongSub = dongSub;
+		this.roadNum = roadNum;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
+		this.districtNum = districtNum;
+		this.district = district;
+		this.opAddress = opAddress;
+		this.oName = oName;
+		this.oTel = oTel;
+		this.ocNum = ocNum;
+		this.phone = phone;
+		this.email = email;
+		this.typeNum = typeNum;
+		this.type = type;
+		this.category = category;
+		this.mailAccept = mailAccept;
+		this.smsAccept = smsAccept;
+		this.invalidId = invalidId;
+		this.checkONum = checkONum;
+	}
+
+
+
+
+
 
 	public Owner(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, int roadNum,
 			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
@@ -49,6 +105,140 @@ public class Owner {
 		this.invalidId = invalidId;
 		this.checkONum = checkONum;
 	}
+
+	
+	
+	public String getType() {
+		return type;
+	}
+
+
+
+
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+
+
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+
+
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+
+
+
+
+	public String getDongName() {
+		return dongName;
+	}
+
+
+
+	public void setDongName(String dongName) {
+		this.dongName = dongName;
+	}
+
+
+
+	public int getDongMain() {
+		return dongMain;
+	}
+
+
+
+	public void setDongMain(int dongMain) {
+		this.dongMain = dongMain;
+	}
+
+
+
+	public int getDongSub() {
+		return dongSub;
+	}
+
+
+
+	public void setDongSub(int dongSub) {
+		this.dongSub = dongSub;
+	}
+
+
+
+	public String getRoadName() {
+		return roadName;
+	}
+
+
+
+	public void setRoadName(String roadName) {
+		this.roadName = roadName;
+	}
+
+
+
+	public int getRoadMain() {
+		return roadMain;
+	}
+
+
+
+	public void setRoadMain(int roadMain) {
+		this.roadMain = roadMain;
+	}
+
+
+
+	public int getRoadSub() {
+		return roadSub;
+	}
+
+
+
+	public void setRoadSub(int roadSub) {
+		this.roadSub = roadSub;
+	}
+
+
+
+	public int getDistrictNum() {
+		return districtNum;
+	}
+
+
+
+	public void setDistrictNum(int districtNum) {
+		this.districtNum = districtNum;
+	}
+
+
+
+	public String getDistrict() {
+		return district;
+	}
+
+
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+
 
 	public int getoNum() {
 		return oNum;

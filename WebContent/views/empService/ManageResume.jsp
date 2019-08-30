@@ -125,7 +125,7 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 				
 				function selectResume(rNum){
 					location.href='<%=request.getContextPath()%>/selectResume.es?rNum='+ rNum;
-					}
+				}
 			</script>
 			
 			

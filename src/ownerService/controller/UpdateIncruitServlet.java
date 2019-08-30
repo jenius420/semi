@@ -39,15 +39,11 @@ public class UpdateIncruitServlet extends HttpServlet {
 		
 		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		
-		Incruit incruit = new Incruit();;
+		Incruit incruit = new Incruit();
 		
-		try {
+		
 			String wTitle = request.getParameter("wTitle");
-			Date workStartTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workStartTerm");
-			Date workEndTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workEndTerm");
 			String workDay = request.getParameter("workDay");
-			String workStartTime = request.getParameter("workStartTime");
-			String workEndTime = request.getParameter("workEndTime");
 			int termNo = Integer.parseInt(request.getParameter("termNo"));
 			String gender = request.getParameter("gender");
 			int age = Integer.parseInt(request.getParameter("age"));
@@ -60,11 +56,7 @@ public class UpdateIncruitServlet extends HttpServlet {
 			
 			incruit.setwNum(wNum);
 			incruit.setwTitle(wTitle);
-			incruit.setWorkStartTerm(workStartTerm);
-			incruit.setWorkEndTerm(workEndTerm);
 			incruit.setWorkDay(workDay);
-			incruit.setWorkStartTime(workStartTime);
-			incruit.setWorkEndTime(workEndTime);
 			incruit.setTermNo(termNo);
 			incruit.setGender(gender);
 			incruit.setAge(age);
@@ -76,15 +68,11 @@ public class UpdateIncruitServlet extends HttpServlet {
 			incruit.setPeopleCount(peopleCount);
 
 			
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+	
 
 		int result = new IncruitService().updateIncruit(incruit);
 		
 		if(result > 0) {
-			request.setAttribute("msg", "공고를 성공적으로 수정했습니다");	
-//			request.getRequestDispatcher("/views/ownerService/incruitList.os.jsp").forward(request, response);
 			response.sendRedirect("incruitList.os"); 
 		}else {
 			request.setAttribute("msg", "공고 수정에 실패했습니다");

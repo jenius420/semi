@@ -14,22 +14,18 @@
 <script>
 	function sendChildValue(){
 		
-	   	 var name = document.getElementById("id").innerHTML;
+	   	 var name = 123;
 	    
+	   	 
+	   	location.href="<%=request.getContextPath()%>/watchingIncruit2.es?wNum=" + num;
+	   	
 		 opener.setChildValue(name); // 비동기처리
 		
-		 self.close();
+		 window.close();
 	
 	 }
 	
-	$(function(){
-		  $('#confirm_id').click(function(){
 
-		    $(opener.document).find('#id').val('리턴값');
-
-		    self.close();
-		  });
-		 });
 
 </script>
 

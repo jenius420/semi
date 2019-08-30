@@ -33,6 +33,74 @@ private Properties prop = new Properties();
 
 	}
 	
+	public District selectDistrict1(Connection conn, int roadNum) {
+		
+		District district = new District();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("selectDistrict1");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, roadNum);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				district.setDistrictNum(rs.getInt("DistrictNum"));
+				district.setDistrictName(rs.getString("DistrictName"));
+
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return district;
+		
+	}
+	
+	public District selectDistrict2(Connection conn, int dongNum) {
+		
+		District district = new District();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("selectDistrict2");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, dongNum);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				district.setDistrictNum(rs.getInt("DistrictNum"));
+				district.setDistrictName(rs.getString("DistrictName"));
+
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return district;
+		
+	}
+	
 	public ArrayList<District> selectDistrictList(Connection conn) {
 		
 		ArrayList<District> list = new ArrayList<>();	

@@ -54,7 +54,13 @@ public class OwnerServiceDao {
 					owner.setOpName(rs.getString("OPNAME"));
 					owner.setOpNum(rs.getInt("OPNUM"));
 					owner.setDongNum(rs.getInt("DONGNUM"));
+					owner.setDongName(rs.getString("DONGNAME"));
+					owner.setDongMain(rs.getInt("DONGMAIN"));
+					owner.setDongSub(rs.getInt("DONGSUB"));
 					owner.setRoadNum(rs.getInt("ROADNUM"));
+					owner.setRoadName(rs.getString("ROADNAME"));
+					owner.setRoadMain(rs.getInt("ROADMAIN"));
+					owner.setRoadSub(rs.getInt("ROADSUB"));
 					owner.setOpAddress(rs.getString("OPADDRESS"));
 					owner.setoName(rs.getString("ONAME"));
 					owner.setoTel(rs.getString("OTEL"));
@@ -62,6 +68,8 @@ public class OwnerServiceDao {
 					owner.setPhone(rs.getString("PHONE"));
 					owner.setEmail(rs.getString("EMAIL"));
 					owner.setTypeNum(rs.getInt("TYPENUM"));
+					owner.setType(rs.getString("TYPENAME"));
+					owner.setCategory(rs.getString("CATEGORYNAME"));
 					owner.setMailAccept(rs.getString("MAILACCEPT"));
 					owner.setSmsAccept(rs.getString("SMSACCEPT"));
 					owner.setInvalidId(rs.getString("INVALIDID"));
