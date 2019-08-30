@@ -6,8 +6,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-
-	String contextPath = request.getContextPath();
+ String contextPath = request.getContextPath();
 	
 	
 	Member loginUser = (Member)session.getAttribute("loginUser") ;
@@ -75,8 +74,7 @@ http://www.templatemo.com/tm-406-flex
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
-
+<%-- <%@ include file="views/common/header.jsp" %> --%>
         <div class="site-main" id="sTop">
             <div class="site-header">
               
