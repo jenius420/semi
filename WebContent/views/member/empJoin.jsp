@@ -117,7 +117,7 @@
 					<tr>
 						<td><b>주민등록번호</b></td>
 						<td>
-							<input id="ecNum1" name="ecNum1" type="number"  style="width:80px;" maxlength="6"></input> - 
+							<input id="ecNum1" name="ecNum1" type="number"  style="width:80px;" oninput="maxLengthCheck(this)" maxlength="6"></input> - 
 							<input id="ecNum2" name="ecNum2" type="password" size="11" maxlength="7"></input>
 							<td><label id="ecNumResult"></label></td>
 						</td>
@@ -127,7 +127,7 @@
 				<tr>
 					<td><b>휴대전화</b></td>
 					<td>
-						<select name="phone1">
+						<select style="width:45px;" name="phone1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
@@ -135,8 +135,8 @@
 							<option value="018">018</option>
 							<option value="019">019</option>
 						</select> - 
-						<input type="number" style="width:55px;" maxlength="4"> -
-						<input type="number" style="width:55px;" maxlength="4">
+						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4"> -
+						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4">
 					</td>
 					<td></td>
 					
@@ -211,8 +211,8 @@
 				
 				if(!(/^[a-z0-9]{4,}$/.test(id.value))){
 					$(idResult).text("사용할 수 없는 아이디 입니다.");
+					id.value="";
 					
-					//id.focus();
 								
 				}else{
 					$(idResult).text("사용 가능한 아이디 입니다.");
@@ -248,9 +248,18 @@
 			$(eName).on('blur', function(e){
 				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
-					//eName.focus();
+					eName.value="";
 				}
 			});
+
+			$(email1).on('blur', function(){
+				if(!(/^[a-z/d]{4,}$/.test(email1.value))){
+					$(emailResult).text("이메일을 확인 해주세요.");
+					email1.value="";
+				}
+			});
+
+
 
 			$(".postcodify").postcodifyPopUp({
         
@@ -264,15 +273,14 @@
             }); 
 
 
-
-
-
-
-
 			
 		});
 			
-
+		function maxLengthCheck(object){
+   			if (object.value.length > object.maxLength){
+    			object.value = object.value.slice(0, object.maxLength);
+   			}   
+  		}
 
 
 
