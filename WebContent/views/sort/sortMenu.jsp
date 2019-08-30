@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.ArrayList, sort.model.vo.*" %>
 <%
-	/* ArrayList<> list = (ArrayList<>)request.getAttribute("list"); */ /* 구인글 리스트 넣기 */
+	ArrayList<Recruit> list = (ArrayList<Recruit>)request.getAttribute("list");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,16 +38,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	
-	<!-- Gson으로 list 가져오기 -->
 	<script>
 	
 		// 1. 등록일순 출력하는 함수
 		$(function(){
 	 		$("#recently").click(function(){
 			
-	 			$.ajax({
-	 				url:"ajax1.do"
-	 			});
+	 			
 	 		});
 	 	});
 		
