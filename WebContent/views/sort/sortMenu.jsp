@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ page import="java.util.ArrayList, sort.model.vo.*" %>
+<%@ page import="java.util.ArrayList, sort.model.vo.*" %>
 <%
 	ArrayList<Recruit> list = (ArrayList<Recruit>)request.getAttribute("list");
-%> --%>
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,9 +16,26 @@
 	}
  	.sorta{
  		color:purple;
+ 		font-size:15px;
  	}
  	.sorta:hover{
  		text-decoration:underline;
+ 	}
+ 	.headTr th{
+ 		font-size:15px;
+ 		color:purple;
+ 	}
+ 	.sortDiv{
+ 		border:1px solid purple;
+ 		width:810px;
+ 	}
+ 	.listDiv{
+ 		border:1px solid purple;
+ 		width:810px;
+ 	}
+ 	table{
+ 		width:810px;
+ 		text-align:center;
  	}
 </style>
 <body>
@@ -33,19 +50,18 @@
 	
 	<div class="listDiv">
 	 <table>
-	 
 		 <colgroup>
-			<col width="60x" />
+			<col width="80px" />
 			<col width="100px" />
-			<col width="150px" />
-			<col width="*" />
-			<col width="50px" />
+			<col width="100px" />
+			<col width="200px" />
+			<col width="80px" />
 			<col width="80px" />
 			<col width="90px" />
-			<col width="50px" />
+			<col width="80px" />
 		</colgroup>
 	 
-        <tr>
+        <tr class="headTr">
 			<th scope="col">글번호</th>
 			<th scope="col">지역</th>
 			<th scope="col">기업명</th>
@@ -56,7 +72,7 @@
 			<th scope="col">등록일</th>
 		</tr>
 		
-		<%-- <%if(list.isEmpty()){ %>
+		<%if(list.isEmpty()){ %>
 			<tr>
 				<td colspan="8">조회된 리스트가 없습니다.</td>
 			</tr>
@@ -73,12 +89,12 @@
 	            <td><%= r.getEnDate() %></td>
 	        </tr>
 			<%} %>
-		<%} %> --%>
+		<%} %>
      </table>
 	</div>
 	
 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	
 	<script>
@@ -119,6 +135,6 @@
 	 		});
 	 	});
 	
-	</script> -->
+	</script>
 </body>
 </html>
