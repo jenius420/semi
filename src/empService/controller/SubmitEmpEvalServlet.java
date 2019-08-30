@@ -34,7 +34,7 @@ public class SubmitEmpEvalServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
 		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
 		int eNum = emp.getEmpNum();

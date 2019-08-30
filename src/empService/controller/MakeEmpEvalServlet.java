@@ -1,5 +1,6 @@
 package empService.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -36,14 +37,24 @@ public class MakeEmpEvalServlet extends HttpServlet {
 		
 		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
 		int oNum = Integer.parseInt(request.getParameter("oNum"));
+		String eComment = request.getParameter("eComment");
+		int sevalPoint = Integer.parseInt(request.getParameter("sevalPoint"));
 		
-		ArrayList<EmpEvaluation> list = new EmpEvalService().selectEmpEvalList(oNum);
+		EmpEvaluation eval = new EmpEvaluation();
 		
-			request.setAttribute("applyNum", applyNum);
-			request.setAttribute("oNum", oNum);
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("/views/empService/makeEmpEval.jsp").forward(request, response);
-
+		eval.setApplyNum(applyNum);
+		eval.setoNum(oNum);
+		eval.seteComment(eComment);
+		eval.setSevalPoint(sevalPoint);
+		
+		int result = new EmpEvalService().submitEmpEval(eval);
+		
+		if(result > 0) {
+			response.sendRedirect("empEvaluationManagement.es");
+		}else {
+			request.setAttribute("msg", "이력서 등록을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+		}
 		
 	}
 

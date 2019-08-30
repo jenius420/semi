@@ -12,11 +12,11 @@
 	<div>
         <img src="../resources/images/errorIcon.jpg" art="error" width="400">
 		<h1>Error :(</h1>
-		<h4><%= msg %></h1>
+		<h4><%= msg %></h4>
 	</div>
 	
 	<div>
-		<div onclick="<%response.sendRedirect("index.jsp");%>">메인으로</div>
+		<!--  <div onclick="<%response.sendRedirect("index.jsp");%>">메인으로</div>-->
 		<div onclick="history.back();">이전 화면으로</div>
 	</div>
 

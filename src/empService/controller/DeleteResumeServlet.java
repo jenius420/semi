@@ -1,5 +1,6 @@
 package empService.controller;
 
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.model.vo.Attachment;
 import empService.model.service.ResumeService;
 
 /**
@@ -32,10 +34,19 @@ public class DeleteResumeServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
+//	String changeName = request.getParameter("changeName");
+		
+		Attachment at = new ResumeService().selectAttachment(rNum);
+		String changeName = at.getChangeName();
 		
 		int result = new ResumeService().deleteResume(rNum);
 		
+		
 		if(result > 0) {
+			
+			File failedFile = new File(request.getContextPath() + "/resources/uploadFiles/" + changeName);
+			failedFile.delete();
+			
 			response.sendRedirect("manageResume.es");
 		}else {
 			request.setAttribute("msg", "이력서 삭제에 실패했습니다");

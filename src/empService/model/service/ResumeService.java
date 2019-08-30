@@ -85,8 +85,9 @@ public class ResumeService {
 		Connection conn = getConnection();
 		
 		int result = new ResumeDao().deleteResume(conn, rNum);
+		int result2 = new ResumeDao().deleteAttachment(conn, rNum);
 		
-		if(result > 0) {
+		if(result > 0 && result2 >0) {
 			commit(conn);
 		}else {
 			rollback(conn);

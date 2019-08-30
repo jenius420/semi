@@ -17,14 +17,17 @@ public class Appliant {
 	private Date endDate; // 마감일
 	private Date applyDate; // 지원일
 	private String passOrFail; // 지원상태
+	private int sevalNum; // 평가번호
 	
 	public Appliant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public Appliant(int applyNum, int rNum, String comment, int eNum, String eName, int wNum, String wTitle, int oNum,
-			String opName, String incruitStatus, Date endDate, Date applyDate, String passOrFail) {
+			String opName, String incruitStatus, Date endDate, Date applyDate, String passOrFail, int sevalNum) {
 		super();
 		this.applyNum = applyNum;
 		this.rNum = rNum;
@@ -39,7 +42,22 @@ public class Appliant {
 		this.endDate = endDate;
 		this.applyDate = applyDate;
 		this.passOrFail = passOrFail;
+		this.sevalNum = sevalNum;
 	}
+
+
+
+	public int getSevalNum() {
+		return sevalNum;
+	}
+
+
+
+	public void setSevalNum(int sevalNum) {
+		this.sevalNum = sevalNum;
+	}
+
+
 
 	public int getApplyNum() {
 		return applyNum;

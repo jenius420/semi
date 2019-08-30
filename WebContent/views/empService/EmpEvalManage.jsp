@@ -10,6 +10,8 @@ ArrayList<EmpEvaluationBefore> empEvalBf = (ArrayList<EmpEvaluationBefore>)reque
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
+<link rel="stylesheet" type="text/css" href="resources/css/starability-all.min.css">
+<link href="resources/form/css/form.css" rel="stylesheet" media="all">
 
 <title>알바 후기 관리</title>
 
@@ -17,27 +19,53 @@ ArrayList<EmpEvaluationBefore> empEvalBf = (ArrayList<EmpEvaluationBefore>)reque
 <style>
 
 .column1 {
-  width: 30%;
+  width: 15%;
   padding-left: 40px;
    text-align: center;
 }
 
 .column2 {
-  width: 29%;
+  width: 10%;
   text-align: center;
 }
 
 .column3 {
-  width: 20%;
+  width: 45%;
    text-align: center;
 }
 
 .column4 {
-  width: 20%;
+  width: 15%;
    text-align: center;
 }
 .column5 {
-  width: 1%;
+  width: 5%;
+   text-align: center;
+}
+
+.column11 {
+  width: 20%;
+  padding-left: 20px;
+   text-align: center;
+}
+
+.column22 {
+  width: 15%;
+  text-align: center;
+}
+
+.column33 {
+  width: 35%;
+   text-align: center;
+}
+
+.column44 {
+  width: 15%;
+   text-align: center;
+}
+
+.column55 {
+  width: 5%;
    text-align: center;
 }
 
@@ -90,9 +118,9 @@ display:none;
 									<thead>
 										<tr class="row100 head">
 											<th class="cell100 column1">업체명</th>
-											<th class="cell100 column2">근무일</th>
-											<th class="cell100 column3">작성일</th>
-											<th class="cell100 column4"></th>
+											<th class="cell100 column2">작성일</th>
+											<th class="cell100 column3">내용</th>
+											<th class="cell100 column4">별점(1~5)</th>
 											<th class="cell100 column5"></th>
 										</tr>
 									</thead>
@@ -108,18 +136,32 @@ display:none;
 											for(EmpEvaluation a : empEval) {%>
 											<tr class="row100 body">
 												<td class="cell100 column1"><%=a.getOpName()%></td>
-												<td class="cell100 column2"><%=a.getWorkStartTerm()%> ~ <%=a.getWorkEndTerm()%></td>
-												<td class="cell100 column3"><%=a.getEnrollDate()%></td>
-												<td class="cell100 column4"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteEval();"></td>
-												<td class="cell100 column5"></td>
+												<td class="cell100 column2" style="padding-left:10px;"><%=a.getEnrollDate()%></td>
+												<td class="cell100 column3" style="text-align:left;  padding-left:20px;"><%=a.geteComment()%></td>
+												<td class="cell100 column4">
+													<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:40px;"> 
+													    <%for(int i=1; i<=a.getSevalPoint(); i++){ %>
+													    <label for="rate<%=i %>" style="cursor:default;"></label>
+													    <% }%>
+												
+													  </fieldset>
+												</td>
+												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteEval();">
+												<form action="" id="detailForm" method="post">
+													<input type="hidden" name="sevalNum" value="<%=a.getSevalNum()%>">
+												</form></td>
 											</tr>
 											<%}}%>
-										<script>
+										<script>		
 											function deleteEval(){
-												if(confirm("삭제 하시겠습니까")){
-													location.href='<%=request.getContextPath()%>/deleteEval.es'
+												
+												var con = confirm("평가를 삭제하시겠습니까");
+												
+												if(con){
+													$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEval.es");
+													$("#detailForm").submit();
 												}else{
-													return;
+													return false;
 												}
 											}
 										</script>
@@ -134,6 +176,7 @@ display:none;
 			
 			</div>
 			
+			<form action="" id="detailForm2" method="post">
 			<div id="empEvalBfBox" class="box">
 				<!--===============================================================================================-->	
 				<div class="limiter">
@@ -144,11 +187,11 @@ display:none;
 								<table>
 									<thead>
 										<tr class="row100 head">
-											<th class="cell100 column1">제목</th>
-											<th class="cell100 column2">업체명</th>
-											<th class="cell100 column3">근무일</th>
-											<th class="cell100 column4"></th>
-											<th class="cell100 column5"></th>
+											<th class="cell100 column11">공고 제목</th>
+											<th class="cell100 column22">업체명</th>
+											<th class="cell100 column33">내용</th>
+											<th class="cell100 column44">별점(1~5)</th>
+											<th class="cell100 column55"></th>
 										</tr>
 									</thead>
 								</table>
@@ -161,13 +204,39 @@ display:none;
 											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 										<%}else{ 
 											for(EmpEvaluationBefore a : empEvalBf) {%>
+											
 											<tr class="row100 body">
-												<td class="cell100 column1"><%=a.getwTitle()%></td>
-												<td class="cell100 column2"><%=a.getOpName()%></td>
-												<td class="cell100 column3"><%=a.getWorkStartTerm()%> ~ <%=a.getWorkEndTerm()%></td>
-												<td class="cell100 column4"><input type="button" class="gs-btn" style="padding: 10px 10px" value="작성" onclick="location.href='<%=request.getContextPath()%>/makeEmpEval.es?oNum='+<%=a.getoNum()%>'&applyNum='<%=a.getApplyNum()%>"></td>
-												<td class="cell100 column5"></td>
+												<td class="cell100 column11" style="padding-left:40px;"><%=a.getwTitle()%></td>
+												<td class="cell100 column22" style="padding-left:50px;"><%=a.getOpName()%></td>
+												<td class="cell100 column33">
+													<div class='form-row' style="padding-left:30px;">
+													  <textarea id='comment' name='eComment' style="width:450px; min-height:80px; margin-top:12px;"></textarea>
+													</div>
+												</td>
+												<td class="cell100 column44">
+													<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:28px;"> 
+													    <input type="radio" id="rate5" name="sevalPoint" value="5" />
+													    <label for="rate5" title="Amazing">5 stars</label>
+													
+													    <input type="radio" id="rate4" name="sevalPoint" value="4" />
+													    <label for="rate4" title="Very good">4 stars</label>
+													
+													    <input type="radio" id="rate3" name="sevalPoint" value="3" />
+													    <label for="rate3" title="Average">3 stars</label>
+													
+													    <input type="radio" id="rate2" name="sevalPoint" value="2" />
+													    <label for="rate2" title="Not good">2 stars</label>
+													
+													    <input type="radio" id="rate1" name="sevalPoint" value="1" />
+													    <label for="rate1" title="Terrible">1 star</label>
+													  </fieldset>
+												</td>
+												<td class="cell100 column55"><input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="makeEmpEval();">
+													<input type="hidden" name="oNum" value="<%=a.getoNum()%>">
+													<input type="hidden" name="applyNum" value="<%=a.getApplyNum()%>">
+												</td> 
 											</tr>
+											
 											<%}}%>
 									</tbody>
 								</table>
@@ -179,6 +248,7 @@ display:none;
 				<!--===============================================================================================-->	
 			
 			</div>
+			</form>
 			
 			<script>
 				function showBox(element){
@@ -190,14 +260,23 @@ display:none;
 						else
 							tag[i].style.display = "none";
 					}
-		
+				}
+				
+				function makeEmpEval(){
+					
+					var con = confirm("후기를 등록하시겠습니까?");
+					
+					if(con){
+						$("#detailForm2").attr("action", "<%=request.getContextPath()%>/makeEmpEval.es");
+						$("#detailForm2").submit();
+					}else{
+						return false;
+					}
 				}
 		  	</script>
-			
-		
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-작성한 평가 - 삭제 deleteEval.es input sevalNum
-미작성평가 - 작성 makeEmpEval.es input onum, applyNum
+			<form>
+  
+</form>
 
 			</div> <!-- /메인콘텐트 -->
 			

@@ -39,10 +39,13 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
 		ArrayList<HopeEnt> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		//ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		
+		// 테스트 데이터
+		ArrayList<Incruit> wList = new ArrayList<>();
 		
 		request.setAttribute("olist", oList);
 		request.setAttribute("wlist", wList);

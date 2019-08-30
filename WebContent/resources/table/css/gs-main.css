@@ -375,6 +375,7 @@ th, td {
   line-height: 1.4;
   font-weight: 600;
   
+  
 
   background-color: transparent;
   border-bottom: 2px solid #f2f2f2;
@@ -431,12 +432,16 @@ th, td {
 
 .table100.ver5 th {
   font-family: Lato-Bold;
-  font-size: 14px;
-  color: #555555;
+  font-size: 18px;
+  color: purple;
   line-height: 1.4;
   text-transform: uppercase;
+    font-weight: 600;
 
   background-color: transparent;
+  
+  background-color: transparent;
+  border-bottom: 2px solid #f2f2f2;
 }
 
 .table100.ver5 td {
@@ -444,6 +449,7 @@ th, td {
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
+    font-weight: 600;
 
   background-color: #f7f7f7;
 }

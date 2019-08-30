@@ -52,7 +52,7 @@ public class EmpServiceDao {
 				appliant =new Appliant(
 										rs.getInt("APPLYNUM"),
 										rs.getInt("RNUM"),
-										rs.getString("COMMENT"),
+										rs.getString("eCOMMENT"),
 										rs.getInt("ENUM"),
 										rs.getString("ENAME"),
 										rs.getInt("WNUM"),
@@ -62,7 +62,8 @@ public class EmpServiceDao {
 										rs.getString("INCRUITSTATUS"),
 										rs.getDate("ENDDATE"),
 										rs.getDate("APPLYDATE"),
-										rs.getString("PASSORFAIL")
+										rs.getString("PASSORFAIL"),
+										rs.getInt("sevalNum")
 										);
 				
 				list.add(appliant);
@@ -149,9 +150,7 @@ public class EmpServiceDao {
 		String sql = prop.getProperty("selectInterestOwner");
 		
 		try {
-			
 
-				
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, empNum);
 				
@@ -166,7 +165,7 @@ public class EmpServiceDao {
 					he.setoNum(rs.getInt("ONUM"));
 					he.setOpName(rs.getString("OPNAME"));
 					he.setOpAddress(rs.getString("OPADDRESS"));
-					he.setPhone(rs.getInt("PHONE"));
+					he.setPhone(rs.getString("PHONE"));
 					he.setType(rs.getString("TYPENAME"));
 					he.setDeleteornot(rs.getString("DELETEORNOT"));
 

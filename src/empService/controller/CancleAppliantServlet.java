@@ -30,9 +30,9 @@ public class CancleAppliantServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String[] applyArr = request.getParameterValues("applyArr");
+		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
 		
-		int result = new EmpServiceService().cancleAppliant(applyArr);
+		int result = new EmpServiceService().cancleAppliant(applyNum);
 		
 		if(result > 0) {
 			response.sendRedirect("applicationState.es");

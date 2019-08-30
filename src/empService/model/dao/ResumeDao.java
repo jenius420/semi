@@ -197,7 +197,7 @@ public class ResumeDao {
 	
 	public Attachment selectAttachment(Connection conn, int rNum) {
 		
-		Attachment at = null;
+		Attachment at = new Attachment();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -211,7 +211,6 @@ public class ResumeDao {
 			
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				at = new Attachment();
 				
 				at.setChangeName(rset.getString("SAVENAME"));
 				at.setfId(rset.getInt("PNUM"));
@@ -302,7 +301,7 @@ public class ResumeDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				resume = new Resume(
 									rs.getInt("RNUM"),
 									rs.getInt("ENUM"),
@@ -359,7 +358,7 @@ public class ResumeDao {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				incruit = new Incruit(
 										rs.getInt("WNUM"),
 										rs.getString("WTITLE"),
