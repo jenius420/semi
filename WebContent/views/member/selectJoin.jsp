@@ -118,16 +118,14 @@
 
         	function empInsert(){
         		
-        		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
-        		window.opener.location.href = "<%= contextPath %>/empInsert.me";
+        		window.opener.location.href = "<%= contextPath %>/empJoin.me";
         		window.close();
         		
         	}
 
         	function ownInsert(){
         		
-        		//window.opener.location.href = "<%= contextPath %>/views/member/ownerJoinMember.jsp";
-        		window.opener.location.href = "<%= contextPath %>/ownInsert.me";
+        		window.opener.location.href = "<%= contextPath %>/ownJoin.me";
         		
         		window.close();
         		

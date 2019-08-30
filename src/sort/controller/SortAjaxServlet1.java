@@ -1,6 +1,7 @@
 package sort.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,17 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import sort.model.service.RecruitService;
+import sort.model.vo.Recruit;
+
 /**
  * Servlet implementation class ajax1
  */
 @WebServlet("/ajax1.do")
-public class AjaxServlet1 extends HttpServlet {
+public class SortAjaxServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjaxServlet1() {
+    public SortAjaxServlet1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +34,15 @@ public class AjaxServlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
 		
+		
+		ArrayList<Recruit> list = new RecruitService().selectRecently();
+		
+		request.getRequestDispatcher("views/sort/sortMenu.jsp").forward(request, response);
+	
+		Gson gson = new Gson();
+		gson.toJson(list, response.getWriter());
 	}
 
 	/**
