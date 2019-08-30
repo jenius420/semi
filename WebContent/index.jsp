@@ -6,8 +6,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-
-	String contextPath = request.getContextPath();
+ String contextPath = request.getContextPath();
 	
 	
 	Member loginUser = (Member)session.getAttribute("loginUser") ;
@@ -75,8 +74,7 @@ http://www.templatemo.com/tm-406-flex
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
-
+<%-- <%@ include file="views/common/header.jsp" %> --%>
         <div class="site-main" id="sTop">
             <div class="site-header">
               
@@ -97,7 +95,7 @@ http://www.templatemo.com/tm-406-flex
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <% if(loginUser == null){ %>
- 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
+ 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=400 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>

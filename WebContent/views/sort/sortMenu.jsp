@@ -37,6 +37,9 @@
  		width:810px;
  		text-align:center;
  	}
+ 	#detailTable{
+ 		width:810px;
+ 	}
 </style>
 <body>
 
@@ -71,12 +74,10 @@
 			<th scope="col">근무시간</th>
 			<th scope="col">등록일</th>
 		</tr>
+		</table>
 		
-		<%if(list.isEmpty()){ %>
-			<tr>
-				<td colspan="8">조회된 리스트가 없습니다.</td>
-			</tr>
-		<%}else{ %>
+		<!-- 리스트나올 테이블  -->
+		<table id="detailTable">
 			<% for(Recruit r : list){ %>
 			<tr>
 	            <td><%= r.getrNum() %></td>
@@ -88,9 +89,9 @@
 	            <td><%= r.getTime() %></td>
 	            <td><%= r.getEnDate() %></td>
 	        </tr>
-			<%} %>
-		<%} %>
-     </table>
+			<% } %>
+		</table>
+		
 	</div>
 	
 
@@ -103,14 +104,92 @@
 		$(function(){
 	 		$("#recently").click(function(){
 			
-	 			
+	 			$.ajax({
+	 				url:"ajax1.do",
+	 				dataType:"json",
+	 				type:"get",
+	 				success:function(list1){
+	 					
+	 					var $detailTable = $("#detailTable"); // <table></table>
+						
+						$detailTable.html(""); // 기존 테이블 정보 초기화
+						
+						$.each(list1, function(index, value){
+							
+							var $tr = $("<tr>");
+							var $rNumTd = $("<td>").text(value.rNum).css("width", "80px");
+							var $areaTd = $("<td>").text(value.area).css("width", "100px");
+							var $corNameTd = $("<td>").text(value.corName).css("width", "100px");
+							var $titleTd = $("<td>").text(value.title).css("width", "200px");
+							var $workformTd = $("<td>").text(value.workform).css("width", "80px");
+							var $salaryTd = $("<td>").text(value.salary).css("width", "80px");
+							var $timeTd = $("<td>").text(value.time).css("width", "90px");
+							var $enDateTd = $("<td>").text(value.enDate).css("width", "80px");
+							
+							$tr.append($rNumTd);
+							$tr.append($areaTd);
+							$tr.append($corNameTd);
+							$tr.append($titleTd);
+							$tr.append($workformTd);
+							$tr.append($salaryTd);
+							$tr.append($timeTd);
+							$tr.append($enDateTd);
+							
+							$detailTable.append($tr);
+							
+						});
+	 				},
+	 				error:function(){
+	 					console.log("ajax 통신 실패");
+	 				}
+	 			});
 	 		});
 	 	});
+		
 		
 		// 2. 시급순 출력하는 함수
 		$(function(){
 	 		$("#hourly").click(function(){
 			
+	 			$.ajax({
+	 				url:"ajax2.do",
+	 				dataType:"json",
+	 				type:"get",
+	 				success:function(list2){
+	 					
+	 					var $detailTable = $("#detailTable"); // <table></table>
+						
+						$detailTable.html(""); // 기존 테이블 정보 초기화
+						
+						$.each(list2, function(index, value){
+							
+							var $tr = $("<tr>");
+							var $rNumTd = $("<td>").text(value.rNum).css("width", "80px");
+							var $areaTd = $("<td>").text(value.area).css("width", "100px");
+							var $corNameTd = $("<td>").text(value.corName).css("width", "100px");
+							var $titleTd = $("<td>").text(value.title).css("width", "200px");
+							var $workformTd = $("<td>").text(value.workform).css("width", "80px");
+							var $salaryTd = $("<td>").text(value.salary).css("width", "80px");
+							var $timeTd = $("<td>").text(value.time).css("width", "90px");
+							var $enDateTd = $("<td>").text(value.enDate).css("width", "80px");
+							
+							$tr.append($rNumTd);
+							$tr.append($areaTd);
+							$tr.append($corNameTd);
+							$tr.append($titleTd);
+							$tr.append($workformTd);
+							$tr.append($salaryTd);
+							$tr.append($timeTd);
+							$tr.append($enDateTd);
+							
+							$detailTable.append($tr);
+							
+						});
+	 				},
+	 				error:function(){
+	 					console.log("ajax 통신 실패");
+	 				}
+	 			});
 	 		});
 	 	});
 		

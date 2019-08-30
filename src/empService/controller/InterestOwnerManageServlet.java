@@ -41,14 +41,12 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		
 		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
-		ArrayList<HopeEnt> oList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
-		//ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(oList);
+		ArrayList<HopeEnt> hList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
+		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(hList);
+
 		
-		// 테스트 데이터
-		ArrayList<Incruit> wList = new ArrayList<>();
-		
-		request.setAttribute("olist", oList);
-		request.setAttribute("wlist", wList);
+		request.setAttribute("hList", hList);
+		request.setAttribute("wList", wList);
 		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
 
 	}

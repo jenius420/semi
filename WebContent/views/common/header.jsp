@@ -7,7 +7,7 @@
     
 <%
 
-	String contextPath = request.getContextPath();
+	/* String contextPath = request.getContextPath(); */
 	
 	
 	Member loginUser = (Member)session.getAttribute("loginUser") ;
@@ -62,11 +62,8 @@ $(window).load(function() {
 
 
 
-  <div class="site-main" id="sTop">
+
             <div class="site-header">
-              
-                    
-                
                 <div class="main-header">
                     <div class="container">
                         <div id="menu-wrapper">

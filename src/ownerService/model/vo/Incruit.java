@@ -8,20 +8,18 @@ public class Incruit {
 	private String wTitle; // 제목
 	private int oNum; // 사업자KEY
 	private String opName; // 사업장명+
-	private Date workStartTerm; // 시작일
-	private Date workEndTerm; // 종료일
 	private String workDay; // 근무요일
-	private String workStartTime; // 시작시간
-	private String workEndTime; // 종료시간
+	private String workTime; // 근무시간
 	private int termNo; // 근무기간key
-	private String termName; // 근무기간명+
+	private String termName; // 근무기간명
+	private String termBigName; // 근무기간분류
 	private String gender; // 성별
 	private int age; // 나이
 	private String edu; // 학력
 	private Date enrollDate; // 등록일
 	private String status; // 진행중/마감
 	private Date doneDate; // 마감일
-	private String salaryForm; // 급여형태
+	private String salaryForm; // 급여형태	
 	private int salary; // 급여
 	private int pNum; // 상품코드
 	private String product; // 상품명+
@@ -29,33 +27,39 @@ public class Incruit {
 	private int peopleCount; // 모집인원
 	private int dongNum; // 동코드
 	private String dong; // 동
+	private String dongMain; //
+	private String dongSub;
+	private int roadNum; // 거리코드
+	private String roadName;
+	private String roadMain;
+	private String roadSub;
 	private int districtNum; // 구코드
 	private String district; // 구
+	private String address;
 	private int typeNum; // 업직종코드
-	private String type; // 업직종
+	private String type; // 업직종2
+	private String category; // 업직종1
 	
 	public Incruit() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Incruit(int wNum, String wTitle, int oNum, String opName, Date workStartTerm, Date workEndTerm,
-			String workDay, String workStartTime, String workEndTime, int termNo, String termName, String gender,
-			int age, String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, int pNum,
-			String product, String description, int peopleCount, int dongNum, String dong, int districtNum,
-			String district, int typeNum, String type) {
+	public Incruit(int wNum, String wTitle, int oNum, String opName, String workDay, String workTime, int termNo,
+			String termName, String termBigName, String gender, int age, String edu, Date enrollDate, String status,
+			Date doneDate, String salaryForm, int salary, int pNum, String product, String description, int peopleCount,
+			int dongNum, String dong, String dongMain, String dongSub, int roadNum, String roadName, String roadMain,
+			String roadSub, int districtNum, String district, String address, int typeNum, String type, String category) {
 		super();
 		this.wNum = wNum;
 		this.wTitle = wTitle;
 		this.oNum = oNum;
 		this.opName = opName;
-		this.workStartTerm = workStartTerm;
-		this.workEndTerm = workEndTerm;
 		this.workDay = workDay;
-		this.workStartTime = workStartTime;
-		this.workEndTime = workEndTime;
+		this.workTime = workTime;
 		this.termNo = termNo;
 		this.termName = termName;
+		this.termBigName = termBigName;
 		this.gender = gender;
 		this.age = age;
 		this.edu = edu;
@@ -70,137 +74,28 @@ public class Incruit {
 		this.peopleCount = peopleCount;
 		this.dongNum = dongNum;
 		this.dong = dong;
+		this.dongMain = dongMain;
+		this.dongSub = dongSub;
+		this.roadNum = roadNum;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
 		this.districtNum = districtNum;
 		this.district = district;
+		this.address = address;
 		this.typeNum = typeNum;
 		this.type = type;
-	}
-
-
-
-
-
-	public Incruit(String wTitle, int oNum, Date workStartTerm, Date workEndTerm, String workDay, String workStartTime,
-			String workEndTime, int termNo, String gender, int age, String edu, Date enrollDate, String status,
-			Date doneDate, String salaryForm, int salary, int pNum, String description) {
-		super();
-		this.wTitle = wTitle;
-		this.oNum = oNum;
-		this.workStartTerm = workStartTerm;
-		this.workEndTerm = workEndTerm;
-		this.workDay = workDay;
-		this.workStartTime = workStartTime;
-		this.workEndTime = workEndTime;
-		this.termNo = termNo;
-		this.gender = gender;
-		this.age = age;
-		this.edu = edu;
-		this.enrollDate = enrollDate;
-		this.status = status;
-		this.doneDate = doneDate;
-		this.salaryForm = salaryForm;
-		this.salary = salary;
-		this.pNum = pNum;
-		this.description = description;
-	}
-	
-	
-
-	public Incruit(int wNum, String wTitle, int oNum, String opName, Date workStartTerm, Date workEndTerm,
-			String workDay, String workStartTime, String workEndTime, String termName, String gender, int age,
-			String edu, Date enrollDate, String status, Date doneDate, String salaryForm, int salary, String product,
-			String description, int peopleCount, String dong, String district, String type) {
-		super();
-		this.wNum = wNum;
-		this.wTitle = wTitle;
-		this.oNum = oNum;
-		this.opName = opName;
-		this.workStartTerm = workStartTerm;
-		this.workEndTerm = workEndTerm;
-		this.workDay = workDay;
-		this.workStartTime = workStartTime;
-		this.workEndTime = workEndTime;
-		this.termName = termName;
-		this.gender = gender;
-		this.age = age;
-		this.edu = edu;
-		this.enrollDate = enrollDate;
-		this.status = status;
-		this.doneDate = doneDate;
-		this.salaryForm = salaryForm;
-		this.salary = salary;
-		this.product = product;
-		this.description = description;
-		this.peopleCount = peopleCount;
-		this.dong = dong;
-		this.district = district;
-		this.type = type;
+		this.category = category;
 	}
 
 	
 	
-	public int getTypeNum() {
-		return typeNum;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setTypeNum(int typeNum) {
-		this.typeNum = typeNum;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public int getDongNum() {
-		return dongNum;
-	}
-
-
-	public void setDongNum(int dongNum) {
-		this.dongNum = dongNum;
-	}
-
-
-	public String getDong() {
-		return dong;
-	}
-
-
-	public void setDong(String dong) {
-		this.dong = dong;
-	}
-
-
-	public int getDistrictNum() {
-		return districtNum;
-	}
-
-
-	public void setDistrictNum(int districtNum) {
-		this.districtNum = districtNum;
-	}
-
-
-	public String getDistrict() {
-		return district;
-	}
-
-
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-
-
-	public int getPeopleCount() {
-		return peopleCount;
-	}
-
-	public void setPeopleCount(int peopleCount) {
-		this.peopleCount = peopleCount;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public int getwNum() {
@@ -235,22 +130,6 @@ public class Incruit {
 		this.opName = opName;
 	}
 
-	public Date getWorkStartTerm() {
-		return workStartTerm;
-	}
-
-	public void setWorkStartTerm(Date workStartTerm) {
-		this.workStartTerm = workStartTerm;
-	}
-
-	public Date getWorkEndTerm() {
-		return workEndTerm;
-	}
-
-	public void setWorkEndTerm(Date workEndTerm) {
-		this.workEndTerm = workEndTerm;
-	}
-
 	public String getWorkDay() {
 		return workDay;
 	}
@@ -259,20 +138,20 @@ public class Incruit {
 		this.workDay = workDay;
 	}
 
-	public String getWorkStartTime() {
-		return workStartTime;
+	public String getWorkTime() {
+		return workTime;
 	}
 
-	public void setWorkStartTime(String workStartTime) {
-		this.workStartTime = workStartTime;
+	public void setWorkTime(String workTime) {
+		this.workTime = workTime;
 	}
 
-	public String getWorkEndTime() {
-		return workEndTime;
+	public int getTermNo() {
+		return termNo;
 	}
 
-	public void setWorkEndTime(String workEndTime) {
-		this.workEndTime = workEndTime;
+	public void setTermNo(int termNo) {
+		this.termNo = termNo;
 	}
 
 	public String getTermName() {
@@ -281,6 +160,14 @@ public class Incruit {
 
 	public void setTermName(String termName) {
 		this.termName = termName;
+	}
+
+	public String getTermBigName() {
+		return termBigName;
+	}
+
+	public void setTermBigName(String termBigName) {
+		this.termBigName = termBigName;
 	}
 
 	public String getGender() {
@@ -297,14 +184,6 @@ public class Incruit {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public int getTermNo() {
-		return termNo;
-	}
-
-	public void setTermNo(int termNo) {
-		this.termNo = termNo;
 	}
 
 	public String getEdu() {
@@ -379,7 +258,118 @@ public class Incruit {
 		this.description = description;
 	}
 
-	
+	public int getPeopleCount() {
+		return peopleCount;
+	}
+
+	public void setPeopleCount(int peopleCount) {
+		this.peopleCount = peopleCount;
+	}
+
+	public int getDongNum() {
+		return dongNum;
+	}
+
+	public void setDongNum(int dongNum) {
+		this.dongNum = dongNum;
+	}
+
+	public String getDong() {
+		return dong;
+	}
+
+	public void setDong(String dong) {
+		this.dong = dong;
+	}
+
+	public String getDongMain() {
+		return dongMain;
+	}
+
+	public void setDongMain(String dongMain) {
+		this.dongMain = dongMain;
+	}
+
+	public String getDongSub() {
+		return dongSub;
+	}
+
+	public void setDongSub(String dongSub) {
+		this.dongSub = dongSub;
+	}
+
+	public int getRoadNum() {
+		return roadNum;
+	}
+
+	public void setRoadNum(int roadNum) {
+		this.roadNum = roadNum;
+	}
+
+	public String getRoadName() {
+		return roadName;
+	}
+
+	public void setRoadName(String roadName) {
+		this.roadName = roadName;
+	}
+
+	public String getRoadMain() {
+		return roadMain;
+	}
+
+	public void setRoadMain(String roadMain) {
+		this.roadMain = roadMain;
+	}
+
+	public String getRoadSub() {
+		return roadSub;
+	}
+
+	public void setRoadSub(String roadSub) {
+		this.roadSub = roadSub;
+	}
+
+	public int getDistrictNum() {
+		return districtNum;
+	}
+
+	public void setDistrictNum(int districtNum) {
+		this.districtNum = districtNum;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+	public int getTypeNum() {
+		return typeNum;
+	}
+
+	public void setTypeNum(int typeNum) {
+		this.typeNum = typeNum;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	
 	
 	
