@@ -21,7 +21,7 @@ public class Member {
 	private String opAddress;	// 나머지 주소
 	private String oName;		// 이름
 	private String otel;		// 사업장 전화번호
-	private String ocnum;			// 사업자 주민번호
+	private String ocnum;		// 사업자 주민번호
 	private int typeNum;		// 업직종 번호 
 	private String checkoNum;	// 사업자번호 확인 여부
 	
