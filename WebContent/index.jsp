@@ -33,6 +33,7 @@
 <!-- 추천알바 -->
 <div>
 <p style="padding-left: 100px"><strong>추천알바</strong></p>
+<br />
 <div class="row" id="choiceAlba">
     <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
@@ -147,6 +148,7 @@
 <!--상품적용알바 -->
 <div>
 <p style="padding-left: 100px"><strong>플래티넘알바</strong></p>
+<br />
 <div class="row" id="choiceAlba" align="left">
     <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">

@@ -26,19 +26,18 @@ http://www.templatemo.com/tm-406-flex
 -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         
-        <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./resources/css/font-awesome.css">
-        <link rel="stylesheet" href="./resources/css/animate.css">
-        <link rel="stylesheet" href="./resources/css/templatemo_misc.css">
-        <link rel="stylesheet" href="./resources/css/templatemo_style.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/font-awesome.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo_misc.css">
+        <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo_style.css">
 
-        <script src="/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="<%=request.getContextPath() %>/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         
         
         <!-- Place somewhere in the <head> of your document -->
-<link rel="stylesheet" href="./resources/js/jquery.flexslider.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="./resources/js/jquery.flexslider.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/jquery.flexslider.js"></script>
 
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
@@ -80,6 +79,7 @@ $(window).load(function() {
                                         <input type="text" id="test" class="search" placeholder="Search">
                                     </h1>
                                 </div>
+                                
                                 <div class="col-md-10 col-sm-10 main-menu text-right toggle-wrapper">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
@@ -107,11 +107,11 @@ $(window).load(function() {
 
 
 
-        <script src="./resources/js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="./resources/js/bootstrap.js"></script>
-        <script src="./resources/js/plugins.js"></script>
-        <script src="./resources/js/main.js"></script>
+        <script src="<%=request.getContextPath() %>/resources/js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write("<script src='<%=request.getContextPath() %>/resources/js/vendor/jquery-1.11.0.min.js'><\/script>")</script>
+        <script src="<%=request.getContextPath() %>/resources/js/bootstrap.js"></script>
+        <script src="<%=request.getContextPath() %>/resources/js/plugins.js"></script>
+        <script src="<%=request.getContextPath() %>/resources/js/main.js"></script>
 
 </body>
 </html>
