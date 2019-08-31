@@ -5,8 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+.container{
+	background-image: url('resources/images/slide2.jpg');
+}
+
+</style>
 </head>
 <body>
 <%@ include file="views/common/header.jsp" %>
+
+<div class="jumbotron">
+      <div class="container">
+      </div>
+    </div>
+
 </body>
 </html>
