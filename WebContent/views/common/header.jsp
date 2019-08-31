@@ -53,7 +53,12 @@ $(window).load(function() {
 	    });
 	});
 </script>
-
+<style>
+	.menu-first>li>a:hover{
+	color:rgb(176,18,241);
+	cursor: pointer;
+	}
+</style>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -62,7 +67,7 @@ $(window).load(function() {
 
 
 
-
+		<div class="site-main" id="sTop">
             <div class="site-header">
                 <div class="main-header">
                     <div class="container">
@@ -96,7 +101,7 @@ $(window).load(function() {
                     </div> <!-- /.container -->
                 </div> <!-- /.main-header -->
             </div> <!-- /.site-header -->
-        
+        </div>
     
    
 
