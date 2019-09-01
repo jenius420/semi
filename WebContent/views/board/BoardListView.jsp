@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.PageInfo"%>
 <%
-	ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list");
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	/* ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list"); */
+	/* PageInfo pi = (PageInfo)request.getAttribute("pi"); */
 	
-	int listCount = pi.getListCount();
+	ArrayList<Board> list = new ArrayList<>();
+	PageInfo pi = new PageInfo();
+	
+/* 	int listCount = pi.getListCount();
 	int currentPage = pi.getCurrentPage();
 	int maxPage = pi.getMaxPage();
 	int startPage = pi.getStartPage();
-	int endPage = pi.getEndPage();
+	int endPage = pi.getEndPage(); */
 	
 %>
 <!DOCTYPE html>
