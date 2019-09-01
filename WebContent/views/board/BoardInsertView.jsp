@@ -1,5 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+				<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.Attachment"%>
+    
+<%
+	/* Board b = (Board)request.getAttribute("board"); */
+	/* Attachment at = (Attachment)request.getAttribute("Attachment"); */
+	
+	Board b = new Board();
+	Attachment at = new Attachment();
+%>    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,8 +16,9 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
+
 	.outer{
-		width:900px;
+		width:800px;
 		height:500px;
 		background:white;
 		color:purple;
@@ -16,29 +26,49 @@
 		margin-right:auto;
 		margin-top:50px;
 	}
-	table{
-		border:1px solid purple;
-	}
+
+
 	.tableArea{
-		width:500px;
+		width:800px;
 		height:350px;
 		margin-left:auto;
 		margin-right:auto;
 	}
 	
-	td{
-		width:100px;
-	}
+
 	th{
-		width:50px;
+		background:lightgray;
+		color:black;
 	}
+	tr{
+	border-top: 1px solid black;!important;
+		border:1px solid purple;
+	}
+	
+	#content{
+		height:230px;
+		border : 1px solid purple;
+	}
+	#photo{
+		height:130px;
+		border : 1px solid purple;
+	}
+	button{
+		background:white;
+		color:purple;
+		padding-right:10px;
+		padding-left:10px;
+	}
+	
+	
+	
 	.btnArea{
 		width:150px;
 		margin-left:auto;
 		margin-right:auto;
 	}
 	#contentImgArea1, #contentImgArea2, #contentImgArea3{
-		width:120px;
+		width:250px;
 		height:100px;
 		border:2px solid darkgray;
 		display:table-cell;
@@ -49,6 +79,24 @@
 	
 	#fileArea{
 		display:none;
+	}
+
+
+	input{
+		border:0px;
+	}
+	
+	textarea{
+	 	width:800px;
+	 	height:225px;
+	 	resize:none;
+	 	border:0px;
+	}
+	
+	.photo{
+		padding:0px;
+		width:250px;
+	
 	}
 	
 </style>
@@ -62,37 +110,49 @@
 		
 		<!-- 파일 업로드를 위해 enctype을 지정해줘야된다. -->
 		<form action="<%= request.getContextPath() %>/insert.bo" method="post" enctype="multipart/form-data">
-		
-		<div class="tableArea">
-				<table align="center">
-					<tr>
-						<th width="100px">제목</th>
-						<td colspan="3"><input type="text" size="60" name="title"></td>
-					</tr>
-					<tr>
-						<th>첨부</th>
-						<td>
-							<div id="contentImgArea1">
-								<img id="contentImg1" width="120" height="100">
-							</div>
-						</td>
-						<td>
-							<div id="contentImgArea2">
-								<img id="contentImg2" width="120" height="100">
-							</div>
-						</td>
-						<td>
-							<div id="contentImgArea3">
-								<img id="contentImg3" width="120" height="100">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<th>내용</th>
-						<td colspan="3">
-							<textarea rows="15" cols="60" name="content" style="resize:none;"></textarea>
-						</td>
-					</tr>
+	
+				
+			<div class="tableArea">
+					<table align="center" width="800px" class="listArea">
+				<tr>
+				<td colspan="6" height=30px></td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td colspan="5"><input type="text" value="<%= b.getTitle() %>"></td>
+				</tr>
+				<tr>
+				<td colspan="6" height=30px></td>
+				</tr>
+				<tr>
+					<th colspan="6"></th>
+				</tr>
+				<tr>
+					<td colspan="6">
+						<p id="content"><textarea></textarea></p>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="6">첨부사진</th>
+				</tr>
+				<tr>
+					<td colspan="2" class="photo">
+						<div id="contentImgArea1">
+							<img id="contentImg1" width="250" height="100">
+						</div>
+					</td>
+					<td colspan="2" class="photo">
+						<div id="contentImgArea2">
+							<img id="contentImg2" width="250" height="100">
+						</div>
+					</td>
+					<td colspan="2" class="photo">
+						<div id="contentImgArea3">
+							<img id="contentImg3" width="250" height="100">
+						</div>
+					</td>
+				</tr>					
+					
 				</table>
 				
 				
@@ -145,16 +205,9 @@
 							
 							// 파일 읽어주는 메소드
 							reader.readAsDataURL(value.files[0]);
-							
-							
 						}
 					}
 				</script>
-				
-				
-				
-				
-				
 				
 				
 				<br>

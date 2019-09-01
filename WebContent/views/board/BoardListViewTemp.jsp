@@ -78,7 +78,6 @@
 					<% for(Board b : list){ %>
 					<tr>
 						<td  scope="col"><%= b.gettNum() %></td>
-						<%-- <td><%= b.getCategory() %></td> --%>
 						<td scope="col"><%= b.getTitle() %></td>
 						<td scope="col"><%= b.geteName() %></td>
 						<td scope="col"><%= b.getBoardCount() %></td>
