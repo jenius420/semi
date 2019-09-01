@@ -62,7 +62,7 @@
        
      
         
-        <div class="col-sm-9" style="padding-top: 10px;">
+        <div class="col-sm-9" style="padding-top: 10px;" align="center">
         	<label>업직종</label>
         	<table class="table table-bordered" id="bigCategory">
         		<tr class="district">
@@ -107,8 +107,8 @@
         	</table>
         	
         	<button onclick="searchCategory();">검색</button>
-        
-          <h2 class="sub-header">검색 결과</h2>
+        <br /><br /><br />
+          <h2 class="sub-header" style="float: left;">검색 결과</h2>
           <br />
           <div class="table-responsive" style="padding-left: 15px;">
             <table class="table table-striped row" id="incruitList">
@@ -122,7 +122,7 @@
                   <th class="col-sm-1">등록일</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="searchResult">
                 <tr>
                   <td style="padding-top: 18px;">글번호</td>
                   <td style="padding-top: 18px;">영등포구</td>

@@ -1,5 +1,7 @@
+<%@page import="search.model.vo.IncruitInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +12,7 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 
-<script type="text/javascript" src="<%=request.getContextPath() %>/views/search/js/searhCategoryList.js"></script>
+
 
 <style>
 	#bigCategory{
@@ -74,7 +76,7 @@
        
      
         
-        <div class="col-sm-9" style="padding-top: 10px;">
+        <div class="col-sm-9" style="padding-top: 10px;"  align="center">
         	<label>업직종</label>
         	<table class="table table-bordered" id="bigCategory">
         		<tr class="category">
@@ -100,9 +102,9 @@
         		</tr>
         	</table>
         	
-        	<button onclick="searchCategory();">검색</button>
-        
-          <h2 class="sub-header">검색 결과</h2>
+        	<button id="searchBtn">검색</button>
+        <br /><br /><br />
+          <h2 class="sub-header" style="float: left;">검색 결과</h2>
           <br />
           <div class="table-responsive" style="padding-left: 15px;">
             <table class="table table-striped row" id="incruitList">
@@ -116,7 +118,7 @@
                   <th class="col-sm-1">등록일</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="searchResult">
                 <tr>
                   <td style="padding-top: 18px;">글번호</td>
                   <td style="padding-top: 18px;">영등포구</td>
@@ -247,5 +249,8 @@
 	
 	
 	<%@ include file="../common/footer.jsp" %>
+	
+	
+	<script type="text/javascript" src="js/searhCategoryList.js"></script>
 </body>
 </html>
