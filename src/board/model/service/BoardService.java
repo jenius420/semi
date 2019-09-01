@@ -68,6 +68,12 @@ public class BoardService {
 		return b;
 	}
 	
+	/**
+	 * 사진을 포함한 게시글 작성용 서비스
+	 * @param b
+	 * @param fileList
+	 * @return
+	 */
 	public int insertBoard(Board b, ArrayList<Attachment> fileList ) {
 		
 Connection conn = getConnection();
@@ -86,5 +92,28 @@ Connection conn = getConnection();
 		return result1;
 		
 	}
+	
+	
+	/**
+	 * 게시글 삭제용 서비스
+	 * @param bId
+	 * @return
+	 */
+	public int deleteBoard(int tNum) {
+		Connection conn = getConnection();
+		
+		int result = new BoardDao().deleteBoard(conn, tNum);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
 
 }
