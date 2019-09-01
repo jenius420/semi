@@ -22,6 +22,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<script src="<c:url value="/js/egovframework/mbl/cmm/jquery-1.11.2.min.js" />"></script>
 
 
 
@@ -37,7 +38,6 @@
 		margin-top:50px;
 	}
 	table{
-		border:1px solid purple;
 	}
 	
 	.tableArea{
@@ -45,6 +45,14 @@
 		height:350px;
 		margin-left:auto;
 		margin-right:auto;
+	}
+	th{
+		background:lightgray;
+		color:black;
+	}
+	tr{
+	border-top: 1px solid black;!important;
+		border:1px solid purple;
 	}
 	
 	#content{
@@ -86,24 +94,22 @@
 				<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<%-- <td>분야</td>
-					<td><%= b.getCategory() %></td> --%>
 					<th>제목</th>
-					<td colspan="3"><%= b.getTitle() %></td>
+					<td colspan="5"><%= b.getTitle() %></td>
 				</tr>
 				<tr>
 					<th>작성자</th>
 					<td><%= b.geteName() %></td>
-					<th>조회수</th>
-					<td><%= b.getBoardCount() %></td>
 					<th>작성일</th>
 					<td><%= b.getUpdateDate() %></td>
+					<th>조회수</th>
+					<td><%= b.getBoardCount() %></td>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th colspan="6">내용</th>
+					<th colspan="6"></th>
 				</tr>
 				<tr>
 					
