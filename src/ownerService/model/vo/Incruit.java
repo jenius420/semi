@@ -11,7 +11,7 @@ public class Incruit {
 	private String workDay; // 근무요일
 	private String workTime; // 근무시간
 	private int termNo; // 근무기간key
-	private String termName; // 근무기간명
+	private String termName; // 근무간명
 	private String termBigName; // 근무기간분류
 	private String gender; // 성별
 	private int age; // 나이
