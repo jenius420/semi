@@ -98,6 +98,14 @@
 	</div>
 </div>
 
+<script>
+	$(function(){
+		<% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게
+		location.href="<%= contextPath %>/RecomendList.main?=dongnum"+dongnum;
+		<% } %>
+	});
+</script>
+
 <!-- 지역별 알바검색 및  업종별 알바 검색 -->
 <div class="row" style="padding: 100px;">
 	<div class="col-lg-6" id="district">

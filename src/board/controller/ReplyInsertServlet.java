@@ -1,28 +1,25 @@
-package main.controller;
+package board.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import main.model.service.MainService;
-import main.model.vo.Main;
+import board.model.vo.BoardComment;
 
 /**
- * Servlet implementation class RecomendListServlet
+ * Servlet implementation class ReplyInsertServlet
  */
-@WebServlet("/RecomendList.main")
-public class RecomendServlet extends HttpServlet {
+@WebServlet("/rinsert.bo")
+public class ReplyInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecomendServlet() {
+    public ReplyInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,15 +28,16 @@ public class RecomendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+
+
+		String commentExplain = request.getParameter("commentExplain");
+		int tNum = Integer.parseInt(request.getParameter("tNum"));
+		String eName = request.getParameter("eName");
 		
-		String Id = request.getParameter("id");
-	
-		ArrayList<Main> list = new MainService().selectRecomendList("id");
-		
-		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		BoardComment c = new BoardComment();
+		c.setCommentExplain(commentExplain);
+		c.settNum(tNum);
+		c.seteName(eName);
 	
 	
 	}

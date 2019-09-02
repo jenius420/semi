@@ -188,13 +188,13 @@
 					$.each(list, function(index, value){
 						
 						var $tr = $("<tr>");
-						var $writerTd = $("<td>").text(value.eNum).css("width","100px");
-						var $contentTd = $("<td>").text(value.commentExplain).css("width","400px");
-						var $dateTd = $("<td>").text(value.enrollDate).css("width","200px")
+						var $eName = $("<td>").text(value.eName).css("width","100px");
+						var $commentExplain = $("<td>").text(value.commentExplain).css("width","400px");
+						var $enrollDate = $("<td>").text(value.enrollDate).css("width","200px")
 						
-						$tr.append($writerTd);
-						$tr.append($contentTd);
-						$tr.append($dateTd);
+						$tr.append($eName);
+						$tr.append($commentExplain);
+						$tr.append($enrollDate);
 						
 						$replyTable.append($tr);
 						
@@ -213,10 +213,10 @@
 			
 			$("#addReply").click(function(){
 				
-				var content = $("#replyContent").val();
-				var bId = <%= b.gettNum() %>;
-				<%-- var writer = <%=loginUser.geteNum()%>; --%>
-				var writer = <%=b.geteNum()%>;
+				var commentExplain = $("#replyContent").val();
+				var tNum = <%= b.gettNum() %>;
+				
+				var eNum = <%=b.geteNum()%>;
 				
 				$.ajax({
 					url:"rinsert.bo",

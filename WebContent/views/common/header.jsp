@@ -47,11 +47,36 @@ $(window).load(function() {
   
   
   $(document).ready(function() {
-	    $("#test").on('click', function(){
+/* 	    $("#test").on('click', function(){
+	         $(this).css("border","1.5px solid #ff99ff");
+	        $(this).css("background","#f2e6ff");
+	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer");
+	    }); */
+/* 	    
+	    $("#test").mouseenter(function(){
+	        $(this).css("background","#f2e6ff");
+	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer");
+	    }).mouseout(function(){
+	    	$(this).css("background","white");
+	        $(".search-icon button").css("background","white").css("cursor","default");
+	    }); */
+	    
+	    $("#test").focus(function(){
 	        /* $(this).css("border","1.5px solid #ff99ff"); */
 	        $(this).css("background","#f2e6ff");
-	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer")
+	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer");
+	    }).blur(function(){
+	    	$(this).css("background","white");
+	        $(".search-icon button").css("background","white").css("cursor","default");
 	    });
+	    
+	    
+	   
+	   /*  $("#test").off('click', function(){
+	        $("#test").css("background","white");
+	        $(".search-icon button").css("background","white").css("cursor","pointer")
+	    }); */
+	     
 	});
 </script>
 <style>
