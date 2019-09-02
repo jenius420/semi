@@ -37,7 +37,7 @@ $(function() {
 			result.push(check.slice(i, i + 1).text());
 		}
 		console.log(result);
-
+		jQuery.ajaxSettings.traditional = true;
 		$.ajax({
 				url:"categorySearch.se",
 				data:{result:result, currentPage:1},

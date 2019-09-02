@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import adminService.model.dao.ManageMemDao;
 import board.model.dao.BoardDao;
 import board.model.vo.Board;
+import board.model.vo.BoardComment;
 import common.model.vo.Attachment;
 import empService.model.vo.Emp;
 
@@ -115,5 +116,21 @@ Connection conn = getConnection();
 		return result;
 	}
 	
+	
+	
+	/**
+	 *  댓글 조회용 서비스
+	 * @param tNum
+	 * @return
+	 */
+	public ArrayList<BoardComment> selectRlist(int tNum){
+		Connection conn = getConnection();
+		
+		ArrayList<BoardComment> list = new BoardDao().selectRlist(conn, tNum);
+		
+		close(conn);
+		
+		return list;
+	}
 
 }
