@@ -251,6 +251,6 @@
 	<%@ include file="../common/footer.jsp" %>
 	
 	
-	<script type="text/javascript" src="js/searhCategoryList.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/views/search/js/searhCategoryList.js"></script>
 </body>
 </html>

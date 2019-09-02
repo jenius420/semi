@@ -32,8 +32,10 @@ public class CategorySearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("넘어오나?");
+//		System.out.println("넘어오나?");
+		System.out.println(request.getParameter("currentPage"));
 		String[] cates= request.getParameterValues("result");
+		System.out.println(cates);
 		if(cates==null) {
 			request.setAttribute("msg", "리스트조회에 실패했습니다");
 			request.getRequestDispatcher("views/common/errorPage.jsp");

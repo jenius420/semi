@@ -89,7 +89,7 @@ $(window).load(function() {
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
 										<%} %>
-                                        <li><a onclick="location.href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
+                                        <li><a href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
                                         <li><a href="#board">게시판</a></li>
                                         <li><a href="#personalService">개인서비스</a></li> 
