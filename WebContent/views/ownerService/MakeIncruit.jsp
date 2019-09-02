@@ -100,17 +100,12 @@
 					</div>
 					
 					<div class='form-row'>
-					  <label for='workAge'>희망 연령대</label>
-					  <select id='workAge' name='workAge' style="width:70px;">
-					  
-					    <option value='무관'>무관</option>
-					    <option value='10대'>10대</option>
-					    <option value='20대'>20대</option>
-					    <option value='30대'>30대</option>
-					    <option value='30대'>40대</option>
-					    <option value='30대'>50대</option>
-					    <option value='30대'>60대</option>
-					  </select>
+					  <label for='workAge1'>희망 연령</label>  
+					  <input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;"/>
+					  <p class="rLabel"  style="width:35px; padding:2px 0px;">세 ~ </p>
+					  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;"/>
+					  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;">세</p>
+					  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y'/><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>  
 					</div>
 					
 					<div class='form-row'>

@@ -132,5 +132,27 @@ Connection conn = getConnection();
 		
 		return list;
 	}
+	
+	
+	/**
+	 *  댓글 입력용 서비스
+	 * @param c
+	 * @return
+	 */
+	public int insertReply(BoardComment c) {
+		Connection conn = getConnection();
+		
+		int result = new BoardDao().insertReply(conn, c);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 
 }

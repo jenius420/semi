@@ -103,7 +103,7 @@ public class BoardListServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		request.setAttribute("pi", pi);
 		
-		request.getRequestDispatcher("views/board/boardListView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/board/BoardListViewTemp.jsp").forward(request, response);
 		
 		
 		

@@ -12,6 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.smartcardio.CommandAPDU;
+
+import adminService.controller.BoardReportListServlet;
 import board.model.vo.Board;
 import board.model.vo.BoardComment;
 import common.model.vo.Attachment;
@@ -351,6 +354,32 @@ private Properties prop = new Properties();
 		}
 		
 		return list;
+		
+	}
+	
+	public int insertReply(Connection conn, BoardComment c) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertReply");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getCommentExplain());
+			pstmt.setInt(2, c.gettNum());
+			pstmt.setInt(3, c.geteNum());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 		
 	}
 	
