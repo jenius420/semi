@@ -12,7 +12,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.smartcardio.CommandAPDU;
+
+import adminService.controller.BoardReportListServlet;
 import board.model.vo.Board;
+import board.model.vo.BoardComment;
 import common.model.vo.Attachment;
 import empService.model.vo.Emp;
 
@@ -269,7 +273,6 @@ private Properties prop = new Properties();
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
@@ -280,6 +283,12 @@ private Properties prop = new Properties();
 	}
 	
 	
+	/**
+	 *  게시글 삭제하는 호출
+	 * @param conn
+	 * @param tNum
+	 * @return
+	 */
 	public int deleteBoard(Connection conn, int tNum) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -301,5 +310,80 @@ private Properties prop = new Properties();
 	
 	
 	
-
+	}
+	
+	
+	/**
+	 * 댓글 조회용 
+	 * @param conn
+	 * @param tNum
+	 * @return
+	 */
+	public ArrayList<BoardComment> selectRlist(Connection conn, int tNum){
+		
+		ArrayList<BoardComment> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectRlist");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNum);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new BoardComment(rset.getInt("commentNum"),
+										  rset.getString("commentExplain"),
+										  rset.getInt("tNum"),
+										  rset.getString("deleteOrNot"),
+										  rset.getDate("enrollDate"),
+										  rset.getInt("eNum"),
+										  rset.getString("eName")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public int insertReply(Connection conn, BoardComment c) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertReply");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getCommentExplain());
+			pstmt.setInt(2, c.gettNum());
+			pstmt.setInt(3, c.geteNum());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
+	
 }

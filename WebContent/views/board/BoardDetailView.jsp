@@ -158,7 +158,130 @@
 			$("#detailForm").attr("action", "<%=request.getContextPath()%>/delete.bo");
 			$("#detailForm").submit();
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		// 댓글 리스트 출력하는 함수
+		function selectRlist(){
+			
+			// 전달하고자 하는 게시글 번호
+			var tNum = <%= b.gettNum() %>;
+			
+			$.ajax({
+				url:"rlist.bo",
+				data:{tNum:tNum},
+				type:"get",
+				success:function(list){
+					
+					var $replyTable = $("#replySelectTable"); // <table></table>
+					
+					$replyTable.html(""); // 기존 테이블 정보 초기화
+					
+					$.each(list, function(index, value){
+						
+						var $tr = $("<tr>");
+						var $eName = $("<td>").text(value.eName).css("width","100px");
+						var $commentExplain = $("<td>").text(value.commentExplain).css("width","400px");
+						var $enrollDate = $("<td>").text(value.enrollDate).css("width","200px")
+						
+						$tr.append($eName);
+						$tr.append($commentExplain);
+						$tr.append($enrollDate);
+						
+						$replyTable.append($tr);
+						
+					});
+					
+				},
+				error:function(){
+					console.log("통신 실패");
+				}
+			});
+			
+		}
+		
+		$(function(){
+			selectRlist();
+			
+			$("#addReply").click(function(){
+				
+				var commentExplain = $("#replyContent").val();
+				var tNum = <%= b.gettNum() %>;
+				
+				var eNum = <%=b.geteNum()%>;
+				
+				$.ajax({
+					url:"rinsert.bo",
+					type:"post",
+					data:{commentExplain:commentExplain, tNum:tNum, eNum:eNum},
+					success:function(){
+						selectRlist();
+						
+						$("#replyContent").val("");
+					}
+				});
+				
+			});
+			
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 </body>
 </html>

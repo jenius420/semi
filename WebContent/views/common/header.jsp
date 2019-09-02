@@ -47,9 +47,36 @@ $(window).load(function() {
   
   
   $(document).ready(function() {
-	    $("#test").on('click', function(){
-	        $(this).css("border","1.5px solid #ff99ff"); 
+/* 	    $("#test").on('click', function(){
+	         $(this).css("border","1.5px solid #ff99ff");
+	        $(this).css("background","#f2e6ff");
+	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer");
+	    }); */
+/* 	    
+	    $("#test").mouseenter(function(){
+	        $(this).css("background","#f2e6ff");
+	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer");
+	    }).mouseout(function(){
+	    	$(this).css("background","white");
+	        $(".search-icon button").css("background","white").css("cursor","default");
+	    }); */
+	    
+	    $("#test").focus(function(){
+	        /* $(this).css("border","1.5px solid #ff99ff"); */
+	        $(this).css("background","#f2e6ff");
+	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer");
+	    }).blur(function(){
+	    	$(this).css("background","white");
+	        $(".search-icon button").css("background","white").css("cursor","default");
 	    });
+	    
+	    
+	   
+	   /*  $("#test").off('click', function(){
+	        $("#test").css("background","white");
+	        $(".search-icon button").css("background","white").css("cursor","pointer")
+	    }); */
+	     
 	});
 </script>
 <style>
@@ -76,10 +103,12 @@ $(window).load(function() {
                                 </div> <!-- /.logo-wrapper -->
                                 <div class="search-wrapper"> <!-- 수정 -->
                                     <h1>
-                                        <input type="text" id="test" class="search" placeholder="Search">
+                                       <input type="text" id="test" class="search" placeholder="Search">
                                     </h1>
                                 </div>
-                                
+                               	<div class="search-icon">
+                                       <button>검색</button>
+                               	</div>   
                                 <div class="col-md-10 col-sm-10 main-menu text-right toggle-wrapper">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
@@ -89,9 +118,9 @@ $(window).load(function() {
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
 										<%} %>
-                                        <li><a onclick="location.href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
+                                        <li><a href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
-                                        <li><a href="#board">게시판</a></li>
+                                        <li><a href='<%=request.getContextPath()%>/list.bo'>게시판</a></li>
                                         <li><a href="#personalService">개인서비스</a></li> 
                                         <li><a href="#businesService">기업서비스</a></li>                                 
                                     </ul>                                    

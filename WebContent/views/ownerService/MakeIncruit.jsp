@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="ownerService.model.vo.Owner, java.util.ArrayList"%>
+    import="ownerService.model.vo.Owner, java.util.ArrayList, ownerService.model.vo.IncruitProduct"%>
 <%	
 	Owner owner= (Owner) session.getAttribute("owner");
-
+	ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute("list");
 
 
 %>
@@ -12,51 +12,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
+<link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
 
 <title>공고 작성</title>
-
-<style>
-input[type=checkbox]+label{
-display:block;
-margin:0.2em;
-cursor:pointer;
-padding:0.2em;
-}
-input[type=checkbox]{
-display:none;
-}
-input[type=checkbox]+label:before{
-content: "\2714";
-border: 0.1em solid #000;
-border-radius:0.2em;
-display:inline-block;
-width:1em;
-height:1em;
-padding-left:0.2em;
-padding-bottom:0.3em;
-padding-right:0.2em;
-vertical-align:bottom;
-color:transparent;
-transition:.2s;
-}
-
-input[type=checkbox] + label:active:before{
-transform:scale(0);
-}
-
-input[type=checkbox]:checked +label:before{
-background-color: #fff;
-
-color:purple;
-}
-
-
-</style>
 </head>
 <body>
 
 
-<div id="div">
+<div id="div" style="height: 1400px;">
 
 	<div id="header"></div>
 	
@@ -68,35 +31,15 @@ color:purple;
 		
 			<div class="outer">
 	
-				<form action="<%=request.getContextPath()%>/submitResume.es" method="post" class='speaker-form'  enctype="multipart/form-data">
+				<form action="<%=request.getContextPath()%>/submitIncruit.os" method="post" class='speaker-form'  style="height: 1050px;">
 			
-					<div class='form-row' style="border-bottom: 1px solid gray">
+					<div class='form-row' style="border-bottom: 1px solid gray" >
 					  <label for='full-name'>제목</label>
-					  <input id='full-name' name='wTitle' type='text'/>
+					  <input id='full-name' name='wTitle' type='text' style="width:600px; margin-bottom:15px;"/>
 					</div>
 					
+					<br><br>
 					
-					<div class='form-row' id="fileArea" style="margin-bottom:20px;">
-					  <label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
-					  <img id="titleImg" width="100" height="100">
-					  <label for="photo" id="upload">업로드</label>
-					  <input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">
-					  
-					  </div>
-	
-					<script>	
-						// 파일 첨부했을 때 미리보기 공간에 미리보기 가능하게 하는 함수
-						function loadImg(value){
-							if(value.files && value.files[0]){
-			
-								var reader = new FileReader();
-								reader.onload = function(e){	
-									$("#titleImg").attr("src", e.target.result);
-								}
-								reader.readAsDataURL(value.files[0]);
-							}
-						}
-					</script>
 		
 					<div class='form-row'>
 					  <label class="lLabel">업체명</label><p class="rLabel" style="width:180px;"><%=owner.getOpName() %></p>
@@ -118,58 +61,116 @@ color:purple;
 					</div>
 					
 					<div class='form-row'>
-					  <label class='lLabel'>업종</label> <p class="rLabel"><%=owner.getCategory() %> :: <%=owner.getType() %></p>
+					  <label class='lLabel'>업종</label>
+					  <p class="rLabel"><%=owner.getCategory() %> :: <%=owner.getType() %></p>
 					</div>
+		
+					<br><br>
 					
-					<div style="height:30px;"></div>
-					
+					<div class='form-row'>
+						<label class='lLabel' style="padding-top:4px;">공고 마감일</label>
+						<input type="date" name="endDate" >
+					</div>
 		
 					<div class='form-row'>
 					  <label class='lLabel' for='workDay'><span>근무요일</span></label>
-						  <input id='workDay' name='workDay' type='checkbox' value='월'/><label class='checkbox-label' for='workDay'><span>월</span></label>
+						  <input id='workDay1' name='workDay' type='checkbox' value='월'/><label class='checkbox-label' for='workDay1' style=""><span>월</span></label>
+							<input id='workDay2' name='workDay' type='checkbox' value='화'/><label class='checkbox-label' for='workDay2'><span>화</span></label>
+							<input id='workDay3' name='workDay' type='checkbox' value='수'/><label class='checkbox-label' for='workDay3'><span>수</span></label>
+							<input id='workDay4' name='workDay' type='checkbox' value='목'/><label class='checkbox-label' for='workDay4'><span>목</span></label>
+							<input id='workDay5' name='workDay' type='checkbox' value='금'/><label class='checkbox-label' for='workDay5'><span>금</span></label>
+							<input id='workDay6' name='workDay' type='checkbox' value='토'/><label class='checkbox-label' for='workDay6'><span>토</span></label>
+							<input id='workDay7' name='workDay' type='checkbox' value='일'/><label class='checkbox-label' for='workDay7'><span>일</span></label>
 					</div>
 					
 					<div class='form-row'>
-					  <label for='typeNum'>희망업종</label>
-					  <select id='typeNum' name='typeNum' style="width:300px;">
-	
+					  <label for='termNo'>근무 기간</label>
+					  <select id='termNo' name='termNo' style='width:180px;'>
+					    <option value='1'>단기 :: 1주일 이하</option>
+					    <option value='2'>단기 :: 1주일 ~ 1개월</option>
+					    <option value='3'>장기 :: 3개월 ~ 6개월</option>
+					    <option value='4'>장기 :: 6개월 ~ 1년</option>
+					    <option value='5'>장기 :: 1년 이상</option>
 					  </select>
 					</div>
 					
 					<div class='form-row'>
-					  <label for='edu'>최종학력</label>
-					  <select id='edu' name='edu'>
+					  <label for='workTime'>근무 시간</label>
+						 <input id='workTime' name='workTime' type='text' style="width:120px; margin-bottom:10px;"/> <label style="font-size:14px; color: gray;">ex) 09:00 ~ 18:00 </label>
+					</div>
+					
+					<div class='form-row'>
+					  <label for='workAge1'>희망 연령</label>  
+					  <input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;"/>
+					  <p class="rLabel"  style="width:35px; padding:2px 0px;">세 ~ </p>
+					  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;"/>
+					  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;">세</p>
+					  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y'/><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>  
+					</div>
+					
+					<div class='form-row'>
+					  <label for='workGender'>희망 성별</label>
+					  <select id='workGender' name='workGender' style="width:70px;">
+					    <option value='무관'>무관</option>
+					    <option value='남자'>남자</option>
+					    <option value='여자'>여자</option>
+					  </select>
+					</div>
+					
+					<div class='form-row'>
+					  <label for='workEdu'>희망 학력</label>
+					  <select id='workEdu' name='workEdu' style="width:70px;">
 					    <option value='대졸'>대졸</option>
-					    <option value='대학 재학생'>대학 재학생</option>
-					    <option value='대학 휴학생'>대학 휴학생</option>
+					    <option value='대학생'>대학생</option>
 					    <option value='고졸'>고졸</option>
-					  </select>
+					    <option value='중졸'>중졸</option>
+					  </select><label style="font-size:14px; color: gray; text-align:left; padding:2px 4px;"> 이상</label>
 					</div>
 					
 					<div class='form-row'>
-					  <label for='desireForm'>희망 급여</label>
-					  <select id='desireForm' name='desireForm'>
+					  <label for='workForm'>희망 급여</label>
+					  <select id='workForm' name='workForm'>
+					  	<option value='협의'>협의 후 결정</option>
 					    <option value='시급'>시급</option>
 					    <option value='일급'>일급</option>
 					    <option value='월급'>월급</option>
 					    <option value='연봉'>연봉</option>
 					  </select>
-					  <input id='desireIncome' name='desireIncome' type='text' style="margin-left:20px;"/>
-					  <label for='desireIncome' style="text-align:left">원</label>
-					  
+					  <input id='salary' name='salary' type='text' style="margin-left:20px;"/>
+					  <label for='salary' style="text-align:left">원</label>
+					</div>
+					
+					<div class='form-row'>
+					  <label for='peopleCount'>모집 인원</label>
+					  <select id='peopleCount' name='peopleCount' style="width:70px;">
+					    <option value='1명'>1명</option>
+					    <option value='2명'>2명</option>
+					    <option value='3명'>3명</option>
+					    <option value='4명'>4명</option>
+					    <option value='5명'>5명</option>
+					    <option value='6명'>6명</option>
+					    <option value='7명'>7명</option>
+					    <option value='8명'>8명</option>
+					    <option value='9명'>9명</option>
+					    <option value='10명'>10명</option>
+					    <option value='10명 이상'>10명 이상</option>
+					  </select>
+					</div>
+					
+					<div class='form-row'>
+					  <label for='applyProduct'>적용 상품</label>
+					  <select id='applyProduct' name='applyProduct' style="width:400px;">
+					   	<%for(IncruitProduct a : list) {%>
+				  			<option value='<%=a.getpCode()%>' ><%=a.getpTitle()%> :: <%=a.getpPay()%>원(일) :: <%=a.getpExplain()%></option>
+				  		<%}%>
+					  </select>
 					</div>
 	
 					<div class='form-row'>
-					  <label for='comment'>하고싶은 말</label>
-					  <textarea id='comment' name='comment'></textarea>
+					  <label for='rExplain'>상세 내역</label>
+					  <textarea id='rExplain' name='rExplain'></textarea>
 					</div>
 		
-					<div class='form-row'>
-					  <label class='checkbox-label' for='openSet'>
-					  <input id='openSet' name='openSet' type='checkbox' value='Y'/>
-					  <span>이력서 공개 설정</span>
-					  </label>
-					</div>
 					
 					<div class='form-row'>
 					  <button type="submit" class="btn" onclick="return submitCheck();">저장하기</button>
@@ -189,7 +190,6 @@ color:purple;
 	
 				</form>
 			</div>
-
 
 
 		</div> <!-- /메인콘텐트 -->

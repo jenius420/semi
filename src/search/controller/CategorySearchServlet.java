@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import search.model.dao.SearchDao;
 import search.model.service.SearchService;
 import search.model.vo.IncruitInfo;
 
@@ -32,11 +33,17 @@ public class CategorySearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("넘어오나?");
-		String[] cates= request.getParameterValues("result");
+//		System.out.println("넘어오나?");
+		request.setCharacterEncoding("utf-8");
+		System.out.println(request.getParameter("currentPage"));
+		String[] cates =request.getParameter("result").split("!");
+		
+		for(int i=0; i<cates.length; i++) {			
+			System.out.println(cates[i]);
+		}
+		ArrayList<IncruitInfo> list;
 		if(cates==null) {
-			request.setAttribute("msg", "리스트조회에 실패했습니다");
-			request.getRequestDispatcher("views/common/errorPage.jsp");
+			list = new SearchDao().cateFirst(1,20);
 		}else {
 		//총 게시글 갯수
 				int listCount = new SearchService().getCateListCount(cates);
@@ -83,7 +90,7 @@ public class CategorySearchServlet extends HttpServlet {
 				System.out.println("listCount" + listCount);
 				int start =(currentPage-1)*boardLimit+1;
 				int end = currentPage*boardLimit;
-				ArrayList<IncruitInfo> list= new SearchService().categorySearch(cates,start,end);
+				list= new SearchService().categorySearch(cates,start,end);
 				response.setContentType("application/json; charset=utf-8");
 				Gson gson = new Gson();
 				gson.toJson(list,response.getWriter());// 응답할 리스트, 응답할 스트림

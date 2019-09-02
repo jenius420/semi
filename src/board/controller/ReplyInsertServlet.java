@@ -1,32 +1,25 @@
-package ownerService.controller;
+package board.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import adminService.model.service.ManageIncruitService;
-import common.model.service.CommonService;
-import common.model.vo.District;
-import common.model.vo.JobType;
-import ownerService.model.vo.IncruitProduct;
+import board.model.vo.BoardComment;
 
 /**
- * Servlet implementation class MakeIncruitServlet
+ * Servlet implementation class ReplyInsertServlet
  */
-@WebServlet("/makeIncruit.os")
-public class MakeIncruitServlet extends HttpServlet {
+@WebServlet("/rinsert.bo")
+public class ReplyInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MakeIncruitServlet() {
+    public ReplyInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,11 +29,17 @@ public class MakeIncruitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ArrayList<IncruitProduct> list = new ManageIncruitService().selectProductList();
+
+		String commentExplain = request.getParameter("commentExplain");
+		int tNum = Integer.parseInt(request.getParameter("tNum"));
+		String eName = request.getParameter("eName");
 		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/ownerService/MakeIncruit.jsp").forward(request, response);
-		
+		BoardComment c = new BoardComment();
+		c.setCommentExplain(commentExplain);
+		c.settNum(tNum);
+		c.seteName(eName);
+	
+	
 	}
 
 	/**

@@ -26,6 +26,8 @@
 </head>
 <body>
 <%@ include file="views/common/header.jsp" %>
+<button onclick="location.href='<%=request.getContextPath()%>/test111'">확인</button>
+
 <div></div>
 <div class="jumbotron" id="jumbotron">
       <div class="container">
@@ -97,6 +99,14 @@
       </div>  
 	</div>
 </div>
+
+<script>
+	$(function(){
+		<% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게
+		location.href="<%= contextPath %>/RecomendList.main?=dongnum"+dongnum;
+		<% } %>
+	});
+</script>
 
 <!-- 지역별 알바검색 및  업종별 알바 검색 -->
 <div class="row" style="padding: 100px;">

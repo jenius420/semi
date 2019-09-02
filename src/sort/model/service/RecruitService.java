@@ -79,7 +79,7 @@ public class RecruitService {
 	public ArrayList<Recruit> selectYearly(String workform){
 		Connection conn = getConnection();
 		
-		ArrayList<Recruit> list = new RecruitDao().selectYaerly(conn, workform);
+		ArrayList<Recruit> list = new RecruitDao().selectYearly(conn, workform);
 		
 		close(conn);
 		

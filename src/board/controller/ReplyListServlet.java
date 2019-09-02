@@ -1,32 +1,30 @@
-package ownerService.controller;
+package board.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import adminService.model.service.ManageIncruitService;
-import common.model.service.CommonService;
-import common.model.vo.District;
-import common.model.vo.JobType;
-import ownerService.model.vo.IncruitProduct;
+import com.google.gson.Gson;
+
+import board.model.service.BoardService;
+import board.model.vo.BoardComment;
 
 /**
- * Servlet implementation class MakeIncruitServlet
+ * Servlet implementation class ReplyListServlet
  */
-@WebServlet("/makeIncruit.os")
-public class MakeIncruitServlet extends HttpServlet {
+@WebServlet("/rlist.bo")
+public class ReplyListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MakeIncruitServlet() {
+    public ReplyListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,11 +34,18 @@ public class MakeIncruitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ArrayList<IncruitProduct> list = new ManageIncruitService().selectProductList();
+		int tNum = Integer.parseInt(request.getParameter("tNum"));
 		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/ownerService/MakeIncruit.jsp").forward(request, response);
+		ArrayList<BoardComment> list = new BoardService().selectRlist(tNum);
 		
+		response.setContentType("application/json; charset=utf-8");
+	
+		Gson gson = new Gson();
+		gson.toJson(list, response.getWriter());
+	
+	
+	
+	
 	}
 
 	/**
