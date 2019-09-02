@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import adminService.model.service.ManageIncruitService;
 import common.model.service.CommonService;
 import common.model.vo.District;
 import common.model.vo.JobType;
+import ownerService.model.vo.IncruitProduct;
 
 /**
  * Servlet implementation class MakeIncruitServlet
@@ -34,7 +36,9 @@ public class MakeIncruitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		ArrayList<IncruitProduct> list = new ManageIncruitService().selectProductList();
 		
+		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/ownerService/MakeIncruit.jsp").forward(request, response);
 		
 	}

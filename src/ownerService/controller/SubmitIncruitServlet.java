@@ -2,6 +2,7 @@ package ownerService.controller;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -41,44 +42,30 @@ public class SubmitIncruitServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
-		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
-		Incruit incruit = null;
+		Owner owner = (Owner)request.getSession().getAttribute("owner");
 		
-		try {
-			
-			String wTitle = request.getParameter("wTitle");
-			int oNum = owner.getoNum();
-			Date workStartTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workStartTerm");
-			Date workEndTerm = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("workEndTerm");
-			String workDay = request.getParameter("workDay");
-			String workStartTime = request.getParameter("workStartTime");
-			String workEndTime = request.getParameter("workEndTime");
-			int termNo = Integer.parseInt(request.getParameter("termNo"));
-			String gender = request.getParameter("gender");
-			int age = Integer.parseInt(request.getParameter("age"));
-			String edu = request.getParameter("edu");
-			Date enrollDate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("enrollDate");
-			String status = request.getParameter("status");
-			Date doneDate = (Date) new SimpleDateFormat("yyyy-MM-dd").parse("doneDate");
-			String salaryForm = request.getParameter("salaryForm");
-			int salary = Integer.parseInt(request.getParameter("salary"));
-			int pNum = Integer.parseInt(request.getParameter("pNum"));
-			String description = request.getParameter("description");
-			
-			
-			incruit = new Incruit(wTitle, oNum, workStartTerm, workEndTerm, workDay, workStartTime, workEndTime, termNo,
-					gender, age, edu, enrollDate, status, doneDate, salaryForm, salary, pNum, description);
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		Incruit incruit = new Incruit();
 
+		incruit.setwTitle(request.getParameter("wTitle"));
+		incruit.setoNum(owner.getoNum());
+		incruit.setDoneDate(java.sql.Date.valueOf(request.getParameter("endDate")));	
+		String[] workDayArr = request.getParameterValues("workDay");
+		incruit.setWorkDay(String.join("", workDayArr));
+		incruit.setTermNo(Integer.parseInt(request.getParameter("termNo")));
+		incruit.setWorkTime(request.getParameter("workTime"));
+		incruit.setGender(request.getParameter("workGender"));
+		incruit.setAge(request.getParameter("workAge"));
+		incruit.setEdu(request.getParameter("workEdu"));
+		incruit.setSalaryForm(request.getParameter("workForm"));
+		incruit.setSalary(Integer.parseInt(request.getParameter("salary")));
+		incruit.setPeopleCount(request.getParameter("peopleCount"));
+		incruit.setpNum(Integer.parseInt(request.getParameter("applyProduct")));	
+		incruit.setDescription(request.getParameter("rExplain"));
+			
 		int result = new IncruitService().enrollIncruit(incruit);
 		
 		if(result > 0) {
-			request.setAttribute("msg", "공고를 성공적으로 등록했습니다");	
-//			request.getRequestDispatcher("/views/ownerService/ManageIncruit.jsp").forward(request, response);
-//			response.sendRedirect("incruitList.os"); 
+			response.sendRedirect("incruitList.os"); 
 		}else {
 			request.setAttribute("msg", "공고 등록에 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
