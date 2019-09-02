@@ -26,7 +26,7 @@ public class DistrictList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("확인");
+		
 		request.getRequestDispatcher("views/search/searchCategoryList.jsp").forward(request, response);
 	}
 

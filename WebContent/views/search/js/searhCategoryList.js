@@ -32,15 +32,20 @@ $(function() {
 	
 	$('#searchBtn').click(function(){
 		var check = $("td[name=checked]");
-		var result = new Array();
+		var result = "";
 		for (var i = 0; i < check.length; i++) {
-			result.push(check.slice(i, i + 1).text());
+			if(i==check.length-1){
+				result+=check.slice(i, i + 1).text();
+				break;
+			}
+			result+=(check.slice(i, i + 1).text())+"!";
 		}
 		console.log(result);
 		jQuery.ajaxSettings.traditional = true;
 		$.ajax({
 				url:"categorySearch.se",
 				data:{result:result, currentPage:1},
+				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 				type:"get",
 				dataType:"json",
 				success:function(list){
