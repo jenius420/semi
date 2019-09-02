@@ -40,4 +40,49 @@ public class RecruitService {
 		return list;
 		
 	}
+	
+	/**
+	 * 3. 일급순 조회 서비스
+	 * @param workform
+	 * @return
+	 */
+	public ArrayList<Recruit> selectDayly(String workform){
+		Connection conn = getConnection();
+		
+		ArrayList<Recruit> list = new RecruitDao().selectDayly(conn, workform);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	/**
+	 * 4. 월급순 조회 서비스
+	 * @param workform
+	 * @return
+	 */
+	public ArrayList<Recruit> selectMonthly(String workform){
+		Connection conn = getConnection();
+		
+		ArrayList<Recruit> list = new RecruitDao().selectMonthly(conn, workform);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	/**
+	 * 5. 연봉순 조회 서비스
+	 * @param workform
+	 * @return
+	 */
+	public ArrayList<Recruit> selectYearly(String workform){
+		Connection conn = getConnection();
+		
+		ArrayList<Recruit> list = new RecruitDao().selectYaerly(conn, workform);
+		
+		close(conn);
+		
+		return list;
+	}
 }
