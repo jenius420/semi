@@ -130,7 +130,7 @@
 					<div class='form-row'>
 					  <label for='workForm'>희망 급여</label>
 					  <select id='workForm' name='workForm'>
-					  	<option value='협의 후 결정'>협의 후 결정</option>
+					  	<option value='협의'>협의 후 결정</option>
 					    <option value='시급'>시급</option>
 					    <option value='일급'>일급</option>
 					    <option value='월급'>월급</option>

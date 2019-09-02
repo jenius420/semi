@@ -104,16 +104,20 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 					</div>
 					
 					<div class='form-row'>
-					  <label for='workAge'>희망 연령대</label>
-					  <select id='workAge' name='workAge' style="width:70px;">
-					    <option value='무관' <%if(i.getAge().equals("무관")){%>selected<%}%>>무관</option>
-					    <option value='10대' <%if(i.getAge().equals("10대")){%>selected<%}%>>10대</option>
-					    <option value='20대' <%if(i.getAge().equals("20대")){%>selected<%}%>>20대</option>
-					    <option value='30대' <%if(i.getAge().equals("30대")){%>selected<%}%>>30대</option>
-					    <option value='30대' <%if(i.getAge().equals("40대")){%>selected<%}%>>40대</option>
-					    <option value='30대' <%if(i.getAge().equals("50대")){%>selected<%}%>>50대</option>
-					    <option value='30대' <%if(i.getAge().equals("60대")){%>selected<%}%>>60대</option>
-					  </select>
+					  <label for='workAge1'>희망 연령</label>
+					    <%if(i.getAge().equals("무관")){%>
+						  <input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;" value="0"/>
+						  <p class="rLabel"  style="width:35px; padding:2px 0px;" >세 ~ </p>
+						  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;" value="0"/>
+						  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;" >세</p>
+						  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y' checked/><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>
+						<%}else{ %>
+							<input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;" value="<%=i.getAge().substring(0, 2) %>"/>
+						  <p class="rLabel"  style="width:35px; padding:2px 0px;" >세 ~ </p>
+						  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;" value="0" value="<%=i.getAge().substring(4, 6) %>"/>
+						  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;" >세</p>
+						  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y' /><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>
+						<%} %>
 					</div>
 					
 					<div class='form-row'>
@@ -138,7 +142,7 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 					<div class='form-row'>
 					  <label for='workForm'>희망 급여</label>
 					  <select id='workForm' name='workForm'>
-					  	<option value='협의 후 결정' <%if(i.getSalaryForm().equals("협의 후 결정")){%>selected<%}%>>협의 후 결정</option>
+					  	<option value='협의' <%if(i.getSalaryForm().equals("협의")){%>selected<%}%>>협의 후 결정</option>
 					    <option value='시급' <%if(i.getSalaryForm().equals("시급")){%>selected<%}%>>시급</option>
 					    <option value='일급' <%if(i.getSalaryForm().equals("일급")){%>selected<%}%>>일급</option>
 					    <option value='월급' <%if(i.getSalaryForm().equals("월급")){%>selected<%}%>>월급</option>
