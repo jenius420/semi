@@ -83,7 +83,7 @@
 			
 			<br><br>
 			
-			<form id="joinForm" onsubmit="return joinValidate();" method="post" action="<%= request.getContextPath()%>/empInsert.me ">
+			<form id="joinForm" onsubmit="return joinValidate();" method="post" action="<%= request.getContextPath()%>/insertEmp.me">
 			
 				<h2>개인회원 가입</h2>
 				

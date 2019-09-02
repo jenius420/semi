@@ -83,7 +83,7 @@
 			
 			<br><br>
 			
-			<form id="joinForm" onsubmit="return joinValidate();" method="post" action="<%= request.getContextPath()%>/empInsert.me ">
+			<form id="joinForm" onsubmit="return joinValidate();" method="post" action="<%= request.getContextPath()%>/insertOwn.me ">
 			
 				<h2>기업회원 가입</h2>
 				
@@ -135,8 +135,8 @@
 					<tr>
 						<td><b>주민등록번호</b></td>
 						<td>
-							<input id="ecNum1" name="ecNum1" type="number"  style="width:80px;" oninput="maxLengthCheck(this)" maxlength="6"></input> - 
-							<input id="ecNum2" name="ecNum2" type="password" size="11" maxlength="7"></input>
+							<input id="ocNum1" name="ocNum1" type="number"  style="width:80px;" oninput="maxLengthCheck(this)" maxlength="6"></input> - 
+							<input id="ocNum2" name="ocNum2" type="password" size="11" maxlength="7"></input>
 							<td><label id="ecNumResult"></label></td>
 						</td>
 					</tr>
@@ -210,8 +210,8 @@
 				<tr>
 					<td></td>
 					<td>
-						<input name="mailaccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
-						<input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의
+						<input name="mailaAccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
+						<input name="smsAccept" type="checkbox" value="checkPhone"> 문자수신 동의
 					</td>
 
 				</tr>

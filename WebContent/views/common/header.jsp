@@ -84,7 +84,7 @@ $(window).load(function() {
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <% if(loginUser == null){ %>
- 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
+ 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=400 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>

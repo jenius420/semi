@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class OwnerJoinMember
  */
-@WebServlet("/ownJoin.me")
-public class OwnJoinServlet extends HttpServlet {
+@WebServlet("/joinOwn.me")
+public class JoinOwnServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public OwnJoinServlet() {
+	public JoinOwnServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -27,7 +27,9 @@ public class OwnJoinServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("views/member/ownerJoin.jsp").forward(request, response);
+		request.getRequestDispatcher("views/member/joinOwn.jsp").forward(request, response);
+		
+		
 	}
 	
 	/**

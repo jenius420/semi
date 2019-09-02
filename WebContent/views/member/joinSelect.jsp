@@ -116,15 +116,14 @@
 
         	function empInsert(){
         		
-        		window.opener.location.href = "<%= contextPath %>/empJoin.me";
+        		window.opener.location.href = "<%= contextPath %>/joinEmp.me";
         		window.close();
         		
         	}
 
         	function ownInsert(){
         		
-        		window.opener.location.href = "<%= contextPath %>/ownJoin.me";
-        		
+        		window.opener.location.href = "<%= contextPath %>/joinOwn.me";
         		window.close();
         		
         	}

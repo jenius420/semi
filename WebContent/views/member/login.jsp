@@ -81,7 +81,7 @@
                 <div class="btn-group" role="group" aria-label="First group">
                     <button type="button" class="btn btn-secondary" onclick="location.href=<%= contextPath %>/findId.me">아이디 찾기</button>
                     <button type="button" class="btn btn-secondary" onclick="location.href=<%= contextPath %>/findPwd.me">비밀번호 찾기</button>
-                    <button type="button" class="btn btn-secondary" onclick="window.open('selectJoin.jsp', '_self', '회원가입')">회원가입</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.open('joinSelect.jsp', '_self', '회원가입')">회원가입</button>
                 </div>
                 
             </div>

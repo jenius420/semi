@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class EmpJoinMemberServlet
  */
-@WebServlet("/empJoin.me")
-public class EmpJoinServlet extends HttpServlet {
+@WebServlet("/joinEmp.me")
+public class JoinEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpJoinServlet() {
+    public JoinEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,10 @@ public class EmpJoinServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("views/member/empJoin.jsp").forward(request, response);
+    	
+    	request.getRequestDispatcher("views/member/JoinEmp.jsp").forward(request, response);
+    	
+    	
 	}
 
 	/**

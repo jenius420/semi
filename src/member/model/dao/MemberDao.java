@@ -32,7 +32,7 @@ public class MemberDao {
 	
 
 	/**
-	 * 개인 로그인
+	 * 개인 회원 로그인
 	 * @param conn
 	 * @param id
 	 * @param pwd
@@ -77,7 +77,7 @@ public class MemberDao {
 	}
 
 	/**
-	 * 사업자 로그인
+	 * 사업자 회원 로그인
 	 * @param conn
 	 * @param id
 	 * @param pwd
@@ -128,7 +128,7 @@ public class MemberDao {
 
 
 	/**
-	 * 개인 가입
+	 * 개인 회원 가입
 	 * @param conn
 	 * @param mem
 	 * @return
@@ -137,7 +137,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("empInsert");
+		String sql = prop.getProperty("inserEmp");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -159,6 +159,57 @@ public class MemberDao {
 			close(pstmt);
 		}
 		
+		return result;
+	}
+
+
+	/**
+	 * 개인 회원 탈퇴
+	 * @param conn
+	 * @param id
+	 * @return
+	 */
+	public int deleteEmp(Connection conn, String id) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteEmp");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	/**
+	 * 사업자 회원 탈퇴
+	 * @param conn
+	 * @param id
+	 * @return
+	 */
+	public int deleteOwn(Connection conn, String id) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteOwn");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
 		return result;
 	}
 

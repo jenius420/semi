@@ -11,7 +11,7 @@ public class MemberService {
 	
 
 	/**
-	 * 개인 회원가입
+	 * 개인 회원 로그인
 	 * @param id
 	 * @param pwd
 	 * @return
@@ -27,9 +27,8 @@ public class MemberService {
 		return loginUser;
 	}
 
-	
 	/**
-	 * 사업자 회원가입
+	 * 사업자 회원 로그인
 	 * @param id
 	 * @param pwd
 	 * @return
@@ -51,7 +50,7 @@ public class MemberService {
 	 * @param mem
 	 * @return
 	 */
-	public int empInsert(Member mem) {
+	public int insertEmp(Member mem) {
 		
 		Connection conn = getConnection();
 		
@@ -64,6 +63,49 @@ public class MemberService {
 		}
 		
 		close(conn);
+		
+		return result;
+	}
+	
+	
+
+	/**
+	 * 개인 회원 탈퇴
+	 * @param id 
+	 * @return
+	 */
+	public int deleteEmp(String id) {	
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().deleteEmp(conn, id);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}	
+		close(conn);
+		
+		return result;
+	}
+
+
+	/**
+	 * 사업자 회원 탈퇴
+	 * @return
+	 */
+	public int deleteOwn(String id) {
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().deleteOwn(conn, id);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
 		
 		return result;
 	}

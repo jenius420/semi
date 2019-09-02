@@ -34,7 +34,7 @@
         <h5 align="center">회원 탈퇴 시 아래 사항을 확인 해주세요.</h5>
     
         <hr>
-        <form action="">
+        <form onsubmit="deleteValidate();" method="post" action="<%= request.getContextPath()%>/delete.me ">
             <h4>1. 해당 아이디로 재가입 불가능</h4>
             <p>회원탈퇴를 하시면 해당 아이디는 즉시탈퇴 처리되며 동일한 아이디로 재가입/로그인이 불가능 합니다.</p>
 

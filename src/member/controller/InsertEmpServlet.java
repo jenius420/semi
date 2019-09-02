@@ -15,14 +15,14 @@ import member.model.vo.Member;
 /**
  * Servlet implementation class EmpInser
  */
-@WebServlet("/empInsert.me")
-public class EmpInsertServlet extends HttpServlet {
+@WebServlet("/insertEmp.me")
+public class InsertEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpInsertServlet() {
+    public InsertEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +34,7 @@ public class EmpInsertServlet extends HttpServlet {
 		
 		String id = request.getParameter("id");						// 아이디
 		String pwd = request.getParameter("pwd");					// 비밀번호
-		String name = request.getParameter("name");					// 이름
+		String name = request.getParameter("eName");				// 이름
 		String ecNum1 = request.getParameter("ecNum1"); 			// 주민번호 앞자리
 		String ecNum2 = request.getParameter("ecNum2"); 			// 주민번호 뒷자리
 		String ecNum = ecNum1 + ecNum2;								// 주민번호 결합
@@ -59,10 +59,21 @@ public class EmpInsertServlet extends HttpServlet {
 		splitAddress = address.split("-");
 		int roadSub = Integer.parseInt(splitAddress[0]);			// 도로명 부번
 		
+		System.out.println(id);
+		System.out.println(pwd);
+		System.out.println(name);
+		System.out.println(ecNum);
+		System.out.println(phone);
+		System.out.println(email);
+		System.out.println(maileAccept);
+		System.out.println(smsAccept);
+		System.out.println(address);
+		System.out.println(eAddress);
+		
 		
 		Member mem = new Member(id, pwd, name, ecNum, eAddress, phone, email, maileAccept, smsAccept);
 		
-		int result = new MemberService().empInsert(mem);
+		int result = new MemberService().insertEmp(mem);
 		
 		if(result > 0) {
 			
