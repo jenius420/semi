@@ -6,11 +6,8 @@ Incruit incruit = (Incruit)request.getAttribute("incruit");
 int wNum = incruit.getwNum();
 String wTitle = incruit.getwTitle();
 String opName = incruit.getOpName();
-Date workStartTerm = incruit.getWorkStartTerm();
-Date wprlEndTerm = incruit.getWorkEndTerm();
+
 String workDay = incruit.getWorkDay();
-String workStartTime = incruit.getWorkStartTime();
-String workEndTime = incruit.getWorkEndTime();
 String term = incruit.getTermName();
 String gender = incruit.getGender();
 int age = incruit.getAge();
@@ -50,7 +47,11 @@ String type = incruit.getType();
 		
 		<div id="content-center">
 		
-수정 updateIncruit.os (등록날짜,마감날짜는 수정못함) wnum, incruit객체
+		
+		
+		
+		
+수정 updateIncruit.os (등록날짜,마감날짜는 수정못함) 별의별데이터
 마감 closeIncruit.os input wNum
 목록으로
 

@@ -11,7 +11,7 @@ public class Incruit {
 	private String workDay; // 근무요일
 	private String workTime; // 근무시간
 	private int termNo; // 근무기간key
-	private String termName; // 근무기간명
+	private String termName; // 근무간명
 	private String termBigName; // 근무기간분류
 	private String gender; // 성별
 	private int age; // 나이
@@ -26,19 +26,19 @@ public class Incruit {
 	private String description; // 상세내역
 	private int peopleCount; // 모집인원
 	private int dongNum; // 동코드
-	private String dong; // 동
-	private String dongMain; //
+	private String dong; 
+	private String dongMain; 
 	private String dongSub;
 	private int roadNum; // 거리코드
 	private String roadName;
 	private String roadMain;
 	private String roadSub;
 	private int districtNum; // 구코드
-	private String district; // 구
+	private String district; 
 	private String address;
 	private int typeNum; // 업직종코드
-	private String type; // 업직종2
-	private String category; // 업직종1
+	private String type; 
+	private String category; 
 	
 	public Incruit() {
 		super();

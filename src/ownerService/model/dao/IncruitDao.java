@@ -46,11 +46,9 @@ public class IncruitDao {
 			
 			pstmt.setString(1, incruit.getwTitle());
 			pstmt.setInt(2, incruit.getoNum());
-			pstmt.setDate(3, incruit.getWorkStartTerm());
-			pstmt.setDate(4, incruit.getWorkEndTerm());
+
 			pstmt.setString(5, incruit.getWorkDay());
-			pstmt.setString(6, incruit.getWorkStartTime());
-			pstmt.setString(7, incruit.getWorkEndTime());
+
 			pstmt.setInt(8, incruit.getTermNo());
 			pstmt.setString(9, incruit.getGender());
 			pstmt.setInt(10, incruit.getAge());
@@ -92,32 +90,35 @@ public class IncruitDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				incruit = new Incruit(
-										rs.getInt("WNUM"),
-										rs.getString("WTITLE"),
-										rs.getInt("ONUM"),
-										rs.getString("OPNAME"),
-										rs.getDate("WORKSTARTTERM"),
-										rs.getDate("WORKENDTERM"),
-										rs.getString("WORKDAY"),
-										rs.getString("WORKSTARTTIME"),
-										rs.getString("WORKENDTIME"),
-										rs.getString("TERMNAME"),
-										rs.getString("WORKGENDER"),
-										rs.getInt("WORKAGE"),
-										rs.getString("WORKEDU"),
-										rs.getDate("STARTDATE"),
-										rs.getString("INCRUITSTATUS"),
-										rs.getDate("ENDDATE"),
-										rs.getString("WORKFORM"),
-										rs.getInt("SALARY"),
-										rs.getString("PTITLE"),
-										rs.getString("REXPLAIN"),
-										rs.getInt("PEOPLECOUNT"),
-										rs.getString("DONGNAME"),
-										rs.getString("DISTRICTNAME"),
-										rs.getString("TYPENAME")
-									);	
+				
+				incruit = new Incruit();
+				
+				incruit.setwNum(rs.getInt("WNUM"));
+				incruit.setwTitle(rs.getString("WTITLE"));
+				incruit.setoNum(rs.getInt("ONUM"));
+				incruit.setOpName(rs.getString("OPNAME"));
+				incruit.setWorkDay(rs.getString("WORKDAY"));
+				incruit.setWorkTime(rs.getString("workTime"));
+				incruit.setTermNo(rs.getInt("termNo"));
+				incruit.setTermName(rs.getString("termName"));
+				incruit.setTermBigName(rs.getString("termBigName"));
+				incruit.setGender(rs.getString("workgender"));
+				incruit.setAge(rs.getInt("workage"));
+				incruit.setEdu(rs.getString("workedu"));
+				incruit.setEnrollDate(rs.getDate("startDate"));
+				incruit.setStatus(rs.getString("incruitstatus"));
+				incruit.setDoneDate(rs.getDate("endDate"));
+				incruit.setSalaryForm(rs.getString("workForm"));
+				incruit.setSalary(rs.getInt("salary"));
+				incruit.setpNum(rs.getInt("applyproduct"));
+				incruit.setProduct(rs.getString("ptitle"));
+				incruit.setDescription(rs.getString("rexplain"));
+				incruit.setPeopleCount(rs.getInt("peopleCount"));
+				incruit.setAddress(rs.getString("opaddress"));
+				incruit.setTypeNum(rs.getInt("typeNum"));
+				incruit.setType(rs.getString("typeName"));
+				incruit.setCategory(rs.getString("categoryName"));
+
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
@@ -143,11 +144,7 @@ public class IncruitDao {
 			
 			
 			pstmt.setString(1, incruit.getwTitle());
-			pstmt.setDate(2, incruit.getWorkStartTerm());
-			pstmt.setDate(3, incruit.getWorkEndTerm());
 			pstmt.setString(4, incruit.getWorkDay());
-			pstmt.setString(5, incruit.getWorkStartTime());
-			pstmt.setString(6, incruit.getWorkEndTime());
 			pstmt.setInt(7, incruit.getTermNo());
 			pstmt.setString(8, incruit.getGender());
 			pstmt.setInt(9, incruit.getAge());
@@ -213,32 +210,35 @@ public class IncruitDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				incruit = new Incruit(
-										rs.getInt("WNUM"),
-										rs.getString("WTITLE"),
-										rs.getInt("ONUM"),
-										rs.getString("OPNAME"),
-										rs.getDate("WORKSTARTTERM"),
-										rs.getDate("WORKENDTERM"),
-										rs.getString("WORKDAY"),
-										rs.getString("WORKSTARTTIME"),
-										rs.getString("WORKENDTIME"),
-										rs.getString("TERMNAME"),
-										rs.getString("WORKGENDER"),
-										rs.getInt("WORKAGE"),
-										rs.getString("WORKEDU"),
-										rs.getDate("STARTDATE"),
-										rs.getString("INCRUITSTATUS"),
-										rs.getDate("ENDDATE"),
-										rs.getString("WORKFORM"),
-										rs.getInt("SALARY"),
-										rs.getString("PTITLE"),
-										rs.getString("REXPLAIN"),
-										rs.getInt("PEOPLECOUNT"),
-										rs.getString("DONGNAME"),
-										rs.getString("DISTRICTNAME"),
-										rs.getString("TYPENAME")
-									);
+				
+				incruit = new Incruit();
+				
+				incruit.setwNum(rs.getInt("WNUM"));
+				incruit.setwTitle(rs.getString("WTITLE"));
+				incruit.setoNum(rs.getInt("ONUM"));
+				incruit.setOpName(rs.getString("OPNAME"));
+				incruit.setWorkDay(rs.getString("WORKDAY"));
+				incruit.setWorkTime(rs.getString("workTime"));
+				incruit.setTermNo(rs.getInt("termNo"));
+				incruit.setTermName(rs.getString("termName"));
+				incruit.setTermBigName(rs.getString("termBigName"));
+				incruit.setGender(rs.getString("workgender"));
+				incruit.setAge(rs.getInt("workage"));
+				incruit.setEdu(rs.getString("workedu"));
+				incruit.setEnrollDate(rs.getDate("startDate"));
+				incruit.setStatus(rs.getString("incruitstatus"));
+				incruit.setDoneDate(rs.getDate("endDate"));
+				incruit.setSalaryForm(rs.getString("workForm"));
+				incruit.setSalary(rs.getInt("salary"));
+				incruit.setpNum(rs.getInt("applyproduct"));
+				incruit.setProduct(rs.getString("ptitle"));
+				incruit.setDescription(rs.getString("rexplain"));
+				incruit.setPeopleCount(rs.getInt("peopleCount"));
+				incruit.setAddress(rs.getString("opaddress"));
+				incruit.setTypeNum(rs.getInt("typeNum"));
+				incruit.setType(rs.getString("typeName"));
+				incruit.setCategory(rs.getString("categoryName"));
+
 				list.add(incruit);
 			}
 			

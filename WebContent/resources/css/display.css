@@ -111,3 +111,42 @@ display: block;
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+
+
+
+.asMenubar{
+	position: fixed;
+	left: 0x;
+	top: 170px;
+	clear: both;
+	margin:top;
+    margin: 0;
+    padding: 10;
+    width: 170px;
+
+}
+.asm1{
+ 	padding: 6px 14px;
+    background-color: rgb(176,18,241);
+    color: white;
+    height:35px;
+    font-weight:bold;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -3px 20px rgba(255,255,255,0.4);
+}
+.asLink{
+    color: #000;
+    padding: 8px 17px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #f1f1f1;
+}
+
+.asLink:hover:not(.active) {
+    background-color: #ddccff;
+    color: white;
+    text-shadow: 2px 2px 2px gray;
+}
+.space{
+	height: 14px;
+}

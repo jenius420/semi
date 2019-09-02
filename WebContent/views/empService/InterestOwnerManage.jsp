@@ -164,9 +164,7 @@ display:none;
 			
 			</div>
 			
-			<div class="gs-btn-parent">
-				<button class="gs-btn" onclick="location.href='<%=request.getContextPath()%>/비동기 처리';">관심기업 추가</button>
-			</div>
+			
 			
 			<div id="hopeOwnerIncruitBox" class="box">
 				<!--===============================================================================================-->	
@@ -196,7 +194,7 @@ display:none;
 											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 										<%}else{ 
 											for(Incruit a : wList) {%>
-											<tr class="row100 body select">
+											<tr class="row100 body select" onclick="selectIncruit(<%=a.getwNum()%>);">
 												<td class="cell100 column11"><%=a.getwTitle()%></td>
 												<td class="cell100 column22"><%=a.getOpName()%></td>
 												<td class="cell100 column33">
@@ -227,6 +225,10 @@ display:none;
 					});
 				</script>
 				<script>
+					function selectIncruit(wNum){
+						location.href='<%=request.getContextPath()%>/watchingIncruit2.es?wNum='+ wNum;
+					}
+				
 					function showBox(element){
 						var tag = document.getElementsByClassName("box");
 						var addBtn = document.getElementsByClassName("gs-btn-parent");
@@ -234,21 +236,15 @@ display:none;
 						for(var i=0 ; i<tag.length ; i++){
 							if(element.id+"Box" == tag[i].id){
 								tag[i].style.display = "block";
-									if(i==0){
-										addBtn[0].style.display = "block";
-									}else{
-										addBtn[0].style.display = "none";
-									}
+									//if(i==0){addBtn[0].style.display = "block";}else{addBtn[0].style.display = "none";}
 							}else{
 								tag[i].style.display = "none";
 							}
-							
-							
 						}
 					}
 	
 				</script>
-				</div>
+		
 		
 
 

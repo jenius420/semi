@@ -473,7 +473,7 @@ hr {
   .menu-first {
     float: right;
     overflow: auto;
-    width: 100%;  
+    width: 100px;  
     display: none;  
     /*opacity: 1;  */  
     /*height: 0;  */  

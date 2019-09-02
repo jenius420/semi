@@ -198,6 +198,7 @@ public class ManageIncruitDao {
 			
 			while(rs.next()) {
 				incruit = new Incruit(
+						//공고 작성페이지부터 만들고하자
 										rs.getInt("WNUM"),
 										rs.getString("WTITLE"),
 										rs.getInt("ONUM"),
