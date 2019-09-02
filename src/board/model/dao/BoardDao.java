@@ -366,16 +366,20 @@ private Properties prop = new Properties();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, r.getrContent());
-			pstmt.setInt(2, r.getRefBid());
-			pstmt.setInt(3, Integer.parseInt(r.getrWriter()));
+			pstmt.setString(1, c.getCommentExplain());
+			pstmt.setInt(2, c.gettNum());
+			pstmt.setInt(3, c.geteNum());
 			
+			result = pstmt.executeUpdate();
 			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
 		
+		return result;
 		
 	}
 	
