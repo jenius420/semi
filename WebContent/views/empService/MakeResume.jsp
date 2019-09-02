@@ -114,7 +114,6 @@
 				  </select>
 				  <input id='desireIncome' name='desireIncome' type='text' style="margin-left:20px;"/>
 				  <label for='desireIncome' style="text-align:left">원</label>
-				  
 				</div>
 
 				<div class='form-row'>
