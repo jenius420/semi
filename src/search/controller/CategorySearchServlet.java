@@ -42,9 +42,6 @@ public class CategorySearchServlet extends HttpServlet {
 			System.out.println(cates[i]);
 		}
 		ArrayList<IncruitInfo> list;
-		if(cates==null) {
-			list = new SearchDao().cateFirst(1,20);
-		}else {
 		//총 게시글 갯수
 				int listCount = new SearchService().getCateListCount(cates);
 				//------페이징 처리----------
@@ -82,19 +79,18 @@ public class CategorySearchServlet extends HttpServlet {
 				if(endPage>maxPage) {
 					endPage=maxPage;
 				}
-				System.out.println("현재페이지" + currentPage);
-				System.out.println("pageLimit" + pageLimit);
-				System.out.println("maxP" + maxPage);
-				System.out.println("startP" + startPage);
-				System.out.println("endP" + endPage);
-				System.out.println("listCount" + listCount);
+//				System.out.println("현재페이지" + currentPage);
+//				System.out.println("pageLimit" + pageLimit);
+//				System.out.println("maxP" + maxPage);
+//				System.out.println("startP" + startPage);
+//				System.out.println("endP" + endPage);
+//				System.out.println("listCount" + listCount);
 				int start =(currentPage-1)*boardLimit+1;
 				int end = currentPage*boardLimit;
 				list= new SearchService().categorySearch(cates,start,end);
 				response.setContentType("application/json; charset=utf-8");
 				Gson gson = new Gson();
 				gson.toJson(list,response.getWriter());// 응답할 리스트, 응답할 스트림
-		}
 		
 	}
 
