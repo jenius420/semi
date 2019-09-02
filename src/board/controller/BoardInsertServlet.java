@@ -70,7 +70,7 @@ public class BoardInsertServlet extends HttpServlet {
 			// 폴더별로 구분을 해놓는게 좋음
 			
 			// 1_3. 파일이 실제로 저장될 경로(resources/uploadFiles/)
-			String savePath = resources + "/uploadFiles/";
+			String savePath = resources + "/Attachment/";
 			
 //			System.out.println(savePath);
 			
