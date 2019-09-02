@@ -37,18 +37,9 @@ public class RecomendServlet extends HttpServlet {
 	
 		ArrayList<Main> list = new MainService().selectRecomendList("id");
 		
-		
-		
-		
-		
-
-		
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-	
-	
-	
 	
 	
 	}
