@@ -58,7 +58,8 @@
 
     <div>
         <div class="asm1">회원 관리</div>
-       	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/memList.as';">회원 관리</div>
+       	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/empList.as';">구직자 회원 관리</div>
+       	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/ownerList.as';">사업자 회원 관리</div>
     </div>
     <div class="space"></div>
     

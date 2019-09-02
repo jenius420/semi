@@ -52,9 +52,9 @@ public class SubmitResumeServlet extends HttpServlet {
 
 			int maxSize = 1024 * 1024 * 10;
 			
-			String resources = request.getSession().getServletContext().getRealPath("/resources");
+			String resources = request.getSession().getServletContext().getRealPath("/photo");
 			
-			String savePath = resources + "/uploadFiles/";
+			String savePath = resources + "/resumeImage/";
 		
 			MultipartRequest multiRequest =  new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		

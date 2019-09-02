@@ -67,7 +67,7 @@
         <div class="osLink" onclick="location.href='<%=request.getContextPath()%>/manageEmp.os';">지원자 관리</div>
         <div class="osLink" onclick="location.href='<%=request.getContextPath()%>/searchResume.os';">이력서 검색</div>
     </div>
-    <div class="opace"></div>
+    <div class="space"></div>
     
     <div>
         <div class="osm1">기업 상품</div>

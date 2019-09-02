@@ -55,11 +55,10 @@ public class SubmitIncruitServlet extends HttpServlet {
 		incruit.setWorkTime(request.getParameter("workTime"));
 		incruit.setGender(request.getParameter("workGender"));
 		if(request.getParameter("workAgeCheck") != null && request.getParameter("workAgeCheck").equals("Y")){
-			incruit.setAge(request.getParameter("무관"));
+			incruit.setAge("무관");
 		}else {
-			incruit.setAge(request.getParameter("workAge1") + " ~ " + request.getParameter("workAge2"));
+			incruit.setAge(request.getParameter("workAge1") + "~" + request.getParameter("workAge2"));
 		}
-		incruit.setAge(request.getParameter("workAge"));
 		incruit.setEdu(request.getParameter("workEdu"));
 		incruit.setSalaryForm(request.getParameter("workForm"));
 		incruit.setSalary(Integer.parseInt(request.getParameter("salary")));

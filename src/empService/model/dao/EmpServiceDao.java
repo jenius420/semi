@@ -139,6 +139,31 @@ public class EmpServiceDao {
 //		
 //	}
 	
+	public int addHopeEnt(Connection conn, int eNum, int oNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("addHopeEnt");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, eNum);
+			pstmt.setInt(2, oNum);
+	
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+	
 	public ArrayList<HopeEnt> selectInterestOwner(Connection conn, int empNum){
 		
 		ArrayList<HopeEnt> list = new ArrayList<>();	
@@ -348,8 +373,8 @@ public class EmpServiceDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, wNum);
-			pstmt.setInt(2, rNum);
+			pstmt.setInt(1, rNum);
+			pstmt.setInt(2, wNum);
 	
 			result = pstmt.executeUpdate();
 

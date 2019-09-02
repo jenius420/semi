@@ -7,13 +7,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="../common/includeTable.jsp"%>
 
 <title>공고상품 조회</title>
+
+<style>
+
+.column1 {
+  width: 30%;
+  padding-left: 40px;
+   text-align: center;
+}
+
+.column2 {
+  width: 50%;
+  text-align: center;
+}
+
+.column3 {
+  width: 20%;
+  text-align: center;
+}
+
+
+</style>
 </head>
 <body>
-
-
-
 
 <div id="div">
 
@@ -25,29 +44,45 @@
 		
 		<div id="content-center">
 		
-<div class="tableArea">
-		
-			<table id="listArea">
-				<tr>
-					<th>상품명</th>
-					<th width="300">설명</th>
-					<th>요금(단위:일)</th>
-				</tr>
-				<%if(list.isEmpty()){%>
-					<tr><td colspan="3">존재하는 상품이 없습니다</td></tr>
-				<%}else{ 
-				for(IncruitProduct i : list) {%>
-				<tr>
-					<td><%=i.getpTitle() %></td>
-					<td><%=i.getpExplain() %></td>
-					<td><%=i.getpPay()%></td>
-				</tr>
-				<%}}%>
-				
-				
-			</table>
-		
-		</div>
+			<!--===============================================================================================-->	
+			<div class="limiter">
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<div class="table100 ver4 m-t-30">
+						<div class="table100-head">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column1">상품명</th>
+										<th class="cell100 column2">상품 설명</th>
+										<th class="cell100 column3">요금(일)</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+	
+						<div class="table100-body js-pscroll">
+							<table>
+								<tbody>
+									<%if(list.isEmpty()){%>
+										<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+									<%}else{ 
+										for(IncruitProduct a : list) {%>
+										<tr class="row100 body">
+											<td class="cell100 column1"><%=a.getpTitle()%></td>
+											<td class="cell100 column2"><%=a.getpExplain()%>
+											<td class="cell100 column3"><%=a.getpPay()%></td>
+										</tr>
+										<%}}%>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<!--===============================================================================================-->	
+
 
 			</div> <!-- /메인콘텐트 -->
 			

@@ -181,8 +181,8 @@ th, td {
 }
 
 .table100-body td {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /*==================================================================
@@ -390,7 +390,7 @@ th, td {
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 550;
 }
 
 .table100.ver4 .table100-body tr {
@@ -449,7 +449,7 @@ th, td {
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
-    font-weight: 600;
+    font-weight: 550;
 
   background-color: #f7f7f7;
 }
