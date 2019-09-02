@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import board.model.vo.Board;
+import board.model.vo.BoardComment;
 import common.model.vo.Attachment;
 import empService.model.vo.Emp;
 
@@ -269,7 +270,6 @@ private Properties prop = new Properties();
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
@@ -301,5 +301,22 @@ private Properties prop = new Properties();
 	
 	
 	
-
+	}
+	
+	
+	public ArrayList<BoardComment> selectRlist(Connection conn, int tNum){
+		
+		ArrayList<BoardComment> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectRlist");
+		
+	}
+	
+	
+	
+	
 }
