@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.PageInfo"%>
+     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.PageInfo, member.model.vo.Member"%>
  
  
  
@@ -7,6 +7,7 @@
 <%
 	/* ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list"); */
 	/* PageInfo pi = (PageInfo)request.getAttribute("pi"); */
+	/* Member loginUser = (Member)session.getAttribute("loginUser"); */
 	
 	ArrayList<Board> list = new ArrayList<>();
 
@@ -23,6 +24,7 @@
 	int maxPage = 20;
 	int startPage = 1;
 	int endPage = 20;
+ 	 String contextPath = request.getContextPath();
 	
 %>    
     
@@ -46,7 +48,6 @@
 
   <body>
   
- 	 String  contextPath = request.getContextPath();
     <h1>게시판 리스트</h1>
 
     <!-- Optional JavaScript -->
@@ -69,26 +70,62 @@
     </tr>
   </thead>
   <tbody>
-    <% if(list.isEmpty()){ %>
+  
+  
+  
+      <% if(list.isEmpty()){ %>
 					<tr>
 						<td colspan="6">조회된 리스트가 없습니다</td>
 					</tr>
 				<% }else{ %>
 					
 					<% for(Board b : list){ %>
-					<tr>
-						<td  scope="col"><%= b.gettNum() %></td>
-						<td scope="col"><%= b.getTitle() %></td>
-						<td scope="col"><%= b.geteName() %></td>
-						<td scope="col"><%= b.getBoardCount() %></td>
-						<td scope="col"><%= b.getUpdateDate() %></td>
-						<!-- <td><%= b.getPhoto() %></td> -->
-					</tr>
+					
+						<% if(b.getIsNotice().equals('Y')) {%>
+						
+						<tr>
+							<td scope="col">공지</td>
+							<td scope="col"><%= b.getTitle() %></td>
+							<td scope="col"><%= b.geteName() %></td>
+							<td scope="col"><%= b.getBoardCount() %></td>
+							<td scope="col"><%= b.getUpdateDate() %></td>
+							<!-- <td><%= b.getPhoto() %></td> -->
+						</tr>
+						
+						
+						<% }else{ %>
+						
+						
+						<tr>
+							<td scope="col"><%= b.gettNum() %></td>
+							<td scope="col"><%= b.getTitle() %></td>
+							<td scope="col"><%= b.geteName() %></td>
+							<td scope="col"><%= b.getBoardCount() %></td>
+							<td scope="col"><%= b.getUpdateDate() %></td>
+							<!-- <td><%= b.getPhoto() %></td> -->
+						</tr>
+	
 					<% } %>
+				
 				<% } %>
+			<% } %>
+  
+  
+  
+  
+  
+   <%--  <% if(list.isEmpty()){ %>
+					<tr>
+						<td colspan="6">조회된 리스트가 없습니다</td>
+					</tr>
+				<% }else{ %>
+					
+					<% for(Board b : list){ %>
+					<% } %>
+				<% } %> --%>
   </tbody>
 </table>
-  
+ <%--  
   <!-- 페이징바 만들기 -->
 		<div class="pagingArea" align="center">
 		
@@ -125,7 +162,7 @@
 			<!-- 맨끝으로(>>) -->
 			<button onclick="location.href='<%= contextPath %>/list.bo?currentPage=<%= maxPage %>'"> &gt;&gt; </button>
 			
-		</div>
+		</div> --%>
 		
 		<div class="searchArea" align="center">
 			<select id="searchCondition" name="searchCondition">
@@ -138,9 +175,9 @@
 			
 			<button type="submit">검색하기</button>
 			
-			<%if(loginUser != null){ %>
+			<%-- <%if(loginUser != null){ %> --%>
 			<button onclick="location.href='<%= contextPath %>/insertForm.bo'">작성하기</button>
-			<%} %>
+			<%-- <%} %> --%>
 			
 		</div>
 	</div>
@@ -157,11 +194,11 @@
 				
 				var bId = $(this).parent().children().eq(0).text();
 				
-				<% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게
-					location.href="<%= contextPath %>/detail.bo?bId=" + bId;
-				<%}else{ %>
+				<%-- <% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게 --%>
+					location.href="<%= contextPath %>/detail.bo?tNum=" + tNum;
+				<%-- <%}else{ %>
 					alert("로그인해야만 상세보기가 가능합니다!");
-				<%}%>
+				<%}%> --%>
 			});
 		});
 	</script>

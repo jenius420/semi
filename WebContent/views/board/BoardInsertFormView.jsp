@@ -119,7 +119,7 @@
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td colspan="5"><input type="text" value="<%= b.getTitle() %>"></td>
+					<td colspan="5"><input type="text"></td>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>

@@ -1,23 +1,31 @@
-package board.controller;
+package sort.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class BoardInsertFormServlet
- */
-@WebServlet("/insertForm.bo")
-public class BoardInsertFormServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import com.google.gson.Gson;
 
+import sort.model.service.RecruitService;
+import sort.model.vo.Recruit;
+
+/**
+ * Servlet implementation class SortAjaxServlet4
+ */
+@WebServlet("/ajax4.do")
+public class SortAjaxServlet4 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public BoardInsertFormServlet() {
+    public SortAjaxServlet4() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -26,7 +34,16 @@ public class BoardInsertFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("views/board/BoardInsertFormView.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		
+		String workform = request.getParameter("workform");
+		
+		ArrayList<Recruit> list = new RecruitService().selectMonthly(workform);
+		
+		request.getRequestDispatcher("views/sort/sortMenu.jsp").forward(request, response);
+	
+		Gson gson = new Gson();
+		gson.toJson(list, response.getWriter());
 	}
 
 	/**
