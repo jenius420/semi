@@ -62,7 +62,7 @@ public class BoardInsertServlet extends HttpServlet {
 			int maxSize = 1024 * 1024 * 10;
 			
 			// 1_2. 웹 서버 컨테이너 경로(WebContent)/resources 경로 추출
-			String resources = request.getSession().getServletContext().getRealPath("/resources");
+			String photo = request.getSession().getServletContext().getRealPath("/photo");
 			
 //			System.out.println(resources);
 			
@@ -70,7 +70,7 @@ public class BoardInsertServlet extends HttpServlet {
 			// 폴더별로 구분을 해놓는게 좋음
 			
 			// 1_3. 파일이 실제로 저장될 경로(resources/uploadFiles/)
-			String savePath = resources + "/uploadFiles/";
+			String savePath = photo + "/attachment/";
 			
 //			System.out.println(savePath);
 			

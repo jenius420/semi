@@ -120,7 +120,7 @@ $(window).load(function() {
 										<%} %>
                                         <li><a href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
                                         <li><a href="#date">기간별</a></li>
-                                        <li><a href="#board">게시판</a></li>
+                                        <li><a href='<%=request.getContextPath()%>/list.bo'>게시판</a></li>
                                         <li><a href="#personalService">개인서비스</a></li> 
                                         <li><a href="#businesService">기업서비스</a></li>                                 
                                     </ul>                                    
