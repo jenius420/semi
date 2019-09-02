@@ -48,13 +48,40 @@
             <p align="center">알바문 고객센터</p>
             <p align="center" style="color:rgb(176, 19, 242)">010-3514-1361</p>
 
-            <p align="center"><input type="checkbox">안내사항을 모두 확인 하였으며, 이에 동의합니다.</p>
+            <p align="center"><input type="checkbox" id="checkbox"><label for="checkbox">안내사항을 모두 확인 하였으며, 이에 동의합니다.</label></p>
 
 
             <div id="btn">
-                <button type="reset" name="insertBtn" class="btn btn-secondary">닫기</button>
-                <button type="submit" name="insertBtn" class="btn btn-secondary">회원탈퇴</button>
+                <button type="submit" name="insertBtn" class="btn btn-secondary" disabled>회원탈퇴</button>
             </div>
+            
+            <script>
+                
+                /*
+                if($(".checkbox").is("checked") == true){
+                    $(".btn").prop("disabled", false);
+                }else{
+                    $(".btn").prop("disabled", true);
+                }
+                */
+                
+                /*
+                $(".checkbox").is("checked", function(){
+                    $(".btn").attr("disabled" , false);
+                });
+                */
+
+                $("#checkbox").change(function(){
+                    if($("#checkbox").is(":checked")){
+                        $(".btn").prop("disabled", false);
+                    }else{
+                        $(".btn").prop("disabled", true);
+                    }
+                });
+
+
+            
+            </script>
 
 
 
