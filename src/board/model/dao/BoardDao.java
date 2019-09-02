@@ -280,6 +280,12 @@ private Properties prop = new Properties();
 	}
 	
 	
+	/**
+	 *  게시글 삭제하는 호출
+	 * @param conn
+	 * @param tNum
+	 * @return
+	 */
 	public int deleteBoard(Connection conn, int tNum) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -304,6 +310,12 @@ private Properties prop = new Properties();
 	}
 	
 	
+	/**
+	 * 댓글 조회용 
+	 * @param conn
+	 * @param tNum
+	 * @return
+	 */
 	public ArrayList<BoardComment> selectRlist(Connection conn, int tNum){
 		
 		ArrayList<BoardComment> list = new ArrayList<>();
@@ -313,6 +325,32 @@ private Properties prop = new Properties();
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectRlist");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNum);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new BoardComment(rset.getInt("commentNum"),
+										  rset.getString("commentExplain"),
+										  rset.getInt("tNum"),
+										  rset.getString("deleteOrNot"),
+										  rset.getDate("enrollDate"),
+										  rset.getInt("eNum"),
+										  rset.getString("eName")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 		
 	}
 	
