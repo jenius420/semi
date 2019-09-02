@@ -26,8 +26,7 @@ public class BoardInsertFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("views/board/boardInsertForm.jsp").forward(request, response);
-
+		request.getRequestDispatcher("views/board/BoardInsertFormView.jsp").forward(request, response);
 	}
 
 	/**

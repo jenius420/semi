@@ -69,8 +69,8 @@ public class BoardInsertServlet extends HttpServlet {
 			// 한 폴더에는 총 65000개까지의 파일만 저장 가능하다.
 			// 폴더별로 구분을 해놓는게 좋음
 			
-			// 1_3. 파일이 실제로 저장될 경로(resources/thumbnail_uploadFiles/)
-			String savePath = resources + "/thumbnail_uploadFiles/";
+			// 1_3. 파일이 실제로 저장될 경로(resources/uploadFiles/)
+			String savePath = resources + "/uploadFiles/";
 			
 //			System.out.println(savePath);
 			
