@@ -52,6 +52,7 @@ $(window).load(function() {
 	        $(this).css("background","#f2e6ff");
 	        $(".search-icon button").css("background","#dfa0fa").css("cursor","pointer")
 	    });
+	    
 	});
 </script>
 <style>
