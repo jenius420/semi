@@ -68,7 +68,7 @@ table>tr>td {
 				<div class="col-lg-12">미디어</div>
 				<div class="col-lg-12">운전·배달</div>
 				<div class="col-lg-12">병원·간호·연구</div>
-				<br /><br />
+
 			</div>
 			
 			<div class="districtSide">
@@ -143,53 +143,13 @@ table>tr>td {
 
 
 
-		<div class="col-sm-9" style="padding-top: 10px;">
-			<label>업직종</label>
-			<table class="table table-bordered" id="bigCategory">
-				<tr class="district">
-					<td class="col-sm-3">종로구</td>
-					<td class="col-sm-3">중구</td>
-					<td class="col-sm-3">용산구</td>
-					<td class="col-sm-3">성동구</td>
-				</tr>
-				<tr class="district">
-					<td>광진구</td>
-					<td>동대문구</td>
-					<td>중랑구</td>
-					<td>성북구</td>
-				</tr>
-				<tr class="district">
-					<td>강북구</td>
-					<td>도봉구</td>
-					<td>노원구</td>
-					<td>은평구</td>
-				</tr>
-				<tr class="district">
-					<td>서대문구</td>
-					<td>마포구</td>
-					<td>양천구</td>
-					<td>강서구</td>
-				</tr>
-				<tr class="district">
-					<td>구로구</td>
-					<td>금천구</td>
-					<td>영등포구</td>
-					<td>동작구</td>
-				</tr>
-				<tr class="district">
-					<td>관악구</td>
-					<td>서초구</td>
-					<td>강남구</td>
-					<td>송파구</td>
-				</tr>
-				<tr>
-					<td>강동구</td>
-				</tr>
-			</table>
-
-			<button onclick="searchCategory();">검색</button>
-
-			<h2 class="sub-header">검색 결과</h2>
+		<div class="col-sm-9" style="padding-top: 10px;" align="center">
+			<form class="form-inline" action="<%=request.getContextPath()%>/searchDetail.se" method="get">
+				<input type="text" class="form-control" name="searhDetail" />
+				<button type="submit" class="btn btn-default">검색</button>
+			</form>
+	<br /><br /><br />
+			<h2 class="sub-header" style="float: left;">검색 결과</h2>
 			<br />
 			<div class="table-responsive" style="padding-left: 15px;">
 				<table class="table table-striped row" id="incruitList">
@@ -203,7 +163,7 @@ table>tr>td {
 							<th class="col-sm-1">등록일</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="searchResult">
 						<tr>
 							<td style="padding-top: 18px;">글번호</td>
 							<td style="padding-top: 18px;">영등포구</td>
@@ -327,10 +287,20 @@ table>tr>td {
 						</tr>
 					</tbody>
 				</table>
+				<div class="btn-group" role="group" aria-label="...">
+					<button type="button" class="btn btn-default">&lt&lt</button>
+					<button type="button" class="btn btn-default">&lt</button>
+					<button type="button" class="btn btn-default">1</button>
+					<button type="button" class="btn btn-default">&gt</button>
+					<button type="button" class="btn btn-default">&gt&gt</button>
+					
+				</div>
 			</div>
 		</div>
-	</div>
-
+		
+		
+		
+	
 
 
 	<%@ include file="../common/footer.jsp"%>

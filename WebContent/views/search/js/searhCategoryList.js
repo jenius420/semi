@@ -29,21 +29,45 @@ $(function() {
 				}
 
 			});
+	
+	$('#searchBtn').click(function(){
+		var check = $("td[name=checked]");
+		var result = new Array();
+		for (var i = 0; i < check.length; i++) {
+			result.push(check.slice(i, i + 1).text());
+		}
+		console.log(result);
+
+		$.ajax({
+				url:"categorySearch.se",
+				data:{result:result, currentPage:1},
+				type:"get",
+				dataType:"json",
+				success:function(list){
+					$.each(list, function(index, value){
+						console.log(value.title);
+						value.num;//글번호
+						value.title;//글제목
+						value.districtName;//구
+						value.opName;//사업명
+						value.workForm;//시급 월급등등
+						value.salary;//급여
+						value.workDay;//근무일
+						value.startDate;//등록일
+						
+					});
+				},
+				error:function(){
+					console.log("ajax통신 실패");
+				}
+				
+			});
+		
+	});
+
 
 });
 
-function searchCategory() {
-	var check = $("td[name=checked]");
-	var result = '';
-	for (var i = 0; i < check.length; i++) {
-		result += check.slice(i, i + 1).text() + ",";
-	}
-	result2 = result.substr(0, result.length - 1);
-	console.log(result2);
-
-	location.href = "<%=request.getContextPath()%>/categorySearch.se?result=" + result2;
-
-};
 
 function searchDistrict(){
 	

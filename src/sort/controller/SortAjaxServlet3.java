@@ -1,30 +1,30 @@
-package ownerService.controller;
+package sort.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.model.service.CommonService;
-import common.model.vo.District;
-import common.model.vo.JobType;
+import com.google.gson.Gson;
+
+import sort.model.service.RecruitService;
+import sort.model.vo.Recruit;
 
 /**
- * Servlet implementation class MakeIncruitServlet
+ * Servlet implementation class SortAjaxServlet3
  */
-@WebServlet("/makeIncruit.os")
-public class MakeIncruitServlet extends HttpServlet {
+@WebServlet("/ajax3.do")
+public class SortAjaxServlet3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MakeIncruitServlet() {
+    public SortAjaxServlet3() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,10 +33,17 @@ public class MakeIncruitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
-		request.getRequestDispatcher("/views/ownerService/MakeIncruit.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
 		
+		String workform = request.getParameter("workform");
+		
+		ArrayList<Recruit> list = new RecruitService().selectDayly(workform);
+		
+		request.getRequestDispatcher("views/sort/sortMenu.jsp").forward(request, response);
+	
+		Gson gson = new Gson();
+		gson.toJson(list, response.getWriter());
 	}
 
 	/**

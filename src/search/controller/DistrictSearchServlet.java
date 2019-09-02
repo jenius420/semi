@@ -1,30 +1,23 @@
-package ownerService.controller;
+package search.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import common.model.service.CommonService;
-import common.model.vo.District;
-import common.model.vo.JobType;
-
 /**
- * Servlet implementation class MakeIncruitServlet
+ * Servlet implementation class DistrictSearchServlet
  */
-@WebServlet("/makeIncruit.os")
-public class MakeIncruitServlet extends HttpServlet {
+@WebServlet("/districtSearch.se")
+public class DistrictSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MakeIncruitServlet() {
+    public DistrictSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +26,10 @@ public class MakeIncruitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String[] result = request.getParameter("result").split(",");
+		System.out.println(result);
 		
-		request.getRequestDispatcher("/views/ownerService/MakeIncruit.jsp").forward(request, response);
+		
 		
 	}
 

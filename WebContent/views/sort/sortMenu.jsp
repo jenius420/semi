@@ -196,7 +196,46 @@
 		// 3. 일급순 출력하는 함수
 		$(function(){
 	 		$("#dayly").click(function(){
-			
+	 			
+	 			$.ajax({
+	 				url:"ajax3.do",
+	 				dataType:"json",
+	 				type:"get",
+	 				success:function(list3){
+	 					
+	 					var $detailTable = $("#detailTable"); // <table></table>
+						
+						$detailTable.html(""); // 기존 테이블 정보 초기화
+						
+						$.each(list3, function(index, value){
+							
+							var $tr = $("<tr>");
+							var $rNumTd = $("<td>").text(value.rNum).css("width", "80px");
+							var $areaTd = $("<td>").text(value.area).css("width", "100px");
+							var $corNameTd = $("<td>").text(value.corName).css("width", "100px");
+							var $titleTd = $("<td>").text(value.title).css("width", "200px");
+							var $workformTd = $("<td>").text(value.workform).css("width", "80px");
+							var $salaryTd = $("<td>").text(value.salary).css("width", "80px");
+							var $timeTd = $("<td>").text(value.time).css("width", "90px");
+							var $enDateTd = $("<td>").text(value.enDate).css("width", "80px");
+							
+							$tr.append($rNumTd);
+							$tr.append($areaTd);
+							$tr.append($corNameTd);
+							$tr.append($titleTd);
+							$tr.append($workformTd);
+							$tr.append($salaryTd);
+							$tr.append($timeTd);
+							$tr.append($enDateTd);
+							
+							$detailTable.append($tr);
+							
+						});
+	 				},
+	 				error:function(){
+	 					console.log("ajax 통신 실패");
+	 				}
+	 			});
 	 		});
 	 	});
 		
@@ -204,6 +243,45 @@
 		$(function(){
 	 		$("#monthly").click(function(){
 			
+	 			$.ajax({
+	 				url:"ajax4.do",
+	 				dataType:"json",
+	 				type:"get",
+	 				success:function(list4){
+	 					
+	 					var $detailTable = $("#detailTable"); // <table></table>
+						
+						$detailTable.html(""); // 기존 테이블 정보 초기화
+						
+						$.each(list4, function(index, value){
+							
+							var $tr = $("<tr>");
+							var $rNumTd = $("<td>").text(value.rNum).css("width", "80px");
+							var $areaTd = $("<td>").text(value.area).css("width", "100px");
+							var $corNameTd = $("<td>").text(value.corName).css("width", "100px");
+							var $titleTd = $("<td>").text(value.title).css("width", "200px");
+							var $workformTd = $("<td>").text(value.workform).css("width", "80px");
+							var $salaryTd = $("<td>").text(value.salary).css("width", "80px");
+							var $timeTd = $("<td>").text(value.time).css("width", "90px");
+							var $enDateTd = $("<td>").text(value.enDate).css("width", "80px");
+							
+							$tr.append($rNumTd);
+							$tr.append($areaTd);
+							$tr.append($corNameTd);
+							$tr.append($titleTd);
+							$tr.append($workformTd);
+							$tr.append($salaryTd);
+							$tr.append($timeTd);
+							$tr.append($enDateTd);
+							
+							$detailTable.append($tr);
+							
+						});
+	 				},
+	 				error:function(){
+	 					console.log("ajax 통신 실패");
+	 				}
+	 			});
 	 		});
 	 	});
 		
@@ -211,6 +289,45 @@
 		$(function(){
 	 		$("#yearly").click(function(){
 			
+	 			$.ajax({
+	 				url:"ajax5.do",
+	 				dataType:"json",
+	 				type:"get",
+	 				success:function(list5){
+	 					
+	 					var $detailTable = $("#detailTable"); // <table></table>
+						
+						$detailTable.html(""); // 기존 테이블 정보 초기화
+						
+						$.each(list5, function(index, value){
+							
+							var $tr = $("<tr>");
+							var $rNumTd = $("<td>").text(value.rNum).css("width", "80px");
+							var $areaTd = $("<td>").text(value.area).css("width", "100px");
+							var $corNameTd = $("<td>").text(value.corName).css("width", "100px");
+							var $titleTd = $("<td>").text(value.title).css("width", "200px");
+							var $workformTd = $("<td>").text(value.workform).css("width", "80px");
+							var $salaryTd = $("<td>").text(value.salary).css("width", "80px");
+							var $timeTd = $("<td>").text(value.time).css("width", "90px");
+							var $enDateTd = $("<td>").text(value.enDate).css("width", "80px");
+							
+							$tr.append($rNumTd);
+							$tr.append($areaTd);
+							$tr.append($corNameTd);
+							$tr.append($titleTd);
+							$tr.append($workformTd);
+							$tr.append($salaryTd);
+							$tr.append($timeTd);
+							$tr.append($enDateTd);
+							
+							$detailTable.append($tr);
+							
+						});
+	 				},
+	 				error:function(){
+	 					console.log("ajax 통신 실패");
+	 				}
+	 			});
 	 		});
 	 	});
 	
