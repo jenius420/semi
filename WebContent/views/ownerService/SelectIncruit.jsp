@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="ownerService.model.vo.Incruit, ownerService.model.vo.Owner"%>
+    pageEncoding="UTF-8" import="ownerService.model.vo.Incruit, ownerService.model.vo.*"%>
 <%
 Owner owner= (Owner) session.getAttribute("owner");
 Incruit i = (Incruit)request.getAttribute("incruit");
@@ -100,7 +100,7 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 					
 					<div class='form-row'>
 					  <label for='workTime'>근무 시간</label>
-						 <input id='workTime' name='workTime' type='text' style="width:120px; margin-bottom:10px;" value="<%i.getWorkTime() %>"/> <label style="font-size:14px; color: gray;">ex) 09:00 ~ 18:00 </label>
+						 <input id='workTime' name='workTime' type='text' style="width:120px; margin-bottom:10px;" value="<%=i.getWorkTime() %>"/> <label style="font-size:14px; color: gray;">ex) 09:00 ~ 18:00 </label>
 					</div>
 					
 					<div class='form-row'>
@@ -169,24 +169,29 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 					  <label for='applyProduct'>적용 상품</label>
 					  <select id='applyProduct' name='applyProduct' style="width:400px;">
 					   	<%for(IncruitProduct a : list) {%>
-				  			<option value='<%=a.getpCode()%>' ><%=a.getpTitle()%> :: <%=a.getpPay()%>원(일) :: <%=a.getpExplain()%></option>
+				  			<option value='<%=a.getpCode()%>' <%if(i.getpNum() == a.getpCode()){%>selected<%}%>><%=a.getpTitle()%> :: <%=a.getpPay()%>원(일) :: <%=a.getpExplain()%></option>
 				  		<%}%>
 					  </select>
 					</div>
 	
 					<div class='form-row'>
 					  <label for='rExplain'>상세 내역</label>
-					  <textarea id='rExplain' name='rExplain'></textarea>
+					  <textarea id='rExplain' name='rExplain'><%= i.getDescription() %></textarea>
 					</div>
 		
-					
+	
 					<div class='form-row'>
-					  <button type="submit" class="btn" onclick="return submitCheck();">저장하기</button>
+							<button type="button" class="btn" onclick="javascript:history.back();" style="width:120px; padding-left:30px;">목록으로</button>
+						<%if(i.getStatus().equals("Y")){ %>
+						  <button type="submit" class="btn" onclick="return updateCheck();" style="margin-left:20px; padding-left:30px; padding-right:30px;">수정완료</button>
+						  <button type="button" class="btn" onclick="closeIncruit(<%=i.getwNum() %>);" style="margin-left:20px; padding-left:30px; padding-right:30px;">마감하기</button>
+						<%} %>
+
 					</div>
 					
 					<script>
-						function submitCheck(){
-							var result = confirm("이대로 저장하시겠습니까");
+						function updateCheck(){
+							var result = confirm("이대로 수정하시겠습니까");
 							if(result){
 								//$(".speaker-form").submit();
 								return true;
@@ -194,23 +199,19 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 								return false;
 							}
 						}
+						
+						function closeIncruit(wNum){
+							if(confirm("마감 하시겠습니까")){
+								location.href='<%=request.getContextPath()%>/closeIncruit.os?wNum='+wNum;
+							}else{
+								return;
+							}
+						}
 					</script>
 	
 				</form>
 			</div>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-수정 updateIncruit.os (등록날짜,마감날짜는 수정못함) 별의별데이터
-마감 closeIncruit.os input wNum
-목록으로
 
 			</div> <!-- /메인콘텐트 -->
 			

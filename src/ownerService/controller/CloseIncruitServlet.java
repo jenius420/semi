@@ -32,14 +32,14 @@ public class CloseIncruitServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int wNum = (int)request.getAttribute("wNum");
+		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		
 		int result = new IncruitService().closeIncruit(wNum);
 		
 		if(result > 0) {
 			response.sendRedirect("incruitList.os"); 
 		}else {
-			request.setAttribute("msg", "공고 수정에 실패했습니다");
+			request.setAttribute("msg", "공고 마감에 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 	}
