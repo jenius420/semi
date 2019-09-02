@@ -73,7 +73,7 @@
 					</div>
 		
 					<div class='form-row'>
-					  <label class='lLabel' for='workDay'><span>근무요일</span></label>
+					  <label class='lLabel' for='workDay'><span>근무 요일</span></label>
 						  <input id='workDay1' name='workDay' type='checkbox' value='월'/><label class='checkbox-label' for='workDay1' style=""><span>월</span></label>
 							<input id='workDay2' name='workDay' type='checkbox' value='화'/><label class='checkbox-label' for='workDay2'><span>화</span></label>
 							<input id='workDay3' name='workDay' type='checkbox' value='수'/><label class='checkbox-label' for='workDay3'><span>수</span></label>

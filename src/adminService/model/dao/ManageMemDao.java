@@ -40,7 +40,7 @@ public class ManageMemDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = prop.getProperty("selectMemList");
+		String sql = prop.getProperty("selectEmpList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

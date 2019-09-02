@@ -46,7 +46,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 		
 				<div class='form-row' id="fileArea" style="margin-bottom:20px;">
 				  <label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
-				<img id="titleImg" dth="100" height="100" src="<%=request.getContextPath()%>/resources/uploadFiles/<%= at.getChangeName() %>">
+				<img id="titleImg" dth="100" height="100" src="<%=request.getContextPath()%>/photo/resumeImage/<%= at.getChangeName() %>">
 				  <input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">  
 				  </div>
 

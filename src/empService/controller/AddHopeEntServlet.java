@@ -1,32 +1,26 @@
-package ownerService.controller;
+package empService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import empService.model.service.EmpServiceService;
 import empService.model.vo.Emp;
-import ownerService.model.vo.Owner;
-import ownerService.model.service.IncruitService;
-import ownerService.model.service.OwnerServiceService;
-import ownerService.model.vo.Incruit;
 
 /**
- * Servlet implementation class IncruitListServlet
+ * Servlet implementation class AddHopeEntServlet
  */
-@WebServlet("/incruitList.os")
-public class IncruitListServlet extends HttpServlet {
+@WebServlet("/addHopeEnt.es")
+public class AddHopeEntServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IncruitListServlet() {
+    public AddHopeEntServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,21 +30,13 @@ public class IncruitListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
-//		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
-		Owner owner = new OwnerServiceService().selectOwner(2);
+		int oNum = Integer.parseInt(request.getParameter("oNum"));
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("owner", owner);
+		int result = new EmpServiceService().addHopeEnt(emp.getEmpNum(), oNum);
 		
-		ArrayList<Incruit> list = new IncruitService().selectIncruitList(owner.getoNum());
-
-		
-
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/ownerService/IncruitList.jsp").forward(request, response);
-
+		//json으로 처리?
 		
 	}
 

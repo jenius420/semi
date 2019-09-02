@@ -70,7 +70,7 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 					</div>
 		
 					<div class='form-row'>
-					  <label class='lLabel' for='workDay'><span>근무요일</span></label>
+					  <label class='lLabel' for='workDay'><span>근무 요일</span></label>
 						    <input id='workDay1' name='workDay' type='checkbox' value='월' <%if(i.getWorkDay().contains("월")){%>checked<%}%>/>
 						    <label class='checkbox-label' for='workDay1'><span>월</span></label>
 							<input id='workDay2' name='workDay' type='checkbox' value='화' <%if(i.getWorkDay().contains("화")){%>checked<%}%>/>
@@ -114,7 +114,7 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 						<%}else{ %>
 							<input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;" value="<%=i.getAge().substring(0, 2) %>"/>
 						  <p class="rLabel"  style="width:35px; padding:2px 0px;" >세 ~ </p>
-						  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;" value="0" value="<%=i.getAge().substring(4, 6) %>"/>
+						  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;" value="<%=i.getAge().substring(3) %>"/>
 						  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;" >세</p>
 						  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y' /><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>
 						<%} %>
@@ -185,6 +185,7 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 		
 	
 					<div class='form-row'>
+						<input type="hidden" name="wNum" value="<%=i.getwNum() %>"/>
 							<button type="button" class="btn" onclick="javascript:history.back();" style="width:120px; padding-left:30px;">목록으로</button>
 						<%if(i.getStatus().equals("Y")){ %>
 						  <button type="submit" class="btn" onclick="return updateCheck();" style="margin-left:20px; padding-left:30px; padding-right:30px;">수정완료</button>

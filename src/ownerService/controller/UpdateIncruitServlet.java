@@ -36,39 +36,29 @@ public class UpdateIncruitServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		
-		int wNum = Integer.parseInt(request.getParameter("wNum"));
-		
+
 		Incruit incruit = new Incruit();
 		
-		
-			String wTitle = request.getParameter("wTitle");
-			String workDay = request.getParameter("workDay");
-			int termNo = Integer.parseInt(request.getParameter("termNo"));
-			String gender = request.getParameter("gender");
-			String age = request.getParameter("age");
-			String edu = request.getParameter("edu");
-			String salaryForm = request.getParameter("salaryForm");
-			int salary = Integer.parseInt(request.getParameter("salary"));
-			int pNum = Integer.parseInt(request.getParameter("pNum"));
-			String description = request.getParameter("description");
-			String peopleCount = request.getParameter("peopleCount");
-			
-			incruit.setwNum(wNum);
-			incruit.setwTitle(wTitle);
-			incruit.setWorkDay(workDay);
-			incruit.setTermNo(termNo);
-			incruit.setGender(gender);
-			incruit.setAge(age);
-			incruit.setEdu(edu);
-			incruit.setSalaryForm(salaryForm);
-			incruit.setSalary(salary);
-			incruit.setpNum(pNum);
-			incruit.setDescription(description);
-			incruit.setPeopleCount(peopleCount);
-
-			
-	
+		incruit.setwNum(Integer.parseInt(request.getParameter("wNum")));
+		incruit.setwTitle(request.getParameter("wTitle"));
+		String workDay = request.getParameter("workDay");
+		incruit.setDoneDate(java.sql.Date.valueOf(request.getParameter("endDate")));
+		String[] workDayArr = request.getParameterValues("workDay");
+		incruit.setWorkDay(String.join("", workDayArr));
+		incruit.setTermNo(Integer.parseInt(request.getParameter("termNo")));
+		incruit.setWorkTime(request.getParameter("workTime"));
+		incruit.setGender(request.getParameter("workGender"));
+		if(request.getParameter("workAgeCheck") != null && request.getParameter("workAgeCheck").equals("Y")){
+			incruit.setAge("무관");
+		}else {
+			incruit.setAge(request.getParameter("workAge1") + "~" + request.getParameter("workAge2"));
+		}
+		incruit.setEdu(request.getParameter("workEdu"));
+		incruit.setSalaryForm(request.getParameter("workForm"));
+		int salary = Integer.parseInt(request.getParameter("salary"));
+		incruit.setPeopleCount(request.getParameter("peopleCount"));
+		incruit.setpNum(Integer.parseInt(request.getParameter("applyProduct")));	
+		incruit.setDescription(request.getParameter("rExplain"));
 
 		int result = new IncruitService().updateIncruit(incruit);
 		

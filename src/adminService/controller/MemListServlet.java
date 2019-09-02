@@ -16,7 +16,7 @@ import ownerService.model.vo.Owner;
 /**
  * Servlet implementation class MemListServlet
  */
-@WebServlet("/memList.as")
+@WebServlet("/empList.as")
 public class MemListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,15 +33,12 @@ public class MemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		ArrayList<EmpMember> empList = new ManageMemService().selectEmpList();
-//		ArrayList<OwnerMember> ownerList = new ManageMemService().selectOwnerList();
+		ArrayList<Emp> empList = new ManageMemService().selectEmpList();
+//		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
 		
-		ArrayList<Emp> empList = new ArrayList<>();
-		ArrayList<Owner> ownerList = new ArrayList<>();
 		
 		request.setAttribute("empList", empList);
-		request.setAttribute("ownerList", ownerList);
-		request.getRequestDispatcher("/views/adminService/MemList.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
 
 		
 	}
