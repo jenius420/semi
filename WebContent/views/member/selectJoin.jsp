@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
 	String contextPath = request.getContextPath();
-
 %>   
     
 <!DOCTYPE html>
@@ -93,8 +91,8 @@
                         <div class="btn" onclick="empInsert();">
                             <img id="img1" src="../../resources/images/emp.png" alt="">
                             <br>
-                            개인회원<br>
-                            알바 정보가 필요한 분
+                                                               개인회원<br>
+                                                                알바 정보가 필요한 분
                         </div>
                     </td>
                     
@@ -102,8 +100,8 @@
                         <div class="btn" onclick="ownInsert();">
                             <img id="img2" src="../../resources/images/owner.png" alt="">
                             <br><br>
-                            기업회원 <br>
-                            알바생 정보가 필요한 분
+                                                                기업회원 <br>
+                                                                알바생 정보가 필요한 분
                             
                         </div>
                         
