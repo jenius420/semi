@@ -10,15 +10,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:60px;
+  margin-top:40px;
 }
 
 .speaker-form {
-  background-color: #F6F7F8;
+  background-color: #f6f2fa;
   border: 1px solid #D6D9DC;
   border-radius: 3px;
   
-  width: 80%;
+  width: 50%;
   height:850px;
   padding: 50px;
   margin: 0 0 40px 0;
@@ -38,6 +38,17 @@
   width: 100%;
   padding: 7px;
   font-size: 14px;
+}
+
+.form-row input[type='date'] {
+  background-color: #FFFFFF;
+  border: 1px solid #D6D9DC;
+  border-radius: 3px;
+  width: 20%;
+  padding: 7px;
+  font-size: 14px;
+  height:38px;
+  margin-bottom:10px;
 }
 
 
@@ -145,6 +156,7 @@
 
 .form-row select {
 border-radius:3px;
+border-color:#dcd7e0;
   width: 100px;
   padding: 7px;
   margin-bottom:10px;

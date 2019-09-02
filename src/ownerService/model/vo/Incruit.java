@@ -14,7 +14,7 @@ public class Incruit {
 	private String termName; // 근무간명
 	private String termBigName; // 근무기간분류
 	private String gender; // 성별
-	private int age; // 나이
+	private String age; // 나이
 	private String edu; // 학력
 	private Date enrollDate; // 등록일
 	private String status; // 진행중/마감
@@ -24,7 +24,7 @@ public class Incruit {
 	private int pNum; // 상품코드
 	private String product; // 상품명+
 	private String description; // 상세내역
-	private int peopleCount; // 모집인원
+	private String peopleCount; // 모집인원
 	private int dongNum; // 동코드
 	private String dong; 
 	private String dongMain; 
@@ -46,8 +46,8 @@ public class Incruit {
 	}
 
 	public Incruit(int wNum, String wTitle, int oNum, String opName, String workDay, String workTime, int termNo,
-			String termName, String termBigName, String gender, int age, String edu, Date enrollDate, String status,
-			Date doneDate, String salaryForm, int salary, int pNum, String product, String description, int peopleCount,
+			String termName, String termBigName, String gender, String age, String edu, Date enrollDate, String status,
+			Date doneDate, String salaryForm, int salary, int pNum, String product, String description, String peopleCount,
 			int dongNum, String dong, String dongMain, String dongSub, int roadNum, String roadName, String roadMain,
 			String roadSub, int districtNum, String district, String address, int typeNum, String type, String category) {
 		super();
@@ -178,11 +178,11 @@ public class Incruit {
 		this.gender = gender;
 	}
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
@@ -258,11 +258,11 @@ public class Incruit {
 		this.description = description;
 	}
 
-	public int getPeopleCount() {
+	public String getPeopleCount() {
 		return peopleCount;
 	}
 
-	public void setPeopleCount(int peopleCount) {
+	public void setPeopleCount(String peopleCount) {
 		this.peopleCount = peopleCount;
 	}
 

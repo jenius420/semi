@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="member.model.vo.Member"%>
 <%
+	Member loginUser = (Member)session.getAttribute("loginUser");
 	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -97,6 +98,14 @@
       </div>  
 	</div>
 </div>
+
+<script>
+	$(function(){
+		<% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게
+		location.href="<%= contextPath %>/RecomendList.main?=";
+		<% } %>
+	});
+</script>
 
 <!-- 지역별 알바검색 및  업종별 알바 검색 -->
 <div class="row" style="padding: 100px;">
