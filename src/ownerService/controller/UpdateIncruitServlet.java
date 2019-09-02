@@ -46,13 +46,13 @@ public class UpdateIncruitServlet extends HttpServlet {
 			String workDay = request.getParameter("workDay");
 			int termNo = Integer.parseInt(request.getParameter("termNo"));
 			String gender = request.getParameter("gender");
-			int age = Integer.parseInt(request.getParameter("age"));
+			String age = request.getParameter("age");
 			String edu = request.getParameter("edu");
 			String salaryForm = request.getParameter("salaryForm");
 			int salary = Integer.parseInt(request.getParameter("salary"));
 			int pNum = Integer.parseInt(request.getParameter("pNum"));
 			String description = request.getParameter("description");
-			int peopleCount = Integer.parseInt(request.getParameter("peopleCount"));
+			String peopleCount = request.getParameter("peopleCount");
 			
 			incruit.setwNum(wNum);
 			incruit.setwTitle(wTitle);

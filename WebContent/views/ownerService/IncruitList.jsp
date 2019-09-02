@@ -86,7 +86,7 @@
 												<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 											<%}else{ %>
 												<%for(Incruit a : list) {%>
-													<%if(a.getStatus().equals("Y")) {%>
+										
 														<tr class="row100 body" onclick="selectIncruit(<%=a.getwNum()%>);">
 															<td class="cell100 column1"><%=a.getwTitle()%></td>
 															<td class="cell100 column2"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
@@ -95,7 +95,7 @@
 															<td class="cell100 column5"><%=a.getProduct()%></td>
 															<td class="cell100 column6"><%if(a.getStatus().equals("Y")){%>진행중<%}else{%>마감<%} %></td>
 														</tr>
-													<% }%>
+												
 											<%}}%>
 										</tbody>
 									</table>
