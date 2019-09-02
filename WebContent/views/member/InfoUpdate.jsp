@@ -14,36 +14,56 @@
 <title>Insert title here</title>
 <style>
     form{
-        
-        /* border: 1px solid black; */
-        width: 500px;
+		border: 1px solid white;
+		width: 650px;
         resize: none;
-    }
+		
+	}
 
-    table{
+	table{
+		
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: auto;
+	}
 
-    background: white;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    }
+	td{
+		border: 1px solid white;
+		font-size: 10px;
+		padding: 7px;
+	}
+	b{
+		font-size: 20px;
+	}
 
-    td{
-        /* border: 1px solid black; */
-        font-size: 10px;
-        padding: 7px;
-    }
+    .btn{
+		height: 50px;
+        width: 130px;
+        border:none;
+        background: rgb(176, 19, 242); 
+	}
 
-    b{
-        font-size: 15px;
-    }
+	select{
+		height: 20px;
+	}
 
-    #postcodify{
-        font-size: 10px;
-    }
+	input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 
-    #postcodify:hover{
-        cursor: pointer;
+	}
+
+	.postcodify:hover{
+		cursor: pointer;
+	}
+
+
+    .btn{
+        color: white;
+        background:  rgb(176, 19, 242);
+        border-radius: 10px 10px 10px 10px;
+        border:none;
+        height: 50px;
+        width: 130px;
     }
 
 
@@ -56,7 +76,7 @@
                 <h3 align="center">정보 수정</h3>
         
                 <hr>
-            <table>
+            <table name="idPwd">
                 <tr>
                     <td width="150"><b>아이디</b></td>
                     <td width="170px"><label id=""></label></td>
@@ -183,6 +203,8 @@
     			object.value = object.value.slice(0, object.maxLength);
    			}   
   		}
+
+          
 
         
     </script>
