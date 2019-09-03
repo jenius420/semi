@@ -84,6 +84,9 @@ $(window).load(function() {
 	color:rgb(176,18,241);
 	cursor: pointer;
 	}
+	#jumbotron{
+	background-image: url('resources/images/slide2.jpg');
+	}
 </style>
 </head>
 <body>
@@ -121,8 +124,8 @@ $(window).load(function() {
                                         <li><a href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
                                         <li><a href="<%=request.getContextPath()%>/category.se">업종별</a></li>
                                         <li><a href='<%=request.getContextPath()%>/list.bo'>게시판</a></li>
-                                        <li><a href="#personalService">개인서비스</a></li> 
-                                        <li><a href="#businesService">기업서비스</a></li>                                 
+                                        <li><a href='<%=request.getContextPath()%>/manageResume.es'>개인서비스</a></li> 
+										<li><a href='<%=request.getContextPath()%>/incruitList.os'>기업서비스</a></li>                                   
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->
