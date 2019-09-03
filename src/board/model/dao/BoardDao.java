@@ -40,46 +40,44 @@ private Properties prop = new Properties();
 	 * @param boardLimit
 	 * @return
 	 */
-	public ArrayList<Board> selectList(Connection conn, int currentPage, int boardLimit){
+	public ArrayList<Board> selectList(Connection conn/*, int currentPage, int boardLimit*/){
 		
-		ArrayList<Board> list = null;	
+		ArrayList<Board> list = new ArrayList<>();	
 		
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectBoardList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			/*int startRow = (currentPage - 1) * boardLimit + 1;
-			int endRow = startRow + boardLimit - 1;*/
-			int startRow = 1;
-			int endRow = 10;
+			
+			/*int startRow = 1;
+			int endRow = 100;
 			
 			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
+			pstmt.setInt(2, endRow);*/
 			
-			rs = pstmt.executeQuery();
+			rset = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rset.next()) {
 				
-				list.add(new Board( rs.getInt("tNum"),
-									rs.getString("title"),
-									rs.getInt("eNum"),
-									rs.getString("eName"),
-									rs.getDate("updateDate"),
-									rs.getString("bBody"),
-									rs.getString("invalidPost"),
-									rs.getString("isNotice"),
-									rs.getInt("boardCount")
-									));
+				list.add(new Board( rset.getInt("tNum"),
+									rset.getString("title"),
+									rset.getInt("eNum"),
+									rset.getString("eName"),
+									rset.getDate("updateDate"),
+									rset.getString("bBody"),
+									rset.getString("invalidPost"),
+									rset.getString("isNotice"),
+									rset.getInt("boardCount")));
 			}
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			close(rs);
+			close(rset);
 			close(pstmt);
 		}
 		
@@ -183,7 +181,8 @@ private Properties prop = new Properties();
 							  rset.getString("bBody"),
 							  rset.getString("invalidPost"),
 							  rset.getString("isNotice"),
-							  rset.getInt("boardCount"));
+							  rset.getInt("boardCount"),
+							  rset.getString("photo"));
 			}
 			
 		} catch (SQLException e) {
@@ -207,7 +206,7 @@ private Properties prop = new Properties();
 	 */
 	public int insertBoard(Connection conn, Board b) {
 		
-		
+		System.out.println("test");
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
@@ -254,9 +253,9 @@ private Properties prop = new Properties();
 				
 				pstmt = conn.prepareStatement(sql);
 				/*pstmt.setInt(1, b.geteNum());*/
+				/*pstmt.setString(2, at.getFilePath());*/
 				pstmt.setString(1, at.getOriginName());
-				pstmt.setString(2, at.getFilePath());
-				pstmt.setString(3, at.getChangeName());
+				pstmt.setString(2, at.getChangeName());
 				
 				result = pstmt.executeUpdate();
 				

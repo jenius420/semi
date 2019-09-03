@@ -2,11 +2,9 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.Attachment"%>
     
 <%
-	/* Board b = (Board)request.getAttribute("board"); */
-	/* Attachment at = (Attachment)request.getAttribute("Attachment"); */
+	Board b = (Board)request.getAttribute("board"); 
+	Attachment at = (Attachment)request.getAttribute("Attachment"); 
 	
-	Board b = new Board();
-	Attachment at = new Attachment();
 %>    
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

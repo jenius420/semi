@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="resources/table/vendor/bootstrap/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="resources/table/vendor/bootstrap/css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="resources/table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="resources/table/vendor/animate/animate.css">
 <link rel="stylesheet" type="text/css" href="resources/table/vendor/select2/select2.min.css">

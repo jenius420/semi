@@ -42,7 +42,7 @@ public class ManageResumeServlet extends HttpServlet {
 		//Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
 		//샘플 데이터
-		Emp emp = new EmpServiceService().selectEmp(1);
+		Emp emp = new EmpServiceService().selectEmp(6);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("emp", emp);
