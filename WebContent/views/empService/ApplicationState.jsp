@@ -53,7 +53,13 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 
 <div id="div">
 
-	<div id="header"></div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
 	
 	<div id="content">
 		
@@ -66,7 +72,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 			<div class="limiter">
 			<div class="container-table100">
 				<div class="wrap-table100">
-					<div class="table100 ver4 m-t-60">
+					<div class="table100 ver4">
 						<div class="table100-head">
 							<table>
 								<thead>
@@ -139,7 +145,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 		
 		</div> <!-- /콘텐트 -->
 		
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 	
 </div> <!-- /화면 -->
 

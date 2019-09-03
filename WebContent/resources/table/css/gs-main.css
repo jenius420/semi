@@ -152,11 +152,11 @@ iframe {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 33px 30px;
+  padding: 33px 20px;
 }
 
 .wrap-table100 {
-  width: 1170px;
+  width: 1500px;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -387,10 +387,13 @@ th, td {
 
 .table100.ver4 td {
   font-family: Lato-Regular;
-  font-size: 15px;
+  font-size: 14px;
   color: #808080;
   line-height: 1.4;
   font-weight: 550;
+   text-align: center;
+   margin:auto;
+   vertical-align: middle;
 }
 
 .table100.ver4 .table100-body tr {
@@ -452,6 +455,9 @@ th, td {
     font-weight: 550;
 
   background-color: #f7f7f7;
+  text-align: center;
+  margin:auto;
+  vertical-align: middle;
 }
 
 .table100.ver5 .table100-body tr {

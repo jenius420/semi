@@ -9,7 +9,7 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
-<link href="resources/form/css/form.css" rel="stylesheet" media="all">
+
 <title></title>
 <style>
 
@@ -89,7 +89,14 @@ display:none;
 
 <div id="div">
 
-	<div id="header"></div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
+ 	
 	
 	<div id="content">
 		
@@ -126,10 +133,10 @@ display:none;
 								<table>
 									<tbody>
 										<%if(hList.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+											<tr class="row100 body"><td colspan="5" rowspan="2" style="text-align:center;height:100px;">존재하는 내용이 없습니다</td></tr>
 										<%}else{ %>
 											<%for(HopeEnt a : hList) {%>
-											<tr class="row100 body">
+											<tr class="row100 body" style="height:40px;">
 												<td class="cell100 column1"><%=a.getOpName()%></td>
 												<td class="cell100 column2"><%=a.getDong()%> <%=a.getOpAddress()%></td>
 												<td class="cell100 column3"><%=a.getPhone()%></td>
@@ -259,7 +266,7 @@ display:none;
 		
 		</div> <!-- /콘텐트 -->
 		
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 	
 </div> <!-- /화면 -->
 

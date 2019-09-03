@@ -94,7 +94,15 @@ display:none;
 
 <div id="div">
 
-	<div id="header"></div>
+	
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
+ 	
 	
 	<div id="content">
 		
@@ -284,7 +292,7 @@ display:none;
 		
 		</div> <!-- /콘텐트 -->
 		
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 	
 </div> <!-- /화면 -->
 

@@ -4,7 +4,9 @@ public class Filter {
 	
 	private int rNum; // key
 	private int eNum; // 구직자key
+	private int districtNum;
 	private String district; // 구
+	private int typeNum;
 	private String type; // 업직종
 	private String comment; // 하고싶은말
 	private String desireForm; // 급여형태
@@ -16,18 +18,48 @@ public class Filter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Filter(int rNum, int eNum, String district, String type, String comment, String desireForm, int desireIncome,
-			String finalEdu) {
+
+
+	public Filter(int rNum, int eNum, int districtNum, String district, int typeNum, String type, String comment,
+			String desireForm, int desireIncome, String finalEdu) {
 		super();
 		this.rNum = rNum;
 		this.eNum = eNum;
+		this.districtNum = districtNum;
 		this.district = district;
+		this.typeNum = typeNum;
 		this.type = type;
 		this.comment = comment;
 		this.desireForm = desireForm;
 		this.desireIncome = desireIncome;
 		this.finalEdu = finalEdu;
 	}
+
+
+
+	public int getDistrictNum() {
+		return districtNum;
+	}
+
+
+
+	public void setDistrictNum(int districtNum) {
+		this.districtNum = districtNum;
+	}
+
+
+
+	public int getTypeNum() {
+		return typeNum;
+	}
+
+
+
+	public void setTypeNum(int typeNum) {
+		this.typeNum = typeNum;
+	}
+
+
 
 	public int getrNum() {
 		return rNum;
