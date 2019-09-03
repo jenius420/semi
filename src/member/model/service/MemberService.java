@@ -109,6 +109,22 @@ public class MemberService {
 		
 		return result;
 	}
+
+	/**
+	 * 개인 회원 아이디 중복체크
+	 * @param eId
+	 * @return
+	 */
+	public int idCheckEmp(String eId) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().idCheckEmp(conn, eId);
+		
+		close(conn);
+		
+		return result;
+	}
 	
 	
 

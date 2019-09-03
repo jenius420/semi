@@ -32,21 +32,21 @@ public class InsertEmpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");						// 아이디
+		String eId = request.getParameter("eId");					// 아이디
 		String pwd = request.getParameter("pwd");					// 비밀번호
 		String name = request.getParameter("eName");				// 이름
 		String ecNum1 = request.getParameter("ecNum1"); 			// 주민번호 앞자리
 		String ecNum2 = request.getParameter("ecNum2"); 			// 주민번호 뒷자리
-		String ecNum = ecNum1 + ecNum2;								// 주민번호 결합
+		String ecNum = ecNum1 + ecNum2;								// 주민번호
 		String phone1 = request.getParameter("phone1"); 			// 전화번호 010
 		String phone2 = request.getParameter("phone2"); 			// 휴대전화 앞자리
 		String phone3 = request.getParameter("phone3"); 			// 휴대전화 뒷자리
-		String phone = phone1 + phone2 + phone3;					// 휴대전화 결합
+		String phone = phone1 + phone2 + phone3;					// 휴대전화
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		String email = email1 + email2;								// 이메일 결합
-		String maileAccept = request.getParameter("mailAccept");	// 메일수신
-		String smsAccept = request.getParameter("smsAccept");		// 문자수신
+		String maileAccept = request.getParameter("mailaccept");	// 메일수신
+		String smsAccept = request.getParameter("smsaccept");		// 문자수신
 		String address = request.getParameter("address");			// 주소
 		String eAddress = request.getParameter("eAddress");			// 나머지주소
 		
@@ -59,7 +59,8 @@ public class InsertEmpServlet extends HttpServlet {
 		splitAddress = address.split("-");
 		int roadSub = Integer.parseInt(splitAddress[0]);			// 도로명 부번
 		
-		System.out.println(id);
+		
+		System.out.println(eId);
 		System.out.println(pwd);
 		System.out.println(name);
 		System.out.println(ecNum);
@@ -71,7 +72,7 @@ public class InsertEmpServlet extends HttpServlet {
 		System.out.println(eAddress);
 		
 		
-		Member mem = new Member(id, pwd, name, ecNum, eAddress, phone, email, maileAccept, smsAccept);
+		Member mem = new Member(eId, pwd, name, ecNum, eAddress, phone, email, maileAccept, smsAccept);
 		
 		int result = new MemberService().insertEmp(mem);
 		
@@ -81,15 +82,7 @@ public class InsertEmpServlet extends HttpServlet {
 			
 			response.sendRedirect(request.getContextPath());
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 	}
 

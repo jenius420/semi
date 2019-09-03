@@ -71,9 +71,6 @@
 
 </head>
 <body>
-
-	
-
 	
 	<div class="output" align="center">
 		
@@ -92,7 +89,7 @@
 				<table  class="table2">
 					<tr>
 						<td><b>아이디</b></td>
-						<td><input name="id" id="id" type="text" size="30" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
+						<td><input name="eId" id="eId" type="text" size="30" maxlength="15" placeholder="4~15자 영문, 숫자(영문 소문자 시작)"></input></td>
 						<td width="170px"><label id="idResult"></label></td>
 					</tr>
 
@@ -171,12 +168,12 @@
 					<tr>
 						<td><b>주소</b></td>
 						<td colspan="2">
-							<input type="text" size="80" id="addres" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
+							<input type="text" size="80" id="addres" name="addres" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
 						</td>
 					</tr>
 					<tr>
 						<td></td>
-						<td colspan="2"><input type="text" size="80" id="eAddress" name="" class="extra_info" placeholder="상세주소"></td>
+						<td colspan="2"><input type="text" size="80" id="eAddress" name="eAddress" class="extra_info" placeholder="상세주소"></td>
 						
 					</tr>
 					
@@ -191,23 +188,27 @@
 			</div>
 		</form>
 	</div>
-
+	
 	<script>
 
-		var id = document.getElementById("id");
+		var eId = document.getElementById("eId");
 		var idResult = document.getElementById("idResult");
 		var pwd = document.getElementById("pwd");
 		var pwdResult1 = document.getElementById("pwdResult1");
-		var pwdw = document.getElementById("pwdw");
+		var pwd2 = document.getElementById("pwd2");
 		var pwdResult2 = document.getElementById("pwdResult2");
 		var eName = document.getElementById("eName");
 		var nameResult = document.getElementById("nameResult");
+		var ecNum1 = document.getElementById("ecNum1");
+		var ecNum1 = document.getElementById("ecNum2");
+		var ecNumResult = document.getElementById("ecNumResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
 		var emailResult = document.getElementById("emailResult");
 
 		$(function(){
-			$(id).on('blur', function(e){
+			$(eId).on('blur', function(e){
+			
 				
 				if(!(/^[a-z0-9]{4,}$/.test(id.value))){
 					$(idResult).text("사용할 수 없는 아이디 입니다.");
@@ -217,6 +218,25 @@
 				}else{
 					$(idResult).text("사용 가능한 아이디 입니다.");
 				}
+				
+				/*
+				$.ajax({
+					
+					url : "idCheckEmp.me",
+					type : "post",
+					data : {userId : userId.val()},
+					success : function(result){
+						
+						if(result == "fail"){
+							$(idResult).text("사용할 수 없는 아이디 입니다.");
+							id.value="";
+						}else{
+							$(idResult).text("사용 가능한 아이디 입니다.");
+						}
+					}
+					
+				});
+				*/
 
 
 			});
@@ -251,6 +271,21 @@
 					eName.value="";
 				}
 			});
+			
+			/*
+			$(ecNum1).on('blur', function(e){
+				if(){
+					
+				}
+			});
+			
+			$(ecNum2).on('blur', function(e){
+				if(){
+					
+				}
+				
+			});
+			*/
 
 			$(email1).on('blur', function(){
 				if(!(/^[a-z/d]{4,}$/.test(email1.value))){
@@ -281,6 +316,35 @@
     			object.value = object.value.slice(0, object.maxLength);
    			}   
   		}
+		
+		function joinValidate(){
+			if($(id).val().trim().length == 0){
+				$(idResult).text("아이디를 입력해주세요");
+				$(id).focus();
+				return false;
+			}
+			
+			if($(pwd).val().trim().length == 0){
+				$(pwdResult1).text("비밀번호를 입력해주세요");
+				return false;
+			}
+			
+			if($(pwd2).val().trim().length == 0){
+				$(pwdResult2).text("비밀번호를 입력해주세요");
+				return false;
+			}
+			
+			if($(ename).val().trim().length == 0){
+				$(nameResult).text("이름을 입력해주세요");
+				return false;
+			}
+			
+			
+			
+			
+			
+		}
+		
 
 
 
