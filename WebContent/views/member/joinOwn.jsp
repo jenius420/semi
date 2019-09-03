@@ -92,7 +92,7 @@
 				<table  class="table2">
 					<tr>
 						<td><b>아이디</b></td>
-						<td><input name="id" id="id" type="text" size="30" maxlength="15" placeholder="4~15자 영문(소문자),숫자"></input></td>
+						<td><input name="oId" id="oId" type="text" size="30" maxlength="15" placeholder="4~15자 영문(소문자),숫자"></input></td>
 						<td width="170px"><label id="idResult"></label></td>
 					</tr>
 

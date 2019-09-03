@@ -51,19 +51,22 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
 				loginUser = new Member(rset.getInt("enum"),
-									   rset.getString("eid"),
-									   rset.getString("epwd"),
-									   rset.getString("eName"),
-									   rset.getString("ecnum"),
-									   rset.getInt("dongnum"),
-									   rset.getInt("roadnum"),
-									   rset.getString("eaddress"),
-									   rset.getString("phone"),
-									   rset.getString("email"),
-									   rset.getString("mailaccept"),
-									   rset.getString("smsaccept"),
-									   rset.getString("invalidid"),
-									   rset.getInt("warningcount")
+						rset.getString("eid"),
+						rset.getString("epwd"),
+						rset.getString("eName"),
+						rset.getString("ecnum"),
+						rset.getInt("dongnum"),
+						rset.getInt("roadnum"),
+						rset.getString("eaddress"),
+						rset.getString("phone"),
+						rset.getString("email"),
+						rset.getString("mailaccept"),
+						rset.getString("smsaccept"),
+						rset.getString("roadName"),
+						rset.getInt("roadMain"),
+						rset.getInt("roadSub"),
+						rset.getString("invalidid"),
+						rset.getInt("warningcount")
 						);
 			}
 		} catch (SQLException e) {
@@ -113,6 +116,9 @@ public class MemberDao {
 									   rset.getInt("typenum"),
 									   rset.getString("mailaccept"),
 									   rset.getString("smsaccept"),
+									   rset.getString("roadName"),
+									   rset.getInt("roadMain"),
+									   rset.getInt("roadSub"),
 									   rset.getString("invalidid"),
 									   rset.getString("checkonum")
 									  );
@@ -133,7 +139,7 @@ public class MemberDao {
 	 * @param mem
 	 * @return
 	 */
-	public int empInsert(Connection conn, Member mem) {
+	public int insertEmp(Connection conn, Member mem) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -177,6 +183,35 @@ public class MemberDao {
 		} finally {
 			close(pstmt);
 		}
+		
+		return result;
+	}
+	
+	/**
+	 * 사업자 회원 가입
+	 * @param conn
+	 * @param mem
+	 * @return
+	 */
+	public int insertOwn(Connection conn, Member mem) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertEmp");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			
+			result=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
 		
 		return result;
 	}
@@ -233,6 +268,12 @@ public class MemberDao {
 	}
 
 
+	/**
+	 * 개인 아이디 체크
+	 * @param conn
+	 * @param eId
+	 * @return
+	 */
 	public int idCheckEmp(Connection conn, String eId) {
 		
 		int result = 0;
@@ -263,6 +304,9 @@ public class MemberDao {
 		
 		return result;
 	}
+
+
+
 
 	
 	

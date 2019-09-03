@@ -124,6 +124,29 @@ public class Member {
 		this.roadMain = roadMain;
 		this.roadSub = roadSub;
 	}
+	
+	
+	// 사업자 회원가입
+	public Member(String oId, String oPwd, String opName, int opNum, String opAddress, String oName, String otel,
+			String ocnum, String phone, String email, String mailAccept, String smsAccept, String roadName,
+			int roadMain, int roadSub) {
+		super();
+		this.oId = oId;
+		this.oPwd = oPwd;
+		this.opName = opName;
+		this.opNum = opNum;
+		this.opAddress = opAddress;
+		this.oName = oName;
+		this.otel = otel;
+		this.ocnum = ocnum;
+		this.phone = phone;
+		this.email = email;
+		this.mailAccept = mailAccept;
+		this.smsAccept = smsAccept;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
+	}
 
 
 

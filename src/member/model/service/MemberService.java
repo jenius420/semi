@@ -54,7 +54,7 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().empInsert(conn, mem);
+		int result = new MemberDao().insertEmp(conn, mem);
 		
 		if(result > 0) {
 			commit(conn);
@@ -67,6 +67,22 @@ public class MemberService {
 		return result;
 	}
 	
+	public int insertOwn(Member mem) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().insertOwn(conn, mem);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			commit(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 	
 
 	/**
@@ -125,6 +141,8 @@ public class MemberService {
 		
 		return result;
 	}
+
+
 	
 	
 
