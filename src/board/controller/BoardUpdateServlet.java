@@ -1,14 +1,26 @@
 package board.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.oreilly.servlet.MultipartRequest;
+
 import board.model.service.BoardService;
 import board.model.vo.Board;
+import common.model.vo.Attachment;
+import common.model.vo.MyFileRenamePolicy;
+import member.model.vo.Member;
 
 /**
  * Servlet implementation class BoardUpdateServlet
@@ -31,12 +43,136 @@ public class BoardUpdateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		int tNum = Integer.parseInt(request.getParameter("tNum"));
+		
+		
+		
+		
+		if(ServletFileUpload.isMultipartContent(request)) {
+			int maxSize = 1024 * 1024 * 10;
+			
+			String photo = request.getSession().getServletContext().getRealPath("/photo");
+		
+			String savePath = photo + "/attachment/";
+			
+			
+			MultipartRequest multiRequest =  new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
+		
+			ArrayList<String> changeFiles = new ArrayList<>();
+			ArrayList<String> originFiles = new ArrayList<>();
+			
+			Enumeration<String> files= multiRequest.getFileNames();
+		
+			while(files.hasMoreElements()) {
+				
+				String name = files.nextElement();	
+				
+				if(multiRequest.getFilesystemName(name) != null) {
+					
+					
+					String changeName = multiRequest.getFilesystemName(name);
+					String originName = multiRequest.getOriginalFileName(name);
+					
+					changeFiles.add(changeName);
+					originFiles.add(originName);
+				}
+				
+				
+				int tNum = Integer.parseInt(multiRequest.getParameter("tNum"));
+				String title = multiRequest.getParameter("title");
+				int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
+				Date updateDate = Date.valueOf(multiRequest.getParameter("updateDate"));
+				String bBody = multiRequest.getParameter("bBody");
+				int boardCount = Integer.parseInt(multiRequest.getParameter("boardCount"));
+			
+				
+				
+				/*String bWriter = String.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());*/
+				
+				Board b = new Board();
+				b.settNum(tNum);
+				b.setTitle(title);
+				b.seteNum(eNum);
+				b.setUpdateDate(updateDate);
+				b.setbBody(bBody);
+				b.setBoardCount(boardCount);
+				
+				
+				ArrayList<Attachment> fileList = new ArrayList<>();
+				
+				for(int i=originFiles.size()-1; i>=0; i--) {
+					
+					Attachment at = new Attachment();
+					at.setFilePath(savePath);
+					at.setOriginName(originFiles.get(i));
+					at.setChangeName(changeFiles.get(i));
+					
+					fileList.add(at);
+				}
+				
+				
+				int result = new BoardService().updateBoard(b, fileList);
+				
+				if(result > 0) {
+					response.sendRedirect("list.bo");
+				}else {
+				
+				
+					for(int i=0; i<changeFiles.size(); i++) {
+						
+						// 삭제할 파일 객체 생성
+						File failedFile = new File(savePath + changeFiles.get(i));
+						failedFile.delete();
+						
+					}
+			
+					request.setAttribute("msg", "사진 게시판 수정 실패!!");
+					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+				}
+					
+					
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*int tNum = Integer.parseInt(request.getParameter("tNum"));
 		
 		Board board = new Board();
 		board.setTitle(request.getParameter("title"));
 		board.setbBody(request.getParameter("content"));
-		board.setbBody(request.getParameter("content"));     //????????????????
+		board.setPhoto(request.getParameter("photo"));     
 		board.settNum(tNum);
 		
 		int result = new BoardService().updateBoard(board);
@@ -47,7 +183,7 @@ public class BoardUpdateServlet extends HttpServlet {
 		} else {
 			request.setAttribute("msg", "게시글 수정에 실패했습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
+		}*/
 		
 	}
 

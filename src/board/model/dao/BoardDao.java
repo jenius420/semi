@@ -283,6 +283,58 @@ private Properties prop = new Properties();
 	}
 	
 	
+	
+	
+	/**
+	 *  게시판 수정용 호출
+	 * @param conn
+	 * @param fileList
+	 * @param b
+	 * @return
+	 */
+	public int updateBoard(Connection conn, Board b) {
+		
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, b.gettNum());
+			pstmt.setString(2, b.getTitle());
+			pstmt.setInt(3, b.geteNum());
+			pstmt.setDate(4, b.getUpdateDate());
+			pstmt.setString(5, b.getbBody());
+			pstmt.setInt(6, b.getBoardCount());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 *  게시글 삭제하는 호출
 	 * @param conn
@@ -357,6 +409,12 @@ private Properties prop = new Properties();
 		
 	}
 	
+	/**
+	 *  댓글 입력용 호출
+	 * @param conn
+	 * @param c
+	 * @return
+	 */
 	public int insertReply(Connection conn, BoardComment c) {
 		int result = 0;
 		

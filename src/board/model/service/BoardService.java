@@ -77,7 +77,7 @@ public class BoardService {
 	 */
 	public int insertBoard(Board b, ArrayList<Attachment> fileList ) {
 		
-Connection conn = getConnection();
+		Connection conn = getConnection();
 		
 		int result1 = new BoardDao().insertBoard(conn, b);
 		int result2 = new BoardDao().insertAttachment(conn, fileList, b);
@@ -93,6 +93,42 @@ Connection conn = getConnection();
 		return result1;
 		
 	}
+	
+	
+	
+	
+	/**
+	 *  게시판 수정용 서비스
+	 * @param board
+	 * @param fileList
+	 * @return
+	 */
+	public int updateBoard(Board board, ArrayList<Attachment> fileList) {
+		
+		Connection conn = getConnection();
+		
+		int result1 = new BoardDao().insertBoard(conn, board);
+		int result2 = new BoardDao().insertAttachment(conn, fileList, board);
+		
+		if(result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result1;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/**
