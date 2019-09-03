@@ -34,6 +34,9 @@ public class Member {
 	private String email;		// 이메일
 	private String mailAccept;	// 메일 수신 동의
 	private String smsAccept;	// sms수신동의
+	private String roadName;	
+	private int roadMain;		//
+	private int roadSub;		//
 	private String invalidId;	// 탈퇴 유무
 	//private int dongNum;		
 	//private String phone;		
@@ -50,10 +53,11 @@ public class Member {
 		super();
 	}
 	
+	
 
 	// 개인
 	public Member(int eNum, String eId, String ePwd, String eName, String ecNum, int dongNum, int roadNum, String eAddress,
-			String phone, String email, String mailAccept, String smsAccept, String invalidId, int warningCount) {
+			String phone, String email, String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub, String invalidId, int warningCount) {
 		super();
 		this.eNum = eNum;
 		this.eId = eId;
@@ -67,31 +71,17 @@ public class Member {
 		this.email = email;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
 		this.invalidId = invalidId;
 		this.warningCount = warningCount;
 	}
 	
-	
-	// 개인 회원 가입
-	public Member(String eId, String ePwd, String eName, String ecNum, String eAddress, String phone,
-			String email, String mailAccept, String smsAccept) {
-		super();
-		this.eId = eId;
-		this.ePwd = ePwd;
-		this.eName = eName;
-		this.ecNum = ecNum;
-		this.eAddress = eAddress;
-		this.phone = phone;
-		this.email = email;
-		this.mailAccept = mailAccept;
-		this.smsAccept = smsAccept;
-		
-	}
-
 	// 사장
 	public Member(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, int roadNum,
 			String opAddress, String oName, String otel, String ocnum, String phone, String email, int typeNum,
-			String mailAccept, String smsAccept, String invalidId, String checkoNum) {
+			String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub, String invalidId, String checkoNum) {
 		super();
 		this.oNum = oNum;
 		this.oId = oId;
@@ -109,9 +99,32 @@ public class Member {
 		this.typeNum = typeNum;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
 		this.invalidId = invalidId;
 		this.checkoNum = checkoNum;
 	}
+	
+	
+	// 개인 회원 가입
+	public Member(String eId, String ePwd, String eName, String ecNum, String eAddress, String phone,
+			String email, String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub) {
+		super();
+		this.eId = eId;
+		this.ePwd = ePwd;
+		this.eName = eName;
+		this.ecNum = ecNum;
+		this.eAddress = eAddress;
+		this.phone = phone;
+		this.email = email;
+		this.mailAccept = mailAccept;
+		this.smsAccept = smsAccept;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
+	}
+
 
 
 	public int geteNum() {
@@ -119,9 +132,11 @@ public class Member {
 	}
 
 
+
 	public void seteNum(int eNum) {
 		this.eNum = eNum;
 	}
+
 
 
 	public String geteId() {
@@ -129,9 +144,11 @@ public class Member {
 	}
 
 
+
 	public void seteId(String eId) {
 		this.eId = eId;
 	}
+
 
 
 	public String getePwd() {
@@ -139,9 +156,11 @@ public class Member {
 	}
 
 
+
 	public void setePwd(String ePwd) {
 		this.ePwd = ePwd;
 	}
+
 
 
 	public String geteName() {
@@ -149,9 +168,11 @@ public class Member {
 	}
 
 
+
 	public void seteName(String eName) {
 		this.eName = eName;
 	}
+
 
 
 	public String getEcNum() {
@@ -159,9 +180,11 @@ public class Member {
 	}
 
 
+
 	public void setEcNum(String ecNum) {
 		this.ecNum = ecNum;
 	}
+
 
 
 	public String geteAddress() {
@@ -169,9 +192,11 @@ public class Member {
 	}
 
 
+
 	public void seteAddress(String eAddress) {
 		this.eAddress = eAddress;
 	}
+
 
 
 	public int getWarningCount() {
@@ -179,9 +204,11 @@ public class Member {
 	}
 
 
+
 	public void setWarningCount(int warningCount) {
 		this.warningCount = warningCount;
 	}
+
 
 
 	public int getoNum() {
@@ -189,9 +216,11 @@ public class Member {
 	}
 
 
+
 	public void setoNum(int oNum) {
 		this.oNum = oNum;
 	}
+
 
 
 	public String getoId() {
@@ -199,9 +228,11 @@ public class Member {
 	}
 
 
+
 	public void setoId(String oId) {
 		this.oId = oId;
 	}
+
 
 
 	public String getoPwd() {
@@ -209,9 +240,11 @@ public class Member {
 	}
 
 
+
 	public void setoPwd(String oPwd) {
 		this.oPwd = oPwd;
 	}
+
 
 
 	public String getOpName() {
@@ -219,9 +252,11 @@ public class Member {
 	}
 
 
+
 	public void setOpName(String opName) {
 		this.opName = opName;
 	}
+
 
 
 	public int getOpNum() {
@@ -229,9 +264,11 @@ public class Member {
 	}
 
 
+
 	public void setOpNum(int opNum) {
 		this.opNum = opNum;
 	}
+
 
 
 	public String getOpAddress() {
@@ -239,9 +276,11 @@ public class Member {
 	}
 
 
+
 	public void setOpAddress(String opAddress) {
 		this.opAddress = opAddress;
 	}
+
 
 
 	public String getoName() {
@@ -249,9 +288,11 @@ public class Member {
 	}
 
 
+
 	public void setoName(String oName) {
 		this.oName = oName;
 	}
+
 
 
 	public String getOtel() {
@@ -259,9 +300,11 @@ public class Member {
 	}
 
 
+
 	public void setOtel(String otel) {
 		this.otel = otel;
 	}
+
 
 
 	public String getOcnum() {
@@ -269,9 +312,11 @@ public class Member {
 	}
 
 
+
 	public void setOcnum(String ocnum) {
 		this.ocnum = ocnum;
 	}
+
 
 
 	public int getTypeNum() {
@@ -279,9 +324,11 @@ public class Member {
 	}
 
 
+
 	public void setTypeNum(int typeNum) {
 		this.typeNum = typeNum;
 	}
+
 
 
 	public String getCheckoNum() {
@@ -289,9 +336,11 @@ public class Member {
 	}
 
 
+
 	public void setCheckoNum(String checkoNum) {
 		this.checkoNum = checkoNum;
 	}
+
 
 
 	public int getDongNum() {
@@ -299,9 +348,11 @@ public class Member {
 	}
 
 
+
 	public void setDongNum(int dongNum) {
 		this.dongNum = dongNum;
 	}
+
 
 
 	public int getRoadNum() {
@@ -309,9 +360,11 @@ public class Member {
 	}
 
 
+
 	public void setRoadNum(int roadNum) {
 		this.roadNum = roadNum;
 	}
+
 
 
 	public String getPhone() {
@@ -319,9 +372,11 @@ public class Member {
 	}
 
 
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 
 
 	public String getEmail() {
@@ -329,9 +384,11 @@ public class Member {
 	}
 
 
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 
 	public String getMailAccept() {
@@ -339,9 +396,11 @@ public class Member {
 	}
 
 
+
 	public void setMailAccept(String mailAccept) {
 		this.mailAccept = mailAccept;
 	}
+
 
 
 	public String getSmsAccept() {
@@ -349,9 +408,47 @@ public class Member {
 	}
 
 
+
 	public void setSmsAccept(String smsAccept) {
 		this.smsAccept = smsAccept;
 	}
+
+
+
+	public String getRoadName() {
+		return roadName;
+	}
+
+
+
+	public void setRoadName(String roadName) {
+		this.roadName = roadName;
+	}
+
+
+
+	public int getRoadMain() {
+		return roadMain;
+	}
+
+
+
+	public void setRoadMain(int roadMain) {
+		this.roadMain = roadMain;
+	}
+
+
+
+	public int getRoadSub() {
+		return roadSub;
+	}
+
+
+
+	public void setRoadSub(int roadSub) {
+		this.roadSub = roadSub;
+	}
+
 
 
 	public String getInvalidId() {
@@ -359,9 +456,11 @@ public class Member {
 	}
 
 
+
 	public void setInvalidId(String invalidId) {
 		this.invalidId = invalidId;
 	}
+
 
 
 	@Override
@@ -371,8 +470,13 @@ public class Member {
 				+ ", oPwd=" + oPwd + ", opName=" + opName + ", opNum=" + opNum + ", opAddress=" + opAddress + ", oName="
 				+ oName + ", otel=" + otel + ", ocnum=" + ocnum + ", typeNum=" + typeNum + ", checkoNum=" + checkoNum
 				+ ", dongNum=" + dongNum + ", roadNum=" + roadNum + ", phone=" + phone + ", email=" + email
-				+ ", mailAccept=" + mailAccept + ", smsAccept=" + smsAccept + ", invalidId=" + invalidId + "]";
+				+ ", mailAccept=" + mailAccept + ", smsAccept=" + smsAccept + ", roadName=" + roadName + ", roadMain="
+				+ roadMain + ", roadSub=" + roadSub + ", invalidId=" + invalidId + "]";
 	}
+
+
+
+	
 	
 	
 

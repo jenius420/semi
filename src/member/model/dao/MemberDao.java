@@ -137,7 +137,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("inserEmp");
+		String sql = prop.getProperty("insertEmp");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -145,13 +145,32 @@ public class MemberDao {
 			pstmt.setString(1, mem.geteId());
 			pstmt.setString(2, mem.getePwd());
 			pstmt.setString(3, mem.geteName());
-			pstmt.setString(5, mem.getEcNum());
-			pstmt.setString(6, mem.geteAddress());
-			pstmt.setString(7, mem.getPhone());
-			pstmt.setString(8, mem.getMailAccept());
-			pstmt.setString(9, mem.getSmsAccept());
+			pstmt.setString(4, mem.getEcNum());
 			
+			pstmt.setString(5, mem.getRoadName());
+			pstmt.setInt(7, mem.getRoadMain());
+			pstmt.setInt(8, mem.getRoadSub());
+			pstmt.setString(9, mem.geteAddress());
+			pstmt.setString(10, mem.getPhone());
+			pstmt.setString(11, mem.getEmail());
 			
+//			pstmt.setString(12, mem.getMailAccept());
+//			pstmt.setString(13, mem.getSmsAccept());
+			
+			if(mem.getMailAccept() == null || mem.getMailAccept() == "") {
+				pstmt.setString(12, "N");
+			}else {
+				pstmt.setString(12, "Y");
+			}
+				
+				
+			if(mem.getSmsAccept() == null || mem.getSmsAccept( )== "") {
+				pstmt.setString(13, "N");
+			}else {
+				pstmt.setString(13, "Y");
+			}
+			
+			result=pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
