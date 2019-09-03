@@ -201,7 +201,7 @@ display:none;
 													<%if(a.getDong() != null){%> <%=a.getDong()%> <%}else{%> <%=a.getRoadName()%> <%}%> <%=a.getAddress()%> 
 												</td>
 												<td class="cell100 column44"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
-												<td class="cell100 column55"><%=a.getSalaryForm()%> <%=a.getSalary()%>원</td>
+												<td class="cell100 column55"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
 												<td class="cell100 column66"><%=a.getDoneDate()%></td>
 											</tr>
 											<%}}%>

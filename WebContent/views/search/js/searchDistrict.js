@@ -31,7 +31,7 @@ $(function() {
 		jQuery.ajaxSettings.traditional = true;
 //		console.log("현재페이지 확인"+ currentPage);
 		$.ajax({
-			url:"categorySearch.se",
+			url:"districtSearch.se",
 			data:{result:result, currentPage:currentPage, movePage:movePage},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 			type:"get",
@@ -101,7 +101,7 @@ $(function() {
 		});
 		console.log("페이징 동작확인~~~~~~"+currentPage);
 	$.ajax({
-		url:"categoryPage.se",
+		url:"districtPage.se",
 		data:{result:result,currentPage:currentPage, movePage:movePage},
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 		type:"get",
@@ -153,7 +153,7 @@ $(function() {
 	
 });
 	
-	$('.category>td').click(function() {
+	$('.district>td').click(function() {
 				console.log('11');
 				if ($(this).css('color') == 'rgb(255, 255, 255)') {
 					$(this).css('background', 'white').css('color', 'gray');
@@ -179,7 +179,7 @@ $(function() {
 		console.log(result);
 		jQuery.ajaxSettings.traditional = true;
 		$.ajax({
-				url:"categorySearch.se",
+				url:"districtSearch.se",
 				data:{result:result, currentPage:1, movePage:1},
 				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 				type:"get",
@@ -241,7 +241,7 @@ $(function() {
 			});
 		
 		$.ajax({
-			url:"categoryPage.se",
+			url:"districtPage.se",
 			data:{result:result,movePage:1,currentPage:1},
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 			type:"get",
@@ -293,10 +293,7 @@ $(function() {
 	});
 
 	
-	$('.districtSub>div').click(function(){
-		var dis=$(this).text();
-		location.href="/divSub.se?dis="+dis;
-	});	
+		
 		
 
 	

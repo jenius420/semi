@@ -29,6 +29,7 @@ Incruit incruit = (Incruit)request.getAttribute("incruit");
 
 이력서 팝업으로 추가: 필요 서블릿
 지원하기 apply.es input wnum,rnum
+즐겨찾기 등록
 뒤로가기
 
 			</div> <!-- /메인콘텐트 -->

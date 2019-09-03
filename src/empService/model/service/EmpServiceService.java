@@ -48,6 +48,24 @@ public class EmpServiceService {
 		
 	}
 	
+	public int addHopeEnt(int eNum, int oNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = 0;
+		
+		result = new EmpServiceDao().addHopeEnt(conn, eNum, oNum);
+			
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
+	
 	public ArrayList<HopeEnt> selectInterestOwner(int empNum){
 		
 		Connection conn = getConnection();

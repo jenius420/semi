@@ -12,13 +12,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import javax.smartcardio.CommandAPDU;
-
-import adminService.controller.BoardReportListServlet;
+/*import javax.smartcardio.CommandAPDU;*/
 import board.model.vo.Board;
 import board.model.vo.BoardComment;
 import common.model.vo.Attachment;
-import empService.model.vo.Emp;
 
 public class BoardDao {
 	
@@ -55,8 +52,10 @@ private Properties prop = new Properties();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			int startRow = (currentPage - 1) * boardLimit + 1;
-			int endRow = startRow + boardLimit - 1;
+			/*int startRow = (currentPage - 1) * boardLimit + 1;
+			int endRow = startRow + boardLimit - 1;*/
+			int startRow = 1;
+			int endRow = 10;
 			
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
@@ -65,17 +64,15 @@ private Properties prop = new Properties();
 			
 			if(rs.next()) {
 				
-				list.add(new Board( rs.getInt(2),
-									rs.getString(3),
-									rs.getInt(4),
-									rs.getString(5),
-									rs.getDate(6),
-									rs.getString(7),
-									rs.getString(8),
-									rs.getInt(9),
-									rs.getString(10),
-									rs.getString(11),
-									rs.getInt(12)
+				list.add(new Board( rs.getInt("tNum"),
+									rs.getString("title"),
+									rs.getInt("eNum"),
+									rs.getString("eName"),
+									rs.getDate("updateDate"),
+									rs.getString("bBody"),
+									rs.getString("invalidPost"),
+									rs.getString("isNotice"),
+									rs.getInt("boardCount")
 									));
 			}
 			
@@ -184,8 +181,6 @@ private Properties prop = new Properties();
 							  rset.getString("eName"),
 							  rset.getDate("updateDate"),
 							  rset.getString("bBody"),
-							  rset.getString("photo"),
-							  rset.getInt("report"),
 							  rset.getString("invalidPost"),
 							  rset.getString("isNotice"),
 							  rset.getInt("boardCount"));
@@ -222,8 +217,8 @@ private Properties prop = new Properties();
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, b.getTitle());
-			pstmt.setInt(2, b.geteNum());
-			pstmt.setString(3, b.getbBody());
+			/*pstmt.setInt(2, b.geteNum());*/
+			pstmt.setString(2, b.getbBody());
 			
 			result = pstmt.executeUpdate();
 			
@@ -258,10 +253,10 @@ private Properties prop = new Properties();
 				Attachment at = fileList.get(i);
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, b.geteNum());
-				pstmt.setString(3, at.getFilePath());
-				pstmt.setString(2, at.getOriginName());
-				pstmt.setString(4, at.getChangeName());
+				/*pstmt.setInt(1, b.geteNum());*/
+				pstmt.setString(1, at.getOriginName());
+				pstmt.setString(2, at.getFilePath());
+				pstmt.setString(3, at.getChangeName());
 				
 				result = pstmt.executeUpdate();
 				
@@ -281,6 +276,58 @@ private Properties prop = new Properties();
 		return result;
 		
 	}
+	
+	
+	
+	
+	/**
+	 *  게시판 수정용 호출
+	 * @param conn
+	 * @param fileList
+	 * @param b
+	 * @return
+	 */
+	public int updateBoard(Connection conn, Board b) {
+		
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, b.gettNum());
+			pstmt.setString(2, b.getTitle());
+			pstmt.setInt(3, b.geteNum());
+			pstmt.setDate(4, b.getUpdateDate());
+			pstmt.setString(5, b.getbBody());
+			pstmt.setInt(6, b.getBoardCount());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/**
@@ -357,6 +404,12 @@ private Properties prop = new Properties();
 		
 	}
 	
+	/**
+	 *  댓글 입력용 호출
+	 * @param conn
+	 * @param c
+	 * @return
+	 */
 	public int insertReply(Connection conn, BoardComment c) {
 		int result = 0;
 		

@@ -26,6 +26,38 @@ public class SearchService {
 		return list;
 	}
 
+	public ArrayList<IncruitInfo> allList(int start, int end) {
+		Connection conn = getConnection();
+		ArrayList<IncruitInfo> list = new SearchDao().getAllList(conn,start,end);
+		close(conn);
+		return list;
+	}
+
+	public int listCount() {
+		Connection conn = getConnection();
+		int result = new SearchDao().listCount(conn);
+		close(conn);
+		return result;
+	}
+
+	public int getDistrictListCount(String[] district) {
+		Connection conn = getConnection();
+		int result = new SearchDao().districtListCount(conn,district);
+		close(conn);
+		return result;
+	}
+
+	public ArrayList<IncruitInfo> districtSearch(String[] district, int start, int end) {
+		Connection conn = getConnection();
+		ArrayList<IncruitInfo> list = new SearchDao().districtSearch(conn,district,start,end);
+		close(conn);
+		return list;
+	}
+
+
+
+	
+
 	
 	
 }

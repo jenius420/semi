@@ -40,6 +40,7 @@ public class IncruitProductDao {
 		String sql = prop.getProperty("selectIncruitProduct");
 		
 		try {	
+			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {

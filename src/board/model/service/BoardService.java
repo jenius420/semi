@@ -38,9 +38,11 @@ public class BoardService {
 	 */
 	public int getListCount() {
 		
-		int result = 0;
+		Connection conn = getConnection();
 		
-		//사용할 sql문= SELECT COUNT(*) FROM TB WHERE절
+		int result = new BoardDao().getListCount(conn);
+		
+		
 		return result;
 	}
 	
@@ -76,11 +78,14 @@ public class BoardService {
 	 * @return
 	 */
 	public int insertBoard(Board b, ArrayList<Attachment> fileList ) {
-		
-Connection conn = getConnection();
+		System.out.println("test");
+		Connection conn = getConnection();
 		
 		int result1 = new BoardDao().insertBoard(conn, b);
 		int result2 = new BoardDao().insertAttachment(conn, fileList, b);
+		
+		System.out.println("서비스1" + result1);
+		System.out.println("서비스2" + result2);
 		
 		if(result1 > 0 && result2 > 0) {
 			commit(conn);
@@ -93,6 +98,45 @@ Connection conn = getConnection();
 		return result1;
 		
 	}
+	
+	
+	
+	
+	/**
+	 *  게시판 수정용 서비스
+	 * @param board
+	 * @param fileList
+	 * @return
+	 */
+	public int updateBoard(Board board, ArrayList<Attachment> fileList) {
+		
+		Connection conn = getConnection();
+		
+		int result1 = new BoardDao().insertBoard(conn, board);
+		int result2 = new BoardDao().insertAttachment(conn, fileList, board);
+		
+
+		
+		if(result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		
+		return result1;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/**

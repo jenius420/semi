@@ -33,69 +33,86 @@ public class CategorySearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		System.out.println("넘어오나?");
+		System.out.println("categorySearch.se 실행확인");
+		
 		request.setCharacterEncoding("utf-8");
-		System.out.println(request.getParameter("currentPage"));
-		String[] cates =request.getParameter("result").split("!");
+//		System.out.println(request.getParameter("currentPage"));
+		String[] category = new String[25];
+		category= request.getParameter("result").split("!");
 		
-		for(int i=0; i<cates.length; i++) {			
-			System.out.println(cates[i]);
-		}
-		ArrayList<IncruitInfo> list;
-		if(cates==null) {
-			list = new SearchDao().cateFirst(1,20);
+		String mPage = request.getParameter("movePage");
+		int boardLimit = 20; // 한페이지에 보여질 게시글 최대 갯수
+		int listCount;
+		if (category[0]==""||category[0]==null) {
+			listCount = new SearchService().listCount();
 		}else {
-		//총 게시글 갯수
-				int listCount = new SearchService().getCateListCount(cates);
-				//------페이징 처리----------
-				int currentPage;
-				if (request.getParameter("currentPage")!=null) {
-					currentPage= Integer.parseInt(request.getParameter("currentPage"));//현재페이지
-				} else {
-					currentPage=1;
-				}
-				currentPage= Integer.parseInt(request.getParameter("currentPage"));//현재페이지
-				int pageLimit;//한페이지 하단에 보여질 페이지수
-				int maxPage;//전체페이지에서 가장 마직막 페이지
-				int startPage;// 한페이지 하단에 보여질 시작 페이지
-				int endPage;//한페이지 하단에 보여질 마지막 페이지
-				int boardLimit = 20; //한페이지에 보여질 게시글 최대 갯수
-				
-				//currentPage : 현재페이지
-				currentPage =1;
-				//페이지 전환시 전달받은 현재 페이지가 있을 경우 전달받은 페이지를 currentPage로
-				if(request.getParameter("currentPage")!=null) {
-					currentPage=Integer.parseInt(request.getParameter("currentPage"));
-				}
-				//pageLimit : 한페이지 하단에 보여질 페이지수
-				pageLimit =10;
-				
-				
-				//maxPage:총페이지수
-				maxPage = (int) Math.ceil((double)(listCount/boardLimit))+1;
-				//현재페이지에보여지는 페이징 바의 시작수
-				startPage =((currentPage-1)/pageLimit)*pageLimit+1;
-				//(int)Math.floor((double)currentPage-1)/pageLimit)*pageLimit+1;
-				//현재페이지에보여지는 페이징 바의 마지막수
-				endPage=((currentPage-1)/pageLimit)*10+10;
-				//ex)maxPage =13, endPage=20
-				if(endPage>maxPage) {
-					endPage=maxPage;
-				}
-				System.out.println("현재페이지" + currentPage);
-				System.out.println("pageLimit" + pageLimit);
-				System.out.println("maxP" + maxPage);
-				System.out.println("startP" + startPage);
-				System.out.println("endP" + endPage);
-				System.out.println("listCount" + listCount);
-				int start =(currentPage-1)*boardLimit+1;
-				int end = currentPage*boardLimit;
-				list= new SearchService().categorySearch(cates,start,end);
-				response.setContentType("application/json; charset=utf-8");
-				Gson gson = new Gson();
-				gson.toJson(list,response.getWriter());// 응답할 리스트, 응답할 스트림
+			listCount= new SearchService().getCateListCount(category);
 		}
-		
+		int maxPage = (listCount-1)/ boardLimit + 1;
+		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		System.out.println("currentPage:"+currentPage);
+		int movePage;
+		if (mPage.equals("<<")||mPage.equals("&lt&lt")) {
+			movePage = 1;
+		} else if (mPage.equals("<")||mPage.equals("&lt")) {
+			
+				if(currentPage!=1) {
+					movePage = currentPage-1;
+				}else {
+					movePage=1;
+				}
+			
+		} else if (mPage.equals(">")||mPage.equals("&gt")) {
+			
+			if (currentPage == maxPage) {
+				movePage = maxPage;
+			}else {
+				movePage=currentPage+1;
+			}
+		} else if (mPage.equals(">>")||mPage.equals("&gt&gt")) {
+			movePage = maxPage;
+		} else {
+			movePage = Integer.parseInt(mPage);
+		}
+		System.out.println("list movePage"+movePage);
+//		for (int i = 0; i < district.length; i++) {
+//			System.out.println(district[i]);
+//		}
+		ArrayList<IncruitInfo> list;
+
+		// ------페이징 처리----------
+
+		int pageLimit;// 한페이지 하단에 보여질 페이지수
+		int startPage;// 한페이지 하단에 보여질 시작 페이지
+		int endPage;// 한페이지 하단에 보여질 마지막 페이지
+
+		// pageLimit : 한페이지 하단에 보여질 페이지수
+		pageLimit = 10;
+
+		// 현재페이지에보여지는 페이징 바의 시작수
+		startPage = ((movePage - 1) / pageLimit) * pageLimit + 1;
+		// (int)Math.floor((double)currentPage-1)/pageLimit)*pageLimit+1;
+		// 현재페이지에보여지는 페이징 바의 마지막수
+		endPage = ((movePage - 1) / pageLimit) * 10 + 10;
+		// ex)maxPage =13, endPage=20
+		if (endPage > maxPage) {
+			endPage = maxPage;
+		}
+		System.out.println("movePage :"+movePage);
+		int start = (movePage - 1) * boardLimit + 1;
+		int end = (movePage - 1) * boardLimit + 20;
+		System.out.println("시작끝"+start+",,"+end);
+		System.out.println("check12"+category[0]);
+		if (category[0]=="") {
+			System.out.println("확인");
+			list =new SearchService().allList(start,end);
+		} else {
+			
+			list = new SearchService().categorySearch(category, start, end);
+		}
+		response.setContentType("application/json; charset=utf-8");
+		Gson gson = new Gson();
+		gson.toJson(list, response.getWriter());// 응답할 리스트, 응답할 스트림
 	}
 
 	/**

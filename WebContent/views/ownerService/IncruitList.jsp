@@ -91,7 +91,7 @@
 															<td class="cell100 column1"><%=a.getwTitle()%></td>
 															<td class="cell100 column2"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
 															<td class="cell100 column3"><%=a.getEnrollDate()%> ~ <%=a.getDoneDate()%></td>
-															<td class="cell100 column4"><%=a.getSalaryForm()%> <%=a.getSalary()%>원</td>
+															<td class="cell100 column4"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
 															<td class="cell100 column5"><%=a.getProduct()%></td>
 															<td class="cell100 column6"><%if(a.getStatus().equals("Y")){%>진행중<%}else{%>마감<%} %></td>
 														</tr>

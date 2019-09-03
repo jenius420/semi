@@ -139,20 +139,21 @@ public class IncruitDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			
 			pstmt.setString(1, incruit.getwTitle());
-			pstmt.setString(4, incruit.getWorkDay());
-			pstmt.setInt(7, incruit.getTermNo());
-			pstmt.setString(8, incruit.getGender());
-			pstmt.setString(9, incruit.getAge());
-			pstmt.setString(10, incruit.getEdu());
-			pstmt.setString(11, incruit.getSalaryForm());
-			pstmt.setInt(12, incruit.getSalary());
-			pstmt.setInt(13, incruit.getpNum());
-			pstmt.setString(14, incruit.getDescription());
-			pstmt.setString(15, incruit.getPeopleCount());
+			pstmt.setString(2, incruit.getWorkDay());
+			pstmt.setString(3, incruit.getWorkTime());
+			pstmt.setInt(4, incruit.getTermNo());
+			pstmt.setString(5, incruit.getGender());
+			pstmt.setString(6, incruit.getAge());
+			pstmt.setString(7, incruit.getEdu());
+			pstmt.setDate(8, incruit.getDoneDate());
+			pstmt.setString(9, incruit.getSalaryForm());
+			pstmt.setInt(10, incruit.getSalary());
+			pstmt.setInt(11, incruit.getpNum());
+			pstmt.setString(12, incruit.getDescription());
+			pstmt.setString(13, incruit.getPeopleCount());
 			
-			pstmt.setInt(16, incruit.getwNum());
+			pstmt.setInt(14, incruit.getwNum());
 			
 			result = pstmt.executeUpdate();
 
