@@ -167,22 +167,21 @@
               </tbody>
             </table>
 				<div class="btn-group" role="group" aria-label="..." id="pageBtns">
-					<button style="display: none">..</button>
-					<button type="button" class="btn btn-default">&lt&lt</button>
-					<button type="button" class="btn btn-default">&lt</button>
+					<button type="button" class="btn btn-default test">&lt&lt</button>
+					<button type="button" class="btn btn-default test">&lt</button>
 					<%
 					 if(maxPage>10){
 						maxPage=10;
 					}
 					for(int i=1;i<=maxPage;i++){  
 					if(i==1){%>
-					<button type="button" id="pageCheck" class="btn btn-default"><%=i %></button>
+					<button type="button"  id="pageCheck" class="btn btn-default test"><%=i %></button>
 					<%}else{ %>
-					<button type="button" class="btn btn-default"><%=i %></button>
+					<button type="button" class="btn btn-default test"><%=i %></button>
 					<%} 
 					}  %>
-					<button type="button" class="btn btn-default">&gt</button>
-					<button type="button" class="btn btn-default">&gt&gt</button>
+					<button type="button" class="btn btn-default test">&gt</button>
+					<button type="button" class="btn btn-default test">&gt&gt</button>
 				</div>
 			</div>
         </div>

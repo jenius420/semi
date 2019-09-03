@@ -201,6 +201,7 @@ public class SearchDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<IncruitInfo> list = new ArrayList<>();
+		System.out.println(start+"....."+end);
 		String sql = prop.getProperty("districtSearch");
 		for (int i = 0; i < district.length; i++) {
 			if(i==district.length-1) {
@@ -209,8 +210,8 @@ public class SearchDao {
 			}
 			sql+="? OR DISTRICTNAME=";
 		}
-		sql+="ORDER BY STARTDATE DESC))WHERE ROWNUM BETWEEN ? AND ? ";
-//		System.out.println(sql);
+		sql+="ORDER BY STARTDATE DESC))WHERE RNUM BETWEEN ? AND ? ";
+		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
 			for (int i = 0; i < district.length; i++) {
