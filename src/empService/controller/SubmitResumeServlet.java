@@ -84,7 +84,7 @@ public class SubmitResumeServlet extends HttpServlet {
 			String desireForm = multiRequest.getParameter("desireForm");
 			int desireIncome = Integer.parseInt(multiRequest.getParameter("desireIncome"));
 			String comment = multiRequest.getParameter("comment");
-			String openSet = (multiRequest.getParameter("openSet").equals("Y")) ? "Y":"N";
+			String openSet = (multiRequest.getParameter("openSet") != null) ? "Y":"N";
 			
 			Resume resume = new Resume();
 			

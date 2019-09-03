@@ -1,28 +1,23 @@
-package search.controller;
+package member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import search.model.service.SearchService;
-import search.model.vo.IncruitInfo;
-
 /**
- * Servlet implementation class DistrictList
+ * Servlet implementation class FindPwd
  */
-@WebServlet("/district.se")
-public class DistrictList extends HttpServlet {
+@WebServlet("/findPwd.me")
+public class FindPwd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DistrictList() {
+    public FindPwd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +27,7 @@ public class DistrictList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int listCount = new SearchService().listCount();
-		ArrayList<IncruitInfo> list = new SearchService().allList(1,20);
-		
-		request.setAttribute("incruitList", list);
-		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
-		request.getRequestDispatcher("views/search/searchDistrictView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/member/findPwd.jsp").forward(request, response);
 	}
 
 	/**

@@ -26,9 +26,9 @@
 </head>
 <body>
 <%@ include file="views/common/header.jsp" %>
-<button onclick="location.href='<%=request.getContextPath()%>/test111'">확인</button>
 
-<div></div>
+
+
 <div class="jumbotron" id="jumbotron">
       <div class="container">
       	<br /><br /><br /><br /><br /><br /><br /><br />

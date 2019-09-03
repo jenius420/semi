@@ -79,7 +79,7 @@ public class SearchDao {
 			}
 			sql+="? OR CATEGORYNAME=";
 		}
-		sql+="ORDER BY STARTDATE DESC))WHERE ROWNUM BETWEEN ? AND ? ";
+		sql+="ORDER BY STARTDATE DESC))WHERE RNUM BETWEEN ? AND ? ";
 		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);

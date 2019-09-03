@@ -37,26 +37,35 @@ public class SearchResumeListServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String keyword = request.getParameter("keyword"); 
+		String keyword = "";
 		
-		String district = request.getParameter("district");
-		String type = request.getParameter("type"); 
-		String desireForm = request.getParameter("desireForm");
-		int desireIncome = Integer.parseInt(request.getParameter("desireIncome"));
-		String finalEdu = request.getParameter("finalEdu");
+		if(request.getParameter("keyword") == null) {
+			return;
+		}else {
+			keyword = request.getParameter("keyword"); 
+		}
 		
 		Filter filter = new Filter();
-		filter.setDistrict(district);
-		filter.setType(type);
-		filter.setDesireForm(desireForm);
-		filter.setDesireIncome(desireIncome);
-		filter.setFinalEdu(finalEdu);
+		
+		filter.setDistrictNum(Integer.parseInt(request.getParameter("districtNum")));
+		filter.setTypeNum(Integer.parseInt(request.getParameter("typeNum")));
+		if(request.getParameter("edu") == null) {
+			filter.setFinalEdu(null);
+		}else {
+			filter.setFinalEdu(request.getParameter("edu"));
+		}
+		if(request.getParameter("desireForm") == null) {
+			filter.setDesireForm(null);
+			filter.setDesireIncome(999999999);
+		}else {
+			filter.setDesireForm(request.getParameter("desireForm"));
+			filter.setDesireIncome(Integer.parseInt(request.getParameter("desireIncome")));
+		}
+
+
 		
 		ArrayList<Resume> list = new IncruitService().selectSearchResumeList(keyword, filter);
 		
-
-		//비동기 처리??
-
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/ownerService/searchResume.jsp").forward(request, response);
 	
