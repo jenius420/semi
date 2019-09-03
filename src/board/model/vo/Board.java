@@ -10,19 +10,17 @@ public class Board {
 	private String eName;
 	private Date updateDate;
 	private String bBody;
-	private String photo;
-	private int report;
 	private String invalidPost;
 	private String isNotice;
 	private int boardCount;
 	
 	public Board() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Board(int tNum, String title, int eNum, String eName, Date updateDate, String bBody, String photo,
-			int report, String invalidPost, String isNotice, int boardCount) {
+	public Board(int tNum, String title, int eNum, String eName, Date updateDate, String bBody, String invalidPost,
+			String isNotice, int boardCount) {
 		super();
 		this.tNum = tNum;
 		this.title = title;
@@ -30,8 +28,6 @@ public class Board {
 		this.eName = eName;
 		this.updateDate = updateDate;
 		this.bBody = bBody;
-		this.photo = photo;
-		this.report = report;
 		this.invalidPost = invalidPost;
 		this.isNotice = isNotice;
 		this.boardCount = boardCount;
@@ -85,22 +81,6 @@ public class Board {
 		this.bBody = bBody;
 	}
 
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-
-	public int getreport() {
-		return report;
-	}
-
-	public void setreport(int report) {
-		this.report = report;
-	}
-
 	public String getInvalidPost() {
 		return invalidPost;
 	}
@@ -124,6 +104,13 @@ public class Board {
 	public void setBoardCount(int boardCount) {
 		this.boardCount = boardCount;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Board [tNum=" + tNum + ", title=" + title + ", eNum=" + eNum + ", eName=" + eName + ", updateDate="
+				+ updateDate + ", bBody=" + bBody + ", invalidPost=" + invalidPost + ", isNotice=" + isNotice
+				+ ", boardCount=" + boardCount + "]";
+	}
 }
+
+	

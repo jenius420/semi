@@ -41,6 +41,7 @@ public class BoardInsertServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
+    	System.out.println("test1");
 		request.setCharacterEncoding("utf-8");
 		
 		//String title = request.getParameter("title");
@@ -103,12 +104,13 @@ public class BoardInsertServlet extends HttpServlet {
 			 * --> common패키지에 MyFileRenamePolicy 클래스 만들자!!
 			 * 
 			 */
+			System.out.println("test2");
 			
 			// 2_1. MultipartRequest 객체 생성하기
 			MultipartRequest multiRequest =  new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			// --> 이순간 서버에 파일 업로드 됨
 			
-			
+			System.out.println("test3");
 			// 2_2. DB에 저장하기 위해 change_name과 origin_name 각각의 ArrayList 만들어줄꺼임 --> 다중파일이기 때문
 			
 			// 실제로 저장된 파일의 이름(수정명)을 저장할 ArrayList
@@ -138,6 +140,8 @@ public class BoardInsertServlet extends HttpServlet {
 			}
 			
 			
+			System.out.println("서블렛1" );
+			
 			// 3_1. 파일 외에 게시판 제목, 내용, 작성자 회원번호 받아오기 --> Board 객체 생성
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
@@ -165,7 +169,7 @@ public class BoardInsertServlet extends HttpServlet {
 				fileList.add(at);
 			}
 			
-			
+			System.out.println("서블렛2" );
 			// 4. 사진 게시판 작성용 서비스 요청(board 객체, 첨부파일 리스트 전달)
 			int result = new BoardService().insertBoard(b, fileList);
 			
