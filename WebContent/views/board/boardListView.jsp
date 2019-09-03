@@ -81,7 +81,7 @@
 					
 					<% for(Board b : list){ %>
 					
-						<% if(b.getIsNotice().equals('Y')) {%>
+						<%-- <% if(b.getIsNotice().equals('Y')) {%> --%>
 						
 						<tr>
 							<td scope="col">공지</td>
@@ -89,11 +89,10 @@
 							<td scope="col"><%= b.geteName() %></td>
 							<td scope="col"><%= b.getBoardCount() %></td>
 							<td scope="col"><%= b.getUpdateDate() %></td>
-							<!-- <td><%= b.getPhoto() %></td> -->
 						</tr>
 						
 						
-						<% }else{ %>
+						<%-- <% }else{ %> --%>
 						
 						
 						<tr>
@@ -102,10 +101,9 @@
 							<td scope="col"><%= b.geteName() %></td>
 							<td scope="col"><%= b.getBoardCount() %></td>
 							<td scope="col"><%= b.getUpdateDate() %></td>
-							<!-- <td><%= b.getPhoto() %></td> -->
 						</tr>
 	
-					<% } %>
+					<%-- <% } %> --%>
 				
 				<% } %>
 			<% } %>

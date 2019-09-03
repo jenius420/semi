@@ -119,7 +119,7 @@
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td colspan="5"><input type="text"></td>
+					<td colspan="5"><input type="text" name="title"></td>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
@@ -129,7 +129,7 @@
 				</tr>
 				<tr>
 					<td colspan="6">
-						<p id="content"><textarea></textarea></p>
+						<p id="content"><textarea name="content"></textarea></p>
 					</td>
 				</tr>
 				<tr>

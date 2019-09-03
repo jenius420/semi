@@ -13,12 +13,9 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 /*import javax.smartcardio.CommandAPDU;*/
-
-import adminService.controller.BoardReportListServlet;
 import board.model.vo.Board;
 import board.model.vo.BoardComment;
 import common.model.vo.Attachment;
-import empService.model.vo.Emp;
 
 public class BoardDao {
 	
@@ -55,8 +52,10 @@ private Properties prop = new Properties();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			int startRow = (currentPage - 1) * boardLimit + 1;
-			int endRow = startRow + boardLimit - 1;
+			/*int startRow = (currentPage - 1) * boardLimit + 1;
+			int endRow = startRow + boardLimit - 1;*/
+			int startRow = 1;
+			int endRow = 10;
 			
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
@@ -65,17 +64,15 @@ private Properties prop = new Properties();
 			
 			if(rs.next()) {
 				
-				list.add(new Board( rs.getInt(2),
-									rs.getString(3),
-									rs.getInt(4),
-									rs.getString(5),
-									rs.getDate(6),
-									rs.getString(7),
-									rs.getString(8),
-									rs.getInt(9),
-									rs.getString(10),
-									rs.getString(11),
-									rs.getInt(12)
+				list.add(new Board( rs.getInt("tNum"),
+									rs.getString("title"),
+									rs.getInt("eNum"),
+									rs.getString("eName"),
+									rs.getDate("updateDate"),
+									rs.getString("bBody"),
+									rs.getString("invalidPost"),
+									rs.getString("isNotice"),
+									rs.getInt("boardCount")
 									));
 			}
 			
@@ -184,8 +181,6 @@ private Properties prop = new Properties();
 							  rset.getString("eName"),
 							  rset.getDate("updateDate"),
 							  rset.getString("bBody"),
-							  rset.getString("photo"),
-							  rset.getInt("report"),
 							  rset.getString("invalidPost"),
 							  rset.getString("isNotice"),
 							  rset.getInt("boardCount"));
