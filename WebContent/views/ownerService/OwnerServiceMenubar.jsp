@@ -17,7 +17,7 @@
 .osMenubar{
 	position: fixed;
 	left: 0x;
-	top: 300px;
+	top: 350px;
 	clear: both;
     margin: 0;
     padding: 10px !important;

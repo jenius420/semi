@@ -23,12 +23,14 @@ box-sizing: border-box;
     width: 12%;
     height: 100%;
     float: left;
+    margin-left: 60px;
 }
 
 #content-center{
     width: 80%;
     height: 100%;
     float: left;
+  
 }
 
 #content-right{
