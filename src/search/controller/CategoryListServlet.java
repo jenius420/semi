@@ -1,11 +1,16 @@
 package search.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import search.model.service.SearchService;
+import search.model.vo.IncruitInfo;
 
 /**
  * Servlet implementation class CategoryListServlet
@@ -26,8 +31,12 @@ public class CategoryListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		int listCount = new SearchService().listCount();
+		ArrayList<IncruitInfo> list = new SearchService().allList(1,20);
+		
+		request.setAttribute("incruitList", list);
+		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
+		request.getRequestDispatcher("views/search/searchCategoryList.jsp").forward(request, response);
 	}
 
 	/**

@@ -4,6 +4,9 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <% response.setContentType("text/html; charset=utf-8"); %>
+<% ArrayList<IncruitInfo> incruitList = (ArrayList)request.getAttribute("incruitList");
+ int maxPage = (Integer)request.getSession().getAttribute("maxPage");
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,7 +18,7 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 
-
+<script type="text/javascript" src="<%=request.getContextPath() %>/views/search/js/searhCategoryList.js"></script>
 
 <style>
 	#bigCategory{
@@ -28,7 +31,10 @@
 	#jumbotron{
 	background-image: url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
 }
-#districtSub>div:hover, .category>td:hover{
+#pageCheck{
+	background:gray;
+}
+#districtSub>div:hover, .district>td:hover{
 	color:rgb(176,18,241);
 	cursor: pointer;
 }
@@ -122,17 +128,65 @@
                 </tr>
               </thead>
               <tbody id="searchResult">
+              
+              <%for(int i=0; i<incruitList.size(); i++){ %>
+              		 <tr>
+                  <td style="padding-top: 18px;"><%=incruitList.get(i).getNum() %></td>
+                  <td style="padding-top: 18px;"><%=incruitList.get(i).getDistrictName() %></td>
+                  <td>
+                  	<div >
+                  	<a><%=incruitList.get(i).getOpName() %></a><br />
+                  	<a><%=incruitList.get(i).getTitle() %></a>
+                  	</div>
+                  </td>
+                  <td style="padding-top: 18px;">
+                  	<%if(incruitList.get(i).getWorkForm().equals("시급")){ %>
+                  	<div class="payType" style="border: 1px solid orange; display: inline;color: orange; padding: 1px;">월</div>
+                  	<%}else if(incruitList.get(i).getWorkForm().equals("일급")){ %>
+                  	<div class="payType" style="border: 1px solid blue; display: inline;color: blue; padding: 1px;">월</div>
+                  	<%}else if(incruitList.get(i).getWorkForm().equals("주급")){ %>
+                  	<div class="payType" style="border: 1px solid purple; display: inline;color: purple; padding: 1px;">월</div>
+                  	<%}else if(incruitList.get(i).getWorkForm().equals("월급")){ %>
+                  	<div class="payType" style="border: 1px solid green; display: inline;color: green; padding: 1px;">월</div>
+                  	<%}else{ %>
+                  	<div class="payType" style="border: 1px solid red; display: inline;color: red; padding: 1px;">월</div>
+                  	<%} %>
+                  	
+                  	
+                  	
+                  	<%=incruitList.get(i).getSalary() %>원
+                  </td>
+                  <td style="padding-top: 18px;"><%=incruitList.get(i).getWorkDay() %></td>
+                  <td style="padding-top: 18px;"><%=incruitList.get(i).getStartDate() %></td>
+                </tr>
+              <%} %>
+               
+                
               </tbody>
             </table>
-          </div>
+				<div class="btn-group" role="group" aria-label="..." id="pageBtns">
+					<button type="button" class="btn btn-default test">&lt&lt</button>
+					<button type="button" class="btn btn-default test">&lt</button>
+					<%
+					 if(maxPage>10){
+						maxPage=10;
+					}
+					for(int i=1;i<=maxPage;i++){  
+					if(i==1){%>
+					<button type="button"  id="pageCheck" class="btn btn-default test"><%=i %></button>
+					<%}else{ %>
+					<button type="button" class="btn btn-default test"><%=i %></button>
+					<%} 
+					}  %>
+					<button type="button" class="btn btn-default test">&gt</button>
+					<button type="button" class="btn btn-default test">&gt&gt</button>
+				</div>
+			</div>
         </div>
       </div>
 
-	
+
 	
 	<%@ include file="../common/footer.jsp" %>
-	
-	
-	<script type="text/javascript" src="<%=request.getContextPath()%>/views/search/js/searhCategoryList.js"></script>
 </body>
 </html>

@@ -5,21 +5,156 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 //# sourceMappingURL=jquery.min.map
 
 $(function() {
-	$('.category>td').click(
-			function() {
+	
+	$(document).on("click", ".test", function(){
+	
+//		console.log("이벤트 활성화확인");
+		var currentPage=$('#pageCheck').text();
+		
+		
+		var movePage=$(this).text();
+		console.log("mPage : "  + movePage);
 
-				if ($(this).css('color') == 'rgb(255, 255, 255)') {
-					$(this).css('background', 'white').css('color', 'gray');
-					$(this).removeAttr('name');
-				} else {
-					$(this).css('background', 'rgb(176,18,241)').css('color',
-							'white').attr('name', 'checked');
+		console.log(currentPage);
+//		console.log('넘어가는 페이지'+$('#pageCheck').text());
+		
+		var check = $("td[name=checked]");
+		var result = "";
+		for (var i = 0; i < check.length; i++) {
+			if(i==check.length-1){
+				result+=check.slice(i, i + 1).text();
+				break;
+			}
+			result+=(check.slice(i, i + 1).text())+"!";
+		}
+		console.log(result);
+		jQuery.ajaxSettings.traditional = true;
+//		console.log("현재페이지 확인"+ currentPage);
+		$.ajax({
+			url:"categorySearch.se",
+			data:{result:result, currentPage:currentPage, movePage:movePage},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+			type:"get",
+			dataType:"json",
+			success:function(list){
+				var $searchResult= $('#searchResult');
+				$searchResult.html("");
+				$.each(list, function(index, value){
+					console.log(value.title);
+					console.log(value.num);//글번호
+					console.log(value.title);//글제목
+					console.log(value.districtName);//구
+					console.log(value.opName);//사업명
+					console.log(value.workForm);//시급 월급등등
+					console.log(value.salary);//급여
+					console.log(value.workDay);//근무일
+					console.log(value.startDate);//등록일
+					var $tr =$("<tr>");
+					var $num=$("<td>").text(value.num).css("padding-top", "18px");
+					var $district=$("<td>").text(value.districtName).css("padding-top", "18px");
+					var $td=$("<td>");
+					var $opName=$("<a>").html(value.opName+"<br>");
+					var $title=$("<a>").text(value.title);
+					$td.append($opName);
+					$td.append($title);
+					var $workForm=$("<td>").css("padding-top", "18px");
+//					시급, 일급, 월급, 연봉,주급
+					if(value.workForm=='시급'){
+						var $time=$("<div>").text("시").css('border','1px solid orange').css('display','inline').css('color','orange').css('padding','1px');
+						
+						$workForm.append($time);
+						$workForm.append(value.salary+"원");
+					}else if(value.workForm=='일급'){
+						var $day=$("<div>").text("일").css('border','1px solid blue').css('display','inline').css('color','blue').css('padding','1px');
+						$workForm.append($day);
+						$workForm.append(value.salary+"원");
+					}else if(value.workForm=='주급'){
+						var $week=$("<div>").text("주").css('border','1px solid purple').css('display','inline').css('color','purple').css('padding','1px');
+						$workForm.append($week);
+						$workForm.append(value.salary+"원");
+					}else if(value.workForm=='월급'){
+						var $mon=$("<div>").text("월").css('border','1px solid green').css('display','inline').css('color','green').css('padding','1px');
+						$workForm.append($mon);
+						$workForm.append(value.salary+"원");
+					}else {
+						var $year=$("<div>").text("연").css('border','1px solid red').css('display','inline').css('color','red').css('padding','1px');
+						$workForm.append($year);
+						$workForm.append(value.salary+"원");
+					}
+					var $workDay=$("<td>").text(value.workDay).css("padding-top", "18px");
+					var $startDate=$("<td>").text(value.startDate.replace('월','/').replace(',',"").replace('2019',"")).css("padding-top", "18px");
+					$tr.append($num);
+					$tr.append($district);
+					$tr.append($td);
+					$tr.append($workForm);
+					$tr.append($workDay);
+					$tr.append($startDate);
+					$searchResult.append($tr);
+					
+					console.log("list불러옴");
+				});
+			},
+			error:function(){
+				console.log("ajax통신 실패");
+			}
+			
+		});
+		console.log("페이징 동작확인~~~~~~"+currentPage);
+	$.ajax({
+		url:"categoryPage.se",
+		data:{result:result,currentPage:currentPage, movePage:movePage},
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+		type:"get",
+		dataType:"json",
+		success:function(list){
+			$('#pageBtns>button').removeAttr('id');
+			var $pageBtns=$('#pageBtns');
+			$pageBtns.html('');
+			console.log('pagebar 실행확인');
+			$.each(list, function(index,value){
+			
+			$toStart=$('<button>').text('<<').attr('type','button').attr('class','btn btn-default test');
+			$lastPage=$('<button>').text('<').attr('type','button').attr('class','btn btn-default test');
+			$pageBtns.append($toStart);
+			$pageBtns.append($lastPage);
+			var maxPage = Number(value.maxPage);				
+			
+			var endPage=parseInt((value.currentPage-1)/10)*10+10;
+			if(maxPage<endPage){
+				endPage=maxPage;
+			}
+			
+			var StartPage=parseInt((value.currentPage-1)/10)*10+1;
+			console.log("현재인페이지"+value.currentPage);
+			console.log("시작페이지"+StartPage);
+			for(var i =StartPage; i<=endPage; i++){
+				if(i==value.currentPage){
+					$page=$('<button>').text(i).attr('type','button').attr('class','btn btn-default test').attr('id','pageCheck');
+					$pageBtns.append($page);	
+				}else{
+				$page=$('<button>').text(i).attr('type','button').attr('class','btn btn-default test');
+				$pageBtns.append($page);
 				}
-
+			}
+			$toNext=$('<button>').text('>').attr('type','button').attr('class','btn btn-default test');
+			$toEnd=$('<button>').text('>>').attr('type','button').attr('class','btn btn-default test');
+			$pageBtns.append($toNext);
+			$pageBtns.append($toEnd);
+			console.log("페이징 동작확인 final");
 			});
-	$('.district>td').click(
-			function() {
-
+		},
+		error:function(){
+			console.log("paging 실패");
+		}
+		
+	});
+	
+	
+	
+});
+	
+	$('.category>td').click(function() {
+				console.log('11');
 				if ($(this).css('color') == 'rgb(255, 255, 255)') {
 					$(this).css('background', 'white').css('color', 'gray');
 					$(this).removeAttr('name');
@@ -32,6 +167,7 @@ $(function() {
 	
 	$('#searchBtn').click(function(){
 		var check = $("td[name=checked]");
+		
 		var result = "";
 		for (var i = 0; i < check.length; i++) {
 			if(i==check.length-1){
@@ -44,7 +180,7 @@ $(function() {
 		jQuery.ajaxSettings.traditional = true;
 		$.ajax({
 				url:"categorySearch.se",
-				data:{result:result, currentPage:1},
+				data:{result:result, currentPage:1, movePage:1},
 				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 				type:"get",
 				dataType:"json",
@@ -52,15 +188,7 @@ $(function() {
 					var $searchResult= $('#searchResult');
 					$searchResult.html("");
 					$.each(list, function(index, value){
-						console.log(value.title);
-						console.log(value.num);//글번호
-						console.log(value.title);//글제목
-						console.log(value.districtName);//구
-						console.log(value.opName);//사업명
-						console.log(value.workForm);//시급 월급등등
-						console.log(value.salary);//급여
-						console.log(value.workDay);//근무일
-						console.log(value.startDate);//등록일
+
 						var $tr =$("<tr>");
 						var $num=$("<td>").text(value.num).css("padding-top", "18px");
 						var $district=$("<td>").text(value.districtName).css("padding-top", "18px");
@@ -112,9 +240,71 @@ $(function() {
 				
 			});
 		
+		$.ajax({
+			url:"categoryPage.se",
+			data:{result:result,movePage:1,currentPage:1},
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+			type:"get",
+			dataType:"json",
+			success:function(list){
+				$('#pageBtns>button').removeAttr('id');
+				var $pageBtns=$('#pageBtns');
+				$pageBtns.html('');
+				console.log('pagebar 실행확인');
+				$.each(list, function(index,value){
+				
+				$toStart=$('<button>').text('<<').attr('type','button').attr('class','btn btn-default test');
+				$lastPage=$('<button>').text('<').attr('type','button').attr('class','btn btn-default test');
+				$pageBtns.append($toStart);
+				$pageBtns.append($lastPage);
+				var maxPage = Number(value.maxPage);				
+				
+				var endPage=parseInt((value.currentPage-1)/10)*10+10;
+				if(maxPage<endPage){
+					endPage=maxPage;
+				}
+				
+				var StartPage=parseInt((value.currentPage-1)/10)*10+1;
+				console.log("현재인페이지"+value.currentPage);
+				console.log("시작페이지"+StartPage);
+				for(var i =StartPage; i<=endPage; i++){
+					if(i==value.currentPage){
+						$page=$('<button>').text(i).attr('type','button').attr('class','btn btn-default test').attr('id','pageCheck');
+						$pageBtns.append($page);	
+					}else{
+					$page=$('<button>').text(i).attr('type','button').attr('class','btn btn-default test');
+					$pageBtns.append($page);
+					}
+				}
+				$toNext=$('<button>').text('>').attr('type','button').attr('class','btn btn-default test');
+				$toEnd=$('<button>').text('>>').attr('type','button').attr('class','btn btn-default test');
+				$pageBtns.append($toNext);
+				$pageBtns.append($toEnd);
+				console.log("페이징 동작확인 final");
+				});
+			},
+			error:function(){
+				console.log("paging 실패");
+			}
+			
+		});
+		
+		
 	});
 
+	
+	$('.districtSub>div').click(function(){
+		var dis=$(this).text();
+		location.href="/divSub.se?dis="+dis;
+	});	
+		
+
+	
 
 });
+
+
+
+
 
 

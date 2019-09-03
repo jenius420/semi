@@ -13,16 +13,16 @@ import search.model.service.SearchService;
 import search.model.vo.IncruitInfo;
 
 /**
- * Servlet implementation class DistrictList
+ * Servlet implementation class DivSub
  */
-@WebServlet("/district.se")
-public class DistrictList extends HttpServlet {
+@WebServlet("/DivSub")
+public class DivSub extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DistrictList() {
+    public DivSub() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,13 +31,8 @@ public class DistrictList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int listCount = new SearchService().listCount();
-		ArrayList<IncruitInfo> list = new SearchService().allList(1,20);
-		
-		request.setAttribute("incruitList", list);
-		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
-		request.getRequestDispatcher("views/search/searchDistrictView.jsp").forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		ArrayList<IncruitInfo> list = new SearchService().
 	}
 
 	/**
