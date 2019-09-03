@@ -12,7 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import javax.smartcardio.CommandAPDU;
+/*import javax.smartcardio.CommandAPDU;*/
 
 import adminService.controller.BoardReportListServlet;
 import board.model.vo.Board;
@@ -222,8 +222,8 @@ private Properties prop = new Properties();
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, b.getTitle());
-			pstmt.setInt(2, b.geteNum());
-			pstmt.setString(3, b.getbBody());
+			/*pstmt.setInt(2, b.geteNum());*/
+			pstmt.setString(2, b.getbBody());
 			
 			result = pstmt.executeUpdate();
 			
@@ -258,10 +258,10 @@ private Properties prop = new Properties();
 				Attachment at = fileList.get(i);
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, b.geteNum());
-				pstmt.setString(3, at.getFilePath());
-				pstmt.setString(2, at.getOriginName());
-				pstmt.setString(4, at.getChangeName());
+				/*pstmt.setInt(1, b.geteNum());*/
+				pstmt.setString(1, at.getOriginName());
+				pstmt.setString(2, at.getFilePath());
+				pstmt.setString(3, at.getChangeName());
 				
 				result = pstmt.executeUpdate();
 				
