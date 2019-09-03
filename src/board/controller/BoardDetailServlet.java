@@ -39,7 +39,7 @@ public class BoardDetailServlet extends HttpServlet {
 		
 		if(b != null) {
 			request.setAttribute("b", b);
-			request.getRequestDispatcher("views/board/boardDetailView.jsp").forward(request, response);
+			request.getRequestDispatcher("views/board/BoardDetailView.jsp").forward(request, response);
 		}else {
 			
 			request.setAttribute("msg", "게시판 상세조회 실패!!");

@@ -5,26 +5,11 @@
  
     
 <%
-	/* ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list"); */
-	/* PageInfo pi = (PageInfo)request.getAttribute("pi"); */
+	 ArrayList<Board> list = (ArrayList<Board>)request.getAttribute("list");
+
 	/* Member loginUser = (Member)session.getAttribute("loginUser"); */
-	
-	ArrayList<Board> list = new ArrayList<>();
 
-	PageInfo pi = new PageInfo();
-
-	/* int listCount = pi.getListCount();
-	int currentPage = pi.getCurrentPage();
-	int maxPage = pi.getMaxPage();
-	int startPage = pi.getStartPage();
-	int endPage = pi.getEndPage(); */
-	
-	int listCount = 20;
-	int currentPage = 1;
-	int maxPage = 20;
-	int startPage = 1;
-	int endPage = 20;
- 	 String contextPath = request.getContextPath();
+ 	 String contextPath = request.getContextPath(); 
 	
 %>    
     
@@ -48,119 +33,42 @@
 
   <body>
   
-    <h1>게시판 리스트</h1>
+    <h1 align="center">게시판 리스트</h1>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
   
   
-  
-  <table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col" width="100">글번호</th>
-      <th scope="col" width="300">글제목</th>
-      <th scope="col" width="100">작성자</th>
-      <th scope="col" width="100">조회수</th>
-      <th scope="col" width="150">작성일</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  
-  
-      <% if(list.isEmpty()){ %>
-					<tr>
-						<td colspan="6">조회된 리스트가 없습니다</td>
-					</tr>
-				<% }else{ %>
-					
-					<% for(Board b : list){ %>
-					
-						<%-- <% if(b.getIsNotice().equals('Y')) {%> --%>
-						
-						<tr>
-							<td scope="col">공지</td>
-							<td scope="col"><%= b.getTitle() %></td>
-							<td scope="col"><%= b.geteName() %></td>
-							<td scope="col"><%= b.getBoardCount() %></td>
-							<td scope="col"><%= b.getUpdateDate() %></td>
-						</tr>
-						
-						
-						<%-- <% }else{ %> --%>
-						
-						
-						<tr>
-							<td scope="col"><%= b.gettNum() %></td>
-							<td scope="col"><%= b.getTitle() %></td>
-							<td scope="col"><%= b.geteName() %></td>
-							<td scope="col"><%= b.getBoardCount() %></td>
-							<td scope="col"><%= b.getUpdateDate() %></td>
-						</tr>
-	
-					<%-- <% } %> --%>
-				
-				<% } %>
+  <div class="tableArea">
+  	<table class="table table-hover" id="listArea">
+    	<tr>
+      		<th width="100">글번호</th>
+      		<th width="300">글제목</th>
+      		<th width="100">작성자</th>
+      		<th width="100">조회수</th>
+      		<th width="150">작성일</th>
+    	</tr>
+     	<% if(list.isEmpty()){ %>
+		<tr>
+			<td colspan="5">조회된 리스트가 없습니다</td>
+		</tr>
+		<% }else{ %>		
+			<% for(Board b : list){ %>
+			<tr>
+				<td><%= b.gettNum() %></td>
+				<td><%= b.getTitle() %></td>
+				<td><%= b.geteName() %></td>
+				<td><%= b.getBoardCount() %></td>
+				<td><%= b.getUpdateDate() %></td>				
+			</tr>	
 			<% } %>
-  
-  
-  
-  
-  
-   <%--  <% if(list.isEmpty()){ %>
-					<tr>
-						<td colspan="6">조회된 리스트가 없습니다</td>
-					</tr>
-				<% }else{ %>
-					
-					<% for(Board b : list){ %>
-					<% } %>
-				<% } %> --%>
-  </tbody>
-</table>
- <%--  
-  <!-- 페이징바 만들기 -->
-		<div class="pagingArea" align="center">
-		
-			<!-- 맨처음으로 (<<) -->
-			<button onclick="location.href='<%= contextPath %>/list.bo?currentPage=1'"> &lt;&lt; </button>
-			
-			<!-- 이전페이지로(<) -->
-			<%if(currentPage == 1){ %>
-			<button disabled> &lt; </button>
-			<%}else{ %>
-			<button onclick="location.href='<%= contextPath %>/list.bo?currentPage=<%= currentPage-1 %>'"> &lt; </button>
-			<%} %>
-			
-			
-			<!-- 10개의 페이지 목록 -->
-			<%for(int p=startPage; p<=endPage; p++){ %>
-				
-				<%if(p == currentPage){ %>
-				<button disabled> <%= p %> </button>
-				<%}else{ %>
-				<button onclick="location.href='<%=contextPath %>/list.bo?currentPage=<%= p %>'"> <%= p %> </button>
-				<%} %>
-				
-			<%} %>
-			
-			
-			<!-- 다음페이지로(>) -->
-			<%if(currentPage == maxPage){ %>
-			<button disabled> &gt; </button>
-			<%}else { %>
-			<button onclick="location.href='<%= contextPath %>/list.bo?currentPage=<%= currentPage+1 %>'"> &gt; </button>
-			<%} %>
-			
-			<!-- 맨끝으로(>>) -->
-			<button onclick="location.href='<%= contextPath %>/list.bo?currentPage=<%= maxPage %>'"> &gt;&gt; </button>
-			
-		</div> --%>
+		<% } %>			
+	</table>
+  </div>
 		
 		<div class="searchArea" align="center">
 			<select id="searchCondition" name="searchCondition">
@@ -169,7 +77,8 @@
 				<option value="title">제목</option>
 				<option value="content">내용</option>
 			</select>
-			<input type="search">
+			
+			<input type="search" id="BoardListSearch">
 			
 			<button type="submit">검색하기</button>
 			
@@ -178,20 +87,18 @@
 			<%-- <%} %> --%>
 			
 		</div>
-	</div>
   
   
   
   <script>
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"darkgray", "cursor":"pointer"});
+				$(this).parent().css({"background":"violet", "cursor":"pointer","color":"white"});
 			}).mouseout(function(){
-				$(this).parent().css("background", "black");
+				$(this).parent().css({"background":"white","color":"black"});
 			}).click(function(){
 				
-				var bId = $(this).parent().children().eq(0).text();
-				
+				var tNum = $(this).parent().children().eq(0).text();
 				<%-- <% if(loginUser != null){ %> // 로그인한 회원만 이용가능하게 --%>
 					location.href="<%= contextPath %>/detail.bo?tNum=" + tNum;
 				<%-- <%}else{ %>
