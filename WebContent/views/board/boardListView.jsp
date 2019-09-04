@@ -52,19 +52,43 @@
       		<th width="100">조회수</th>
       		<th width="150">작성일</th>
     	</tr>
+    	
+    	
+    	<% if(list.isEmpty()){ %>
+		<tr>
+			<td colspan="5">조회된 리스트가 없습니다</td>
+		</tr>
+		<% }else{ %>		
+			<% for(Board b : list){ %>
+				<%if(b.getIsNotice().equals("Y")){ %>
+					<tr>
+						<td>공지</td>
+						<td><%= b.getTitle() %></td>
+						<td><%= b.geteName() %></td>
+						<td><%= b.getBoardCount() %></td>
+						<td><%= b.getUpdateDate() %></td>				
+					</tr>
+				<%} %>
+			<% } %>
+		<% } %>			
+    	
+    	
+ 
      	<% if(list.isEmpty()){ %>
 		<tr>
 			<td colspan="5">조회된 리스트가 없습니다</td>
 		</tr>
 		<% }else{ %>		
 			<% for(Board b : list){ %>
-			<tr>
-				<td><%= b.gettNum() %></td>
-				<td><%= b.getTitle() %></td>
-				<td><%= b.geteName() %></td>
-				<td><%= b.getBoardCount() %></td>
-				<td><%= b.getUpdateDate() %></td>				
-			</tr>	
+				<%if(b.getIsNotice().equals("N")){ %>
+					<tr>
+						<td><%= b.gettNum() %></td>
+						<td><%= b.getTitle() %></td>
+						<td><%= b.geteName() %></td>
+						<td><%= b.getBoardCount() %></td>
+						<td><%= b.getUpdateDate() %></td>				
+					</tr>
+				<%} %>	
 			<% } %>
 		<% } %>			
 	</table>

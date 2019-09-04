@@ -117,7 +117,11 @@ public class BoardUpdateServlet extends HttpServlet {
 				int result = new BoardService().updateBoard(b, fileList);
 				
 				if(result > 0) {
-					response.sendRedirect("detail.bo");
+					/*response.sendRedirect("detail.bo");*/
+					/*response.sendRedirect("detail.no?tNum=" + tNum);*/
+
+					request.setAttribute("tNum", tNum);
+					request.getRequestDispatcher("detail.no?tNum=" + tNum).forward(request, response);
 				}else {
 				
 				
@@ -139,55 +143,6 @@ public class BoardUpdateServlet extends HttpServlet {
 			
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*int tNum = Integer.parseInt(request.getParameter("tNum"));
-		
-		Board board = new Board();
-		board.setTitle(request.getParameter("title"));
-		board.setbBody(request.getParameter("content"));
-		board.setPhoto(request.getParameter("photo"));     
-		board.settNum(tNum);
-		
-		int result = new BoardService().updateBoard(board);
-		
-		if(result > 0) {
-			request.setAttribute("tNum", tNum);
-			request.getRequestDispatcher("detail.bo").forward(request, response);
-		} else {
-			request.setAttribute("msg", "게시글 수정에 실패했습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}*/
 		
 	}
 
