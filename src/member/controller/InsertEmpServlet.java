@@ -37,15 +37,15 @@ public class InsertEmpServlet extends HttpServlet {
 		String name = request.getParameter("eName");				// 이름
 		String ecNum1 = request.getParameter("ecNum1"); 			// 주민번호 앞자리
 		String ecNum2 = request.getParameter("ecNum2"); 			// 주민번호 뒷자리
-		String ecNum = ecNum1 + ecNum2;								// 주민번호
+		String ecNum = ecNum1 + "-" + ecNum2;						// 주민번호
 		String phone1 = request.getParameter("phone1"); 			// 전화번호 010
 		String phone2 = request.getParameter("phone2"); 			// 휴대전화 앞자리
 		String phone3 = request.getParameter("phone3"); 			// 휴대전화 뒷자리
-		String phone = phone1 + phone2 + phone3;					// 휴대전화
+		String phone = phone1 + "-" + "-" + phone2 + "-" + phone3;	// 휴대전화
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		String email = email1 + email2;								// 이메일 결합
-		String mailAccept = request.getParameter("mailAccept");	// 메일수신
+		String mailAccept = request.getParameter("mailAccept");		// 메일수신
 		String smsAccept = request.getParameter("smsAccept");		// 문자수신
 		String address = request.getParameter("address");			// 주소
 		String eAddress = request.getParameter("eAddress");			// 나머지주소
@@ -71,7 +71,7 @@ public class InsertEmpServlet extends HttpServlet {
 				roadSub = Integer.parseInt(road[1]);
 			}
 		}
-					// 도로명 부번
+					
 		
 		
 		System.out.println(eId);

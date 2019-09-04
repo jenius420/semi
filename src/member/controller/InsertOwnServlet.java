@@ -36,40 +36,45 @@ public class InsertOwnServlet extends HttpServlet {
 		String opNum1 = request.getParameter("opNum1");		// 사업자 번호1
 		String opNum2 = request.getParameter("opNum2");		// 사업자 번호2
 		String opNum3 = request.getParameter("opNum3");		// 사업자 번호3
-		String opNum = opNum1 + opNum2 + opNum3;			// 사업자 번호
+		String opNum = opNum1 + "-" +  opNum2 + "-" + opNum3;			// 사업자 번호
 		String oName = request.getParameter("oName");				// 사업자 성명
 		int tel1 = Integer.parseInt(request.getParameter("tel1"));	// 전화번호1
 		int tel2 = Integer.parseInt(request.getParameter("tel2"));	// 전화번호2
 		int tel3 = Integer.parseInt(request.getParameter("tel3"));	// 전화번호3
-		String oTel = ""+ tel1 + tel2 + tel3;						// 사업장전화번호
+		String oTel = tel1 + "-" + tel2 + "-" + tel3;				// 사업장전화번호
 		String ocNum1 = request.getParameter("ocNum1");				// 사업자 주번1
 		String ocNum2 = request.getParameter("ocNum2");				// 사업자 주번2
-		String ocNum = ocNum1 + ocNum2;								// 사업자 주민번호
+		String ocNum = ocNum1 + "-" + ocNum2;						// 사업자 주민번호
 		String phone1 = request.getParameter("phone1");				// 휴대전화1
 		String phone2 = request.getParameter("phone2");				// 휴대전화2
 		String phone3 = request.getParameter("phone3");				// 휴대전화3
 		String phone = phone1 + phone2 + phone3;					// 휴대전화
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
+		String typeName = request.getParameter("typeName");			// 업직종번호
 		String email = email1 + email2;								// 이메일
 		String mailAccept = request.getParameter("mailAccept");		// 메일수신동의
 		String smsAccept = request.getParameter("smsAccept");		// 문자수신동의
 		String address = request.getParameter("address");			// 주소
 		String opAddress = request.getParameter("oAddress");		// 나머지주소
 				
-		String[] splitAddress = new String[5];
-		
+		String[] splitAddress = new String[4];
 		splitAddress=address.split(" ");
-		String roadName = splitAddress[2];// 도로명 본번
+		String roadName = splitAddress[2];// 도로명
 
 		String[] road =new String[2]; 
 		road=(splitAddress[3]).split("-");			// 도로명 본번
 		int roadMain = Integer.parseInt(road[0]);
 		int roadSub;
-		if(road[0] == "" || road[0] == null) {
+
+		if(road[0] == null || road[0].equals("")) {
 			roadSub = 0;
 		}else {
-			roadSub = Integer.parseInt(road[1]);
+			if(road.length==1) {
+				roadSub = 0;
+			}else {
+				roadSub = Integer.parseInt(road[1]);
+			}
 		}
 		
 		Member mem = new Member(oId, pwd, opName, opNum, opAddress, oName, oTel, ocNum, phone, email, mailAccept, smsAccept, roadName, roadMain, roadSub);

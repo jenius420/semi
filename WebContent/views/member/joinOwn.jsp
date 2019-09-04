@@ -206,6 +206,16 @@
 					
 				
 				</tr>
+				
+				<tr>
+					<td><b>업직종명</b></td>
+					<td>
+						<select>
+							<option></option>
+						</select>
+					</td>
+					<td></td>
+				</tr>
 
 				<tr>
 					<td></td>
@@ -254,7 +264,9 @@
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
 		var emailResult = document.getElementById("emailResult");
+		
 
+		
 		$(function(){
 			$(id).on('blur', function(e){
 				

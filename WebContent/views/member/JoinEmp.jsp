@@ -201,6 +201,11 @@
 		var nameResult = document.getElementById("nameResult");
 		var ecNum1 = document.getElementById("ecNum1");
 		var ecNum1 = document.getElementById("ecNum2");
+		var yy = ecnum1.subString(0,2);
+		var mm = ecnum1.subString(2,4);
+		var dd = ecnum1.subString(4.6);
+		var gender = ecnum2.subString(0,1);
+		var ck = 0;
 		var ecNumResult = document.getElementById("ecNumResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
@@ -272,13 +277,15 @@
 				}
 			});
 			
-			/*
-			$(ecNum1).on('blur', function(e){
-				if(){
-					
-				}
-			});
 			
+			$(ecNum1).on('blur', function(e){
+				if(yy < 20 || mm < 1 || mm > 12 || dd < 0 || dd > 31){
+					$(ecNumResult).text("주민등록번호를 확인해주세요.");
+					ecNum1.value="";
+				}
+							
+			});
+			/*
 			$(ecNum2).on('blur', function(e){
 				if(){
 					
@@ -296,7 +303,6 @@
 
 
 			$(".postcodify").postcodifyPopUp({
-        
 			/*
 			insertPostcode5 : "#postcode",
 			insertAddress : "#address",
