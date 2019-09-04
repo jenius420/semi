@@ -32,32 +32,7 @@ input{
 <body>
 <%@ include file="views/common/header.jsp" %>
 
-<script>
 
-	$(function(){
-		
-		$.ajax({
-				url:"test.sss",
-				type:"get",
-				success:function(data){
-					console.log(data);
-					
-					var $plaImage = $(".plapic"); // <img>
-					
-					$.each(data, function(index, value){
-						console.log(value.onum);
-						console.log(value.savename);
-						console.log(value.wtitle);
-					});
-				},
-				error:function(){
-					console.log("이미지 불러오기 실패");
-				}
-			});
-			
-		});
-
-</script>
 <div></div>
 <div class="jumbotron" id="jumbotron">
       <div class="container">
@@ -189,6 +164,57 @@ input{
 </div>
 
 <!--상품적용알바 -->
+<script>
+
+	$(function(){
+		
+		$.ajax({
+				url:"test.sss",
+				
+				type:"get",
+				success:function(data){  
+					
+					$.each(data, function(index, value){
+						console.log(value.saveName);
+					});					
+					
+					/* $(".plalic").attr("src", "/photo/logoImages/" + value.saveName); */
+					
+					var $platinum = $('#choiceAlba');
+					
+					$platinum.html("");
+					
+					$.each(data, function(index, value){
+						
+						var $div = $("<div>").attr("class","col-lg-2 col-sm-6 mb-4").css("padding-left","5px").css("padding-right","5px"); // <div> </div>
+						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum");
+						var $div1 = $("<div>").attr("class","card h-10");
+						var $div2 = $("<div>").attr("class","card-body");
+						var $a = $("<a>") // <a> </a>
+						var $a1 = $("<a>")
+						var $h5 = $("<h5>").attr("class","card-title"); // <h5> </h5>
+						var $img = $("<img>").attr("class","card-img-top col-lg-12 col-sm-12 plapic") // <img>
+						
+						$div.append($div1);
+						$div1.append($a);
+						$a.append($img);
+						$div.append($div2);
+						$div2.append($h5);
+						$h5.append($a1);
+						// <div> <div>  <a> <img> </a> </div> <div> <h5> <a> </a> </h5> </div> </div>
+						
+						$platinum.append($div)
+					});
+				},
+				
+				error:function(){
+					console.log("이미지 불러오기 실패");
+				}
+			});
+			
+		});
+
+</script>
 <div>
 <p style="padding-left: 100px"><strong>플래티넘알바</strong></p>
 <br />
