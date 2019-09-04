@@ -13,16 +13,16 @@ import search.model.service.SearchService;
 import search.model.vo.IncruitInfo;
 
 /**
- * Servlet implementation class SearchListServlet
+ * Servlet implementation class DetailSearchListServlet
  */
-@WebServlet("/detailSearch.se")
-public class DetailSearchServlet extends HttpServlet {
+@WebServlet("/detailMidSearch.se")
+public class DetailSearchListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DetailSearchServlet() {
+    public DetailSearchListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,7 +41,6 @@ public class DetailSearchServlet extends HttpServlet {
 		request.setAttribute("detail", request.getParameter("detail"));
 		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
 		request.getRequestDispatcher("views/search/searchAllView.jsp").forward(request, response);
-		
 	}
 
 	/**

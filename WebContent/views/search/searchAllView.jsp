@@ -20,21 +20,21 @@
 	src="<%=request.getContextPath() %>/views/search/js/detailList.js"></script>
 
 <style>
-#bigCategory {
-	border: 1px solid black;
+	#bigCategory{
+		border: 1px solid black;
+	}
+	table>tr>td{
+		border: 1px solid black;
+		
+	}
+	#jumbotron{
+	background-image: url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
 }
-
-table>tr>td {
-	border: 1px solid black;
+#pageCheck{
+	background:gray;
 }
-
-#jumbotron {
-	background-image:
-		url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
-}
-
-.categorySide>div:hover, .districtSide>div:hover, .district>td:hover {
-	color: rgb(176, 18, 241);
+.districtSub>div:hover, .categorySub>div:hover, .district>td:hover{
+	color:rgb(176,18,241);
 	cursor: pointer;
 }
 </style>
@@ -150,8 +150,8 @@ table>tr>td {
 
 
 		<div class="col-sm-9" style="padding-top: 10px;" align="center">
-			<form class="form-inline" action="<%=request.getContextPath()%>/searchDetail.se" method="get">
-				<input type="text" class="form-control" name="detail" value="<%=detail%>"/>
+			<form class="form-inline" action="<%=request.getContextPath()%>/detailSearch.se" method="get">
+				<input type="text" class="form-control" id="innerDetail" name="detail" value="<%=detail%>"/>
 				<button type="submit" id="searchBtn" class="btn btn-default">검색</button>
 			</form>
 	<br /><br /><br />

@@ -248,10 +248,10 @@ public class SearchDao {
 		String sql = prop.getProperty("searchDetail");
 		for (int i = 0; i < details.length; i++) {
 			if(i==details.length-1) {
-				sql += "?))";
+				sql += "? ORDER BY STARTDATE DESC))";
 				break;
 			}
-			sql+= "? TOTALINFO LIKE";
+			sql+= "? AND TOTALINFO LIKE";
 		}
 		sql += " WHERE RNUM BETWEEN "+ start+ " AND " + end;
 		System.out.println(sql);
