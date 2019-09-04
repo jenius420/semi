@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
+import board.model.service.BoardService;
 import board.model.vo.BoardComment;
+import member.model.vo.Member;
 
 /**
  * Servlet implementation class ReplyInsertServlet
@@ -34,12 +38,25 @@ public class ReplyInsertServlet extends HttpServlet {
 		int tNum = Integer.parseInt(request.getParameter("tNum"));
 		String eName = request.getParameter("eName");
 		
+		
+		Member loginUser = (Member)request.getSession().getAttribute("eNum");
+		/*int eNum = loginUser.geteNum();*/
+		int eNum = 1;
+		
 		BoardComment c = new BoardComment();
 		c.setCommentExplain(commentExplain);
 		c.settNum(tNum);
+		c.seteNum(eNum);
 		c.seteName(eName);
 	
+		
+		int result = new BoardService().insertReply(c);
 	
+		response.setContentType("application/json; charset=utf-8");
+		
+		Gson gson = new Gson();
+		gson.toJson(result, response.getWriter());
+		
 	}
 
 	/**

@@ -1,31 +1,30 @@
+<%@page import="common.model.vo.Attachment"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="board.model.vo.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%--     <%
+<%
 	Board b = (Board)request.getAttribute("b");
-
-	String[] arr = b.geteName().split(","); 
+	ArrayList<Attachment> fileList = (ArrayList<Attachment>)request.getAttribute("fileList");
+	String contextPath = request.getContextPath();
+	/* String[] arr = b.geteName().split(","); 
 	// arr[0] ==> "회원번호"
 	// arr[1] ==> "회원명"
 	
 	int eNum = Integer.parseInt(arr[0]); // 회원번호
-	String eName = arr[1]; // 회원명
-%> --%>
+	String eName = arr[1]; // 회원명 */
+%>
 
-<% Board b = new Board();%>
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>BoardDetail</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
 
 <style>
 	.outer{
@@ -69,6 +68,12 @@
 		color:purple;
 		padding-right:10px;
 		padding-left:10px;
+	}
+	
+		.photo, .detailImgArea{
+		padding:0px; !important;
+		width:250px; !important;
+	
 	}
 </style>
 
@@ -118,18 +123,65 @@
 					</td>
 					
 				</tr>
-				<tr>
-					<th colspan="6">첨부사진</th>
-				</tr> 
-				<tr>
-					
-					<td colspan="6">
-						<p id="photo"><%= b.getPhoto() %></p>
-					</td>
-					
-				</tr>
+				
+				
+				<% if(fileList.size()>0) { %>
+				
+					<tr>
+						<th colspan="6">첨부사진</th>
+					</tr> 
+					<tr>
+						
+						
+					<% for(int i=0; i<fileList.size(); i++){%>
+							<td colspan="2" class="photo">
+									<div class="detailImgArea" style="width:250" style="height:200">
+										<img width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+									</div>
+							</td>
+		
+					<% } %>
+					<% for(int i=0; i<3-fileList.size(); i++){%>
+							<td colspan="2" class="photo">
+									<div class="detailImgArea"  style="width:250" style="height:200" >
+										<img width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
+									</div>
+							</td>
+					<% } %>
+					</tr>
+				<% } %>
 			</table>
 			
+	<div class="replyArea">
+		<div class="replyWriterArea">
+			<table align="center">
+				<tr>
+					<th colspan="6"></th>
+				</tr>
+				<tr>
+					<td>댓글작성</td>
+					<td><textarea rows="3" cols="80" id="replyContent" style="resize:none;"></textarea></td>
+					<td><button id="addReply">댓글등록</button></td>
+				</tr>
+				<tr>
+					<th colspan="6"></th>
+				</tr>
+			</table>
+		</div>
+	
+	
+	
+		<div id="replySelectArea">
+			<table id="replySelectTable" border="1" align="center">
+				
+			</table>
+		</div>
+	
+	</div>
+	
+	
+	
+	
 			<div align="center">
 				<button type="button" onclick="history.go(-1);">이전으로</button>
 				
@@ -140,6 +192,17 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<form action="" id="detailForm" method="post">
 		<input type="hidden" name="tNum" value="<%= b.gettNum() %>">
@@ -159,16 +222,7 @@
 			$("#detailForm").submit();
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		// 댓글 리스트 출력하는 함수
 		function selectRlist(){
 			
@@ -215,7 +269,6 @@
 				
 				var commentExplain = $("#replyContent").val();
 				var tNum = <%= b.gettNum() %>;
-				
 				var eNum = <%=b.geteNum()%>;
 				
 				$.ajax({
@@ -237,46 +290,7 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

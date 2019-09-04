@@ -181,8 +181,7 @@ private Properties prop = new Properties();
 							  rset.getString("bBody"),
 							  rset.getString("invalidPost"),
 							  rset.getString("isNotice"),
-							  rset.getInt("boardCount"),
-							  rset.getString("photo"));
+							  rset.getInt("boardCount"));
 			}
 			
 		} catch (SQLException e) {
@@ -198,6 +197,85 @@ private Properties prop = new Properties();
 	}
 	
 	
+	
+	/**
+	 * 사진 조회용 호출
+	 * @param conn
+	 * @param tNum
+	 * @return
+	 */
+	public ArrayList<Attachment> selectAttachment(Connection conn, int tNum){
+		ArrayList<Attachment> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNum);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Attachment at = new Attachment();
+				at.setChangeName(rset.getString("SAVENAME"));
+				at.setfId(rset.getInt("PNUM"));
+				at.settNum(rset.getInt("tNum"));
+				
+				list.add(at);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	
+	
+	
+/*	*//**
+	 * 글만 있는 게시글 올리는 호출 
+	 * @param conn
+	 * @param b
+	 * @return
+	 *//*
+	public int onlyInsertBoard(Connection conn, Board b) {
+		int result=0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("onlyInsertBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, Integer.parseInt(b.getCategory()));
+			pstmt.setString(2, b.getbTitle());
+			pstmt.setString(3, b.getbContent());
+			pstmt.setInt(4, Integer.parseInt(b.getbWriter()));
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}*/
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 *  게시글 작성하기
 	 * @param conn
@@ -206,7 +284,6 @@ private Properties prop = new Properties();
 	 */
 	public int insertBoard(Connection conn, Board b) {
 		
-		System.out.println("test");
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
@@ -297,14 +374,16 @@ private Properties prop = new Properties();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, b.gettNum());
-			pstmt.setString(2, b.getTitle());
-			pstmt.setInt(3, b.geteNum());
-			pstmt.setDate(4, b.getUpdateDate());
-			pstmt.setString(5, b.getbBody());
-			pstmt.setInt(6, b.getBoardCount());
+			/*pstmt.setInt(1, b.gettNum());*/
+			pstmt.setString(1, b.getTitle());
+			/*pstmt.setInt(3, b.geteNum());
+			pstmt.setDate(4, b.getUpdateDate());*/
+			pstmt.setString(2, b.getbBody());
+			/*pstmt.setInt(6, b.getBoardCount());*/
+			pstmt.setInt(3, b.gettNum());
 			
 			result = pstmt.executeUpdate();
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

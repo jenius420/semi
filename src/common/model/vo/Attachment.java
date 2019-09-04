@@ -9,6 +9,7 @@ public class Attachment {
 	private String status;
 	private int rNum;
 	private int wNum;
+	private int tNum;
 	
 	public Attachment() {
 		super();
@@ -25,6 +26,18 @@ public class Attachment {
 		this.status = status;
 		this.rNum = rNum;
 		this.wNum = wNum;
+	}
+	
+	
+
+	public Attachment(int fId, String originName, String changeName, String filePath, String status, int tNum) {
+		super();
+		this.fId = fId;
+		this.originName = originName;
+		this.changeName = changeName;
+		this.filePath = filePath;
+		this.status = status;
+		this.tNum = tNum;
 	}
 
 	public int getfId() {
@@ -83,5 +96,21 @@ public class Attachment {
 		this.wNum = wNum;
 	}
 
+	public int gettNum() {
+		return tNum;
+	}
+
+	public void settNum(int tNum) {
+		this.tNum = tNum;
+	}
+
+	@Override
+	public String toString() {
+		return "Attachment [fId=" + fId + ", originName=" + originName + ", changeName=" + changeName + ", filePath="
+				+ filePath + ", status=" + status + ", rNum=" + rNum + ", wNum=" + wNum + ", tNum=" + tNum + "]";
+	}
+
+	
+	
 	
 }

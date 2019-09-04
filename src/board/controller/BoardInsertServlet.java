@@ -28,7 +28,7 @@ import member.model.vo.Member;
 public class BoardInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
+    /**6
      * @see HttpServlet#HttpServlet()
      */
     public BoardInsertServlet() {

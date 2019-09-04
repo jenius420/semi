@@ -71,6 +71,33 @@ public class BoardService {
 		return b;
 	}
 	
+	
+	
+	/**
+	 *  해당 게시글의 파일 리스트들 조회용 서비스
+	 * @param tNum
+	 * @return
+	 */
+	public ArrayList<Attachment> selectAttachment(int tNum){
+		Connection conn = getConnection();
+		
+		ArrayList<Attachment> list = new BoardDao().selectAttachment(conn, tNum);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 사진을 포함한 게시글 작성용 서비스
 	 * @param b
@@ -102,6 +129,30 @@ public class BoardService {
 	
 	
 	
+	
+	
+
+	/**
+	 * 글만 있는 게시글 작성용 서비스
+	 * @param b
+	 * @return
+	 */
+	public int onlyInsertBoard(Board b) {
+		Connection conn = getConnection();
+		
+		int result = new BoardDao().insertBoard(conn, b);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+		
+	}
+	
+	
 	/**
 	 *  게시판 수정용 서비스
 	 * @param board
@@ -112,7 +163,7 @@ public class BoardService {
 		
 		Connection conn = getConnection();
 		
-		int result1 = new BoardDao().insertBoard(conn, board);
+		int result1 = new BoardDao().updateBoard(conn, board);
 		int result2 = new BoardDao().insertAttachment(conn, fileList, board);
 		
 
