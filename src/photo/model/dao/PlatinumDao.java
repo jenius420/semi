@@ -37,7 +37,7 @@ public class PlatinumDao {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("select");
+		String sql = prop.getProperty("selectPlatinum");
 		
 		try {
 			stmt = conn.createStatement();
@@ -45,7 +45,8 @@ public class PlatinumDao {
 			
 			while(rset.next()) {
 				list.add(new Photo(rset.getInt(1),
-									rset.getInt(2)));
+									rset.getInt(2),
+									rset.getString(3)));
 			}
 			
 		} catch (SQLException e) {

@@ -17,7 +17,7 @@ import photo.model.vo.Photo;
 /**
  * Servlet implementation class PlatinumPhotoServlet
  */
-@WebServlet("/plaAjax.li")
+@WebServlet("/test.sss")
 public class PlatinumPhotoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,10 +37,9 @@ public class PlatinumPhotoServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		ArrayList<Photo> list = new PlatinumService().selectPlatinum();
-		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 		Gson gson = new Gson();
+		response.setContentType("application/json; charset=utf-8");
 		gson.toJson(list, response.getWriter());
 	}
 

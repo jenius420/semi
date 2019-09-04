@@ -4,6 +4,7 @@ public class Photo {
 	
 	private int oNum;	//사업자회원번호
 	private int saveName;	//저장될사진 이름 및 경로
+	private String wTitle;	// 구인글제목
 	
 	
 	public Photo() {
@@ -11,10 +12,21 @@ public class Photo {
 	}
 
 
-	public Photo(int oNum, int saveName) {
+	public Photo(int oNum, int saveName, String wTitle) {
 		super();
 		this.oNum = oNum;
 		this.saveName = saveName;
+		this.wTitle = wTitle;
+	}
+
+
+	public String getwTitle() {
+		return wTitle;
+	}
+
+
+	public void setwTitle(String wTitle) {
+		this.wTitle = wTitle;
 	}
 
 
@@ -40,9 +52,10 @@ public class Photo {
 
 	@Override
 	public String toString() {
-		return "Photo [oNum=" + oNum + ", saveName=" + saveName + "]";
+		return "Photo [oNum=" + oNum + ", saveName=" + saveName + ", wTitle=" + wTitle + "]";
 	}
-	
+
+
 	
 
 }
