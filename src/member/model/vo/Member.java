@@ -78,6 +78,11 @@ public class Member {
 		this.warningCount = warningCount;
 	}
 	
+	
+	
+
+
+
 	// 사장
 	public Member(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, int roadNum,
 			String opAddress, String oName, String oTel, String ocnum, String phone, String email, int typeNum,

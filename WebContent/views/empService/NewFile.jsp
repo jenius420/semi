@@ -16,6 +16,14 @@
 onclick="history.go(-1);"
 <button type="button" onclick="javascript:history.back();">이전 화면으로</button>
 
+div 그림자 border-style: outset;
+
+text 바탕번짐
+font-family: 'Nanum Pen Script'; /*웹폰트 가져온거*/
+        font-size: 3em; /*부모요소를 1em으로 기준함*/
+        font-variant: small-caps; /*작은 대문자로 바꿔줌*/
+        text-shadow: 1px 1px 20px red; /*가로 세로 번짐정도 색상. 그림자 여러개 넣을 수도 있음*/
+
 <!-- 게시글 마우스오버/클릭 시 스크립트 -->
 <script>
 	$(function(){
