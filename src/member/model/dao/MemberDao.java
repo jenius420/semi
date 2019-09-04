@@ -44,7 +44,6 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("loginEmp");
-		System.out.println("dao 로그1");
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -73,7 +72,6 @@ public class MemberDao {
 			close(rset);
 			close(pstmt);
 		}
-		System.out.println("dao 로그2:" + loginUser);
 		return loginUser;
 	}
 
