@@ -40,7 +40,8 @@ font-family: 'Nanum Pen Script'; /*웹폰트 가져온거*/
 
 </script>
 
-
+세로 무한 증식 ㅋ
+<div id="content-center" style="overflow: hidden; height:auto;">
 
 서블릿에 안 보이게 넘기는 방법
 <form action="" id="id" method="post">

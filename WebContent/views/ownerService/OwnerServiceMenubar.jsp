@@ -56,8 +56,8 @@
 
     <div>
         <div class="osm1">공고</div>
-       	<div class="osLink" onclick="location.href='<%=request.getContextPath()%>/makeIncruit.os';">공고 등록</div>
         <div class="osLink" onclick="location.href='<%=request.getContextPath()%>/incruitList.os';">공고 리스트</div>
+        <div class="osLink" onclick="location.href='<%=request.getContextPath()%>/makeIncruit.os';">공고 등록</div>
     </div>
     <div class="space"></div>
     

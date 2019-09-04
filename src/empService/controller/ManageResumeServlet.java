@@ -15,6 +15,7 @@ import empService.model.vo.Emp;
 import empService.model.service.EmpServiceService;
 import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
+import member.model.vo.Member;
 import ownerService.model.service.OwnerServiceService;
 
 /**
@@ -38,12 +39,12 @@ public class ManageResumeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("서블릿 로그6:");
+
 		
-		//Emp emp = (Emp)request.getSession().getAttribute("loginUser");
-		
+		Member mem = (Member)request.getSession().getAttribute("loginUser");
+		Emp emp = new EmpServiceService().selectEmp(mem.geteNum());
 		//샘플 데이터
-		Emp emp = new EmpServiceService().selectEmp(6);
+//		Emp emp = new EmpServiceService().selectEmp(6);
 //		Emp emp = new EmpServiceService().selectEmp(1);
 		
 		HttpSession session = request.getSession();

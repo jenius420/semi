@@ -210,22 +210,30 @@ th, td {
 
 .table100.ver1 th {
   font-family: Lato-Bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   line-height: 1.4;
 
-  background-color: #6c7ae0;
+  background-color: #a366ff;
+  font-weight: bold;
 }
 
 .table100.ver1 td {
   font-family: Lato-Regular;
-  font-size: 15px;
-  color: #808080;
-  line-height: 1.4;
+  font-size: 14px;
+  color: #262626;
+  line-height: 30px;
+  vertical-align: middle;
+
+}
+
+.table100.ver1 tr:hover td{
+
 }
 
 .table100.ver1 .table100-body tr:nth-child(even) {
-  background-color: #f8f6ff;
+  background-color: 
+   
 }
 
 /*---------------------------------------------*/
@@ -238,6 +246,7 @@ th, td {
   -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
   -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
   -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+
 }
 
 .table100.ver1 .ps__rail-y {
@@ -388,7 +397,7 @@ th, td {
 .table100.ver4 td {
   font-family: Lato-Regular;
   font-size: 14px;
-  color: #808080;
+  color: #262626;
   line-height: 1.4;
   font-weight: 550;
    text-align: center;
@@ -488,8 +497,9 @@ th, td {
 }
 
 .table100.ver5 tr:hover td {
-  background-color: #ebebeb;
+  background-color: #e5ccff;
   cursor: pointer;
+  color:black;
 }
 
 .table100.ver5 .table100-head th {

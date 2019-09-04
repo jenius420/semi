@@ -113,14 +113,21 @@ public class EmpServiceService {
 		
 		Connection conn = getConnection();
 		
+		int check = 0;
 		int result = 0;
 		
-		result = new EmpServiceDao().apply(conn, wNum, rNum);
-
-		if(result > 0) {
-			commit(conn);
+		check = new EmpServiceDao().applyDuplicationCheck(conn, wNum, rNum);
+		
+		if(check == 0) {
+			result = new EmpServiceDao().apply(conn, wNum, rNum);
+	
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
 		}else {
-			rollback(conn);
+			result = -1;
 		}
 		
 		return result;

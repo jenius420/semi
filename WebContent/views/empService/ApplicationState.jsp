@@ -104,7 +104,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 												case "R" : status = "구직자 취소"; break;	
 											}
 										%>
-										<tr class="row100 body">
+										<tr class="row100 body" style="height:60px;">
 											<td class="cell100 column1"><%=a.getwTitle()%></td>
 											<td class="cell100 column2"><%=a.getOpName()%>
 											<td class="cell100 column3"><%=a.getEndDate()%></td>

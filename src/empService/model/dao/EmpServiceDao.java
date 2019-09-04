@@ -361,6 +361,31 @@ public class EmpServiceDao {
 		
 	}
 	
+	public int applyDuplicationCheck(Connection conn, int wNum, int rNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("applyDuplicationCheck");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, rNum);
+			pstmt.setInt(2, wNum);
+	
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+	
 	
 	public int apply(Connection conn, int wNum, int rNum) {
 		

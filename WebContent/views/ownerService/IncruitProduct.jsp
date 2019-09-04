@@ -77,7 +77,7 @@
 										<tr class="row100 body" style="height:50px;">
 											<td class="cell100 column1"><%=a.getpTitle()%></td>
 											<td class="cell100 column2"><%=a.getpExplain()%>
-											<td class="cell100 column3"><%=a.getpPay()%></td>
+											<td class="cell100 column3"><%=a.getpPay()%>원</td>
 										</tr>
 										<%}}%>
 								</tbody>

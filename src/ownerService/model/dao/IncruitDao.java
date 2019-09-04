@@ -437,7 +437,7 @@ public class IncruitDao {
 									rs.getInt("TYPENUM"),
 									rs.getString("TYPENAME"),
 									rs.getString("CATEGORYNAME"),
-									rs.getString("COMMENT"),
+									rs.getString("eCOMMENT"),
 									rs.getDate("UPDATEDATE"),
 									rs.getString("INVALIDRESUME"),
 									rs.getString("DESIREFORM"),

@@ -16,12 +16,12 @@
 
 .column1 {
   width: 25%;
-  padding-left: 40px;
+
    text-align: center;
 }
 
 .column2 {
-  width: 20%;
+  width: 28%;
   text-align: center;
 }
 
@@ -35,11 +35,11 @@
    text-align: center;
 }
 .column5 {
-  width: 15%;
+  width: 10%;
    text-align: center;
 }
 .column6 {
-  width: 10%;
+  width: 7%;
    text-align: center;
 }
 

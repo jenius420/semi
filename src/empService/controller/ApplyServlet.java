@@ -36,8 +36,12 @@ public class ApplyServlet extends HttpServlet {
 		
 		int result = new EmpServiceService().apply(wNum, rNum);
 		
+		
+		
 		if(result > 0) {
 			response.sendRedirect("/applicationState.es");
+		}else if(result == -1){
+			//어디로 보낼지?
 		}else {
 			request.setAttribute("msg", "요청에 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);

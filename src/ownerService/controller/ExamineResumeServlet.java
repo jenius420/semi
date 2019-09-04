@@ -33,7 +33,7 @@ public class ExamineResumeServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int rNum = (int)request.getAttribute("rNum");
+		int rNum = Integer.parseInt(request.getParameter("rNum"));
 		
 		Resume resume = new IncruitService().selectResume(rNum);
 		int result = new IncruitService().checkResume(rNum);

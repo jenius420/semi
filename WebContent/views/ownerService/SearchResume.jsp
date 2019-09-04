@@ -82,7 +82,7 @@ border-radius: 200px;
 .go:hover{
 cursor:pointer;
 }
-input::placeholder {
+#keyword::placeholder {
 color:#6600cc;
 font-size:13px;
 font-style: italic;
@@ -100,6 +100,7 @@ width:370px;
 height:200px;
 display : inline-block;
 margin:50px;
+margin-bottom:100px;
 vertical-align: top;
 }
 
@@ -170,13 +171,14 @@ border-radius: 40px;
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: purple;
+	}
 
 
 </style>
 </head>
 <body>
 
-<div id="div">
+<div id="div" style="height:2000px;">
 
 	<div id="header"><%@ include file="../common/header.jsp"%>
 		<div class="jumbotron" id="jumbotron">
@@ -310,9 +312,9 @@ border-radius: 40px;
 						</div>
 					</div>
 					<div >
-						<!-- class="bottomside"style="text-overflow: ellipsis;   overflow: hidden; width=200px;  " -->
-						<div class="scrollbar" id="style-1">
-						<p >"<%=a.getComment()%>"</p> 
+						<!--  class="scrollbar" id="style-1" class="bottomside"style="text-overflow: ellipsis;   overflow: hidden; width=200px;  " -->
+						<div >
+						<p style="height:auto; overflow:hidden;">"<%=a.getComment()%>"</p> 
 					    </div>
 					</div>
 				</div>

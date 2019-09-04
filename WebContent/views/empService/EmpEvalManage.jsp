@@ -110,7 +110,7 @@ display:none;
 		
 		<div id="content-center">
 			
-			<div class="tab_container m-t-40 m-l-80" >
+			<div class="tab_container m-t-10 m-l-80" >
 				<input type="radio" name="empEval" onclick="showBox(this);" id="empEval" checked><label for="empEval">작성한 평가</label>
 				<input type="radio" name="empEval" onclick="showBox(this);"  id="empEvalBf"><label for="empEvalBf">미작성 평가</label>		
 			</div>
@@ -213,7 +213,7 @@ display:none;
 										<%}else{ 
 											for(EmpEvaluationBefore a : empEvalBf) {%>
 											
-											<tr class="row100 body">
+											<tr class="row100 body" style="height:60px;">
 												<td class="cell100 column11" style="padding-left:40px;"><%=a.getwTitle()%></td>
 												<td class="cell100 column22" style="padding-left:50px;"><%=a.getOpName()%></td>
 												<td class="cell100 column33">
