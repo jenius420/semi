@@ -62,9 +62,9 @@ public class MemberDao {
 						rset.getString("email"),
 						rset.getString("mailaccept"),
 						rset.getString("smsaccept"),
-						rset.getString("roadName"),
-						rset.getInt("roadMain"),
-						rset.getInt("roadSub"),
+//						rset.getString("roadName"),
+//						rset.getInt("roadMain"),
+//						rset.getInt("roadSub"),
 						rset.getString("invalidid"),
 						rset.getInt("warningcount")
 						);
@@ -303,6 +303,14 @@ public class MemberDao {
 		
 		
 		return result;
+	}
+
+
+	public Member loginOwn(Connection conn, String id, String pwd) {
+		
+		
+		
+		return null;
 	}
 
 
