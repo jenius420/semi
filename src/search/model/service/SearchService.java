@@ -54,6 +54,22 @@ public class SearchService {
 		return list;
 	}
 
+	public ArrayList<IncruitInfo> searchDetail(String[] details, int start, int end) {
+		Connection conn = getConnection();
+		ArrayList<IncruitInfo> list = new SearchDao().searchDetail(conn,details,start,end);
+		close(conn);
+		
+		return list;
+	}
+
+	public int detailListCount(String[] details) {
+		Connection conn = getConnection();
+		int result = new SearchDao().detailListCount(conn,details);
+		close(conn);
+		
+		return result;
+	}
+
 
 
 	

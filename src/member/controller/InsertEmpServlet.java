@@ -45,19 +45,28 @@ public class InsertEmpServlet extends HttpServlet {
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		String email = email1 + email2;								// 이메일 결합
-		String maileAccept = request.getParameter("mailaccept");	// 메일수신
+		String mailAccept = request.getParameter("mailaccept");	// 메일수신
 		String smsAccept = request.getParameter("smsaccept");		// 문자수신
 		String address = request.getParameter("address");			// 주소
 		String eAddress = request.getParameter("eAddress");			// 나머지주소
 		
+		System.out.println(mailAccept);
 		
-		String[] splitAddress = address.split(" ");
-		String roadName = 
-				splitAddress[0] + splitAddress[1] + splitAddress[2];// 도로명 본번
 		
-		int roadMain = Integer.parseInt(splitAddress[3]);			// 도로명 본번
-		splitAddress = address.split("-");
-		int roadSub = Integer.parseInt(splitAddress[0]);			// 도로명 부번
+		String[] splitAddress = new String[5];
+				splitAddress=address.split(" ");
+		String roadName = splitAddress[2];// 도로명 본번
+		
+		String[] road =new String[2]; 
+		road=(splitAddress[3]).split("-");			// 도로명 본번
+		int roadMain = Integer.parseInt(road[0]);
+		int roadSub;
+		if(road[0] == "" || road[0] == null) {
+			roadSub = 0;
+		}else {
+			roadSub = Integer.parseInt(road[1]);
+		}
+					// 도로명 부번
 		
 		
 		System.out.println(eId);
@@ -66,21 +75,22 @@ public class InsertEmpServlet extends HttpServlet {
 		System.out.println(ecNum);
 		System.out.println(phone);
 		System.out.println(email);
-		System.out.println(maileAccept);
+		System.out.println(mailAccept);
 		System.out.println(smsAccept);
 		System.out.println(address);
 		System.out.println(eAddress);
 		
 		
-		Member mem = new Member(eId, pwd, name, ecNum, eAddress, phone, email, maileAccept, smsAccept);
+		Member mem = new Member(eId, pwd, name, ecNum, eAddress, phone, email, mailAccept, smsAccept, roadName, roadMain, roadSub);
 		
 		int result = new MemberService().insertEmp(mem);
 		
 		if(result > 0) {
 			
-			request.getSession().setAttribute("msg", "회원가입성공");
+
+			request.setAttribute("msg", "회원가입성공");
 			
-			response.sendRedirect(request.getContextPath());
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 
 		

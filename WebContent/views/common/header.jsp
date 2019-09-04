@@ -104,14 +104,20 @@ $(window).load(function() {
                             <div class="row">
                                 <div class="logo-wrapper col-md-2 col-sm-2">
                                 </div> <!-- /.logo-wrapper -->
+                                
                                 <div class="search-wrapper"> <!-- 수정 -->
                                     <h1>
-                                       <input type="text" id="test" class="search" placeholder="Search">
+                                       <input type="text" name="detail"  id="test" class="search" required placeholder="Search">
                                     </h1>
                                 </div>
                                	<div class="search-icon">
-                                       <button>검색</button>
-                               	</div>   
+                                       <button type="button" onclick="detailSearch();">검색</button>
+                               	</div>
+   								<script>
+   									function detailSearch(){
+   										location.href="<%=request.getContextPath()%>/detailSearch.se?detail="+$('#test').val();
+   									}
+   								</script>
                                 <div class="col-md-10 col-sm-10 main-menu text-right toggle-wrapper">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">

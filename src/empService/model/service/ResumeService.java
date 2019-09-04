@@ -62,6 +62,25 @@ public class ResumeService {
 		
 	}
 	
+	public ArrayList<Resume> selectAttachmentList(ArrayList<Resume> list) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Resume> list2 = list;
+		Attachment at = null;
+		
+		for(Resume r : list2) {
+			at = new ResumeDao().selectAttachment(conn, r.getrNum());
+			r.setpNum(at.getfId());
+			r.setSaveName(at.getChangeName());
+		}
+		
+		close(conn);
+		
+		return list2;
+		
+	}
+	
 	public int updateResume(Resume resume, Attachment at) {
 		
 		Connection conn = getConnection();

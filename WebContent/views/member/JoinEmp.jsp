@@ -158,8 +158,8 @@
 					<tr>
 						<td></td>
 						<td>
-							<input name="mailaccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
-							<input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의
+							<input name="mailAccept" type="checkbox" value="Y"> 이메일 수신 동의
+							<input name="smsAccept" type="checkbox" value="Y"> 문자수신 동의
 						</td>
 
 					</tr>
@@ -168,7 +168,7 @@
 					<tr>
 						<td><b>주소</b></td>
 						<td colspan="2">
-							<input type="text" size="80" id="addres" name="addres" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
+							<input type="text" size="80" id="addres" name="address" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
 						</td>
 					</tr>
 					<tr>
@@ -288,7 +288,7 @@
 			*/
 
 			$(email1).on('blur', function(){
-				if(!(/^[a-z/d]{4,}$/.test(email1.value))){
+				if(!(/^[a-z0-9]{4,}$/.test(email1.value))){
 					$(emailResult).text("이메일을 확인 해주세요.");
 					email1.value="";
 				}

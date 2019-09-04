@@ -24,6 +24,8 @@ public class Resume {
 	private String edu;
 	private int pNum;
 	private String saveName;
+	private int dongNum;
+	private int roadNum;
 	
 	public Resume() {
 		super();
@@ -82,6 +84,26 @@ public class Resume {
 		this.desireIncome = desireIncome;
 		this.openSet = openSet;
 		this.edu = edu;
+	}
+
+
+	public int getDongNum() {
+		return dongNum;
+	}
+
+
+	public void setDongNum(int dongNum) {
+		this.dongNum = dongNum;
+	}
+
+
+	public int getRoadNum() {
+		return roadNum;
+	}
+
+
+	public void setRoadNum(int roadNum) {
+		this.roadNum = roadNum;
 	}
 
 

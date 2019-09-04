@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.model.service.CommonService;
+import common.model.vo.Attachment;
+import common.model.vo.District;
+import common.model.vo.JobType;
+import empService.model.service.ResumeService;
 import empService.model.vo.Emp;
 import empService.model.vo.Resume;
 import ownerService.model.vo.Owner;
@@ -18,7 +23,7 @@ import ownerService.model.vo.Filter;
 /**
  * Servlet implementation class SearchResumeListServlet
  */
-@WebServlet("/searchResumeListServlet")
+@WebServlet("/searchResumeList.os")
 public class SearchResumeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,34 +45,35 @@ public class SearchResumeListServlet extends HttpServlet {
 		String keyword = "";
 		
 		if(request.getParameter("keyword") == null) {
-			return;
+			
 		}else {
 			keyword = request.getParameter("keyword"); 
 		}
-		
+
 		Filter filter = new Filter();
-		
+
 		filter.setDistrictNum(Integer.parseInt(request.getParameter("districtNum")));
 		filter.setTypeNum(Integer.parseInt(request.getParameter("typeNum")));
-		if(request.getParameter("edu") == null) {
-			filter.setFinalEdu(null);
-		}else {
-			filter.setFinalEdu(request.getParameter("edu"));
-		}
-		if(request.getParameter("desireForm") == null) {
-			filter.setDesireForm(null);
+		filter.setFinalEdu(request.getParameter("edu"));
+		filter.setDesireForm(request.getParameter("desireForm"));
+		if(request.getParameter("desireForm").equals("무관")) {
 			filter.setDesireIncome(999999999);
 		}else {
-			filter.setDesireForm(request.getParameter("desireForm"));
 			filter.setDesireIncome(Integer.parseInt(request.getParameter("desireIncome")));
 		}
 
-
-		
 		ArrayList<Resume> list = new IncruitService().selectSearchResumeList(keyword, filter);
+		ArrayList<Resume> list2 = new ResumeService().selectAttachmentList(list); // 사진 추가
+		ArrayList<District> dList = new CommonService().selectDistrictList();
+		ArrayList<JobType> tList = new CommonService().selectTypeList();
 		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/ownerService/searchResume.jsp").forward(request, response);
+		
+		request.setAttribute("dList", dList);
+		request.setAttribute("tList", tList);
+		request.setAttribute("list", list2);
+		request.setAttribute("filter", filter);
+		request.setAttribute("keyword", keyword);
+		request.getRequestDispatcher("/views/ownerService/SearchResume.jsp").forward(request, response);
 	
 		
 	}
