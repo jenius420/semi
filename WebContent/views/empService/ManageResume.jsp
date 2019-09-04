@@ -56,9 +56,16 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 
 <div id="div">
 
-	<div id="header"></div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
+
 	
-	<div id="content">
+	<div id="content" >
 		
 		<div id="content-left"><%@ include file="../empService/EmpServiceMenubar.jsp"%></div>
 		
@@ -68,8 +75,8 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 			<!--===============================================================================================-->	
 			<div class="limiter " >
 			<div class="container-table100">
-				<div class="wrap-table100">
-					<div class="table100 ver5 m-t-40">
+				<div class="wrap-table100">	
+					<div class="table100 ver5">
 						<div class="table100-head">
 							<table>
 								<thead>
@@ -137,7 +144,7 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 	
 	</div> <!-- /콘텐트 -->
 		
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 	
 </div> <!-- /화면 -->
 	

@@ -36,7 +36,13 @@
 
 <div id="div">
 
-	<div id="header"></div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
 	
 	<div id="content">
 		
@@ -48,7 +54,7 @@
 			<div class="limiter">
 			<div class="container-table100">
 				<div class="wrap-table100">
-					<div class="table100 ver4 m-t-30">
+					<div class="table100 ver4 ">
 						<div class="table100-head">
 							<table>
 								<thead>
@@ -68,7 +74,7 @@
 										<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 									<%}else{ 
 										for(IncruitProduct a : list) {%>
-										<tr class="row100 body">
+										<tr class="row100 body" style="height:50px;">
 											<td class="cell100 column1"><%=a.getpTitle()%></td>
 											<td class="cell100 column2"><%=a.getpExplain()%>
 											<td class="cell100 column3"><%=a.getpPay()%></td>
@@ -90,7 +96,7 @@
 		
 		</div> <!-- /콘텐트 -->
 		
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 	
 </div> <!-- /화면 -->
 	

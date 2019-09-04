@@ -362,14 +362,14 @@ public class IncruitDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, '%'+keyword+'%');
-			pstmt.setString(2, filter.getDistrict());
-			pstmt.setString(3, filter.getType());
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setInt(2, filter.getDistrictNum());
+			pstmt.setInt(3, filter.getTypeNum());
 			pstmt.setString(4, filter.getDesireForm());
 			pstmt.setInt(5, filter.getDesireIncome());
 			pstmt.setString(6, filter.getFinalEdu());
 
-			
+		
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

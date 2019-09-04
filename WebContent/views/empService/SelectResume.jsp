@@ -32,7 +32,13 @@ Attachment at = (Attachment)request.getAttribute("at");
 	
 <div id="div">
 
-	<div id="header"></div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
 	
 	<div id="content">
 		
@@ -46,7 +52,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 		
 				<div class='form-row' id="fileArea" style="margin-bottom:20px;">
 				  <label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
-				<img id="titleImg" dth="100" height="100" src="<%=request.getContextPath()%>/photo/resumeImage/<%= at.getChangeName() %>">
+				<img id="titleImg" width="100" height="100" src="<%=request.getContextPath()%>/photo/resumeImage/<%= at.getChangeName() %>">
 				  <input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">  
 				  </div>
 
@@ -68,28 +74,28 @@ Attachment at = (Attachment)request.getAttribute("at");
 	
 				<div class='form-row'>
 				  <label for='districtNum'>희망근무지(구)</label>
-				  <select id='districtNum' name='districtNum'>
+				  <select id='districtNum' name='districtNum' disabled="disabled">
 				  		<option><%=district %></option>
 				  </select>
 				</div>
 				
 				<div class='form-row'>
 				  <label for='typeNum'>희망업종</label>
-				  <select id='typeNum' name='typeNum' style="width:300px;">
+				  <select id='typeNum' name='typeNum' style="width:300px;" disabled="disabled">
 				  		<option ><%=type%></option>
 				  </select>
 				</div>
 				
 				<div class='form-row'>
-				  <label for='eduNum'>최종학력</label>
-				  <select id='eduNum' name='eduNum'>
+				  <label for='eduNum'>학력</label>
+				  <select id='eduNum' name='eduNum' disabled="disabled">
 				    <option ><%=edu%></option>
 				  </select>
 				</div>
 				
 				<div class='form-row'>
 				  <label for='desireForm'>희망 급여</label>
-				  <select id='desireForm' name='desireForm'>
+				  <select id='desireForm' name='desireForm' disabled="disabled">
 				    <option ><%=desireForm%></option>
 				  </select>
 				  <input id='desireIncome' name='desireIncome' type='text' style="margin-left:20px;" value="<%=desireIncome %>" readonly/>
@@ -99,15 +105,15 @@ Attachment at = (Attachment)request.getAttribute("at");
 
 				<div class='form-row'>
 				  <label for='comment'>하고싶은 말</label>
-				  <textarea id='comment' name='comment' readonly><%=comment %></textarea>
+				  <textarea id='comment' name='comment' readonly ><%=comment %></textarea>
 				</div>
 	
 				<div class='form-row'>
 				  <label class='checkbox-label' for='openSet'>
 				  <%if(openSet.equals("Y")){ %>
-				  	<input id='openSet' name='openSet' type='checkbox' value='Y' checked />
+				  	<input id='openSet' name='openSet' type='checkbox' value='Y' checked disabled="disabled"/>
 				  <%}else{ %>
-				  	<input id='openSet' name='openSet' type='checkbox' value='Y'/>
+				  	<input id='openSet' name='openSet' type='checkbox' value='Y' disabled="disabled"/>
 				  <%} %>
 				  <span>이력서 공개 설정</span>
 				  </label>
@@ -139,7 +145,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 		
 		</div> <!-- /콘텐트 -->
 		
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 	
 </div> <!-- /화면 -->
 	

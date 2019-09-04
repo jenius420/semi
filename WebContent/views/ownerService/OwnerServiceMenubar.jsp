@@ -10,7 +10,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/display.css">
 <title>기업서비스 메뉴바</title>
 <style>
@@ -18,10 +17,10 @@
 .osMenubar{
 	position: fixed;
 	left: 0x;
-	top: 170px;
+	top: 350px;
 	clear: both;
     margin: 0;
-    padding: 10;
+    padding: 10px !important;
     width: 170px;
     
 }

@@ -50,7 +50,13 @@
 
 <div id="div">
 	
-	<div id="header"></div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+ 	</div>
 	
 		<div id="content">
 		
@@ -63,7 +69,7 @@
 				<div class="limiter" >
 					<div class="container-table100" >
 						<div class="wrap-table100" style="width:100%;">
-							<div class="table100 ver5 m-t-30" >
+							<div class="table100 ver5" >
 								<div class="table100-head">
 									<table>
 										<thead>
@@ -123,7 +129,7 @@
 		
 		</div> <!-- /콘텐트 -->
 	
-	<div id="footer"></div>
+	<div id="footer"><%@ include file="../common/footer.jsp" %></div>
 
 </div> <!-- /화면 -->
 

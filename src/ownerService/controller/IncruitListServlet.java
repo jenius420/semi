@@ -39,6 +39,7 @@ public class IncruitListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 //		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
+		//Owner owner = new OwnerServiceService().selectOwner(9);
 		Owner owner = new OwnerServiceService().selectOwner(2);
 		
 		HttpSession session = request.getSession();

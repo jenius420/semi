@@ -22,7 +22,7 @@ public class EncryptWraaper extends HttpServletRequestWrapper {
 		
 		String value="";
 		
-		if(key != null && (key.equals("userPwd") || key.equals("newPwd"))) {
+		if(key != null && (key.equals("pwd") || key.equals("newPwd"))) {
 			
 			
 			value = getSha512(super.getParameter(key));
@@ -38,7 +38,7 @@ public class EncryptWraaper extends HttpServletRequestWrapper {
 		
 	}
 	
-	public String getSha512(String userPwd) {
+	public String getSha512(String pwd) {
 		String encPwd = "";
 		
 		MessageDigest md = null;
@@ -50,7 +50,7 @@ public class EncryptWraaper extends HttpServletRequestWrapper {
 			e.printStackTrace();
 		}
 		
-		byte[] bytes = userPwd.getBytes(Charset.forName("utf-8"));
+		byte[] bytes = pwd.getBytes(Charset.forName("utf-8"));
 		
 		md.update(bytes);
 		

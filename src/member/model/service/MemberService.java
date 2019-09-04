@@ -54,7 +54,7 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().empInsert(conn, mem);
+		int result = new MemberDao().insertEmp(conn, mem);
 		
 		if(result > 0) {
 			commit(conn);
@@ -67,6 +67,22 @@ public class MemberService {
 		return result;
 	}
 	
+	public int insertOwn(Member mem) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().insertOwn(conn, mem);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			commit(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 	
 
 	/**
@@ -109,6 +125,24 @@ public class MemberService {
 		
 		return result;
 	}
+
+	/**
+	 * 개인 회원 아이디 중복체크
+	 * @param eId
+	 * @return
+	 */
+	public int idCheckEmp(String eId) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().idCheckEmp(conn, eId);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
 	
 	
 

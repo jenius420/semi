@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, sort.model.vo.*" %>
 <%
-	ArrayList<Recruit> list = (ArrayList<Recruit>)request.getAttribute("list");
+ArrayList<Recruit> list = (ArrayList<Recruit>)request.getAttribute("list");
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -88,6 +88,7 @@
 	            <td><%= r.getTitle() %></td>
 	            <td><%= r.getWorkform() %></td>
 	            <td><%= r.getSalary() %></td>
+	            
 	            <td><%= r.getTime() %></td>
 	            <td><%= r.getEnDate() %></td>
 	        </tr>

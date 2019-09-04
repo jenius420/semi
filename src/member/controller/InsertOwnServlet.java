@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.model.service.MemberService;
+import member.model.vo.Member;
+
 /**
  * Servlet implementation class InsertOwnServlet
  */
@@ -27,22 +30,18 @@ public class InsertOwnServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");				// 아이디
+		String oId = request.getParameter("oId");				// 아이디
 		String pwd = request.getParameter("pwd");			// 비밀번호
-		String opNmae = request.getParameter("opName");		// 사업장명
+		String opName = request.getParameter("opName");		// 사업장명
 		String opNum1 = request.getParameter("opNum1");		// 사업자 번호1
 		String opNum2 = request.getParameter("opNum2");		// 사업자 번호2
 		String opNum3 = request.getParameter("opNum3");		// 사업자 번호3
 		String opNum = opNum1 + opNum2 + opNum3;			// 사업자 번호
-		/*
-		 	사업자 주소
-		  
-		 */	
 		String oName = request.getParameter("oName");				// 사업자 성명
 		int tel1 = Integer.parseInt(request.getParameter("tel1"));	// 전화번호1
 		int tel2 = Integer.parseInt(request.getParameter("tel2"));	// 전화번호2
 		int tel3 = Integer.parseInt(request.getParameter("tel3"));	// 전화번호3
-		String otel = ""+ tel1 + tel2 + tel3;							// 사업장전화번호
+		String oTel = ""+ tel1 + tel2 + tel3;						// 사업장전화번호
 		String ocNum1 = request.getParameter("ocNum1");				// 사업자 주번1
 		String ocNum2 = request.getParameter("ocNum2");				// 사업자 주번2
 		String ocNum = ocNum1 + ocNum2;								// 사업자 주민번호
@@ -55,8 +54,35 @@ public class InsertOwnServlet extends HttpServlet {
 		String email = email1 + email2;								// 이메일
 		String mailAccept = request.getParameter("mailAccept");		// 메일수신동의
 		String smsAccept = request.getParameter("smsAccept");		// 문자수신동의
+		String address = request.getParameter("address");			// 주소
+		String opAddress = request.getParameter("oAddress");		// 나머지주소
+				
+		String[] splitAddress = new String[5];
 		
+		splitAddress=address.split(" ");
+		String roadName = splitAddress[2];// 도로명 본번
+
+		String[] road =new String[2]; 
+		road=(splitAddress[3]).split("-");			// 도로명 본번
+		int roadMain = Integer.parseInt(road[0]);
+		int roadSub;
+		if(road[0] == "" || road[0] == null) {
+			roadSub = 0;
+		}else {
+			roadSub = Integer.parseInt(road[1]);
+		}
 		
+		Member mem = new Member(oId, pwd, opName, opNum, opAddress, oName, oTel, ocNum, phone, email, mailAccept, smsAccept, roadName, roadMain, roadSub);
+		
+		int result = new MemberService().insertOwn(mem);
+		
+		if(result > 0) {
+			
+			request.setAttribute("msg", "회원가입성공");
+			
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+		}
 	}
 
 	/**

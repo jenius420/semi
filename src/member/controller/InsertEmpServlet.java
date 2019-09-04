@@ -32,64 +32,67 @@ public class InsertEmpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");						// 아이디
+		String eId = request.getParameter("eId");					// 아이디
 		String pwd = request.getParameter("pwd");					// 비밀번호
 		String name = request.getParameter("eName");				// 이름
 		String ecNum1 = request.getParameter("ecNum1"); 			// 주민번호 앞자리
 		String ecNum2 = request.getParameter("ecNum2"); 			// 주민번호 뒷자리
-		String ecNum = ecNum1 + ecNum2;								// 주민번호 결합
+		String ecNum = ecNum1 + ecNum2;								// 주민번호
 		String phone1 = request.getParameter("phone1"); 			// 전화번호 010
 		String phone2 = request.getParameter("phone2"); 			// 휴대전화 앞자리
 		String phone3 = request.getParameter("phone3"); 			// 휴대전화 뒷자리
-		String phone = phone1 + phone2 + phone3;					// 휴대전화 결합
+		String phone = phone1 + phone2 + phone3;					// 휴대전화
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		String email = email1 + email2;								// 이메일 결합
-		String maileAccept = request.getParameter("mailAccept");	// 메일수신
-		String smsAccept = request.getParameter("smsAccept");		// 문자수신
+		String mailAccept = request.getParameter("mailaccept");	// 메일수신
+		String smsAccept = request.getParameter("smsaccept");		// 문자수신
 		String address = request.getParameter("address");			// 주소
 		String eAddress = request.getParameter("eAddress");			// 나머지주소
 		
+		System.out.println(mailAccept);
 		
-		String[] splitAddress = address.split(" ");
-		String roadName = 
-				splitAddress[0] + splitAddress[1] + splitAddress[2];// 도로명 본번
 		
-		int roadMain = Integer.parseInt(splitAddress[3]);			// 도로명 본번
-		splitAddress = address.split("-");
-		int roadSub = Integer.parseInt(splitAddress[0]);			// 도로명 부번
+		String[] splitAddress = new String[5];
+				splitAddress=address.split(" ");
+		String roadName = splitAddress[2];// 도로명 본번
 		
-		System.out.println(id);
+		String[] road =new String[2]; 
+		road=(splitAddress[3]).split("-");			// 도로명 본번
+		int roadMain = Integer.parseInt(road[0]);
+		int roadSub;
+		if(road[0] == "" || road[0] == null) {
+			roadSub = 0;
+		}else {
+			roadSub = Integer.parseInt(road[1]);
+		}
+					// 도로명 부번
+		
+		
+		System.out.println(eId);
 		System.out.println(pwd);
 		System.out.println(name);
 		System.out.println(ecNum);
 		System.out.println(phone);
 		System.out.println(email);
-		System.out.println(maileAccept);
+		System.out.println(mailAccept);
 		System.out.println(smsAccept);
 		System.out.println(address);
 		System.out.println(eAddress);
 		
 		
-		Member mem = new Member(id, pwd, name, ecNum, eAddress, phone, email, maileAccept, smsAccept);
+		Member mem = new Member(eId, pwd, name, ecNum, eAddress, phone, email, mailAccept, smsAccept, roadName, roadMain, roadSub);
 		
 		int result = new MemberService().insertEmp(mem);
 		
 		if(result > 0) {
 			
-			request.getSession().setAttribute("msg", "회원가입성공");
+
+			request.setAttribute("msg", "회원가입성공");
 			
-			response.sendRedirect(request.getContextPath());
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 	}
 

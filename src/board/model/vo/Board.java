@@ -13,6 +13,7 @@ public class Board {
 	private String invalidPost;
 	private String isNotice;
 	private int boardCount;
+	private String photo;
 	
 	public Board() {
 		super();
@@ -31,6 +32,26 @@ public class Board {
 		this.invalidPost = invalidPost;
 		this.isNotice = isNotice;
 		this.boardCount = boardCount;
+	}
+	
+	
+	
+	
+	
+
+	public Board(int tNum, String title, int eNum, String eName, Date updateDate, String bBody, String invalidPost,
+			String isNotice, int boardCount, String photo) {
+		super();
+		this.tNum = tNum;
+		this.title = title;
+		this.eNum = eNum;
+		this.eName = eName;
+		this.updateDate = updateDate;
+		this.bBody = bBody;
+		this.invalidPost = invalidPost;
+		this.isNotice = isNotice;
+		this.boardCount = boardCount;
+		this.photo = photo;
 	}
 
 	public int gettNum() {
@@ -105,12 +126,24 @@ public class Board {
 		this.boardCount = boardCount;
 	}
 
+	
+	
+	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [tNum=" + tNum + ", title=" + title + ", eNum=" + eNum + ", eName=" + eName + ", updateDate="
 				+ updateDate + ", bBody=" + bBody + ", invalidPost=" + invalidPost + ", isNotice=" + isNotice
-				+ ", boardCount=" + boardCount + "]";
+				+ ", boardCount=" + boardCount + ", photo=" + photo + "]";
 	}
+
 }
 
 	

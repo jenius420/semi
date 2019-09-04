@@ -20,11 +20,11 @@ public class BoardService {
 	 * @param boardLimit
 	 * @return
 	 */
-	public ArrayList<Board> selectList(int currentPage, int boardLimit) {
+	public ArrayList<Board> selectList() {
 		
 		Connection conn = getConnection();
 
-		ArrayList<Board> list = new BoardDao().selectList(conn, currentPage, boardLimit);
+		ArrayList<Board> list = new BoardDao().selectList(conn);
 
 		close(conn);
 
