@@ -269,20 +269,21 @@ public class IncruitDao {
 			
 			while(rs.next()) {
 				appliant = new Appliant(
-									rs.getInt("APPLYNUM"),
-									rs.getInt("RNUM"),
-									rs.getString("COMMENT"),
-									rs.getInt("ENUM"),
-									rs.getString("ENAME"),
-									rs.getInt("WNUM"),
-									rs.getString("WTITLE"),
-									rs.getInt("ONUM"),
-									rs.getString("OPNAME"),
-									rs.getString("INCRUITSTATUS"),
-									rs.getDate("ENDDATE"),
-									rs.getDate("APPLYDATE"),
-									rs.getString("PASSORFAIL")
-									);
+											rs.getInt("APPLYNUM"),
+											rs.getInt("RNUM"),
+											rs.getString("eCOMMENT"),
+											rs.getInt("ENUM"),
+											rs.getString("ENAME"),
+											rs.getInt("WNUM"),
+											rs.getString("WTITLE"),
+											rs.getInt("ONUM"),
+											rs.getString("OPNAME"),
+											rs.getString("INCRUITSTATUS"),
+											rs.getDate("ENDDATE"),
+											rs.getDate("APPLYDATE"),
+											rs.getString("PASSORFAIL"),
+											rs.getInt("sevalNum")
+										);
 				list.add(appliant);
 			}
 			

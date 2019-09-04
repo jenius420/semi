@@ -38,12 +38,13 @@ public class ManageResumeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		System.out.println("서블릿 로그6:");
 		
 		//Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
 		//샘플 데이터
-		//Emp emp = new EmpServiceService().selectEmp(6);
-		Emp emp = new EmpServiceService().selectEmp(1);
+		Emp emp = new EmpServiceService().selectEmp(6);
+//		Emp emp = new EmpServiceService().selectEmp(1);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("emp", emp);

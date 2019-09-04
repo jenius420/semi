@@ -46,13 +46,16 @@ public class LoginServlet extends HttpServlet {
     		// 개인 로그인
     		Member loginUser = new MemberService().loginEmp(id, pwd);
     		if(loginUser != null) {
+    			
+    			System.out.println("서블릿 로그3:" + loginUser);
     			HttpSession session = request.getSession();
     			
     			//session.setMaxInactiveInterval(600);
     			
     			session.setAttribute("loginUser", loginUser);
-    			
-    			response.sendRedirect(request.getContextPath());		
+    			System.out.println("서블릿 로그4:");
+    			request.getRequestDispatcher("views/empService/ManageResume.jsp").forward(request, response);
+//    			response.sendRedirect("/manageResume.es");		
     			
     		}
     		
