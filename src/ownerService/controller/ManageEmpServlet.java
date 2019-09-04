@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import empService.model.vo.Emp;
+import empService.model.vo.Resume;
 import ownerService.model.vo.Owner;
 import ownerService.model.service.IncruitService;
+import ownerService.model.service.OwnerServiceService;
 import ownerService.model.vo.Appliant;
 import ownerService.model.vo.Incruit;
 
@@ -37,12 +39,16 @@ public class ManageEmpServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		Owner owner = (Owner)request.getSession().getAttribute("loginUser");
+		Owner owner = (Owner)request.getSession().getAttribute("owner");
 		
-		ArrayList<Appliant> list = new IncruitService().selectManageEmp(owner.getoNum());
+		ArrayList<Appliant> alist = new IncruitService().selectManageEmp(owner.getoNum());
+		ArrayList<Resume> rlist = new OwnerServiceService().selectResumeList(alist);
+		ArrayList<Incruit> list = new IncruitService().selectIncruitList(owner.getoNum());
 
 
-		request.setAttribute("manageEmpList", list);
+		request.setAttribute("alist", alist);
+		request.setAttribute("rlist", rlist);
+		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/ownerService/ManageEmp.jsp").forward(request, response);
 		
 	}

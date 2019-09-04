@@ -22,12 +22,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>BoardDetail</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-
 
 <style>
 	.outer{
@@ -138,16 +135,16 @@
 						
 					<% for(int i=0; i<fileList.size(); i++){%>
 							<td colspan="2" class="photo">
-									<div class="detailImgArea" style="width:250" style="height:100">
-										<img width="250" height="100" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+									<div class="detailImgArea" style="width:250" style="height:200">
+										<img width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
 									</div>
 							</td>
 		
 					<% } %>
 					<% for(int i=0; i<3-fileList.size(); i++){%>
 							<td colspan="2" class="photo">
-									<div class="detailImgArea"  style="width:250" style="height:100" >
-										<img width="250" height="100" src="<%=contextPath%>/photo/attachment/null.PNG">
+									<div class="detailImgArea"  style="width:250" style="height:200" >
+										<img width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
 									</div>
 							</td>
 					<% } %>
@@ -155,6 +152,36 @@
 				<% } %>
 			</table>
 			
+	<div class="replyArea">
+		<div class="replyWriterArea">
+			<table align="center">
+				<tr>
+					<th colspan="6"></th>
+				</tr>
+				<tr>
+					<td>댓글작성</td>
+					<td><textarea rows="3" cols="80" id="replyContent" style="resize:none;"></textarea></td>
+					<td><button id="addReply">댓글등록</button></td>
+				</tr>
+				<tr>
+					<th colspan="6"></th>
+				</tr>
+			</table>
+		</div>
+	
+	
+	
+		<div id="replySelectArea">
+			<table id="replySelectTable" border="1" align="center">
+				
+			</table>
+		</div>
+	
+	</div>
+	
+	
+	
+	
 			<div align="center">
 				<button type="button" onclick="history.go(-1);">이전으로</button>
 				
@@ -165,6 +192,17 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<form action="" id="detailForm" method="post">
 		<input type="hidden" name="tNum" value="<%= b.gettNum() %>">
@@ -184,16 +222,7 @@
 			$("#detailForm").submit();
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		// 댓글 리스트 출력하는 함수
 		function selectRlist(){
 			
@@ -240,7 +269,6 @@
 				
 				var commentExplain = $("#replyContent").val();
 				var tNum = <%= b.gettNum() %>;
-				
 				var eNum = <%=b.geteNum()%>;
 				
 				$.ajax({
@@ -262,46 +290,7 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

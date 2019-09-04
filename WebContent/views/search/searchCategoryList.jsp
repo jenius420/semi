@@ -6,6 +6,7 @@
 <% response.setContentType("text/html; charset=utf-8"); %>
 <% ArrayList<IncruitInfo> incruitList = (ArrayList)request.getAttribute("incruitList");
  int maxPage = (Integer)request.getSession().getAttribute("maxPage");
+ String cate = (String)request.getAttribute("cate");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,6 +20,7 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/views/search/js/searhCategoryList.js"></script>
+
 
 <style>
 	#bigCategory{
@@ -42,6 +44,9 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+<%if(cate!=null&&cate!=""){ %>
+          <input type="hidden" id="choice" value="<%=cate %>" />
+<%} %>
 <div></div>
 	<div class="jumbotron" id="jumbotron">
 	<br /><br /><br />

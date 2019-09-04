@@ -1,4 +1,4 @@
-package board.controller;
+package search.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.model.service.BoardService;
-import board.model.vo.Board;
-import common.model.vo.Attachment;
+import search.model.service.SearchService;
+import search.model.vo.IncruitInfo;
 
 /**
- * Servlet implementation class BoardUpdateFormServlet
+ * Servlet implementation class DetailSearchListServlet
  */
-@WebServlet("/updateForm.bo")
-public class BoardUpdateFormServlet extends HttpServlet {
+@WebServlet("/detailMidSearch.se")
+public class DetailSearchListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardUpdateFormServlet() {
+    public DetailSearchListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,24 +31,16 @@ public class BoardUpdateFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		String[] details=new String[20];
+		details=request.getParameter("detail").split(" ");
 		
-		
-		int tNum = Integer.parseInt(request.getParameter("tNum"));
-		
-		Board board = new BoardService().selectBoard(tNum);
-		
-		ArrayList<Attachment> fileList = new BoardService().selectAttachment(tNum);
-		
-		if(board != null) {
-			request.setAttribute("board", board);
-			request.setAttribute("fileList", fileList);
-			request.setAttribute("tNum", tNum);
-			request.getRequestDispatcher("views/board/BoardUpdateFormView.jsp").forward(request, response);
-		} else {
-			request.setAttribute("msg", "수정할 게시글을 불러오는데 실패했습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
-		
+		ArrayList<IncruitInfo> list = new SearchService().searchDetail(details,1,20);
+		int listCount = new SearchService().detailListCount(details);
+		request.setAttribute("incruitList", list);
+		request.setAttribute("detail", request.getParameter("detail"));
+		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
+		request.getRequestDispatcher("views/search/searchAllView.jsp").forward(request, response);
 	}
 
 	/**

@@ -46,14 +46,14 @@ public class LoginServlet extends HttpServlet {
     		// 개인 로그인
     		Member loginUser = new MemberService().loginEmp(id, pwd);
     		if(loginUser != null) {
+    			
     			HttpSession session = request.getSession();
     			
     			//session.setMaxInactiveInterval(600);
     			
     			session.setAttribute("loginUser", loginUser);
-    			
-    			response.sendRedirect(request.getContextPath());		
-    			
+    			response.sendRedirect(request.getContextPath());
+
     		}
     		
     	}else {
