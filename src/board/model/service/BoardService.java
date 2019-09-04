@@ -71,6 +71,33 @@ public class BoardService {
 		return b;
 	}
 	
+	
+	
+	/**
+	 *  해당 게시글의 파일 리스트들 조회용 서비스
+	 * @param tNum
+	 * @return
+	 */
+	public ArrayList<Attachment> selectAttachment(int tNum){
+		Connection conn = getConnection();
+		
+		ArrayList<Attachment> list = new BoardDao().selectAttachment(conn, tNum);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 사진을 포함한 게시글 작성용 서비스
 	 * @param b

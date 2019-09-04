@@ -1,19 +1,21 @@
+<%@page import="common.model.vo.Attachment"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="board.model.vo.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%--     <%
+<%
 	Board b = (Board)request.getAttribute("b");
-
-	String[] arr = b.geteName().split(","); 
+	ArrayList<Attachment> fileList = (ArrayList<Attachment>)request.getAttribute("fileList");
+	String contextPath = request.getContextPath();
+	/* String[] arr = b.geteName().split(","); 
 	// arr[0] ==> "회원번호"
 	// arr[1] ==> "회원명"
 	
 	int eNum = Integer.parseInt(arr[0]); // 회원번호
-	String eName = arr[1]; // 회원명
-%> --%>
+	String eName = arr[1]; // 회원명 */
+%>
 
-<% Board b = new Board();%>
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -70,6 +72,12 @@
 		padding-right:10px;
 		padding-left:10px;
 	}
+	
+		.photo, .detailImgArea{
+		padding:0px; !important;
+		width:250px; !important;
+	
+	}
 </style>
 
 
@@ -118,16 +126,33 @@
 					</td>
 					
 				</tr>
-				<tr>
-					<th colspan="6">첨부사진</th>
-				</tr> 
-				<tr>
-					
-					<td colspan="6">
-						<p id="photo"><%= b.getPhoto() %></p>
-					</td>
-					
-				</tr>
+				
+				
+				<% if(fileList.size()>0) { %>
+				
+					<tr>
+						<th colspan="6">첨부사진</th>
+					</tr> 
+					<tr>
+						
+						
+					<% for(int i=0; i<fileList.size(); i++){%>
+							<td colspan="2" class="photo">
+									<div class="detailImgArea" style="width:250" style="height:100">
+										<img width="250" height="100" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+									</div>
+							</td>
+		
+					<% } %>
+					<% for(int i=0; i<3-fileList.size(); i++){%>
+							<td colspan="2" class="photo">
+									<div class="detailImgArea"  style="width:250" style="height:100" >
+										<img width="250" height="100" src="<%=contextPath%>/photo/attachment/null.PNG">
+									</div>
+							</td>
+					<% } %>
+					</tr>
+				<% } %>
 			</table>
 			
 			<div align="center">

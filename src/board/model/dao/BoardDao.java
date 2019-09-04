@@ -181,8 +181,7 @@ private Properties prop = new Properties();
 							  rset.getString("bBody"),
 							  rset.getString("invalidPost"),
 							  rset.getString("isNotice"),
-							  rset.getInt("boardCount"),
-							  rset.getString("photo"));
+							  rset.getInt("boardCount"));
 			}
 			
 		} catch (SQLException e) {
@@ -196,6 +195,57 @@ private Properties prop = new Properties();
 		
 		
 	}
+	
+	
+	
+	/**
+	 * 사진 조회용 호출
+	 * @param conn
+	 * @param tNum
+	 * @return
+	 */
+	public ArrayList<Attachment> selectAttachment(Connection conn, int tNum){
+		ArrayList<Attachment> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, tNum);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Attachment at = new Attachment();
+				at.setChangeName(rset.getString("SAVENAME"));
+				at.setfId(rset.getInt("PNUM"));
+				at.settNum(rset.getInt("tNum"));
+				
+				list.add(at);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/**
