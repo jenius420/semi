@@ -88,6 +88,7 @@ ArrayList<Recruit> list = (ArrayList<Recruit>)request.getAttribute("list");
 	            <td><%= r.getTitle() %></td>
 	            <td><%= r.getWorkform() %></td>
 	            <td><%= r.getSalary() %></td>
+	            
 	            <td><%= r.getTime() %></td>
 	            <td><%= r.getEnDate() %></td>
 	        </tr>

@@ -294,13 +294,20 @@ $(function() {
 
 	
 		
-		
+	$('#categorySub>div').click(function(){
+		var cate=$(this).text();
+		console.log(getContextPath());
+		location.href=getContextPath()+"/cateSub.se?cate="+cate;
+	});	
 
 	
 
 });
 
 
+function getContextPath(){
+	return window.location.pathname.substring(0,window.location.pathname.indexOf("/",2));
+}
 
 
 

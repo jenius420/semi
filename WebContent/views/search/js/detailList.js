@@ -6,6 +6,8 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 
 $(function() {
 	
+	
+	
 	$(document).on("click", ".test", function(){
 	
 //		console.log("이벤트 활성화확인");
@@ -18,15 +20,9 @@ $(function() {
 		console.log(currentPage);
 //		console.log('넘어가는 페이지'+$('#pageCheck').text());
 		
-		var check = $("td[name=checked]");
-		var result = "";
-		for (var i = 0; i < check.length; i++) {
-			if(i==check.length-1){
-				result+=check.slice(i, i + 1).text();
-				break;
-			}
-			result+=(check.slice(i, i + 1).text())+"!";
-		}
+		var check = $("td[name=detail]");
+		var result = check.text();
+		
 		console.log(result);
 		jQuery.ajaxSettings.traditional = true;
 //		console.log("현재페이지 확인"+ currentPage);
@@ -153,29 +149,11 @@ $(function() {
 	
 });
 	
-	$('.category>td').click(function() {
-				console.log('11');
-				if ($(this).css('color') == 'rgb(255, 255, 255)') {
-					$(this).css('background', 'white').css('color', 'gray');
-					$(this).removeAttr('name');
-				} else {
-					$(this).css('background', 'rgb(176,18,241)').css('color',
-							'white').attr('name', 'checked');
-				}
 
-			});
 	
 	$('#searchBtn').click(function(){
-		var check = $("td[name=checked]");
-		
-		var result = "";
-		for (var i = 0; i < check.length; i++) {
-			if(i==check.length-1){
-				result+=check.slice(i, i + 1).text();
-				break;
-			}
-			result+=(check.slice(i, i + 1).text())+"!";
-		}
+		var check = $("td[name=detail]");
+		var result = check.text();
 		console.log(result);
 		jQuery.ajaxSettings.traditional = true;
 		$.ajax({

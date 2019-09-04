@@ -1,4 +1,4 @@
-package board.controller;
+package photo.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,21 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.model.service.BoardService;
-import board.model.vo.Board;
-import common.model.vo.Attachment;
+import com.google.gson.Gson;
+
+import photo.model.service.PlatinumService;
+import photo.model.vo.Photo;
 
 /**
- * Servlet implementation class BoardDetailServlet
+ * Servlet implementation class PlatinumPhotoServlet
  */
-@WebServlet("/detail.bo")
-public class BoardDetailServlet extends HttpServlet {
+@WebServlet("/test.sss")
+public class PlatinumPhotoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardDetailServlet() {
+    public PlatinumPhotoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,34 +33,14 @@ public class BoardDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		int tNum = Integer.parseInt(request.getParameter("tNum"));
 		
-		Board b = new BoardService().selectBoard(tNum);
+		request.setCharacterEncoding("utf-8");
 		
-		ArrayList<Attachment> fileList = new BoardService().selectAttachment(tNum);
-		
-		
-		if(b != null) {
-			request.setAttribute("b", b);
-			request.setAttribute("fileList", fileList);
-			request.getRequestDispatcher("views/board/BoardDetailView.jsp").forward(request, response);
-		}else {
-			
-			request.setAttribute("msg", "게시판 상세조회 실패!!");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
+		ArrayList<Photo> list = new PlatinumService().selectPlatinum();
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		Gson gson = new Gson();
+		response.setContentType("application/json; charset=utf-8");
+		gson.toJson(list, response.getWriter());
 	}
 
 	/**

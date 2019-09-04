@@ -30,7 +30,7 @@
 #pageCheck{
 	background:gray;
 }
-#districtSub>div:hover, .district>td:hover{
+#categorySub>div:hover, .district>td:hover{
 	color:rgb(176,18,241);
 	cursor: pointer;
 }
@@ -46,7 +46,7 @@
 	
       <div class="row" style="padding-top: 50px; padding-left: 15px;">
       
-       <div class="col-sm-2" id="districtSub" style="border-right: 1px solid black;">
+       <div class="col-sm-2" id="categorySub" style="border-right: 1px solid black;">
        	<p><strong>업종별 알바</strong></p>
 		<br />
 		<div class="col-lg-12">외식·음료</div>

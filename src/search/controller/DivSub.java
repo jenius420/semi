@@ -15,7 +15,7 @@ import search.model.vo.IncruitInfo;
 /**
  * Servlet implementation class DivSub
  */
-@WebServlet("/DivSub")
+@WebServlet("/districtSub.se")
 public class DivSub extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,7 +32,13 @@ public class DivSub extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		ArrayList<IncruitInfo> list = new SearchService().
+		String[] dis = {request.getParameter("dis")};
+		System.out.println("dis"+dis[0]);
+		ArrayList<IncruitInfo> list = new SearchService().districtSearch(dis, 1, 20);
+		int listCount = new SearchService().getDistrictListCount(dis);
+		request.setAttribute("incruitList", list);
+		request.setAttribute("maxPage", (listCount-1)/20+1);
+		request.getRequestDispatcher("views/search/searchDistrictView.jsp").forward(request, response);
 	}
 
 	/**

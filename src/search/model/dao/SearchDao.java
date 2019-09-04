@@ -241,6 +241,83 @@ public class SearchDao {
 		return list;
 	}
 
+	public ArrayList<IncruitInfo> searchDetail(Connection conn, String[] details, int start, int end) {
+		ArrayList<IncruitInfo> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchDetail");
+		for (int i = 0; i < details.length; i++) {
+			if(i==details.length-1) {
+				sql += "?))";
+				break;
+			}
+			sql+= "? TOTALINFO LIKE";
+		}
+		sql += " WHERE RNUM BETWEEN "+ start+ " AND " + end;
+		System.out.println(sql);
+		
+		try {
+			pstmt= conn.prepareStatement(sql);
+			for (int i = 0; i < details.length; i++) {
+				pstmt.setString(i+1, "%"+details[i]+"%");
+			}
+			rset =pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new IncruitInfo(rset.getInt(2), rset.getString(3), rset.getString(4), 
+						rset.getInt(5), rset.getInt(6), rset.getString(7), rset.getString(8), 
+						rset.getString(9), rset.getString(10), rset.getString(11), rset.getString(12), 
+						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
+						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
+						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
+						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31)));
+
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return list;
+	}
+
+	public int detailListCount(Connection conn, String[] details) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int result =0;
+		String sql = prop.getProperty("detailListCount");
+		for (int i = 0; i < details.length; i++) {
+			if(i==details.length-1) {
+				sql+="?";
+				break;
+			}
+			sql+="? AND TOTALINFO LIKE";
+		}
+		try {
+			pstmt =conn.prepareStatement(sql);
+			for (int i = 0; i < details.length; i++) {
+				pstmt.setString(i+1, "%"+details[i]+"%");
+			}
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				result = rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
 
 	
 	
