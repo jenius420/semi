@@ -100,6 +100,7 @@
     		}
     		
     		window.close();
+    		return true;
     	}
     	
     </script>
