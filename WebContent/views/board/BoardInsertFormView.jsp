@@ -212,11 +212,13 @@
 				
 				<div align="center">
 					<button type="reset">취소하기</button>
+					
 					<button type="submit">등록하기</button>
 				</div>
 		</div>
 			</form>
 		</div>
+	
 	
 </body>
 </html>
