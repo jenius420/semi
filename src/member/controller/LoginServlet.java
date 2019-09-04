@@ -38,7 +38,9 @@ public class LoginServlet extends HttpServlet {
     	String id = request.getParameter("userId");
     	String pwd = request.getParameter("userPwd");
     	
-    	
+    	System.out.println(kind);
+    	System.out.println(id);
+    	System.out.println(pwd);
     	
     	if(kind == 1) {
     		// 개인 로그인
@@ -50,7 +52,8 @@ public class LoginServlet extends HttpServlet {
     			
     			session.setAttribute("loginUser", loginUser);
     			
-    			response.sendRedirect(request.getContextPath());				
+    			response.sendRedirect(request.getContextPath());		
+    			
     		}
     		
     	}else {

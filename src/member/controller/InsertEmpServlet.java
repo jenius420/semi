@@ -45,26 +45,31 @@ public class InsertEmpServlet extends HttpServlet {
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		String email = email1 + email2;								// 이메일 결합
-		String mailAccept = request.getParameter("mailaccept");	// 메일수신
-		String smsAccept = request.getParameter("smsaccept");		// 문자수신
+		String mailAccept = request.getParameter("mailAccept");	// 메일수신
+		String smsAccept = request.getParameter("smsAccept");		// 문자수신
 		String address = request.getParameter("address");			// 주소
 		String eAddress = request.getParameter("eAddress");			// 나머지주소
 		
 		System.out.println(mailAccept);
 		
 		
-		String[] splitAddress = new String[5];
+		String[] splitAddress = new String[4];
 				splitAddress=address.split(" ");
-		String roadName = splitAddress[2];// 도로명 본번
+		String roadName = splitAddress[2];// 도로명
 		
 		String[] road =new String[2]; 
 		road=(splitAddress[3]).split("-");			// 도로명 본번
 		int roadMain = Integer.parseInt(road[0]);
 		int roadSub;
-		if(road[0] == "" || road[0] == null) {
+		
+		if(road[0] == null || road[0].equals("")) {
 			roadSub = 0;
 		}else {
-			roadSub = Integer.parseInt(road[1]);
+			if(road.length==1) {
+				roadSub = 0;
+			}else {
+				roadSub = Integer.parseInt(road[1]);
+			}
 		}
 					// 도로명 부번
 		
