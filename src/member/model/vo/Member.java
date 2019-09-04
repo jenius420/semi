@@ -21,7 +21,7 @@ public class Member {
 	private String opAddress;	// 나머지 주소
 	private String oName;		// 이름
 	private String oTel;		// 사업장 전화번호
-	private String ocnum;		// 사업자 주민번호
+	private String ocNum;		// 사업자 주민번호
 	private int typeNum;		// 업직종 번호 
 	private String checkoNum;	// 사업자번호 확인 여부
 	
@@ -85,7 +85,7 @@ public class Member {
 
 	// 사장
 	public Member(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, int roadNum,
-			String opAddress, String oName, String oTel, String ocnum, String phone, String email, int typeNum,
+			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
 			String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub, String invalidId, String checkoNum) {
 		super();
 		this.oNum = oNum;
@@ -98,7 +98,7 @@ public class Member {
 		this.opAddress = opAddress;
 		this.oName = oName;
 		this.oTel = oTel;
-		this.ocnum = ocnum;
+		this.ocNum = ocNum;
 		this.phone = phone;
 		this.email = email;
 		this.typeNum = typeNum;
@@ -131,6 +131,32 @@ public class Member {
 		this.invalidId = invalidId;
 		this.warningCount = warningCount;
 	}
+	
+	
+	// 사업자 로그인
+	public Member(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, int roadNum,
+			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
+			String mailAccept, String smsAccept, String invalidId, String checkoNum) {
+		super();
+		this.oNum = oNum;
+		this.oId = oId;
+		this.oPwd = oPwd;
+		this.opName = opName;
+		this.opNum = opNum;
+		this.dongNum = dongNum;
+		this.roadNum = roadNum;
+		this.opAddress = opAddress;
+		this.oName = oName;
+		this.oTel = oTel;
+		this.ocNum = ocNum;
+		this.phone = phone;
+		this.email = email;
+		this.typeNum = typeNum;
+		this.mailAccept = mailAccept;
+		this.smsAccept = smsAccept;
+		this.invalidId = invalidId;
+		this.checkoNum = checkoNum;
+	}
 
 
 
@@ -155,7 +181,7 @@ public class Member {
 	
 	// 사업자 회원가입
 	public Member(String oId, String oPwd, String opName, String opNum, String opAddress, String oName, String oTel,
-			String ocnum, String phone, String email, String mailAccept, String smsAccept, String roadName,
+			String ocNum, String phone, String email, /*int typeNum,*/ String mailAccept, String smsAccept, String roadName,
 			int roadMain, int roadSub) {
 		super();
 		this.oId = oId;
@@ -165,9 +191,10 @@ public class Member {
 		this.opAddress = opAddress;
 		this.oName = oName;
 		this.oTel = oTel;
-		this.ocnum = ocnum;
+		this.ocNum = ocNum;
 		this.phone = phone;
 		this.email = email;
+		//this.typeNum = typeNum;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
 		this.roadName = roadName;
@@ -360,14 +387,14 @@ public class Member {
 
 
 
-	public String getOcnum() {
-		return ocnum;
+	public String getOcNum() {
+		return ocNum;
 	}
 
 
 
-	public void setOcnum(String ocnum) {
-		this.ocnum = ocnum;
+	public void setOcNum(String ocNum) {
+		this.ocNum = ocNum;
 	}
 
 
@@ -521,7 +548,7 @@ public class Member {
 		return "Member [eNum=" + eNum + ", eId=" + eId + ", ePwd=" + ePwd + ", eName=" + eName + ", ecNum=" + ecNum
 				+ ", eAddress=" + eAddress + ", warningCount=" + warningCount + ", oNum=" + oNum + ", oId=" + oId
 				+ ", oPwd=" + oPwd + ", opName=" + opName + ", opNum=" + opNum + ", opAddress=" + opAddress + ", oName="
-				+ oName + ", oTel=" + oTel + ", ocnum=" + ocnum + ", typeNum=" + typeNum + ", checkoNum=" + checkoNum
+				+ oName + ", oTel=" + oTel + ", ocNum=" + ocNum + ", typeNum=" + typeNum + ", checkoNum=" + checkoNum
 				+ ", dongNum=" + dongNum + ", roadNum=" + roadNum + ", phone=" + phone + ", email=" + email
 				+ ", mailAccept=" + mailAccept + ", smsAccept=" + smsAccept + ", roadName=" + roadName + ", roadMain="
 				+ roadMain + ", roadSub=" + roadSub + ", invalidId=" + invalidId + "]";

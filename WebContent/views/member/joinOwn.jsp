@@ -161,7 +161,7 @@
 							<option value="013">013</option>
 						</select> - 
 						<input type="number" name="tel2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4"> - 
-						<input type="number" name="tel2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4">
+						<input type="number" name="tel3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4">
 
 
 					</td>
@@ -220,8 +220,8 @@
 				<tr>
 					<td></td>
 					<td>
-						<input name="mailaAccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
-						<input name="smsAccept" type="checkbox" value="checkPhone"> 문자수신 동의
+							<input name="mailAccept" id="mailAccept" type="checkbox" value="N"><label for="mailAccept">이메일 수신 동의</label> 
+							<input name="smsAccept" id="smsAccept" type="checkbox" value="N"><label for="smsAccept">문자수신 동의</label> 
 					</td>
 
 				</tr>
@@ -230,12 +230,12 @@
 				<tr>
 					<td><b>주소</b></td>
 					<td colspan="2">
-						<input type="text" size="80" id="addres" name="" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
+						<input type="text" size="80" id="address" name="address" class="postcodify_address postcodify" readonly placeholder="주소입력" />	
 					</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td colspan="2"><input type="text" size="80" id="eAddress" name="" class="extra_info" placeholder="상세주소"></td>
+					<td colspan="2"><input type="text" size="80" id="oAddress" name="oAddress" class="extra_info" placeholder="상세주소"></td>
 					
 				</tr>
 					
@@ -253,7 +253,7 @@
 
 	<script>
 
-		var id = document.getElementById("id");
+		var oId = document.getElementById("oId");
 		var idResult = document.getElementById("idResult");
 		var pwd = document.getElementById("pwd");
 		var pwdResult1 = document.getElementById("pwdResult1");
@@ -266,14 +266,14 @@
 		var emailResult = document.getElementById("emailResult");
 		
 
-		
+
 		$(function(){
-			$(id).on('blur', function(e){
+			$(oId).on('blur', function(e){
 				
-				if(!(/^[a-z0-9]{4,}$/.test(id.value))){
+				if(!(/^[a-z0-9]{4,}$/.test(oId.value))){
 					$(idResult).text();
 					$(idResult).text("사용할 수 없는 아이디 입니다.");
-					id.value="";
+					oId.value="";
 					//id.focus();
 								
 				}else{
@@ -313,9 +313,17 @@
 			});
 
 			$(oName).on('blur', function(e){
-				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
+				if(!(/^[가-힣]{2,5}$/.test(oName.value))){
+					oName.value="";
 					$(nameResult).text("성명을 확인 해주세요.");
 					//eName.focus();
+				}
+			});
+
+			$(email1).on('blur', function(){
+				if(!(/^[a-z0-9]{4,}$/.test(email1.value))){
+					$(emailResult).text("이메일을 확인 해주세요.");
+					email1.value="";
 				}
 			});
 
@@ -328,7 +336,15 @@
 			insertExtraInfo : "#extra_info",
 			hideOldAddresses : false
 			*/
-            }); 
+			}); 
+			
+			$("#mailAccept").on("cheked", function(){
+				$("#mailAccept").value="Y";
+			});
+
+			$("#smsAccept").on("cheked", function(){
+				$("#smsAccept").value="Y";
+			});
 
 
 			

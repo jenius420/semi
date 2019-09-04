@@ -50,11 +50,9 @@ public class InsertEmpServlet extends HttpServlet {
 		String address = request.getParameter("address");			// 주소
 		String eAddress = request.getParameter("eAddress");			// 나머지주소
 		
-		System.out.println(mailAccept);
-		
 		
 		String[] splitAddress = new String[4];
-				splitAddress=address.split(" ");
+		splitAddress=address.split(" ");
 		String roadName = splitAddress[2];// 도로명
 		
 		String[] road =new String[2]; 
@@ -73,17 +71,6 @@ public class InsertEmpServlet extends HttpServlet {
 		}
 					
 		
-		
-		System.out.println(eId);
-		System.out.println(pwd);
-		System.out.println(name);
-		System.out.println(ecNum);
-		System.out.println(phone);
-		System.out.println(email);
-		System.out.println(mailAccept);
-		System.out.println(smsAccept);
-		System.out.println(address);
-		System.out.println(eAddress);
 		
 		
 		Member mem = new Member(eId, pwd, name, ecNum, eAddress, phone, email, mailAccept, smsAccept, roadName, roadMain, roadSub);

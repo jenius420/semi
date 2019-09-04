@@ -82,51 +82,48 @@ public class MemberDao {
 	 * @param pwd
 	 * @return
 	 */
-//	public Member loginOwn(Connection conn, String id, String pwd) {
-//		
-//		Member loginUser = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rset = null;
-//		String sql = prop.getProperty("loginOwn");
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, id);
-//			pstmt.setString(2, pwd);
-//			rset = pstmt.executeQuery();
-//			
-//			if(rset.next()) {
-//				loginUser = new Member(rset.getInt("onum"),
-//									   rset.getString("oid"),
-//									   rset.getString("opwd"),
-//									   rset.getString("opname"),
-//									   rset.getInt("opnum"),
-//									   rset.getInt("dongnum"),
-//									   rset.getInt("roadnum"),
-//									   rset.getString("opaddress"),
-//									   rset.getString("oName"),
-//									   rset.getString("oTel"),
-//									   rset.getString("ocnum"),
-//									   rset.getString("phone"),
-//									   rset.getString("email"),
-//									   rset.getInt("typenum"),
-//									   rset.getString("mailaccept"),
-//									   rset.getString("smsaccept"),
-//									   rset.getString("roadName"),
-//									   rset.getInt("roadMain"),
-//									   rset.getInt("roadSub"),
-//									   rset.getString("invalidid"),
-//									   rset.getString("checkonum")
-//									  );
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close(rset);
-//			close(pstmt);
-//		}
-//		return loginUser;
-//	}
+	public Member loginOwn(Connection conn, String id, String pwd) {
+		
+		Member loginUser = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("loginOwn");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				loginUser = new Member(rset.getInt("onum"),
+									   rset.getString("oid"),
+									   rset.getString("opwd"),
+									   rset.getString("opname"),
+									   rset.getString("opnum"),
+									   rset.getInt("dongnum"),
+									   rset.getInt("roadnum"),
+									   rset.getString("opaddress"),
+									   rset.getString("oname"),
+									   rset.getString("otel"),
+									   rset.getString("ocnum"),
+									   rset.getString("phone"),
+									   rset.getString("email"),
+									   rset.getInt("typenum"),
+									   rset.getString("mailaccept"),
+									   rset.getString("smsaccept"),
+									   rset.getString("invalidid"),
+									   rset.getString("checkonum")
+									  );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return loginUser;
+	}
 
 
 	/**
@@ -197,8 +194,31 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mem.getoId());
+			pstmt.setString(2, mem.getoPwd());
+			pstmt.setString(3, mem.getOpName());
+			pstmt.setString(4, mem.getOpNum());
 			
-			
+			pstmt.setString(5, mem.getRoadName());
+			pstmt.setInt(6, mem.getRoadMain());
+			pstmt.setInt(7, mem.getRoadSub());
+			pstmt.setString(8, mem.getOpAddress());
+			pstmt.setString(9, mem.getoName());
+			pstmt.setString(10, mem.getoTel());
+			pstmt.setString(11, mem.getOcNum());
+			pstmt.setString(12, mem.getPhone());
+			pstmt.setString(13, mem.getEmail());
+			//pstmt.setInt(14, mem.getTypeNum());
+			if(mem.getMailAccept() == null || mem.getMailAccept().equals("")) {
+				pstmt.setString(14, "N");
+			}else {
+				pstmt.setString(14, "Y");
+			}
+			if(mem.getSmsAccept() == null || mem.getSmsAccept( ).equals("")) {
+				pstmt.setString(15, "N");
+			}else {
+				pstmt.setString(15, "Y");
+			}
 			
 			result=pstmt.executeUpdate();
 			
@@ -302,12 +322,6 @@ public class MemberDao {
 	}
 
 
-	public Member loginOwn(Connection conn, String id, String pwd) {
-		
-		
-		
-		return null;
-	}
 
 
 

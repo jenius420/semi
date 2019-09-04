@@ -119,10 +119,9 @@
 							<td><label id="ecNumResult"></label></td>
 						</td>
 					</tr>
-
-				</tr>
-				<tr>
-					<td><b>휴대전화</b></td>
+					
+					<tr>
+						<td><b>휴대전화</b></td>
 					<td>
 						<select style="width:45px;" name="phone1">
 							<option value="010">010</option>
@@ -200,12 +199,9 @@
 		var eName = document.getElementById("eName");
 		var nameResult = document.getElementById("nameResult");
 		var ecNum1 = document.getElementById("ecNum1");
-		var ecNum1 = document.getElementById("ecNum2");
-		var yy = ecnum1.subString(0,2);
-		var mm = ecnum1.subString(2,4);
-		var dd = ecnum1.subString(4.6);
-		var gender = ecnum2.subString(0,1);
-		var ck = 0;
+		var ecNum2 = document.getElementById("ecNum2");
+		var ecNumResult = document.getElementById("ecNumResult");
+		
 		var ecNumResult = document.getElementById("ecNumResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
@@ -269,24 +265,69 @@
 					$(pwdResult2).text("비밀번호가 일치 합니다.");
 				}
 			});
-
+			
+			
 			$(eName).on('blur', function(e){
 				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
 					eName.value="";
 				}
 			});
+
+			$(ecNum2).on('blur', function(e){  
+				
+			    for (var i=0; i<ecNum1.value.length; i++) {
+					arrNum1[i] = ecNum1.value.charAt(i);
+				} // 주민번호 앞자리를 배열에 순서대로 담는다.
+
+				for (var i=0; i<ecNum2.value.length; i++) {
+					arrNum2[i] = ecNum2.value.charAt(i);
+				} // 주민번호 뒷자리를 배열에 순서대로 담는다.
+
+				var tempSum=0;
+
+				for (var i=0; i<ecNum1.value.length; i++) {
+					tempSum += arrNum1[i] * (2+i);
+				} // 주민번호 검사방법을 적용하여 앞 번호를 모두 계산하여 더함
+
+				for (var i=0; i<ecNum2.value.length-1; i++) {
+					if(i>=2) {
+						tempSum += arrNum2[i] * i;
+					}
+					else {
+						tempSum += arrNum2[i] * (8+i);
+					}
+				} // 같은방식으로 앞 번호 계산한것의 합에 뒷번호 계산한것을 모두 더함
+
+				if((11-(tempSum%11))%10!=arrNum2[6]) {
+					ecNumResult.value="주민등록번호를 확인해주세요."
+					ecNum1.value = "";
+					ecNum2.value = "";
+					return false;
+				}else{
+					ecnumR.value="올바른 주민번호 입니다."
+				}
+    
+			});
+
+
 			
-			
+			/*
 			$(ecNum1).on('blur', function(e){
+				ck = 0;
+				var yy = ecnum1.subString(0,2);
+				var mm = ecnum1.subString(2,4);
+				var dd = ecnum1.subString(4.6);
 				if(yy < 20 || mm < 1 || mm > 12 || dd < 0 || dd > 31){
 					$(ecNumResult).text("주민등록번호를 확인해주세요.");
 					ecNum1.value="";
 				}
-							
 			});
+			*/			
 			/*
 			$(ecNum2).on('blur', function(e){
+				var gender = ecnum2.subString(0,1);
+		
 				if(){
 					
 				}
@@ -314,6 +355,10 @@
 
 			$("#mailAccept").on("cheked", function(){
 				$("#mailAccept").value="Y";
+			});
+
+			$("#smsAccept").on("cheked", function(){
+				$("#smsAccept").value="Y";
 			});
 
 
