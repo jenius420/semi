@@ -163,7 +163,7 @@ public class BoardService {
 		
 		Connection conn = getConnection();
 		
-		int result1 = new BoardDao().insertBoard(conn, board);
+		int result1 = new BoardDao().updateBoard(conn, board);
 		int result2 = new BoardDao().insertAttachment(conn, fileList, board);
 		
 

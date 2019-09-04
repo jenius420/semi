@@ -117,9 +117,7 @@ public class BoardUpdateServlet extends HttpServlet {
 				int result = new BoardService().updateBoard(b, fileList);
 				
 				if(result > 0) {
-					request.setAttribute("b", b);
-					request.setAttribute("fileList", fileList);
-					request.getRequestDispatcher("views/board/BoardDetailView.jsp").forward(request, response);
+					response.sendRedirect("detail.bo");
 				}else {
 				
 				
