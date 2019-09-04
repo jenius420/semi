@@ -163,7 +163,7 @@
 <div class="row" id="choiceAlba" align="left">
     <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -173,7 +173,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -183,7 +183,7 @@
       </div>
     <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
       <div class="card h-10">
-        	<img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt="">
+        	<img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt="">
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -192,7 +192,7 @@
          </div>
       </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -202,7 +202,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -212,7 +212,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -222,7 +222,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -232,7 +232,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -242,7 +242,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -252,7 +252,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -262,7 +262,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -272,7 +272,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -282,7 +282,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -292,7 +292,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -301,7 +301,7 @@
          </div>
       </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -311,7 +311,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -321,7 +321,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -331,7 +331,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -341,7 +341,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -351,7 +351,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -361,7 +361,7 @@
       </div>
       <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
       <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
+        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -373,7 +373,31 @@
 </div>
 
 
+<script>
 
+	$(function(){
+		
+		$.ajax({
+				url:"plaAjax.li",
+				type:"get",
+				success:function(data){
+					console.log(data);
+					
+					var $plaImage = $(".plapic"); // <img>
+					
+					$.each(data, function(index, value){
+						console.log(value.onum);
+						console.log(value.savename);
+					});
+				},
+				error:function(){
+					console.log("이미지 불러오기 실패");
+				}
+			});
+			
+		});
+
+</script>
 
 
 
