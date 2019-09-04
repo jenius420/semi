@@ -36,8 +36,7 @@
 		margin-right:auto;
 		margin-top:50px;
 	}
-	table{
-	}
+
 	
 	.tableArea{
 		width:800px;
@@ -46,11 +45,12 @@
 		margin-right:auto;
 	}
 	th{
-		background:lightgray;
+		background:rgb(255, 225, 255);
 		color:black;
+		width:130px;
 	}
 	tr{
-	border-top: 1px solid black;!important;
+		border-top: 1px solid black;!important;
 		border:1px solid purple;
 	}
 	
@@ -70,11 +70,18 @@
 		padding-left:10px;
 	}
 	
+	.btnArea{
+		width:150px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
 		.photo, .detailImgArea{
 		padding:0px; !important;
 		width:250px; !important;
 	
 	}
+	
 </style>
 
 
@@ -96,7 +103,7 @@
 			
 			<table align="center" width="800px" class="listArea">
 				<tr>
-				<td colspan="6" height=30px></td>
+					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
 					<th>제목</th>

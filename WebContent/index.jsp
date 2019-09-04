@@ -28,6 +28,9 @@ input{
 }
 
 </style>
+
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 </head>
 <body>
 <%@ include file="views/common/header.jsp" %>

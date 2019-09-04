@@ -19,7 +19,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+        <title>Donjo - Albamoon site</title>
+    	<meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 
 Flex Template 
 http://www.templatemo.com/tm-406-flex
@@ -36,15 +38,27 @@ http://www.templatemo.com/tm-406-flex
         
         
         <!-- Place somewhere in the <head> of your document -->
+        
+<link rel="stylesheet" href="<%=request.getContextPath() %>/flexslider.css" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/jquery.flexslider.js"></script>
 
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
 $(window).load(function() {
-    //$('.flexslider').flexslider();
+    $('.flexslider').flexslider();
   });
   
+  $(function(){ 
+	  var lastScrollTop = 0, delta = 15; $(window).scroll(function(event){ 
+		  var st = $(this).scrollTop(); if(Math.abs(lastScrollTop - st) <= delta) return; 
+		  if ((st > lastScrollTop) && (lastScrollTop>0)) {
+			  $(".main-header").css("top","0px"); 
+		  } else { 
+			  $(".main-header").css("top","94px");  
+		  } lastScrollTop = st; 
+		}); 
+	});
   
   $(document).ready(function() {
 /* 	    $("#test").on('click', function(){
@@ -78,6 +92,10 @@ $(window).load(function() {
 	    }); */
 	     
 	});
+  
+ 
+
+ 
 </script>
 <style>
 	.menu-first>li>a:hover{
@@ -88,6 +106,8 @@ $(window).load(function() {
 	background-image: url('resources/images/slide2.jpg');
 	}
 </style>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -102,7 +122,7 @@ $(window).load(function() {
                     <div class="container">
                         <div id="menu-wrapper">
                             <div class="row">
-                                <div class="logo-wrapper col-md-2 col-sm-2">
+                                <div class="logo-wrapper col-md-2 col-sm-2" OnClick="location.href ='<%= request.getContextPath()%>/index.jsp'" style="cursor:pointer;">
                                 </div> <!-- /.logo-wrapper -->
                                 
                                 <div class="search-wrapper"> <!-- 수정 -->
@@ -138,18 +158,23 @@ $(window).load(function() {
                         </div> <!-- /#menu-wrapper -->                        
                     </div> <!-- /.container -->
                 </div> <!-- /.main-header -->
-            </div> <!-- /.site-header -->
-        </div>
+            </div> <!-- /.site-header -->      
+        </div> <!-- /.site-main -->
     
    
 
 
 
-        <script src="<%=request.getContextPath() %>/resources/js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write("<script src='<%=request.getContextPath() %>/resources/js/vendor/jquery-1.11.0.min.js'><\/script>")</script>
-        <script src="<%=request.getContextPath() %>/resources/js/bootstrap.js"></script>
-        <script src="<%=request.getContextPath() %>/resources/js/plugins.js"></script>
-        <%-- <script src="<%=request.getContextPath() %>/resources/js/main.js"></script> --%>
 
+
+        <script src="<%=request.getContextPath()%>/resources/js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write("<script src='<%=request.getContextPath()%>/resources/js/vendor/jquery-1.11.0.min.js'><\/script>")</script>
+        <script src="<%=request.getContextPath()%>/resources/js/bootstrap.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/plugins.js"></script>
+        <script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+        
+        
+        
+        
 </body>
 </html>

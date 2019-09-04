@@ -37,7 +37,7 @@
 	
 
 	th{
-		background:lightgray;
+		background:rgb(255, 225, 255);
 		color:black;
 	}
 	tr{
@@ -70,7 +70,7 @@
 	#contentImgArea1, #contentImgArea2, #contentImgArea3{
 		width:250px;
 		height:100px;
-		border:2px solid darkgray;
+		border:2px solid violet;
 		display:table-cell;
 	}
 	#contentImgArea1:hover, #contentImgArea2:hover, #contentImgArea3:hover{
