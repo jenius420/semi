@@ -24,7 +24,7 @@
 }
 input{
   text-align: left;
-  text-align: 
+  font-size: 1px 
 }
 
 </style>

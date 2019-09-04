@@ -46,7 +46,7 @@
   <div class="tableArea">
   	<table class="table table-hover" id="listArea">
     	<tr>
-      		<th width="100">글번호</th>
+      		<th width="100" style="text-align:center">글번호</th>
       		<th width="300">글제목</th>
       		<th width="100">작성자</th>
       		<th width="100">조회수</th>
@@ -62,8 +62,8 @@
 			<% for(Board b : list){ %>
 				<%if(b.getIsNotice().equals("Y")){ %>
 					<tr>
-						<td>공지</td>
-						<td><%= b.getTitle() %></td>
+						<td style="text-align:center"><img src="<%=contextPath%>/photo/logoImages/postIcon2.jpeg"><%= b.gettNum() %></td>
+						<td><img src="<%=contextPath%>/photo/logoImages/postIcon.jpeg"><%= b.getTitle() %></td>
 						<td><%= b.geteName() %></td>
 						<td><%= b.getBoardCount() %></td>
 						<td><%= b.getUpdateDate() %></td>				
@@ -76,13 +76,13 @@
  
      	<% if(list.isEmpty()){ %>
 		<tr>
-			<td colspan="5">조회된 리스트가 없습니다</td>
+			<td colspan="6">조회된 리스트가 없습니다</td>
 		</tr>
 		<% }else{ %>		
 			<% for(Board b : list){ %>
 				<%if(b.getIsNotice().equals("N")){ %>
 					<tr>
-						<td><%= b.gettNum() %></td>
+						<td colspan="1" style="text-align:center"><%= b.gettNum() %></td>
 						<td><%= b.getTitle() %></td>
 						<td><%= b.geteName() %></td>
 						<td><%= b.getBoardCount() %></td>
