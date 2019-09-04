@@ -37,6 +37,8 @@ public class CateSubServlet extends HttpServlet {
 		int listCount = new SearchService().getCateListCount(cate);
 		request.setAttribute("incruitList", list);
 		request.setAttribute("maxPage", (listCount-1)/20+1);
+		request.setAttribute("cate", cate[0]);
+		System.out.println("화아아아긴"+cate[0]);
 		request.getRequestDispatcher("views/search/searchCategoryList.jsp").forward(request, response);
 	}
 

@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <% ArrayList<IncruitInfo> incruitList = (ArrayList)request.getAttribute("incruitList");
  int maxPage = (Integer)request.getSession().getAttribute("maxPage");
+ String dis=(String)request.getAttribute("dis");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,7 +15,8 @@
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 
-<script type="text/javascript" src="<%=request.getContextPath() %>/views/search/js/searchDistrict.js"></script>
+
+
 
 <style>
 	#bigCategory{
@@ -38,6 +40,9 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+<%if(dis!=null&&dis!=""){ %>
+          <input type="hidden" id="choice" value="<%=dis %>" />
+<%} %>
 <div></div>
 	<div class="jumbotron" id="jumbotron">
 	<br /><br /><br />
@@ -116,6 +121,8 @@
         	<button id="searchBtn">검색</button>
         <br /><br /><br />
           <h2 class="sub-header" style="float: left;">검색 결과</h2>
+          
+          
           <br />
           <div class="table-responsive" style="padding-left: 15px;">
             <table class="table table-striped row" id="incruitList">
@@ -187,9 +194,7 @@
         </div>
       </div>
 
-	<script>
-	
-	</script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/views/search/js/searchDistrict.js"></script>
 	
 	<%@ include file="../common/footer.jsp" %>
 </body>

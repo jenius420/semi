@@ -2,16 +2,18 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.Attachment"%>
     
 <%
-	Board b = (Board)request.getAttribute("board"); 
-	Attachment at = (Attachment)request.getAttribute("Attachment"); 
+	/* Board b = (Board)request.getAttribute("board"); */
+	/* Attachment at = (Attachment)request.getAttribute("Attachment"); */
 	
+	Board b = new Board();
+	Attachment at = new Attachment();
 %>    
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>BoardInsert</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 
@@ -136,17 +138,17 @@
 				<tr>
 					<td colspan="2" class="photo">
 						<div id="contentImgArea1">
-							<img id="contentImg1" width="250" height="100">
+							<img id="contentImg1" width="250" height="200">
 						</div>
 					</td>
 					<td colspan="2" class="photo">
 						<div id="contentImgArea2">
-							<img id="contentImg2" width="250" height="100">
+							<img id="contentImg2" width="250" height="200">
 						</div>
 					</td>
 					<td colspan="2" class="photo">
 						<div id="contentImgArea3">
-							<img id="contentImg3" width="250" height="100">
+							<img id="contentImg3" width="250" height="200">
 						</div>
 					</td>
 				</tr>					
@@ -212,13 +214,11 @@
 				
 				<div align="center">
 					<button type="reset">취소하기</button>
-					
 					<button type="submit">등록하기</button>
 				</div>
 		</div>
 			</form>
 		</div>
-	
 	
 </body>
 </html>

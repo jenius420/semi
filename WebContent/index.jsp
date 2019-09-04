@@ -22,6 +22,10 @@
 	color:rgb(176,18,241);
 	cursor: pointer;
 }
+input{
+  text-align: left;
+  text-align: 
+}
 
 </style>
 </head>

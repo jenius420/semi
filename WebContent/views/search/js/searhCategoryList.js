@@ -301,8 +301,23 @@ $(function() {
 		location.href=getContextPath()+"/districtSub.se?dis="+dis;
 	});	
 	
-
+	
+	console.log('나오나'+$('#choice').val());
+	choice();
 });
+
+
+function choice(){
+	var choice = $('#choice').val();
+	for(let i =0; i<20; i++){console.log('forcheck');
+		if($(".category>td").slice(i,i+1).text()==choice){
+			console.log('ifcheck');
+			$(".category>td").slice(i,i+1).css('background', 'rgb(176,18,241)').css('color','white').attr('name', 'checked');
+			return;
+			}
+	};
+}
+
 
 function getContextPath(){
 	return window.location.pathname.substring(0,window.location.pathname.indexOf("/",2));

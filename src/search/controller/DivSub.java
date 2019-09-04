@@ -38,6 +38,7 @@ public class DivSub extends HttpServlet {
 		int listCount = new SearchService().getDistrictListCount(dis);
 		request.setAttribute("incruitList", list);
 		request.setAttribute("maxPage", (listCount-1)/20+1);
+		request.setAttribute("dis", dis[0]);
 		request.getRequestDispatcher("views/search/searchDistrictView.jsp").forward(request, response);
 	}
 

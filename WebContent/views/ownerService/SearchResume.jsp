@@ -133,6 +133,7 @@ width: 95%;
 height: 40%;
 padding:auto;
 margin-left: 0;
+text-overflow: ellipsis;
 }
 
 img{
@@ -140,6 +141,36 @@ width:100%;
 height:100%;
 border-radius: 40px;
 }
+
+
+
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 150px;
+	width: 85%;
+	background: white;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: white;
+}
+#style-1::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: purple;
+}
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: purple;
+
 
 </style>
 </head>
@@ -278,8 +309,11 @@ border-radius: 40px;
 							<label > 희망 급여 : <%= a.getDesireForm() %> <%= a.getDesireIncome() %>원</label>
 						</div>
 					</div>
-					<div class="bottomside">
-						"<%=a.getComment()%>"
+					<div >
+						<!-- class="bottomside"style="text-overflow: ellipsis;   overflow: hidden; width=200px;  " -->
+						<div class="scrollbar" id="style-1">
+						<p >"<%=a.getComment()%>"</p> 
+					    </div>
 					</div>
 				</div>
 				<%}} %>

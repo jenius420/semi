@@ -158,8 +158,8 @@
 					<tr>
 						<td></td>
 						<td>
-							<input name="mailAccept" type="checkbox" value="Y"> 이메일 수신 동의
-							<input name="smsAccept" type="checkbox" value="Y"> 문자수신 동의
+							<input name="mailAccept" id="mailAccept" type="checkbox" value="N"><label for="mailAccept">이메일 수신 동의</label> 
+							<input name="smsAccept" id="smsAccept" type="checkbox" value="N"><label for="smsAccept">문자수신 동의</label> 
 						</td>
 
 					</tr>
@@ -210,9 +210,9 @@
 			$(eId).on('blur', function(e){
 			
 				
-				if(!(/^[a-z0-9]{4,}$/.test(id.value))){
+				if(!(/^[a-z0-9]{4,}$/.test(eId.value))){
 					$(idResult).text("사용할 수 없는 아이디 입니다.");
-					id.value="";
+					eId.value="";
 					
 								
 				}else{
@@ -295,7 +295,6 @@
 			});
 
 
-
 			$(".postcodify").postcodifyPopUp({
         
 			/*
@@ -307,7 +306,22 @@
 			*/
             }); 
 
+			$("#mailAccept").on("cheked", function(){
+				$("#mailAccept").value="Y";
+			});
 
+
+			/*
+			if($("#mailAccept").is(":checked")){
+				$("#mailAccept").value("");
+				$("#mailAccept").value("Y");
+			}
+
+			if($("#smsAccept").is(":checked")){
+				$("#smsAccept").value("");
+				$("#smsAccept").value("Y");
+			}
+			*/
 			
 		});
 			
