@@ -45,8 +45,9 @@
 	}
 	
 	th{
-		background:lightgray;
+		background:rgb(255, 225, 255);
 		color:black;
+		width:130px;
 	}
 	tr{
 	border-top: 1px solid black;!important;
@@ -56,6 +57,7 @@
 	#content{
 		height:230px;
 		border : 1px solid purple;
+		font-size:20px;
 	}
 	#photo{
 		height:130px;
@@ -77,7 +79,7 @@
 	#detailImgArea1, #detailImgArea2, #detailImgArea3{
 		width:120px;
 		height:100px;
-		border:2px solid darkgray;
+		border:2px solid violet;
 		display:table-cell;
 	}
 	#detailImgArea1:hover, #detailImgArea2:hover, #detailImgArea3:hover{
@@ -97,12 +99,17 @@
 	 	height:225px;
 	 	resize:none;
 	 	border:0px;
+	 	color:purple;
 	}
 	
 	.photo{
 		padding:0px;
 		width:250px;
 	
+	}
+	
+	td{
+		width:100px;
 	}
 	
 </style>
@@ -119,13 +126,13 @@
 			
 					<table align="center" width="800px" class="listArea">
 				<tr>
-				<td colspan="6" height=30px></td>
+					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th>게시판 번호</th>
-					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
 					<th>제목</th>
 					<td colspan="3"><input type="text" name="title" value="<%=b.getTitle()%>"></td>
+					<th>게시판 번호</th>
+					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
 				</tr>
 				<tr>
 					<th>작성자</th>

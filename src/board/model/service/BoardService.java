@@ -166,6 +166,9 @@ public class BoardService {
 		int result1 = new BoardDao().updateBoard(conn, board);
 		int result2 = new BoardDao().insertAttachment(conn, fileList, board);
 		
+		System.out.println(result1);
+		System.out.println(result2);
+		
 
 		
 		if(result1 > 0 && result2 > 0) {
