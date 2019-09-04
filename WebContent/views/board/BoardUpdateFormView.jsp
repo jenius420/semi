@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="common.model.vo.Attachment"%>
 <%@page import="board.model.vo.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,11 +6,11 @@
     
     
 <%
-	/* Board b = (Board)request.getAttribute("board"); */
-	/* Attachment at = (Attachment)request.getAttribute("Attachment"); */
-	
-	Board b = new Board();
-	Attachment at = new Attachment();
+	Board b = (Board)request.getAttribute("board");
+	Attachment at = (Attachment)request.getAttribute("Attachment");
+	ArrayList<Attachment> fileList = (ArrayList<Attachment>)request.getAttribute("fileList");
+	String contextPath = request.getContextPath();
+
 %>
     
     
@@ -73,19 +74,19 @@
 		margin-left:auto;
 		margin-right:auto;
 	}
-	#contentImgArea1, #contentImgArea2, #contentImgArea3{
+	#detailImgArea1, #detailImgArea2, #detailImgArea3{
 		width:120px;
 		height:100px;
 		border:2px solid darkgray;
 		display:table-cell;
 	}
-	#contentImgArea1:hover, #contentImgArea2:hover, #contentImgArea3:hover{
+	#detailImgArea1:hover, #detailImgArea2:hover, #detailImgArea3:hover{
 		cursor:pointer;
 	}
 	
-	#fileArea{
+ 	#fileArea{
 		display:none;
-	}
+	} 
 	
 	input{
 		border:0px;
@@ -114,22 +115,25 @@
 		<br>
 		<h2 align="center">게시판 수정</h2>
 		<div class="tableArea">
-			<form action="<%= request.getContextPath() %>/update.bo" method="post">
+			<form action="<%= request.getContextPath() %>/update.bo" method="post" enctype="multipart/form-data">
+			
 					<table align="center" width="800px" class="listArea">
 				<tr>
 				<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
+					<th>게시판 번호</th>
+					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
 					<th>제목</th>
-					<td colspan="5"><input type="text" value="<%= b.getTitle() %>"></td>
+					<td colspan="3"><input type="text" name="title" value="<%=b.getTitle()%>"></td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><%= b.geteName() %></td>
+					<td><input type="text" name="eName" value="<%=b.geteName()%>" readonly></td>
 					<th>작성일</th>
-					<td><%= b.getUpdateDate() %></td>
+					<td><input type="text" name="updateDate" value="<%=b.getUpdateDate()%>" readonly></td>
 					<th>조회수</th>
-					<td><%= b.getBoardCount() %></td>
+					<td><input type="text" name="boardCount" value="<%= b.getBoardCount() %>" readonly></td>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
@@ -139,25 +143,36 @@
 				</tr>
 				<tr>
 					<td colspan="6">
-						<p id="content"><textarea><%= b.getbBody() %></textarea></p>
+						<p id="content"><textarea name="bBody"><%=b.getbBody()%></textarea></p>
 					</td>
 				</tr>
-				<tr>
-					<th colspan="6">첨부사진</th>
-				</tr> 
-				<tr>
-					<td colspan="2" class="photo">
-						<p id="photo"><%= b.getPhoto() %></p>
-					</td>
-					<td colspan="2" class="photo">
-						<p id="photo"><%= b.getPhoto() %></p>
-					</td>
-					<td colspan="2" class="photo">
-						<p id="photo"><%= b.getPhoto() %></p>
-					</td>
-
-					
-				</tr>
+				<% if(fileList.size()>0) { %>
+				
+					<tr>
+						<th colspan="6">첨부사진</th>
+					</tr> 
+					<tr>
+						
+						
+					<% for(int i=0; i<fileList.size(); i++){
+					%>
+							<td colspan="2" class="photo">
+									<div id="detailImgArea<%=i+1%>" style="width:250" style="height:200">
+										<img id="detailImg<%=i+1%>" width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+									</div>
+							</td>
+		
+					<% } %>
+					<% for(int i=0; i<3-fileList.size(); i++){%>
+							<td colspan="2" class="photo">
+									<div id="detailImgArea<%=i+2%>" style="width:250" style="height:200" >
+										<img id="detailImg<%=i+2%>" width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
+									</div>
+							</td>
+					<% } %>
+					</tr>
+				<% } %>
+				
 			</table>
 				
 				
@@ -179,13 +194,13 @@
 				<script>
 					// 미리보기 이미지 영역을 클릭할 때 파일 첨부 창이 뜨도록!
 					$(function(){						
-						$("#contentImgArea1").click(function(){
+						$("#detailImgArea1").click(function(){
 							$("#thumbnailImg1").click();
 						});
-						$("#contentImgArea2").click(function(){
+						$("#detailImgArea2").click(function(){
 							$("#thumbnailImg2").click();
 						});
-						$("#contentImgArea3").click(function(){
+						$("#detailImgArea3").click(function(){
 							$("#thumbnailImg3").click();
 						});
 					});
@@ -206,9 +221,9 @@
 							reader.onload = function(e){
 								
 								switch(num){
-								case 1: $("#contentImg1").attr("src", e.target.result); break;
-								case 2: $("#contentImg2").attr("src", e.target.result); break;
-								case 3: $("#contentImg3").attr("src", e.target.result); break;
+								case 1: $("#detailImg1").attr("src", e.target.result); break;
+								case 2: $("#detailImg2").attr("src", e.target.result); break;
+								case 3: $("#detailImg3").attr("src", e.target.result); break;
 								}
 								
 							}
@@ -220,10 +235,6 @@
 						}
 					}
 				</script>
-				
-				
-				
-
 				
 				<br>
 				<div align="center">

@@ -240,7 +240,35 @@ private Properties prop = new Properties();
 	
 	
 	
-	
+/*	*//**
+	 * 글만 있는 게시글 올리는 호출 
+	 * @param conn
+	 * @param b
+	 * @return
+	 *//*
+	public int onlyInsertBoard(Connection conn, Board b) {
+		int result=0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("onlyInsertBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, Integer.parseInt(b.getCategory()));
+			pstmt.setString(2, b.getbTitle());
+			pstmt.setString(3, b.getbContent());
+			pstmt.setInt(4, Integer.parseInt(b.getbWriter()));
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}*/
 	
 	
 	
@@ -256,7 +284,6 @@ private Properties prop = new Properties();
 	 */
 	public int insertBoard(Connection conn, Board b) {
 		
-		System.out.println("test");
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
@@ -355,6 +382,7 @@ private Properties prop = new Properties();
 			pstmt.setInt(6, b.getBoardCount());
 			
 			result = pstmt.executeUpdate();
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
