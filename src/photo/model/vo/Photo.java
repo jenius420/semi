@@ -2,60 +2,51 @@ package photo.model.vo;
 
 public class Photo {
 	
-	private int oNum;	//사업자회원번호
-	private int saveName;	//저장될사진 이름 및 경로
-	private String wTitle;	// 구인글제목
 	
+	private int wNum;	//글번호
+	private String wTitle;	// 제목
+	private String saveName;	//사진
 	
 	public Photo() {
 		super();
 	}
 
-
-	public Photo(int oNum, int saveName, String wTitle) {
+	public Photo(int wNum, String wTitle, String saveName) {
 		super();
-		this.oNum = oNum;
-		this.saveName = saveName;
+		this.wNum = wNum;
 		this.wTitle = wTitle;
+		this.saveName = saveName;
 	}
 
+	public int getwNum() {
+		return wNum;
+	}
+
+	public void setwNum(int wNum) {
+		this.wNum = wNum;
+	}
 
 	public String getwTitle() {
 		return wTitle;
 	}
 
-
 	public void setwTitle(String wTitle) {
 		this.wTitle = wTitle;
 	}
 
-
-	public int getoNum() {
-		return oNum;
-	}
-
-
-	public void setoNum(int oNum) {
-		this.oNum = oNum;
-	}
-
-
-	public int getSaveName() {
+	public String getSaveName() {
 		return saveName;
 	}
 
-
-	public void setSaveName(int saveName) {
+	public void setSaveName(String saveName) {
 		this.saveName = saveName;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Photo [oNum=" + oNum + ", saveName=" + saveName + ", wTitle=" + wTitle + "]";
+		return "Photo [wNum=" + wNum + ", wTitle=" + wTitle + ", saveName=" + saveName + "]";
 	}
-
-
+	
 	
 
 }

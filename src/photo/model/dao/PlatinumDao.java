@@ -45,7 +45,7 @@ public class PlatinumDao {
 			
 			while(rset.next()) {
 				list.add(new Photo(rset.getInt(1),
-									rset.getInt(2),
+									rset.getString(2),
 									rset.getString(3)));
 			}
 			
