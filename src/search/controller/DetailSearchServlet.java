@@ -13,16 +13,16 @@ import search.model.service.SearchService;
 import search.model.vo.IncruitInfo;
 
 /**
- * Servlet implementation class DivSub
+ * Servlet implementation class SearchListServlet
  */
-@WebServlet("/districtSub.se")
-public class DivSub extends HttpServlet {
+@WebServlet("/detailSearch.se")
+public class DetailSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DivSub() {
+    public DetailSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,13 +32,16 @@ public class DivSub extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String[] dis = {request.getParameter("dis")};
-		System.out.println("dis"+dis[0]);
-		ArrayList<IncruitInfo> list = new SearchService().districtSearch(dis, 1, 20);
-		int listCount = new SearchService().getDistrictListCount(dis);
+		String[] details=new String[20];
+		details=request.getParameter("detail").split(" ");
+		
+		ArrayList<IncruitInfo> list = new SearchService().searchDetail(details,1,20);
+		int listCount = new SearchService().detailListCount(details);
 		request.setAttribute("incruitList", list);
-		request.setAttribute("maxPage", (listCount-1)/20+1);
-		request.getRequestDispatcher("views/search/searchDistrictView.jsp").forward(request, response);
+		request.setAttribute("detail", request.getParameter("detail"));
+		request.getSession().setAttribute("maxPage", listCount);
+		request.getRequestDispatcher("views/search/searchAllView.jsp").forward(request, response);
+		
 	}
 
 	/**
