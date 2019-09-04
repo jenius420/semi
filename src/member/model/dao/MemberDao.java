@@ -86,51 +86,51 @@ public class MemberDao {
 	 * @param pwd
 	 * @return
 	 */
-	public Member loginOwn(Connection conn, String id, String pwd) {
-		
-		Member loginUser = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("loginOwn");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pwd);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				loginUser = new Member(rset.getInt("onum"),
-									   rset.getString("oid"),
-									   rset.getString("opwd"),
-									   rset.getString("opname"),
-									   rset.getInt("opnum"),
-									   rset.getInt("dongnum"),
-									   rset.getInt("roadnum"),
-									   rset.getString("opaddress"),
-									   rset.getString("oName"),
-									   rset.getString("otel"),
-									   rset.getString("ocnum"),
-									   rset.getString("phone"),
-									   rset.getString("email"),
-									   rset.getInt("typenum"),
-									   rset.getString("mailaccept"),
-									   rset.getString("smsaccept"),
-									   rset.getString("roadName"),
-									   rset.getInt("roadMain"),
-									   rset.getInt("roadSub"),
-									   rset.getString("invalidid"),
-									   rset.getString("checkonum")
-									  );
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		return loginUser;
-	}
+//	public Member loginOwn(Connection conn, String id, String pwd) {
+//		
+//		Member loginUser = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rset = null;
+//		String sql = prop.getProperty("loginOwn");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, id);
+//			pstmt.setString(2, pwd);
+//			rset = pstmt.executeQuery();
+//			
+//			if(rset.next()) {
+//				loginUser = new Member(rset.getInt("onum"),
+//									   rset.getString("oid"),
+//									   rset.getString("opwd"),
+//									   rset.getString("opname"),
+//									   rset.getInt("opnum"),
+//									   rset.getInt("dongnum"),
+//									   rset.getInt("roadnum"),
+//									   rset.getString("opaddress"),
+//									   rset.getString("oName"),
+//									   rset.getString("oTel"),
+//									   rset.getString("ocnum"),
+//									   rset.getString("phone"),
+//									   rset.getString("email"),
+//									   rset.getInt("typenum"),
+//									   rset.getString("mailaccept"),
+//									   rset.getString("smsaccept"),
+//									   rset.getString("roadName"),
+//									   rset.getInt("roadMain"),
+//									   rset.getInt("roadSub"),
+//									   rset.getString("invalidid"),
+//									   rset.getString("checkonum")
+//									  );
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close(rset);
+//			close(pstmt);
+//		}
+//		return loginUser;
+//	}
 
 
 	/**
@@ -154,27 +154,27 @@ public class MemberDao {
 			pstmt.setString(4, mem.getEcNum());
 			
 			pstmt.setString(5, mem.getRoadName());
-			pstmt.setInt(7, mem.getRoadMain());
-			pstmt.setInt(8, mem.getRoadSub());
-			pstmt.setString(9, mem.geteAddress());
-			pstmt.setString(10, mem.getPhone());
-			pstmt.setString(11, mem.getEmail());
+			pstmt.setInt(6, mem.getRoadMain());
+			pstmt.setInt(7, mem.getRoadSub());
+			pstmt.setString(8, mem.geteAddress());
+			pstmt.setString(9, mem.getPhone());
+			pstmt.setString(10, mem.getEmail());
+			/*
+			pstmt.setString(12, mem.getMailAccept());
+			pstmt.setString(13, mem.getSmsAccept());
+			*/
 			
-//			pstmt.setString(12, mem.getMailAccept());
-//			pstmt.setString(13, mem.getSmsAccept());
-			
-			if(mem.getMailAccept() == null || mem.getMailAccept() == "") {
+			if(mem.getMailAccept() == null || mem.getMailAccept().equals("")) {
+				pstmt.setString(11, "N");
+			}else {
+				pstmt.setString(11, "Y");
+			}
+			if(mem.getSmsAccept() == null || mem.getSmsAccept( ).equals("")) {
 				pstmt.setString(12, "N");
 			}else {
 				pstmt.setString(12, "Y");
 			}
-				
-				
-			if(mem.getSmsAccept() == null || mem.getSmsAccept( )== "") {
-				pstmt.setString(13, "N");
-			}else {
-				pstmt.setString(13, "Y");
-			}
+			
 			
 			result=pstmt.executeUpdate();
 			
