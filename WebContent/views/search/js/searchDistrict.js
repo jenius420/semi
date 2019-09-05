@@ -53,6 +53,8 @@ $(function() {
 					var $num=$("<td>").text(value.num).css("padding-top", "18px");
 					var $district=$("<td>").text(value.districtName).css("padding-top", "18px");
 					var $td=$("<td>");
+					var $oNum=$("<input>").attr("type","hidden").val(value.oNum);
+					$td.append($oNum);
 					var $opName=$("<a>").html(value.opName+"<br>");
 					var $title=$("<a>").text(value.title);
 					$td.append($opName);
@@ -193,6 +195,8 @@ $(function() {
 						var $num=$("<td>").text(value.num).css("padding-top", "18px");
 						var $district=$("<td>").text(value.districtName).css("padding-top", "18px");
 						var $td=$("<td>");
+						var $oNum=$("<input>").attr("type","hidden").val(value.oNum);
+						$td.append($oNum);
 						var $opName=$("<a>").html(value.opName+"<br>");
 						var $title=$("<a>").text(value.title);
 						$td.append($opName);
@@ -304,6 +308,16 @@ $(function() {
 	
 	
 	choice();
+	
+$('#searchResult>tr>td').click(function(){
+		
+		var num=$(this).parent().children().eq(0).text();
+		var oNum=$(this).parent().children().eq(2).children().eq(0).val();
+		
+		console.log(oNum);
+		location.href=getContextPath()+"/detail.se?num="+num+"&oNum="+oNum;
+	});
+	
 
 });
 

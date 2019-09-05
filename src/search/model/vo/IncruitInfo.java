@@ -35,6 +35,53 @@ public class IncruitInfo {
 	private String totalInfo;
 	private String termName;
 	private String termBigName;
+	private int oNum;
+	public IncruitInfo(int num, String title, String roadName, int roadMain, int roadSub, String districtName,
+			String typeName, String categoryName, String logoSaveName, String pValid, String workDay, String workTime,
+			String workGender, String workAge, String workEdu, Date startDate, Date endDate, String iStatus,
+			String workForm, int salary, int applyProduct, String rExplain, String peopleCount, String opName,
+			String opAddress, String oName, String oTel, String oPhone, String email, String totalInfo, String termName,
+			String termBigName, int oNum) {
+		this.num = num;
+		this.title = title;
+		this.roadName = roadName;
+		this.roadMain = roadMain;
+		this.roadSub = roadSub;
+		this.districtName = districtName;
+		this.typeName = typeName;
+		this.categoryName = categoryName;
+		this.logoSaveName = logoSaveName;
+		this.pValid = pValid;
+		this.workDay = workDay;
+		this.workTime = workTime;
+		this.workGender = workGender;
+		this.workAge = workAge;
+		this.workEdu = workEdu;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.iStatus = iStatus;
+		this.workForm = workForm;
+		this.salary = salary;
+		this.applyProduct = applyProduct;
+		this.rExplain = rExplain;
+		this.peopleCount = peopleCount;
+		this.opName = opName;
+		this.opAddress = opAddress;
+		this.oName = oName;
+		this.oTel = oTel;
+		this.oPhone = oPhone;
+		this.email = email;
+		this.totalInfo = totalInfo;
+		this.termName = termName;
+		this.termBigName = termBigName;
+		this.oNum = oNum;
+	}
+	public int getoNum() {
+		return oNum;
+	}
+	public void setoNum(int oNum) {
+		this.oNum = oNum;
+	}
 	public String getTermName() {
 		return termName;
 	}
