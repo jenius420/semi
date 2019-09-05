@@ -139,6 +139,32 @@ public class EmpServiceDao {
 //		
 //	}
 	
+	public int checkAddHopeEnt(Connection conn, int eNum, int oNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("checkAddHopeEnt");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, eNum);
+			pstmt.setInt(2, oNum);
+	
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
+	}
+	
 	public int addHopeEnt(Connection conn, int eNum, int oNum) {
 		
 		int result = 0;

@@ -1,6 +1,8 @@
 package adminService.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,18 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import adminService.model.service.ManageMemService;
+import empService.model.vo.Emp;
+import ownerService.model.vo.Owner;
 
 /**
- * Servlet implementation class DeleteMemServlet
+ * Servlet implementation class OwnerListServlet
  */
-@WebServlet("/deleteMem.as")
-public class DeleteMemServlet extends HttpServlet {
+@WebServlet("/ownerList.as")
+public class OwnerListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteMemServlet() {
+    public OwnerListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,25 +33,12 @@ public class DeleteMemServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-		
-		int flag = Integer.parseInt(request.getParameter("flag"));
-		String[] memArr = request.getParameterValues("memArr");
-		
-		int count = 0;
-		
-		if(flag == 1) {
-			count = new ManageMemService().deleteEmp(memArr);
-		}else {
-			count = new ManageMemService().deleteOwner(memArr); 
-		}
-		
-		// 비동기 처리?
-		request.setAttribute("msg", count + "개 회원 삭제 완료");
-		request.getRequestDispatcher("/views/adminService/MemList.jsp").forward(request, response);
 
-
+		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
 		
+		
+		request.setAttribute("ownerList", ownerList);
+		request.getRequestDispatcher("/views/adminService/OwnerList.jsp").forward(request, response);
 	}
 
 	/**
