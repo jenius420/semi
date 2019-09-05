@@ -20,6 +20,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 
@@ -45,7 +46,7 @@ http://www.templatemo.com/tm-406-flex
 
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
-$(window).load(function() {
+ $(window).load(function() {
     $('.flexslider').flexslider();
   });
   

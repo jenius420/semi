@@ -17,7 +17,7 @@ import photo.model.vo.Photo;
 /**
  * Servlet implementation class PlatinumPhotoServlet
  */
-@WebServlet("/test.sss")
+@WebServlet("/pla.do")
 public class PlatinumPhotoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

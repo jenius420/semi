@@ -172,7 +172,7 @@ input{
 	$(function(){
 		
 		$.ajax({
-				url:"test.sss",
+				url:"pla.do",
 				
 				type:"get",
 				success:function(data){  
