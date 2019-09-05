@@ -46,13 +46,8 @@ http://www.templatemo.com/tm-406-flex
 
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
-<<<<<<< HEAD
  $(window).load(function() {
-    $('.flexslider').flexslider();
-=======
-$(window).load(function() {
    /*  $('.flexslider').flexslider(); */
->>>>>>> f727e289276c1e24b1fce2e4ee66c570005a0fb3
   });
   
   $(function(){ 
