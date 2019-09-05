@@ -168,218 +168,11 @@ input{
 
 <!--상품적용알바 -->
 
-<div>
+<div class="row" >
 <p style="padding-left: 100px"><strong>플래티넘알바</strong></p>
 <br />
 <div class="row" id="choiceAlba2" align="left">
-    <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-    <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
-      <div class="card h-10">
-        	<img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt="">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12 plapic" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div>  
+    
 	</div>
 </div>
 
@@ -402,18 +195,18 @@ input{
 					
 					var $platinum = $("#choiceAlba2");
 					
-					$platinum.html("");
-					
+					$platinum.html("").css("padding-left","40px").css("padding-right","39px");
+					var i =0;
 					$.each(data, function(index, value){
 						
-						var $div = $("<div>").attr("class","col-lg-2 col-sm-6 mb-4").css("padding-left","5px").css("padding-right","5px"); // <div> </div>
+						var $div = $("<div>").attr("class","col-sm-2 mb-4").css("padding-top","30px"); // <div> </div>
 						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum");
 						var $div1 = $("<div>").attr("class","card h-10");
 						var $div2 = $("<div>").attr("class","card-body");
 						var $a = $("<a>") // <a> </a>
-						var $a1 = $("<a>")
+						var $a1 = $("<a>").text(value.wTitle).css("height","50px");
 						var $h5 = $("<h5>").attr("class","card-title"); // <h5> </h5>
-						var $img = $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/" + value.saveName).attr("class","card-img-top col-lg-12 col-sm-12 plapic") // <img>
+						var $img = $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/" + value.saveName).css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
 						
 						$div.append($div1);
 						$div1.append($a);
@@ -422,7 +215,8 @@ input{
 						$div2.append($h5);
 						$h5.append($a1);
 						// <div> <div>  <a> <img> </a> </div> <div> <h5> <a> </a> </h5> </div> </div>
-						
+						 
+						i++;
 						$platinum.append($div)
 					});
 				},
