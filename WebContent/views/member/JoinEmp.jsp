@@ -202,7 +202,6 @@
 		var ecNum2 = document.getElementById("ecNum2");
 		var ecNumResult = document.getElementById("ecNumResult");
 		
-		var ecNumResult = document.getElementById("ecNumResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
 		var emailResult = document.getElementById("emailResult");
@@ -271,11 +270,19 @@
 				if(!(/^[가-힣]{2,5}$/.test(eName.value))){
 					$(nameResult).text("성명을 확인 해주세요.");
 					eName.value="";
+				}else{
+					$(nameResult).text("");
 				}
 			});
+			
+
+			
 
 			$(ecNum2).on('blur', function(e){  
 				
+				var arrNum1 = new Array();
+				var arrNum2 = new Array();
+
 			    for (var i=0; i<ecNum1.value.length; i++) {
 					arrNum1[i] = ecNum1.value.charAt(i);
 				} // 주민번호 앞자리를 배열에 순서대로 담는다.
@@ -300,12 +307,12 @@
 				} // 같은방식으로 앞 번호 계산한것의 합에 뒷번호 계산한것을 모두 더함
 
 				if((11-(tempSum%11))%10!=arrNum2[6]) {
-					ecNumResult.value="주민등록번호를 확인해주세요."
+					$(ecNumResult).text("주민등록번호를 확인 해주세요.");
 					ecNum1.value = "";
 					ecNum2.value = "";
 					return false;
 				}else{
-					ecnumR.value="올바른 주민번호 입니다."
+					$(ecNumResult).text("");
 				}
     
 			});

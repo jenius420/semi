@@ -83,7 +83,7 @@ public class Member {
 
 
 
-	// 사장
+	// 사업자
 	public Member(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, int roadNum,
 			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
 			String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub, String invalidId, String checkoNum) {
