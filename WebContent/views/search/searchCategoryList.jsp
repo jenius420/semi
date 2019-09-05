@@ -5,7 +5,7 @@
 
 <% response.setContentType("text/html; charset=utf-8"); %>
 <% ArrayList<IncruitInfo> incruitList = (ArrayList)request.getAttribute("incruitList");
- int maxPage = (Integer)request.getSession().getAttribute("maxPage");
+ int maxPage = (Integer)request.getAttribute("maxPage");
  String cate = (String)request.getAttribute("cate");
 %>
 
@@ -36,7 +36,7 @@
 #pageCheck{
 	background:gray;
 }
-#districtSub>div:hover, .district>td:hover{
+#districtSub>div:hover, .category>td:hover{
 	color:rgb(176,18,241);
 	cursor: pointer;
 }

@@ -24,6 +24,7 @@ public class Member {
 	private String ocNum;		// 사업자 주민번호
 	private int typeNum;		// 업직종 번호 
 	private String checkoNum;	// 사업자번호 확인 여부
+	private String subCategory;
 	
 	
 	// 공통
@@ -37,6 +38,7 @@ public class Member {
 	private String roadName;	
 	private int roadMain;		//
 	private int roadSub;		//
+	
 	private String invalidId;	// 탈퇴 유무
 	//private int dongNum;		
 	//private String phone;		
@@ -157,6 +159,7 @@ public class Member {
 		this.smsAccept = smsAccept;
 		this.invalidId = invalidId;
 		this.checkoNum = checkoNum;
+		
 		this.kind = 2;
 	}
 
@@ -183,7 +186,7 @@ public class Member {
 	
 	// 사업자 회원가입
 	public Member(String oId, String oPwd, String opName, String opNum, String opAddress, String oName, String oTel,
-			String ocNum, String phone, String email, /*int typeNum,*/ String mailAccept, String smsAccept, String roadName,
+			String ocNum, String phone, String email, String subCategory, String mailAccept, String smsAccept, String roadName,
 			int roadMain, int roadSub) {
 		super();
 		this.oId = oId;
@@ -196,7 +199,7 @@ public class Member {
 		this.ocNum = ocNum;
 		this.phone = phone;
 		this.email = email;
-		//this.typeNum = typeNum;
+		this.subCategory = subCategory;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
 		this.roadName = roadName;
@@ -218,6 +221,19 @@ public class Member {
 		this.kind = 2;
 	}
 	
+
+	
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
+
 
 	public int getKind() {
 		return kind;

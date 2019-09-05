@@ -49,12 +49,18 @@ public class InsertOwnServlet extends HttpServlet {
 		String phone2 = request.getParameter("phone2");				// 휴대전화2
 		String phone3 = request.getParameter("phone3");				// 휴대전화3
 		String phone = phone1 + "-" + phone2 + "-" + phone3;		// 휴대전화
-		String email1 = request.getParameter("email1");				// 이메일1
-		String email2 = request.getParameter("email2");				// 이메일2
+		String email1 = request.getParameter("email");				// 이메일1
 		//int typeNum = Integer.parseInt(request.getParameter());	// 업직종번호
-		String email = email1 + email2;								// 이메일
+		String email = email1;										// 이메일
 		String mailAccept = request.getParameter("mailAccept");		// 메일수신동의
+		if(mailAccept==null) {
+			mailAccept="N";
+		}
 		String smsAccept = request.getParameter("smsAccept");		// 문자수신동의
+		if(smsAccept==null) {
+			smsAccept="N";
+		}
+		String subCategory = request.getParameter("subCategory");	//업직종
 		String address = request.getParameter("address");			// 주소
 		String opAddress = request.getParameter("oAddress");		// 나머지주소
 				
@@ -97,7 +103,7 @@ public class InsertOwnServlet extends HttpServlet {
 		
 		
 		
-		Member mem = new Member(oId, pwd, opName, opNum, opAddress, oName, oTel, ocNum, phone, email, /*typeNum,*/ mailAccept, smsAccept, roadName, roadMain, roadSub);
+		Member mem = new Member(oId, pwd, opName, opNum, opAddress, oName, oTel, ocNum, phone, email, subCategory, mailAccept, smsAccept, roadName, roadMain, roadSub);
 		
 		int result = new MemberService().insertOwn(mem);
 		

@@ -11,6 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script src="<%=request.getContextPath()%>/views/member/js/joinOwnJs.js"></script>
 <title>기업 회원 가입</title>
 <style>
 
@@ -191,13 +192,8 @@
 				<tr>
 					<td><b>메일주소</b></td>
 					<td>
-						<input id="email1" name="email1" type="text" size="13"></input> @
-						<select id="email2" name="email2"> 
-							<option value="@gmail.com">gmail.com</option>
-							<option value="@naver.com">naver.com</option>
-							<option value="@daum.net">daum.net</option>
-							<option value="@nate.com">nate.com</option>
-						</select>
+						<input id="email1" name="email" type="email" size="20"></input>
+						
 						
 					</td>
 					<td><label id="emailResult"></label></td>
@@ -208,18 +204,21 @@
 				<tr>
 					<td><b>업직종명</b></td>
 					<td>
-						<select>
+						<select id="bigCategory" name="bigCategory">
 							<option></option>
 						</select>
 					</td>
-					<td></td>
+					<td >
+					<select id="subCategory" name="subCategory">
+							<option></option>
+					</select></td>
 				</tr>
 
 				<tr>
 					<td></td>
 					<td>
-						<input name="mailAccept" id="mailAccept" type="checkbox"><label for="mailAccept">이메일 수신 동의</label> 
-						<input name="smsAccept" id="smsAccept" type="checkbox"><label for="smsAccept">문자수신 동의</label> 
+						<input name="mailAccept" id="mailAccept" type="checkbox" value="N"><label for="mailAccept">이메일 수신 동의</label> 
+						<input name="smsAccept" id="smsAccept" type="checkbox" value="N"><label for="smsAccept">문자수신 동의</label> 
 					</td>
 
 				</tr>
@@ -324,12 +323,12 @@
 				}
 			});
 
-			$(email1).on('blur', function(){
+			/*  $(email1).on('blur', function(){
 				if(!(/^[a-z0-9]{4,}$/.test(email1.value))){
 					$(emailResult).text("이메일을 확인 해주세요.");
 					email1.value="";
 				}
-			});
+			});  */
 
 			$(opNum3).on('blur', function(){
 				
@@ -406,22 +405,16 @@
 
 			$(".postcodify").postcodifyPopUp({
         
-			/*
-			insertPostcode5 : "#postcode",
+			
+			/* insertPostcode5 : "#postcode",
 			insertAddress : "#address",
 			insertDetails : "#details",
 			insertExtraInfo : "#extra_info",
-			hideOldAddresses : false
-			*/
+			hideOldAddresses : false */
+			
 			}); 
 			
-			$("#mailAccept").on("cheked", function(){
-				$("#mailAccept").value="Y";
-			});
-
-			$("#smsAccept").on("cheked", function(){
-				$("#smsAccept").value="Y";
-			});
+			
 
 
 			

@@ -50,7 +50,6 @@ public class CategorySearchServlet extends HttpServlet {
 		}
 		int maxPage = (listCount-1)/ boardLimit + 1;
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		System.out.println("currentPage:"+currentPage);
 		int movePage;
 		if (mPage.equals("<<")||mPage.equals("&lt&lt")) {
 			movePage = 1;
@@ -75,12 +74,9 @@ public class CategorySearchServlet extends HttpServlet {
 			movePage = Integer.parseInt(mPage);
 		}
 		System.out.println("list movePage"+movePage);
-//		for (int i = 0; i < district.length; i++) {
-//			System.out.println(district[i]);
-//		}
+
 		ArrayList<IncruitInfo> list;
 
-		// ------페이징 처리----------
 
 		int pageLimit;// 한페이지 하단에 보여질 페이지수
 		int startPage;// 한페이지 하단에 보여질 시작 페이지

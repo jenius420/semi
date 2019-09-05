@@ -6,8 +6,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
+import member.model.vo.Category;
 import member.model.vo.Member;
 
 import static common.JDBCTemplate.*;
@@ -96,24 +98,24 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				loginUser = new Member(rset.getInt("onum"),
-									   rset.getString("oid"),
-									   rset.getString("opwd"),
-									   rset.getString("opname"),
-									   rset.getString("opnum"),
-									   rset.getInt("dongnum"),
-									   rset.getInt("roadnum"),
-									   rset.getString("opaddress"),
-									   rset.getString("oname"),
-									   rset.getString("otel"),
-									   rset.getString("ocnum"),
-									   rset.getString("phone"),
-									   rset.getString("email"),
-									   rset.getInt("typenum"),
-									   rset.getString("mailaccept"),
-									   rset.getString("smsaccept"),
-									   rset.getString("invalidid"),
-									   rset.getString("checkonum")
+				loginUser = new Member(rset.getInt(1),
+									   rset.getString(2),
+									   rset.getString(3),
+									   rset.getString(4),
+									   rset.getString(5),
+									   rset.getInt(6),
+									   rset.getInt(7),
+									   rset.getString(8),
+									   rset.getString(9),
+									   rset.getString(10),
+									   rset.getString(11),
+									   rset.getString(12),
+									   rset.getString(13),
+									   rset.getInt(14),
+									   rset.getString(15),
+									   rset.getString(16),
+									   rset.getString(17),
+									   rset.getString(18)
 									  );
 			}
 		} catch (SQLException e) {
@@ -207,17 +209,12 @@ public class MemberDao {
 			pstmt.setString(11, mem.getOcNum());
 			pstmt.setString(12, mem.getPhone());
 			pstmt.setString(13, mem.getEmail());
+			pstmt.setString(14, mem.getSubCategory());
+		
+			pstmt.setString(15, mem.getMailAccept());
 			
-			if(mem.getMailAccept() == null || mem.getMailAccept().equals("")) {
-				pstmt.setString(14, "N");
-			}else {
-				pstmt.setString(14, "Y");
-			}
-			if(mem.getSmsAccept() == null || mem.getSmsAccept( ).equals("")) {
-				pstmt.setString(15, "N");
-			}else {
-				pstmt.setString(15, "Y");
-			}
+			pstmt.setString(16, mem.getSmsAccept());
+			
 			
 			result=pstmt.executeUpdate();
 			
@@ -391,6 +388,55 @@ public class MemberDao {
 		
 		return userId;
 		
+	}
+
+
+	public ArrayList<Category> getBigCategory(Connection conn) {
+		ArrayList<Category> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset =null;
+		String sql = prop.getProperty("getBigCategory");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rset=pstmt.executeQuery();
+			while(rset.next()) {
+				Category c =new Category();
+				c.setBigCategory(rset.getString(1));
+				list.add(c);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+
+
+	public ArrayList<Category> getSubCategory(Connection conn, String bigCategoryName) {
+		ArrayList<Category> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset =null;
+		String sql = prop.getProperty("getSubCategory");
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, bigCategoryName);
+			rset=pstmt.executeQuery();
+			while(rset.next()) {
+				Category c =new Category();
+				c.setSubCategory(rset.getString(1));
+				list.add(c);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 
 
