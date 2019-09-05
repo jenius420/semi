@@ -5,6 +5,19 @@ public class OPhoto {
 	private String saveName;
 	private int oNum;
 	private String validPhoto;
+	private int wNum;
+	public OPhoto(int pNum, String saveName, String validPhoto, int wNum) {
+		this.pNum = pNum;
+		this.saveName = saveName;
+		this.validPhoto = validPhoto;
+		this.wNum = wNum;
+	}
+	public int getwNum() {
+		return wNum;
+	}
+	public void setwNum(int wNum) {
+		this.wNum = wNum;
+	}
 	public int getpNum() {
 		return pNum;
 	}

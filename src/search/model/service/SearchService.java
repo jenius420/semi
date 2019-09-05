@@ -86,6 +86,13 @@ public class SearchService {
 		return p;
 	}
 
+	public ArrayList<OPhoto> incruitPhotos(int num) {
+		Connection conn = getConnection();
+		ArrayList<OPhoto> list = new SearchDao().incruitPhotos(conn,num);
+		close(conn);
+		return list;
+	}
+
 
 
 	

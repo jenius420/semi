@@ -177,7 +177,14 @@ $('#searchResult>tr>td').click(function(){
 		location.href=getContextPath()+"/cateSub.se?cate="+cate;
 	});	
 	
-
+	$(document).on("click", "#searchResult>tr>td", function(){
+		var num=$(this).parent().children().eq(0).text();
+		
+		var oNum=$(this).parent().children().eq(2).children().eq(0).val();
+		
+		console.log("oNum check :"+oNum);
+		location.href=getContextPath()+"/detail.se?num="+num+"&oNum="+oNum;
+	});
 	
 	
 

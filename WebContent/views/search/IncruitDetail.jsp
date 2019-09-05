@@ -5,7 +5,7 @@
 <%
 	IncruitInfo i = (IncruitInfo)request.getAttribute("info");
 	OPhoto p = (OPhoto)request.getAttribute("logo");
-	
+	ArrayList<OPhoto> pList = (ArrayList<OPhoto>)request.getAttribute("pList");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -44,18 +44,18 @@
 		<div class="col-sm-2"></div>
 		<div class="col-sm-4"
 			style="height: 250px; border: 1px solid lightgrey;">
-			<img class="card-img-top col-lg-12 col-sm-12"
+			<img class="card-img-top col-lg-12 col-sm-12" style="padding-top:50px; width: auto; height: auto; max-width:300px ;max-height: 200px;" 
 				<% if(p==null){%>
-					src="<%=request.getContextPath() %>/photo/logoImages/noLogo.jpg" >
+					src="<%=request.getContextPath() %>/photo/logoImages/noLogo.jpg" 
 				<%}else{ %>
-					src="<%=request.getContextPath() %>/photo/logoImages/<%=p.getSaveName() %>" />
-				<%} %>
+					src="<%=request.getContextPath() %>/photo/logoImages/<%=p.getSaveName() %>" 
+				<%} %>/>
 				
 		</div>
 		<div class="col-sm-4"
-			style="height: 250px; border: 1px solid lightgrey;">
-			<p>회사명 :</p>
-			<p>대표자명 :</p>
+			style="height: 250px;padding-top:50px; border: 1px solid lightgrey;">
+			<p>회사명 : <%=i.getOpName() %></p>
+			<p>대표자명 : <%=i.getoName() %></p>
 			<p>
 				업종 :
 				<%=i.getCategoryName()%>,
@@ -72,7 +72,7 @@
 				마감일 :
 				<%=i.getEndDate() %></p>
 		</div>
-		<div class="col-sm-6" align="center" style="padding-right: 100px;">
+		<div class="col-sm-6" style="padding-left:200px;padding-right: 100px; padding-top: 70px;">
 			<p>
 				급여 : <strong><%=i.getWorkForm() %></strong><%=i.getSalary() %>원
 			</p>
@@ -104,7 +104,11 @@
 		<div class="col-sm-12" style="height: 100px;"></div>
 		<div class="col-sm-12">
 			<div class="col-sm-12" id="photo">
-			
+				<%if(pList!=null){ %>
+					<%for(int j=0; j<pList.size(); j++){ %>
+						<img src="<%=request.getContextPath()%>/..../<%= pList.get(j).getSaveName() %>"/>
+					<%} %>
+				<%} %>
 			</div>
 			
 			<div class="col-sm-12" style="height: 700px;">
@@ -118,6 +122,11 @@
 					<%} %>
 				</div>
 			</div>
+				<%if(loginUser!=null){ %>
+				<div class="buttons" style="padding-left: 450px;">
+					<button class="btn btn-default" onclick="popup();">지원하기</button>
+				</div>
+				<%} %>
 		</div>
 		<%@ include file="../common/footer.jsp"%>
 	</div>

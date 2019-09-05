@@ -377,6 +377,30 @@ public class SearchDao {
 		return p;
 	}
 
+	public ArrayList<OPhoto> incruitPhotos(Connection conn, int num) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<OPhoto> list = new ArrayList<>();
+		String sql = prop.getProperty("incruitPhoto");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rset=pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(new OPhoto(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getInt(4)));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
 
 	
 	
