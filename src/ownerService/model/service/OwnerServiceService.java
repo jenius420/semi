@@ -20,14 +20,17 @@ public class OwnerServiceService {
 		Connection conn = getConnection();
 
 		Owner owner = new OwnerServiceDao().selectOwner(conn, oNum);
-		District district = new CommonService().selectDistrict(owner.getDongNum(), owner.getRoadNum());
 		
+		District district = new CommonService().selectDistrict(owner.getRoadNum());
 		owner.setDistrictNum(district.getDistrictNum());
 		owner.setDistrict(district.getDistrictName());
+		
+		Owner returnOwner = new OwnerServiceDao().addRoad(conn, owner);
+		
 
 		close(conn);
 
-		return owner;
+		return returnOwner;
 		
 	}
 	
@@ -39,7 +42,7 @@ public class OwnerServiceService {
 		Resume r = null;
 		
 		for(Appliant a : alist) {
-			r = new ResumeDao().selectResume(conn, a.getrNum());
+			r = new OwnerServiceDao().selectResume(conn, a.getrNum());
 			list.add(r);
 		}
 		

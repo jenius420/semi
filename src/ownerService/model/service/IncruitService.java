@@ -180,6 +180,18 @@ public class IncruitService {
 		return result;
 		
 	}
+	
+	public int reCheckResume(int rNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = new IncruitDao().reCheckResume(conn, rNum);
+		
+		close(conn);
+
+		return result;
+		
+	}
 
 
 }

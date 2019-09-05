@@ -20,18 +20,18 @@
 <style>
 
 .column1 {
-  width: 30%;
+  width: 33%;
 
    text-align: center;
 }
 
 .column2 {
-  width: 28%;
+  width: 22%;
   text-align: center;
 }
 
 .column3 {
-  width: 15%;
+  width: 18%;
    text-align: center;
 }
 
@@ -148,7 +148,7 @@ padding-left:2px;
 													<th class="cell100 column2 <%if(i.getStatus().equals("N")){%>doneIncruit<%}%>"><%=i.getTermName()%> / <%=i.getWorkDay()%> / <%=i.getWorkTime()%></th>
 													<th class="cell100 column3 <%if(i.getStatus().equals("N")){%>doneIncruit<%}%>"><%=i.getEnrollDate()%> ~ <%=i.getDoneDate()%></th>
 													<th class="cell100 column4 <%if(i.getStatus().equals("N")){%>doneIncruit<%}%>"><%=i.getSalaryForm()%> <%if(i.getSalaryForm().equals("협의")){}else{ %><%=i.getSalary()%>원<% }%></th>
-													<th class="cell100 column5 <%if(i.getStatus().equals("N")){%>doneIncruit<%}%>"><%=i.getProduct()%></th>
+													<th class="cell100 column5 <%if(i.getStatus().equals("N")){%>doneIncruit<%}%>"><%=i.getProduct()%> 상품</th>
 													<th class="cell100 column6 <%if(i.getStatus().equals("N")){%>doneIncruit<%}%>"><%if(i.getStatus().equals("Y")){%>진행중<%}else{%>마감<%} %></th>
 												</tr>
 											</thead>
@@ -161,7 +161,7 @@ padding-left:2px;
 												<%for(int j=0; j<alist.size(); j++) {%>
 													<%for(Resume r : rlist){ %>
 														<%if(alist.get(j).getwNum() == i.getwNum() && alist.get(j).getrNum() == r.getrNum()){ %>
-															<tr <%if(i.getStatus().equals("Y")){%> onclick="selectIncruit(<%=r.getrNum()%>);" class="row100 body selectHover" <%}else{%> class="row100 body"<%} %> >
+															<tr <%if(i.getStatus().equals("N")||r.getInvalid().equals("Y")){%>class="row100 body" <%}else{%> onclick="selectIncruit(<%=r.getrNum()%>);" class="row100 body selectHover" <%} %> >
 																<td class="cell100 column00 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>"></td>
 																<td class="cell100 column11 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>"><%=r.geteName()%></td>
 																<td class="cell100 column22 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">19 남</td>
@@ -174,6 +174,9 @@ padding-left:2px;
 																	<%}else if(alist.get(j).getPassOrFail().equals("P")){%>합격
 																	<%}else if(alist.get(j).getPassOrFail().equals("F")){%>탈락
 																	<%}%>
+																	<%if(r.getInvalid().equals("Y")){ %>
+																		(이력서 삭제됨)
+																	<%} %>
 																</td>
 																<td class="cell100 column77"></td>
 															</tr>	

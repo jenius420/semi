@@ -44,6 +44,8 @@ public class ManageResumeServlet extends HttpServlet {
 		Member mem = (Member)request.getSession().getAttribute("loginUser");
 		Emp emp = new EmpServiceService().selectEmp(mem.geteNum());
 		
+//		Emp emp = new EmpServiceService().selectEmp(1);
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("emp", emp);
 		

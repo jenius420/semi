@@ -64,7 +64,7 @@
     	<div class="esm1">이력서</div>
        	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageResume.es';">이력서 관리</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';">이력서 작성</div>
-        <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/suitableIncruit.es';">이력서 맞춤 알바는 후순위..</div>
+        <!-- <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/suitableIncruit.es';">이력서 맞춤 알바</div> -->
     </div>
     <div class="space"></div>
     

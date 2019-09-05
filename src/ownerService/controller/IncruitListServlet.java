@@ -41,13 +41,13 @@ public class IncruitListServlet extends HttpServlet {
 //		Member mem = (Member)request.getSession().getAttribute("loginUser");
 //		Owner owner = new OwnerServiceService().selectOwner(mem.getoNum());
 		
-		Owner owner = new OwnerServiceService().selectOwner(9);
-//		Owner owner = new OwnerServiceService().selectOwner(2);
+		Owner owner = new OwnerServiceService().selectOwner(95);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("owner", owner);
 		
 		ArrayList<Incruit> list = new IncruitService().selectIncruitList(owner.getoNum());
+	
 
 		
 

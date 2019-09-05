@@ -18,13 +18,13 @@
 <style>
 
 .column1 {
-  width: 25%;
+  width: 33%;
 
    text-align: center;
 }
 
 .column2 {
-  width: 28%;
+  width: 20%;
   text-align: center;
 }
 

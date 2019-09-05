@@ -55,22 +55,31 @@
 					</div>
 					
 					<div class='form-row'>	
-					  <label class='lLabel'>전화번호</label><p class="rLabel"><%=owner.getoTel() %></p>
+					  <label class='lLabel'>전화번호</label><p class="rLabel">
+					  	<%if(owner.getoTel() == null){%>
+					  	 	없음
+					  	 <%}else{ %>
+					  	 	<%=owner.getoTel()%>
+					  	 <%}%>
+					  </p>
 					</div>
 					
 					<div class='form-row'>
-					  <label class='lLabel'>주소</label> <p class="rLabel"><%=owner.getDistrict()%> 
-					  <%if (owner.getRoadName() == null){ %>
-					 	 <%=owner.getDongName()%> <%=owner.getDongMain()%> <%=owner.getDongSub()%>
-					  <%}else{ %>
-					  	 <%=owner.getRoadName()%> <%=owner.getRoadMain()%> <%=owner.getRoadSub()%>
-					   <%}%>
-					  <%=owner.getOpAddress()%></p>
+					  <label class='lLabel'>주소</label> <p class="rLabel">
+						<%if(owner.getRoadName() != null){%>
+					  	 	<%=owner.getRoadName()%> <%=owner.getRoadMain()%>-<%=owner.getRoadSub()%> <%=owner.getOpAddress()%>
+					  	 <%}else{ %>
+					  	 	<%if(owner.getOpAddress() !=null){%>
+					  	 		<%=owner.getOpAddress()%>
+					  	 	<%}else{ %>
+					  	 		미확인
+					  	 	<%}%>
+					  	 <%}%></p>
 					</div>
 					
 					<div class='form-row'>
 					  <label class='lLabel'>업종</label>
-					  <p class="rLabel"><%=owner.getCategory() %> :: <%=owner.getType() %></p>
+					  <p class="rLabel" style="width:auto;"><%=owner.getCategory() %> :: <%=owner.getType() %></p>
 					</div>
 		
 					<br><br>
@@ -104,16 +113,19 @@
 					
 					<div class='form-row'>
 					  <label for='workTime'>근무 시간</label>
-						 <input id='workTime' name='workTime' type='text' style="width:120px; margin-bottom:10px;"/> <label style="font-size:14px; color: gray;">ex) 09:00 ~ 18:00 </label>
+						 <input id='workTime' name='workTime' type='text' style="width:200px; margin-bottom:10px;"/> <!--  <label style="font-size:14px; color: gray;">ex) 09:00 ~ 18:00 </label>-->
 					</div>
 					
 					<div class='form-row'>
-					  <label for='workAge1'>희망 연령</label>  
+					  <label for='workAge1'>희망 연령</label>
+					  <input id='workAge' name='workAge' type='text' style="width:150px; margin-bottom:10px;"/>
+					  <!-- 
 					  <input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;"/>
 					  <p class="rLabel"  style="width:35px; padding:2px 0px;">세 ~ </p>
 					  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;"/>
 					  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;">세</p>
 					  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y'/><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>  
+						 -->
 					</div>
 					
 					<div class='form-row'>
@@ -127,12 +139,12 @@
 					
 					<div class='form-row'>
 					  <label for='workEdu'>희망 학력</label>
-					  <select id='workEdu' name='workEdu' style="width:70px;">
-					    <option value='대졸'>대졸</option>
-					    <option value='대학생'>대학생</option>
-					    <option value='고졸'>고졸</option>
-					    <option value='중졸'>중졸</option>
-					  </select><label style="font-size:14px; color: gray; text-align:left; padding:2px 4px;"> 이상</label>
+					  <select id='workEdu' name='workEdu' style="width:150px;">
+					 	 <option value='무관'>무관</option>
+					    <option value='대졸 이상(4년제)'>대졸 이상(4년제)</option>
+					    <option value='대졸 이상(2,3년제)'>대졸 이상(2,3년제)</option>
+					    <option value='고졸 이상'>고졸 이상</option>
+					  </select>
 					</div>
 					
 					<div class='form-row'>

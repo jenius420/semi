@@ -42,21 +42,6 @@ public class EmpEvalManageServlet extends HttpServlet {
 		ArrayList<EmpEvaluation> empEval = new EmpEvalService().selectEmpEval(emp.getEmpNum());
 		ArrayList<EmpEvaluationBefore> empEvalBf = new EmpEvalService().selectEmpEvalBefore(emp.getEmpNum());
 		
-		// 샘플 데이터
-		EmpEvaluation e = new EmpEvaluation();
-		e.setSevalPoint(4);
-		e.setSevalNum(1);
-		e.seteComment("화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅화이팅");
-		empEval.add(e);
-		
-		EmpEvaluation e2 = new EmpEvaluation();
-		e2.seteComment("what?");
-		e2.setSevalPoint(2);
-		empEval.add(e2);
-		
-		EmpEvaluationBefore e3 = new EmpEvaluationBefore();
-		e3.setOpName("kh정보교육원");
-		empEvalBf.add(e3);
 
 		request.setAttribute("empEvalBf", empEvalBf);
 		request.setAttribute("empEval", empEval);

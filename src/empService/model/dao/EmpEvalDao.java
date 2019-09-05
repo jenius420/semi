@@ -96,8 +96,8 @@ public class EmpEvalDao {
 				
 					eval.setApplyNum(rs.getInt("APPLYNUM"));
 					eval.seteNum(rs.getInt("ENUM"));
-					eval.seteNum(rs.getInt("RNUM"));
-					eval.seteNum(rs.getInt("ONUM"));
+					eval.setrNum(rs.getInt("RNUM"));
+					eval.setoNum(rs.getInt("ONUM"));
 					eval.setwNum(rs.getInt("WNUM"));
 					eval.setwTitle(rs.getString("WTITLE"));
 					eval.setOpName(rs.getString("OPNAME"));

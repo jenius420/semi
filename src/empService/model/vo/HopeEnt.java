@@ -13,6 +13,8 @@ public class HopeEnt {
 	private String district;
 	private String dong;
 	private String roadName;
+	private int roadMain;
+	private int roadSub;
 	private String opAddress;
 	
 	public HopeEnt() {
@@ -38,6 +40,22 @@ public class HopeEnt {
 
 	
 	
+	public int getRoadMain() {
+		return roadMain;
+	}
+
+	public void setRoadMain(int roadMain) {
+		this.roadMain = roadMain;
+	}
+
+	public int getRoadSub() {
+		return roadSub;
+	}
+
+	public void setRoadSub(int roadSub) {
+		this.roadSub = roadSub;
+	}
+
 	public String getRoadName() {
 		return roadName;
 	}

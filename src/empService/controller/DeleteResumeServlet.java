@@ -36,16 +36,17 @@ public class DeleteResumeServlet extends HttpServlet {
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
 //	String changeName = request.getParameter("changeName");
 		
-		Attachment at = new ResumeService().selectAttachment(rNum);
-		String changeName = at.getChangeName();
+//		디컴
+//		Attachment at = new ResumeService().selectAttachment(rNum);
+//		String changeName = at.getChangeName();
 		
 		int result = new ResumeService().deleteResume(rNum);
 		
 		
 		if(result > 0) {
 			
-			File failedFile = new File(request.getContextPath() + "/photo/resumeImage/" + changeName);
-			failedFile.delete();
+//			File failedFile = new File(request.getContextPath() + "/photo/resumeImage/" + changeName);
+//			failedFile.delete();
 			
 			response.sendRedirect("manageResume.es");
 		}else {

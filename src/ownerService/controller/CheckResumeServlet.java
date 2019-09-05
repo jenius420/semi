@@ -33,12 +33,10 @@ public class CheckResumeServlet extends HttpServlet {
 		
 		int rNum = (int)request.getAttribute("rNum");
 		
-		int result = new IncruitService().checkResume(rNum);
+		int result = new IncruitService().reCheckResume(rNum);
 		
 		if(result > 0) {
-			request.setAttribute("msg", "처리 성공");	
-//			request.getRequestDispatcher("/views/ownerService/ManageEmp.jsp").forward(request, response);
-//			response.sendRedirect("manageEmp.os");
+			response.sendRedirect("manageEmp.os");
 			
 		}else {
 			request.setAttribute("msg", "처리 실패");

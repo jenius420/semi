@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import empService.model.service.EmpEvalService;
+import empService.model.vo.Emp;
 import empService.model.vo.EmpEvaluation;
 
 /**
@@ -35,6 +36,8 @@ public class MakeEmpEvalServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
+		
 		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
 		int oNum = Integer.parseInt(request.getParameter("oNum"));
 		String eComment = request.getParameter("eComment");
@@ -42,6 +45,7 @@ public class MakeEmpEvalServlet extends HttpServlet {
 		
 		EmpEvaluation eval = new EmpEvaluation();
 		
+		eval.seteNum(emp.getEmpNum());
 		eval.setApplyNum(applyNum);
 		eval.setoNum(oNum);
 		eval.seteComment(eComment);

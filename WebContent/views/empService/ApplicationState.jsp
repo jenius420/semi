@@ -69,7 +69,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 		
 		<div id="content-center">
 		
-		
+		<form action="" id="detailForm" method="post">
 		<!--===============================================================================================-->	
 			<div class="limiter">
 			<div class="container-table100">
@@ -94,7 +94,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 							<table>
 								<tbody>
 									<%if(list.isEmpty()){%>
-										<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+										<tr class="row100 body"  style="height:200px;"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 									<%}else{ 
 										for(Appliant a : list) {
 											String status = null;
@@ -112,10 +112,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 											<td class="cell100 column3"><%=a.getEndDate()%></td>
 											<td class="cell100 column4"><%=a.getApplyDate()%></td>
 											<td class="cell100 column5"><%=status%></td>
-											<td class="cell100 column6"><%if(!a.getPassOrFail().equals("P")) {%><input type="button" class="gs-btn" style="padding: 10px 10px" value="취소" onclick="cancleAppliant();">
-											<form action="" id="detailForm" method="post">
-												<input type="hidden" name="applyNum" value="<%=a.getApplyNum()%>">
-											</form><%} %></td>
+											<td class="cell100 column6"><%if(!a.getPassOrFail().equals("P")) {%><input type="button" class="gs-btn" style="padding: 10px 10px" value="취소" onclick="cancleAppliant(<%=a.getApplyNum()%>);"><%} %></td>	
 										</tr>
 										<%}}%>
 								</tbody>
@@ -126,14 +123,14 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 			</div>
 			</div>
 			<!--===============================================================================================-->	
-		
+			</form>
 			<script>
-				function cancleAppliant(){
+				function cancleAppliant(applyNum){
 						
 					var con = confirm("지원을 취소하시겠습니까?");
 					
 					if(con){
-						$("#detailForm").attr("action", "<%=request.getContextPath()%>/cancleAppliant.es");
+						$("#detailForm").attr("action", "<%=request.getContextPath()%>/cancleAppliant.es?applyNum="+applyNum);
 						$("#detailForm").submit();
 					}else{
 						return false;

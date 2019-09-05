@@ -197,7 +197,6 @@ public class EmpServiceDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
 		String sql = prop.getProperty("selectInterestOwner");
 		
 		try {
@@ -210,7 +209,7 @@ public class EmpServiceDao {
 				while(rs.next()) {
 					
 					he = new HopeEnt();
-					
+	
 					he.sethNum(rs.getInt("HNO"));
 					he.seteNum(rs.getInt("ENUM"));
 					he.setoNum(rs.getInt("ONUM"));
@@ -231,18 +230,18 @@ public class EmpServiceDao {
 			close(rs);
 			close(pstmt);
 		}
-		
+
 		return list;
 		
 	}
 	
 
-	public ArrayList<HopeEnt> addDong(Connection conn, ArrayList<HopeEnt> iList) {
+	public ArrayList<HopeEnt> addRoad(Connection conn, ArrayList<HopeEnt> iList) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = prop.getProperty("addDong");
+		String sql = prop.getProperty("addRoad");
 		
 		try {
 				
@@ -257,9 +256,11 @@ public class EmpServiceDao {
 					
 						hs.setOpName(rs.getString("OPNAME"));
 						hs.setOpAddress(rs.getString("OPADDRESS"));
-						hs.setDong(rs.getString("DONG"));
 						hs.setRoadName(rs.getString("RoadName"));
-	
+						hs.setRoadMain(rs.getInt("RoadMAIN"));
+						hs.setRoadSub(rs.getInt("RoadSUB"));
+						hs.setDistrict(rs.getString("districtname"));
+		
 					}
 				}
 
@@ -274,12 +275,12 @@ public class EmpServiceDao {
 		return iList;
 	}
 	
-	public ArrayList<Incruit> addDong2(Connection conn, ArrayList<Incruit> iList) {
+	public ArrayList<Incruit> addRoad2(Connection conn, ArrayList<Incruit> iList) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = prop.getProperty("addDong");
+		String sql = prop.getProperty("addRoad2");
 		
 		try {
 				
@@ -287,16 +288,17 @@ public class EmpServiceDao {
 					
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, hs.getoNum());
-					
+
 					rs = pstmt.executeQuery();
 					
 					while(rs.next()) {
 					
 						hs.setOpName(rs.getString("OPNAME"));
 						hs.setAddress(rs.getString("OPADDRESS"));
-						hs.setDong(rs.getString("DONG"));
 						hs.setRoadName(rs.getString("RoadName"));
-	
+						hs.setRoadMain(rs.getInt("RoadMAIN"));
+						hs.setRoadSub(rs.getInt("RoadSUB"));
+						hs.setDistrict(rs.getString("districtname"));
 					}
 				}
 
@@ -359,12 +361,15 @@ public class EmpServiceDao {
 					
 					incruit = new Incruit();
 					
+					incruit.setoNum(hList.get(i).getoNum());
 					incruit.setwNum(rs.getInt("WNUM"));
 					incruit.setwTitle(rs.getString("WTITLE"));
 					incruit.setOpName(rs.getString("OPNAME"));
 					incruit.setTermName(rs.getString("TERMNAME"));
 					incruit.setWorkDay(rs.getString("WORKDAY"));
 					incruit.setWorkTime(rs.getString("WORKTIME"));
+					incruit.setAge(rs.getString("WORKage"));
+					incruit.setGender(rs.getString("WORKgender"));
 					incruit.setCategory(rs.getString("CATEGORYNAME"));
 					incruit.setType(rs.getString("TYPENAME"));
 					incruit.setSalaryForm(rs.getString("WORKFORM"));

@@ -106,11 +106,10 @@
 				
 				<div class='form-row'>
 				  <label for='edu'>최종학력</label>
-				  <select id='edu' name='edu'>
-				    <option value='대졸'>대졸</option>
-				    <option value='대학 재학생'>대학 재학생</option>
-				    <option value='대학 휴학생'>대학 휴학생</option>
-				    <option value='고졸'>고졸</option>
+				  <select id='edu' name='edu' style="width:150px;" >
+				    <option value='대졸 이상(4년제)'>대졸 이상(4년제)</option>
+				    <option value='대졸 이상(2,3년제)'>대졸 이상(2,3년제)</option>
+				    <option value='고졸 이상'>고졸 이상</option>
 				  </select>
 				</div>
 				

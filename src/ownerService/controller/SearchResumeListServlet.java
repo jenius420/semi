@@ -64,6 +64,7 @@ public class SearchResumeListServlet extends HttpServlet {
 
 		ArrayList<Resume> list = new IncruitService().selectSearchResumeList(keyword, filter);
 		ArrayList<Resume> list2 = new ResumeService().selectAttachmentList(list); // 사진 추가
+		
 		ArrayList<District> dList = new CommonService().selectDistrictList();
 		ArrayList<JobType> tList = new CommonService().selectTypeList();
 		

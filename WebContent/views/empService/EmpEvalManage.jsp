@@ -140,7 +140,7 @@ display:none;
 								<table>
 									<tbody>
 										<%if(empEval.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+											<tr class="row100 body"><td colspan="5" style="text-align:center; height:200px;">존재하는 내용이 없습니다.</td></tr>
 										<%}else{ 
 											for(EmpEvaluation a : empEval) {%>
 											<tr class="row100 body">
@@ -210,15 +210,15 @@ display:none;
 								<table>
 									<tbody>
 										<%if(empEvalBf.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+											<tr class="row100 body"><td colspan="5" style="text-align:center; height:200px;">존재하는 내용이 없습니다.</td></tr>
 										<%}else{ 
 											for(EmpEvaluationBefore a : empEvalBf) {%>
 											
 											<tr class="row100 body" style="height:60px;">
-												<td class="cell100 column11" style="padding-left:40px;"><%=a.getwTitle()%></td>
-												<td class="cell100 column22" style="padding-left:50px;"><%=a.getOpName()%></td>
+												<td class="cell100 column11" ><%=a.getwTitle()%></td>
+												<td class="cell100 column22" ><%=a.getOpName()%></td>
 												<td class="cell100 column33">
-													<div class='form-row' style="padding-left:30px;">
+													<div class='form-row' >
 													  <textarea id='comment' name='eComment' style="width:450px; min-height:80px; margin-top:12px;"></textarea>
 													</div>
 												</td>
@@ -240,10 +240,7 @@ display:none;
 													    <label for="rate1" title="Terrible">1 star</label>
 													  </fieldset>
 												</td>
-												<td class="cell100 column55"><input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="makeEmpEval();">
-													<input type="hidden" name="oNum" value="<%=a.getoNum()%>">
-													<input type="hidden" name="applyNum" value="<%=a.getApplyNum()%>">
-												</td> 
+												<td class="cell100 column55"><input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="makeEmpEval(<%=a.getoNum()%>,<%=a.getApplyNum()%>);"></td> 
 											</tr>
 											
 											<%}}%>
@@ -271,12 +268,12 @@ display:none;
 					}
 				}
 				
-				function makeEmpEval(){
+				function makeEmpEval(oNum,applyNum){
 					
 					var con = confirm("후기를 등록하시겠습니까?");
 					
 					if(con){
-						$("#detailForm2").attr("action", "<%=request.getContextPath()%>/makeEmpEval.es");
+						$("#detailForm2").attr("action", "<%=request.getContextPath()%>/makeEmpEval.es?oNum="+oNum+"&applyNum="+applyNum);
 						$("#detailForm2").submit();
 					}else{
 						return false;

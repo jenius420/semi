@@ -48,14 +48,10 @@ public class UpdateIncruitServlet extends HttpServlet {
 		incruit.setTermNo(Integer.parseInt(request.getParameter("termNo")));
 		incruit.setWorkTime(request.getParameter("workTime"));
 		incruit.setGender(request.getParameter("workGender"));
-		if(request.getParameter("workAgeCheck") != null && request.getParameter("workAgeCheck").equals("Y")){
-			incruit.setAge("무관");
-		}else {
-			incruit.setAge(request.getParameter("workAge1") + "~" + request.getParameter("workAge2"));
-		}
+		incruit.setAge(request.getParameter("workAge"));
 		incruit.setEdu(request.getParameter("workEdu"));
 		incruit.setSalaryForm(request.getParameter("workForm"));
-		int salary = Integer.parseInt(request.getParameter("salary"));
+		incruit.setSalary(Integer.parseInt(request.getParameter("salary")));
 		incruit.setPeopleCount(request.getParameter("peopleCount"));
 		incruit.setpNum(Integer.parseInt(request.getParameter("applyProduct")));	
 		incruit.setDescription(request.getParameter("rExplain"));

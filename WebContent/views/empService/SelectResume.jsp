@@ -91,7 +91,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 				
 				<div class='form-row'>
 				  <label for='eduNum'>학력</label>
-				  <select id='eduNum' name='eduNum' disabled="disabled">
+				  <select id='eduNum' name='eduNum' disabled="disabled" style="width:150px;">
 				    <option ><%=edu%></option>
 				  </select>
 				</div>
@@ -141,7 +141,7 @@ Attachment at = (Attachment)request.getAttribute("at");
 			}
 		</script>
 		
-	'changeName='+'<%=at.getChangeName()%>'
+
 			</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>

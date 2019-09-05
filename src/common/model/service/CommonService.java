@@ -13,18 +13,12 @@ import ownerService.model.vo.Appliant;
 
 public class CommonService {
 	
-	public District selectDistrict(int dongNum, int roadNum) {
+	public District selectDistrict(int roadNum) {
 		
 		Connection conn = getConnection();
 		
-		District district = null;
-		
-		if(dongNum == 0) {
-			district = new CommonDao().selectDistrict1(conn, roadNum);
-		}else {
-			district = new CommonDao().selectDistrict2(conn, dongNum);
-		}
-		
+		District district = new CommonDao().selectDistrict1(conn, roadNum);
+
 		close(conn);
 
 		return district;

@@ -73,7 +73,7 @@ public class EmpServiceService {
 		Connection conn = getConnection();
 
 		ArrayList<HopeEnt> iList = new EmpServiceDao().selectInterestOwner(conn, empNum);
-		ArrayList<HopeEnt> hList = new EmpServiceDao().addDong(conn, iList);
+		ArrayList<HopeEnt> hList = new EmpServiceDao().addRoad(conn, iList);
 		
 		close(conn);
 
@@ -104,7 +104,7 @@ public class EmpServiceService {
 		Connection conn = getConnection();
 
 		ArrayList<Incruit> iList = new EmpServiceDao().selectInterestIncruit(conn, hList);
-		ArrayList<Incruit> iList2 = new EmpServiceDao().addDong2(conn, iList);
+		ArrayList<Incruit> iList2 = new EmpServiceDao().addRoad2(conn, iList);
 		
 		close(conn);
 

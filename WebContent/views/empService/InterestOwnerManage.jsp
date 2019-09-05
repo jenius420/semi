@@ -23,7 +23,7 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 }
 
 .column2 {
-  width: 35%;
+  width: 25%;
   text-align: center;
 }
 
@@ -33,7 +33,7 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 }
 
 .column4 {
-  width: 20%;
+  width: 25%;
    text-align: center;
 }
 .column5 {
@@ -42,7 +42,7 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 }
 
 .column11 {
-  width: 20%;
+  width: 25%;
   padding-left: 40px;
    text-align: center;
 }
@@ -53,21 +53,21 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 }
 
 .column33 {
-  width: 20%;
+  width: 15%;
    text-align: center;
 }
 
 .column44 {
-  width: 20%;
+  width: 25%;
    text-align: center;
 }
 .column55 {
-  width: 13%;
+  width: 10%;
    text-align: center;
 }
 
 .column66 {
-  width: 12%;
+  width: 10%;
    text-align: center;
 }
 
@@ -112,6 +112,7 @@ display:none;
 				<input type="radio" name="hopeOwner" onclick="showBox(this);"  id="hopeOwnerIncruit"><label for="hopeOwnerIncruit">관심기업 공고</label>		
 			</div>
 		
+			<form action="" id="deleteForm" method="post">
 			<div id="hopeOwnerBox" class="box">
 				<!--===============================================================================================-->	
 				<div class="limiter">
@@ -141,23 +142,29 @@ display:none;
 											<%for(HopeEnt a : hList) {%>
 											<tr class="row100 body" style="height:40px;">
 												<td class="cell100 column1"><%=a.getOpName()%></td>
-												<td class="cell100 column2"><%=a.getDong()%> <%=a.getOpAddress()%></td>
+												<td class="cell100 column2">
+												<%if(a.getRoadName() != null) {%>
+													<%=a.getDistrict()%> <%=a.getRoadName()%> <%=a.getRoadMain()%>-<%=a.getRoadSub()%> <%=a.getOpAddress()%>
+												<%}else{%>
+													<%if(a.getOpAddress() !=null){%>
+											  	 		<%=a.getOpAddress()%>
+											  	 	<%}else{ %>
+											  	 		미확인
+											  	 	<%}%>
+												<%} %>
+												</td>
 												<td class="cell100 column3"><%=a.getPhone()%></td>
 												<td class="cell100 column4"><%=a.getCategory()%> :: <%=a.getType()%></td>
-												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInterest();">
-													<form action="" id="deleteForm" method="post">
-														<input type="hidden" name="hNo" value="<%=a.gethNum()%>">
-													</form>
-												</td>
+												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInterest(<%=a.gethNum()%>);"></td>
 											</tr>
 											<%}}%>
 											<script>		
-												function deleteInterest(){
+												function deleteInterest(hNo){
 													
 													var con = confirm("관심기업에서 삭제 하시겠습니까");
 													
 													if(con){
-														$("#deleteForm").attr("action", "<%=request.getContextPath()%>/deleteInterestOwnerServlet.es");
+														$("#deleteForm").attr("action", "<%=request.getContextPath()%>/deleteInterestOwnerServlet.es?hNo="+hNo);
 														$("#deleteForm").submit();
 													}else{
 														return false;
@@ -172,9 +179,9 @@ display:none;
 				</div>
 				</div>
 				<!--===============================================================================================-->	
-			
+				
 			</div>
-			
+			</form>
 			
 			
 			<div id="hopeOwnerIncruitBox" class="box">
@@ -189,7 +196,7 @@ display:none;
 										<tr class="row100 head">
 											<th class="cell100 column11">공고 제목</th>
 											<th class="cell100 column22">업체명</th>
-											<th class="cell100 column33">위치</th>
+											<th class="cell100 column33">희망 나이/성별</th>
 											<th class="cell100 column44">근무시간</th>
 											<th class="cell100 column55">급여</th>
 											<th class="cell100 column66">공고 마감일</th>
@@ -206,14 +213,12 @@ display:none;
 										<%}else{ 
 											for(Incruit a : wList) {%>
 											<tr class="row100 body select" onclick="selectIncruit(<%=a.getwNum()%>);">
-												<td class="cell100 column11"><%=a.getwTitle()%></td>
-												<td class="cell100 column22"><%=a.getOpName()%></td>
-												<td class="cell100 column33">
-													<%if(a.getDong() != null){%> <%=a.getDong()%> <%}else{%> <%=a.getRoadName()%> <%}%> <%=a.getAddress()%> 
-												</td>
-												<td class="cell100 column44"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
-												<td class="cell100 column55"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
-												<td class="cell100 column66"><%=a.getDoneDate()%></td>
+												<td class="cell100 column11" style="font-size: 13px;"><%=a.getwTitle()%></td>
+												<td class="cell100 column22" style="font-size: 13px;"><%=a.getOpName()%></td>
+												<td class="cell100 column33" style="font-size: 13px;"><%=a.getAge()%> / <%=a.getGender()%></td>
+												<td class="cell100 column44" style="font-size: 13px;"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
+												<td class="cell100 column55" style="font-size: 13px;"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
+												<td class="cell100 column66" style="font-size: 13px;"><%=a.getDoneDate()%></td>
 		
 											</tr>
 											<%}}%>
@@ -257,13 +262,7 @@ display:none;
 	
 				</script>
 		
-		
-
-
-	추가: 팝업으로 비동기(중복안되게)
-	삭제: 각 열 옆에 삭제 버튼 deleteInterestOwnerServlet.es input oNum
 	
-	공고 클릭 시 watchingIncruit2.es input wnum
 
 		</div> <!-- /메인콘텐트 -->
 			

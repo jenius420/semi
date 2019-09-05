@@ -42,7 +42,7 @@ padding: 8px;
 margin-top:20px;
 margin-bottom:20px;
 background-color: #faf4ff;
-width:90%;
+width:95%;
 }
 
 .filter{
@@ -199,7 +199,7 @@ border-radius: 40px;
 		
 			<div class="searchResume">
 			
-				<div class="filter">
+				<div class="filter" style="margin-left:15px;">
 					 <label for='districtNum' >희망근무지(구)</label>
 					  <select id='districtNum' name='districtNum'>
 					  	<%for(District d : dList) {%>
@@ -227,10 +227,9 @@ border-radius: 40px;
 					 <label for='edu'>학력</label>
 					  <select id='edu' name='edu'>
 					  	<option value='무관' <%if(filter != null && filter.getFinalEdu() == null){%>selected<%}%>>무관</option>
-					    <option value='대졸' <%if(filter != null && filter.getFinalEdu().equals("대졸")){%>selected<%}%>>대졸</option>
-					    <option value='대학 재학생' <%if(filter != null && filter.getFinalEdu().equals("대학 재학생")){%>selected<%}%>>대학 재학생</option>
-					    <option value='대학 휴학생' <%if(filter != null && filter.getFinalEdu().equals("대학 휴학생")){%>selected<%}%>>대학 휴학생</option>
-					    <option value='고졸' <%if(filter != null && filter.getFinalEdu().equals("고졸")){%>selected<%}%>>고졸</option>
+					    <option value='대졸 이상(4년제)' <%if(filter != null && filter.getFinalEdu().equals("대졸 이상(4년제)")){%>selected<%}%>>대졸 이상(4년제)</option>
+					    <option value='대졸 이상(2,3년제)' <%if(filter != null && filter.getFinalEdu().equals("대졸 이상(2,3년제)")){%>selected<%}%>>대졸 이상(2,3년제)</option>
+					    <option value='고졸 이상' <%if(filter != null && filter.getFinalEdu().equals("고졸 이상")){%>selected<%}%>>고졸 이상</option>
 					  </select>
 				</div>
 				

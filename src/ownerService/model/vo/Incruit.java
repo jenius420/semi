@@ -31,8 +31,8 @@ public class Incruit {
 	private String dongSub;
 	private int roadNum; // 거리코드
 	private String roadName;
-	private String roadMain;
-	private String roadSub;
+	private int roadMain;
+	private int roadSub;
 	private int districtNum; // 구코드
 	private String district; 
 	private String address;
@@ -48,8 +48,8 @@ public class Incruit {
 	public Incruit(int wNum, String wTitle, int oNum, String opName, String workDay, String workTime, int termNo,
 			String termName, String termBigName, String gender, String age, String edu, Date enrollDate, String status,
 			Date doneDate, String salaryForm, int salary, int pNum, String product, String description, String peopleCount,
-			int dongNum, String dong, String dongMain, String dongSub, int roadNum, String roadName, String roadMain,
-			String roadSub, int districtNum, String district, String address, int typeNum, String type, String category) {
+			int dongNum, String dong, String dongMain, String dongSub, int roadNum, String roadName, int roadMain,
+			int roadSub, int districtNum, String district, String address, int typeNum, String type, String category) {
 		super();
 		this.wNum = wNum;
 		this.wTitle = wTitle;
@@ -314,19 +314,21 @@ public class Incruit {
 		this.roadName = roadName;
 	}
 
-	public String getRoadMain() {
+	
+
+	public int getRoadMain() {
 		return roadMain;
 	}
 
-	public void setRoadMain(String roadMain) {
+	public void setRoadMain(int roadMain) {
 		this.roadMain = roadMain;
 	}
 
-	public String getRoadSub() {
+	public int getRoadSub() {
 		return roadSub;
 	}
 
-	public void setRoadSub(String roadSub) {
+	public void setRoadSub(int roadSub) {
 		this.roadSub = roadSub;
 	}
 

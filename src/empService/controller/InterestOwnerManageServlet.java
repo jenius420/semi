@@ -40,7 +40,7 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Emp emp = (Emp)request.getSession().getAttribute("emp");
-		
+	
 		ArrayList<HopeEnt> hList = new EmpServiceService().selectInterestOwner(emp.getEmpNum());
 		ArrayList<Incruit> wList = new EmpServiceService().selectInterestIncruit(hList);
 
@@ -48,7 +48,7 @@ public class InterestOwnerManageServlet extends HttpServlet {
 		request.setAttribute("hList", hList);
 		request.setAttribute("wList", wList);
 		request.getRequestDispatcher("/views/empService/InterestOwnerManage.jsp").forward(request, response);		
-
+		
 	}
 
 	/**
