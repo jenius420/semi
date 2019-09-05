@@ -201,9 +201,12 @@ public class Member {
 		this.roadMain = roadMain;
 		this.roadSub = roadSub;
 	}
-
-
-
+	
+	// 아이디 찾기
+	public Member(String eId) {
+		super();
+		this.eId = eId;
+	}
 
 
 

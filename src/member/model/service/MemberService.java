@@ -67,6 +67,11 @@ public class MemberService {
 		return result;
 	}
 	
+	/**
+	 * 사업자 회원가입
+	 * @param mem
+	 * @return
+	 */
 	public int insertOwn(Member mem) {
 		
 		Connection conn = getConnection();
@@ -140,6 +145,34 @@ public class MemberService {
 		close(conn);
 		
 		return result;
+	}
+
+	/**
+	 * 개인 아이디 찾기
+	 * @param id
+	 * @param cNum
+	 * @return
+	 */
+	public Member findIdEmp(String id, String cNum) {
+		
+		Connection conn = getConnection();
+		
+		Member userId = new MemberDao().findIdEmp(conn, id, cNum);
+		
+		close(conn);
+		
+		return userId;
+	}
+
+	public Member fidIdOwn(String id, String cNum) {
+
+		Connection conn = getConnection();
+		
+		Member userId = new MemberDao().findIdOwn(conn, id, cNum);
+		
+		close(conn);
+		
+		return userId;
 	}
 
 
