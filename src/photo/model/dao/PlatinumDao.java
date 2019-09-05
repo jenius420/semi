@@ -46,7 +46,8 @@ public class PlatinumDao {
 			while(rset.next()) {
 				list.add(new Photo(rset.getInt(1),
 									rset.getString(2),
-									rset.getString(3)));
+									rset.getString(3),
+									rset.getInt(4)));
 			}
 			
 		} catch (SQLException e) {

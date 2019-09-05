@@ -1,13 +1,13 @@
 package photo.model.dao;
 
-import static common.JDBCTemplate.*;
+import static common.JDBCTemplate.close;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -30,29 +30,35 @@ public class RecommendDao {
 
 	
 	
-	public ArrayList<Photo> selectRecommend(Connection conn){
+	public ArrayList<Photo> selectRecommend(Connection conn, int eNum){
 		ArrayList<Photo> list = new ArrayList<>();
 		
-		Statement stmt = null;
+		/*Statement stmt = null;*/
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectRecommend");
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, eNum);
+			
+			rset = pstmt.executeQuery();
+			
 			
 			while(rset.next()) {
 				list.add(new Photo(rset.getInt(1),
 									rset.getString(2),
-									rset.getString(3)));
+									rset.getString(3),
+									rset.getInt(4)));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		return list;

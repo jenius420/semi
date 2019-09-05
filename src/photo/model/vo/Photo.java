@@ -5,17 +5,46 @@ public class Photo {
 	
 	private int wNum;	//글번호
 	private String wTitle;	// 제목
-	private String saveName;	//사진
+	private String saveName;//사진
+	private int eNum;	//회원번호
+	private int oNum;	//사업자번호
 	
 	public Photo() {
 		super();
 	}
+	
+	
 
-	public Photo(int wNum, String wTitle, String saveName) {
+	public Photo(int eNum) {
+		super();
+		this.eNum = eNum;
+	}
+
+
+
+	public Photo(int wNum, String wTitle, String saveName,int oNum) {
 		super();
 		this.wNum = wNum;
 		this.wTitle = wTitle;
 		this.saveName = saveName;
+		this.oNum = oNum;
+	}
+
+
+	public int geteNum() {
+		return eNum;
+	}
+
+	public void seteNum(int eNum) {
+		this.eNum = eNum;
+	}
+
+	public int getoNum() {
+		return oNum;
+	}
+
+	public void setoNum(int oNum) {
+		this.oNum = oNum;
 	}
 
 	public int getwNum() {
@@ -44,7 +73,8 @@ public class Photo {
 
 	@Override
 	public String toString() {
-		return "Photo [wNum=" + wNum + ", wTitle=" + wTitle + ", saveName=" + saveName + "]";
+		return "Photo [wNum=" + wNum + ", wTitle=" + wTitle + ", saveName=" + saveName + ", eNum=" + eNum + ", oNum="
+				+ oNum + "]";
 	}
 	
 	

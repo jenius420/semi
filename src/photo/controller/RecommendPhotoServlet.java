@@ -36,7 +36,9 @@ public class RecommendPhotoServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		ArrayList<Photo> list = new RecommendService().selectRecommend();
+		int eNum = Integer.parseInt(request.getParameter("eNum"));
+		
+		ArrayList<Photo> list = new RecommendService().selectRecommend(eNum);
 	
 		Gson gson = new Gson();
 		response.setContentType("application/json; charset=utf-8");
