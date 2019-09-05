@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import search.model.vo.IncruitInfo;
+import search.model.vo.OPhoto;
 
 import static common.JDBCTemplate.*;
 
@@ -96,7 +97,7 @@ public class SearchDao {
 						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
 						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
 						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31)));
+						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
 //				i 1,4,5,20,21 d16,17			
 			}
 		} catch (SQLException e) {
@@ -130,7 +131,7 @@ public class SearchDao {
 						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
 						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
 						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31)));
+						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
 //				i 1,4,5,20,21 d16,17			
 			}
 		} catch (SQLException e) {
@@ -227,7 +228,7 @@ public class SearchDao {
 						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
 						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
 						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31)));
+						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
 //				i 1,4,5,20,21 d16,17			
 			}
 		} catch (SQLException e) {
@@ -269,7 +270,7 @@ public class SearchDao {
 						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
 						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
 						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31)));
+						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
 
 			}
 			
@@ -316,6 +317,64 @@ public class SearchDao {
 		
 		
 		return result;
+	}
+
+	public IncruitInfo detailView(Connection conn, int num) {
+		IncruitInfo i = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailView");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				i=	new IncruitInfo(rset.getInt(1), rset.getString(2), rset.getString(3), 
+						rset.getInt(4), rset.getInt(5), rset.getString(6), rset.getString(7), 
+						rset.getString(8), rset.getString(9), rset.getString(10), rset.getString(11), 
+						rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getDate(16), 
+						rset.getDate(17), rset.getString(18),  rset.getString(19), rset.getInt(20), 
+						rset.getInt(21), rset.getString(22), rset.getString(23), rset.getString(24), rset.getString(25), 
+						rset.getString(26), rset.getString(27), rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getInt(33));
+			System.out.println(i);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return i;
+	}
+
+	public OPhoto searchLogo(Connection conn, int num) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("searchLogo");
+		OPhoto p =null;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				p=new OPhoto(rset.getInt(1), rset.getString(2), rset.getInt(3), rset.getString(4));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		
+		return p;
 	}
 
 

@@ -1,12 +1,14 @@
 package search.model.service;
 
+import static common.JDBCTemplate.close;
+import static common.JDBCTemplate.getConnection;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import search.model.dao.SearchDao;
 import search.model.vo.IncruitInfo;
-
-import static common.JDBCTemplate.*;
+import search.model.vo.OPhoto;
 
 
 public class SearchService {
@@ -68,6 +70,20 @@ public class SearchService {
 		close(conn);
 		
 		return result;
+	}
+
+	public IncruitInfo detailView(int num) {
+		Connection conn = getConnection();
+		IncruitInfo i = new SearchDao().detailView(conn,num);
+		close(conn);
+		return i;
+	}
+
+	public OPhoto searchLogo(int num) {
+		Connection conn = getConnection();
+		OPhoto p =new SearchDao().searchLogo(conn,num);
+		close(conn);
+		return p;
 	}
 
 

@@ -40,6 +40,11 @@
 	color:rgb(176,18,241);
 	cursor: pointer;
 }
+#searchResult>tr:hover{
+	color:rgb(176,18,241);
+	background: lightgrey;
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -121,7 +126,7 @@
           <h2 class="sub-header" style="float: left;">검색 결과</h2>
           <br />
           <div class="table-responsive" style="padding-left: 15px;">
-            <table class="table table-striped row" id="incruitList">
+            <table class="table row" id="incruitList">
               <thead style="border: 1px solid lightgray; ">
                 <tr>
                   <th class="col-sm-1"></th>
@@ -139,10 +144,11 @@
                   <td style="padding-top: 18px;"><%=incruitList.get(i).getNum() %></td>
                   <td style="padding-top: 18px;"><%=incruitList.get(i).getDistrictName() %></td>
                   <td>
-                  	<div >
+                  	
+                  	<input type="hidden" value=<%=incruitList.get(i).getoNum() %> />
                   	<a><%=incruitList.get(i).getOpName() %></a><br />
                   	<a><%=incruitList.get(i).getTitle() %></a>
-                  	</div>
+                  	
                   </td>
                   <td style="padding-top: 18px;">
                   	<%if(incruitList.get(i).getWorkForm().equals("시급")){ %>
