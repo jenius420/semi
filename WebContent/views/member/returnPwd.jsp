@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<title>비밀번호 변경</title>
+<style>
+    .outer{
+        /* border: 1px solid black; */
+        width: 390px;
+        resize: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+    }
+
+    .btn{
+        height: 80px;
+        width: 120px;
+        background: rgb(176, 19, 242);
+        border: none;  
+    }
+
+    td{
+        width: 250px;
+        height: 50px;
+        resize: none;
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+	}
+
+</style>
+
+
+</head>
+<body>
+    <div>
+        <form form id="updatePwd" onsubmit="return Validate();" method="post" action="<%= request.getContextPath()%>/returnPwd.me ">
+
+            <table>
+                
+                <tr>
+                    <td>
+                        새로운 <br> 
+                        비밀번호
+                    </td>
+                    <td><input type="password" name="pwd" id="pwd" maxlength="15"></td>
+                    <td rowspan="2"><button type="submit" id="findId" class="btn btn-secondary" onclick="returnPwd();">비밀번호 <br> 변경</button></td>
+                </tr>
+                <tr>
+                    <td>
+                        비밀번호 <br>
+                        확인
+                    </td>
+                    <td>
+                        <input id="pwd2" name="pwd2" type="password"  maxlength="7"></input>
+                    </td>
+                </tr>
+                
+            </table>
+
+            
+        </form>
+    </div>
+</body>
+</html>
