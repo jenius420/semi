@@ -31,9 +31,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<style>
+.tableArea{
+	width:800px;
+	height:350px;
+	margin-left:auto;
+	margin-right:auto;
+}
+</style>
+
+</head>
   <body>
   
   <%@ include file="../common/header.jsp"%>
+  	<div></div>
+	<div class="jumbotron" id="jumbotron">
+		<br />
+		<br />
+		<br /> <br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
   
     <h1 align="center">게시판 리스트</h1>
 

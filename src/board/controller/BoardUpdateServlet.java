@@ -96,9 +96,9 @@ public class BoardUpdateServlet extends HttpServlet {
 				b.setUpdateDate(updateDate);
 				b.setbBody(bBody);
 				b.setBoardCount(boardCount);
-				/*
+				
 				System.out.println("서블레ㅅ1" + bBody);
-				System.out.println("서블레ㅅ1" + b.getbBody());*/
+				System.out.println("서블레ㅅ1" + b.getbBody());
 				
 				
 				ArrayList<Attachment> fileList = new ArrayList<>();
@@ -115,13 +115,14 @@ public class BoardUpdateServlet extends HttpServlet {
 				
 				
 				int result = new BoardService().updateBoard(b, fileList);
+				System.out.println(result);
 				
 				if(result > 0) {
 					/*response.sendRedirect("detail.bo");*/
-					/*response.sendRedirect("detail.no?tNum=" + tNum);*/
-
-					request.setAttribute("tNum", tNum);
-					request.getRequestDispatcher("detail.no?tNum=" + tNum).forward(request, response);
+					response.sendRedirect("detail.bo?tNum=" + tNum);
+//
+//					request.setAttribute("tNum", tNum);
+//					request.getRequestDispatcher("detail.bo?tNum=" + tNum).forward(request, response);
 				}else {
 				
 				
