@@ -15,10 +15,16 @@ public class Photo {
 	
 	
 
-	public Photo(int eNum) {
+
+	public Photo(int wNum, String wTitle, String saveName, int eNum, int oNum) {
 		super();
+		this.wNum = wNum;
+		this.wTitle = wTitle;
+		this.saveName = saveName;
 		this.eNum = eNum;
+		this.oNum = oNum;
 	}
+
 
 
 
