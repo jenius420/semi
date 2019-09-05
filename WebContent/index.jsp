@@ -69,7 +69,7 @@ input{
 		// url:"recommend.li",
 		if(<%=loginUser%>!=null){
 			$.ajax({
-				url:"test22.sss",
+				url:"recommend.li",
 				data:{eNum:$('#eNum').val()},
 				type:"get",
 				success:function(result){  
