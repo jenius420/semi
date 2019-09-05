@@ -48,6 +48,8 @@ $(function() {
 					var $num=$("<td>").text(value.num).css("padding-top", "18px");
 					var $district=$("<td>").text(value.districtName).css("padding-top", "18px");
 					var $td=$("<td>");
+					var $oNum=$("<input>").attr("type","hidden").val(value.oNum);
+					$td.append($oNum);
 					var $opName=$("<a>").html(value.opName+"<br>");
 					var $title=$("<a>").text(value.title);
 					$td.append($opName);
@@ -144,7 +146,16 @@ $(function() {
 		
 	});
 	
-	
+$('#searchResult>tr>td').click(function(){
+		
+		var num=$(this).parent().children().eq(0).text();
+		
+		console.log(num);
+		var oNum=$(this).parent().children().eq(2).children().eq(0).val();
+		
+		console.log("oNum check :"+oNum);
+		location.href=getContextPath()+"/detail.se?num="+num+"&oNum="+oNum;
+	})
 	
 });
 	
@@ -155,16 +166,19 @@ $(function() {
 	
 	
 		
-	$('#districtSub>div').click(function(){
+	$('.districtSub>div').click(function(){
 		var dis=$(this).text();
 		//concole.log(getContextPath()+"/districtSub.se?dis="+dis);
 		location.href=getContextPath()+"/districtSub.se?dis="+dis;
 	});	
-	$('#categorySub>div').click(function(){
+	$('.categorySub>div').click(function(){
 		var cate=$(this).text();
 		console.log(getContextPath());
 		location.href=getContextPath()+"/cateSub.se?cate="+cate;
 	});	
+	
+
+	
 	
 
 });

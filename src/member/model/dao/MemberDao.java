@@ -145,7 +145,6 @@ public class MemberDao {
 			pstmt.setString(2, mem.getePwd());
 			pstmt.setString(3, mem.geteName());
 			pstmt.setString(4, mem.getEcNum());
-			
 			pstmt.setString(5, mem.getRoadName());
 			pstmt.setInt(6, mem.getRoadMain());
 			pstmt.setInt(7, mem.getRoadSub());
@@ -208,7 +207,7 @@ public class MemberDao {
 			pstmt.setString(11, mem.getOcNum());
 			pstmt.setString(12, mem.getPhone());
 			pstmt.setString(13, mem.getEmail());
-			//pstmt.setInt(14, mem.getTypeNum());
+			
 			if(mem.getMailAccept() == null || mem.getMailAccept().equals("")) {
 				pstmt.setString(14, "N");
 			}else {
@@ -319,6 +318,48 @@ public class MemberDao {
 		
 		
 		return result;
+	}
+
+
+	/**
+	 * 개인 아이디 찾기
+	 * @param conn
+	 * @param id
+	 * @param cNum
+	 * @return
+	 */
+	public Member findIdEmp(Connection conn, String id, String cNum) {
+		
+		Member userId = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findIdEmp");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, cNum);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				userId = new Member(rset.getString("eId"));
+			}
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+		
+		
+		return userId;
+	}
+
+
+	public Member findIdOwn(Connection conn, String id, String cNum) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

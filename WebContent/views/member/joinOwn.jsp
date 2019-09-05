@@ -120,10 +120,8 @@
 							<input type="number" name="opNum1" style="width:45px;" oninput="maxLengthCheck(this)" maxlength="3"> - 
 							<input type="number" name="opNum2" style="width:35px;" oninput="maxLengthCheck(this)" maxlength="2"> -
 							<input type="number" name="opNum3" style="width:65px;" oninput="maxLengthCheck(this)" maxlength="5">
-
-
 						</td>
-
+						<td><label id="opNumResult"></label></td>
 					</tr>
 
 					<tr>
@@ -137,7 +135,7 @@
 						<td>
 							<input id="ocNum1" name="ocNum1" type="number"  style="width:80px;" oninput="maxLengthCheck(this)" maxlength="6"></input> - 
 							<input id="ocNum2" name="ocNum2" type="password" size="11" maxlength="7"></input>
-							<td><label id="ecNumResult"></label></td>
+							<td><label id="ocNumResult"></label></td>
 						</td>
 					</tr>
 
@@ -220,8 +218,8 @@
 				<tr>
 					<td></td>
 					<td>
-							<input name="mailAccept" id="mailAccept" type="checkbox" value="N"><label for="mailAccept">이메일 수신 동의</label> 
-							<input name="smsAccept" id="smsAccept" type="checkbox" value="N"><label for="smsAccept">문자수신 동의</label> 
+						<input name="mailAccept" id="mailAccept" type="checkbox"><label for="mailAccept">이메일 수신 동의</label> 
+						<input name="smsAccept" id="smsAccept" type="checkbox"><label for="smsAccept">문자수신 동의</label> 
 					</td>
 
 				</tr>
@@ -264,8 +262,14 @@
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
 		var emailResult = document.getElementById("emailResult");
-		
-
+		var ocNum1 = document.getElementById("ocNum1");
+		var ocNum2 = document.getElementById("ocNum2");
+		var ocNumResult = document.getElementById("ocNumResult");
+		var opNum1 = document.getElementById("opNum1");
+		var opNum2 = document.getElementById("opNum2");
+		var opNum3 = document.getElementById("opNum3");
+		var opNum = opNum1 + opNum2 + opNum3;
+		var opNumResult = document.getElementById("opNumResult");
 
 		$(function(){
 			$(oId).on('blur', function(e){
@@ -325,6 +329,79 @@
 					$(emailResult).text("이메일을 확인 해주세요.");
 					email1.value="";
 				}
+			});
+
+			$(opNum3).on('blur', function(){
+				
+				var checkID = new Array(1, 3, 7, 1, 3, 7, 1, 3, 5, 1);
+				var i, Sum=0, c2, reminder;
+
+				opNum = Opnum.replace(/-/gi,'');
+
+				for (i=0; i<=7; i++){
+						Sum += checkID[i] * opNum.charAt(i);
+				}
+
+				c2 = "0" + (checkID[8] * opNum.charAt(8));
+				c2 = c2.substring(c2.length - 2, c2.length);
+
+				Sum += Math.floor(c2.charAt(0)) + Math.floor(c2.charAt(1));
+
+				reminder = (10 - (Sum % 10)) % 10 ;
+
+				if(opNum.length != 10) {
+					opNum1.value="";
+					opNum2.value="";
+					opNum3.value="";
+					$(opNumResult).text("사업자 번호를 확인하세요");
+				} else if (Math.floor(opNum.charAt(9)) != reminder) {
+					opNum1.value="";
+					opNum2.value="";
+					opNum3.value="";
+					$(opNumResult).text("사업자 번호를 확인하세요");
+				} else {
+					$(opNumResult).text("");
+				}
+
+				});
+
+			$(ocNum2).on('blur', function(e){  
+				
+				var arrNum1 = new Array();
+				var arrNum2 = new Array();
+
+			    for (var i=0; i<ocNum1.value.length; i++) {
+					arrNum1[i] = ocNum1.value.charAt(i);
+				} // 주민번호 앞자리를 배열에 순서대로 담는다.
+
+				for (var i=0; i<ocNum2.value.length; i++) {
+					arrNum2[i] = ocNum2.value.charAt(i);
+				} // 주민번호 뒷자리를 배열에 순서대로 담는다.
+
+				var tempSum=0;
+
+				for (var i=0; i<ocNum1.value.length; i++) {
+					tempSum += arrNum1[i] * (2+i);
+				} // 주민번호 검사방법을 적용하여 앞 번호를 모두 계산하여 더함
+
+				for (var i=0; i<ocNum2.value.length-1; i++) {
+					if(i>=2) {
+						tempSum += arrNum2[i] * i;
+					}
+					else {
+						tempSum += arrNum2[i] * (8+i);
+					}
+				} // 같은방식으로 앞 번호 계산한것의 합에 뒷번호 계산한것을 모두 더함
+
+				if((11-(tempSum%11))%10!=arrNum2[6]) {
+					$(ocNumResult).text("주민등록번호를 확인 해주세요.");
+					ocNum1.value = "";
+					ocNum2.value = "";
+					return false;
+				}else{
+					$(ocNumResult).text("");
+				}
+    
 			});
 
 			$(".postcodify").postcodifyPopUp({

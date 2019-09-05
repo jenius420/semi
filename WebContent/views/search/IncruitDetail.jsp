@@ -1,56 +1,125 @@
+<%@page import="search.model.vo.OPhoto"%>
+<%@page import="search.model.vo.IncruitInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%
+	IncruitInfo i = (IncruitInfo)request.getAttribute("info");
+	OPhoto p = (OPhoto)request.getAttribute("logo");
+	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-#jumbotron{
-	background-image: url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
+#jumbotron {
+	background-image:
+		url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
 }
 </style>
 </head>
 <body>
-<%@ include file="../common/header.jsp" %>
-<div></div>
-<div class="jumbotron" id="jumbotron">
-      <div class="container">
-      	<br /><br /><br /><br /><br /><br /><br /><br />
-      </div>
- </div>
-<br /><br />
-<div class="row" style="padding-top: 50px; padding-left: 150px; padding-right:150px;">
-	<input type="hidden" value="글번호" />
-	<p>등록일</p>
-	<div class="col-sm-12" style="border: 1px solid lightgrey;">제목</div>
-	<div class="col-sm-2"></div>
-	<div class="col-sm-4" style=" height:250px; border: 1px solid lightgrey;"><img class="card-img-top col-lg-12 col-sm-12" src="<%=request.getContextPath() %>/photo/logoImages/noLogo.jpg" /></div>
-	<div class="col-sm-4" style="height:250px; border: 1px solid lightgrey;">
-		<p>회사명 :</p>
-		<p>대표자명 : </p>
-		<p>업종 : </p>
-		<p>주소 : 서울특별시 </p>
-		<p>마감일</p>
-	</div>
-	<div class="col-sm-6">
-		<p><strong>월급</strong>xxxxx원</p>
-		<p>근무기간</p>
-		<p>근무요일</p>
-		<p>근무시간</p>
-	</div>
-	<div class="col-sm-6">
-		<p>인원</p>
-		<p>성별</p>
-		<p>연령</p>
-		<p>학력</p>
-	</div>
-	<div class="col-sm-12">
-		<div class="col-sm-12" id="photo">
-			사진 넣을곳
+	<%@ include file="../common/header.jsp"%>
+	<div></div>
+	<div class="jumbotron" id="jumbotron">
+		<div class="container">
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 		</div>
-		<div class="col-sm-12">본문내용</div>
 	</div>
-</div>
+	<br />
+	<br />
+	<div class="row"
+		style="padding-top: 50px; padding-left: 150px; padding-right: 150px;">
+		<input type="hidden" value="글번호" />
+		<p><%=i.getStartDate() %></p>
+		<div class="col-sm-12" style="border: 1px solid lightgrey;"><%=i.getTitle() %></div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-4"
+			style="height: 250px; border: 1px solid lightgrey;">
+			<img class="card-img-top col-lg-12 col-sm-12"
+				<% if(p==null){%>
+					src="<%=request.getContextPath() %>/photo/logoImages/noLogo.jpg" >
+				<%}else{ %>
+					src="<%=request.getContextPath() %>/photo/logoImages/<%=p.getSaveName() %>" />
+				<%} %>
+				
+		</div>
+		<div class="col-sm-4"
+			style="height: 250px; border: 1px solid lightgrey;">
+			<p>회사명 :</p>
+			<p>대표자명 :</p>
+			<p>
+				업종 :
+				<%=i.getCategoryName()%>,
+				<%=i.getTypeName() %></p>
+			<p>
+				주소 : 서울특별시
+				<%=i.getDistrictName() %>
+				<%=i.getRoadName() %>
+				<%=i.getRoadMain() %>
+				<%if(i.getRoadSub()!=0){ %>-<%=i.getRoadSub() %>
+				<%} %>
+			</p>
+			<p>
+				마감일 :
+				<%=i.getEndDate() %></p>
+		</div>
+		<div class="col-sm-6" align="center" style="padding-right: 100px;">
+			<p>
+				급여 : <strong><%=i.getWorkForm() %></strong><%=i.getSalary() %>원
+			</p>
+			<p>
+				근무기간 :
+				<%=i.getTermName() %>(<%=i.getTermBigName() %>)
+			</p>
+			<p>
+				근무요일 :
+				<%=i.getWorkDay() %></p>
+			<p>
+				근무시간 :
+				<%=i.getWorkTime() %></p>
+		</div>
+		<div class="col-sm-6">
+			<p>
+				인원 :
+				<%=i.getPeopleCount() %></p>
+			<p>
+				성별 :
+				<%=i.getWorkGender() %></p>
+			<p>
+				연령 :
+				<%=i.getWorkAge() %></p>
+			<p>
+				학력 :
+				<%=i.getWorkEdu() %></p>
+		</div>
+		<div class="col-sm-12" style="height: 100px;"></div>
+		<div class="col-sm-12">
+			<div class="col-sm-12" id="photo">
+			
+			</div>
+			
+			<div class="col-sm-12" style="height: 700px;">
+				<hr />
+				<div class="col-sm-12"
+					style="padding-left: 50px; padding-right: 50px;" align="left">
+					<%if(i.getrExplain()==null||i.getrExplain().equals("")){ %>
+						<p><%=i.getTotalInfo() %></p>
+					<%}else{ %>
+						<p><%=i.getrExplain() %></p>
+					<%} %>
+				</div>
+			</div>
+		</div>
+		<%@ include file="../common/footer.jsp"%>
+	</div>
 </body>
 </html>

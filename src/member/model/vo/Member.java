@@ -83,7 +83,7 @@ public class Member {
 
 
 
-	// 사장
+	// 사업자
 	public Member(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, int roadNum,
 			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
 			String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub, String invalidId, String checkoNum) {
@@ -201,9 +201,12 @@ public class Member {
 		this.roadMain = roadMain;
 		this.roadSub = roadSub;
 	}
-
-
-
+	
+	// 아이디 찾기
+	public Member(String eId) {
+		super();
+		this.eId = eId;
+	}
 
 
 
