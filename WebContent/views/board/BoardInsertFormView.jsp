@@ -89,7 +89,7 @@
 	}
 	
 	textarea{
-	 	width:800px;
+	 	width:850px;
 	 	height:225px;
 	 	resize:none;
 	 	border:0px;
@@ -137,12 +137,10 @@
 				
 			<div class="tableArea">
 					<table align="center" width="800px" class="listArea">
-				<tr>
-				<td colspan="6" height=30px></td>
-				</tr>
+			
 				<tr>
 					<th style="text-align:center">제목</th>
-					<td colspan="5"><input type="text" name="title"></td>
+					<td colspan="5"><input type="text" name="title" style="width:555px"></td>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
@@ -159,19 +157,19 @@
 					<th colspan="6" style="text-align:center">첨부사진</th>
 				</tr>
 				<tr>
-					<td colspan="2" class="photo">
+					<td colspan="2" class="photo" style="width:270">
 						<div id="contentImgArea1">
-							<img id="contentImg1" width="250" height="200">
+							<img id="contentImg1" width="270" height="200">
 						</div>
 					</td>
-					<td colspan="2" class="photo">
+					<td colspan="2" class="photo" style="width:270">
 						<div id="contentImgArea2">
-							<img id="contentImg2" width="250" height="200">
+							<img id="contentImg2" width="270" height="200">
 						</div>
 					</td>
-					<td colspan="2" class="photo">
+					<td colspan="2" class="photo" style="width:270">
 						<div id="contentImgArea3">
-							<img id="contentImg3" width="250" height="200">
+							<img id="contentImg3" width="270" height="200">
 						</div>
 					</td>
 				</tr>					
@@ -236,12 +234,14 @@
 				<br>
 				
 				<div align="center">
-					<button type="reset">취소하기</button>
+					<button type="reset" onclick="history.go(-1);">취소하기</button>
 					<button type="submit">등록하기</button>
 				</div>
 		</div>
 			</form>
 		</div>
+		
+		<%@ include file="../common/footer.jsp" %>
 	
 </body>
 </html>

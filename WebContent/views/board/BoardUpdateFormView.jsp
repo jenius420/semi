@@ -158,7 +158,7 @@
 				</tr>
 				<tr>
 					<th style="text-align:center">제목</th>
-					<td colspan="3"><input type="text" name="title" value="<%=b.getTitle()%>"></td>
+					<td colspan="3"><input type="text" name="title" style="width:390px" value="<%=b.getTitle()%>"></td>
 					<th style="text-align:center">게시판 번호</th>
 					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
 				</tr>
@@ -300,6 +300,11 @@
 			</form>
 		</div>
 	</div>
+	
+	
+	<%@ include file="../common/footer.jsp" %>
+	
+	
 
 </body>
 </html>
