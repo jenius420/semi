@@ -45,7 +45,7 @@ input{
 <br /><br />
 <!-- 추천알바 -->
 <div>
-<p style="padding-left: 100px"><strong>추천알바</strong></p>
+<p style="padding-left: 100px; font-size:25px"><strong>추천알바</strong></p>
 <br />
 <div class="row" id="choiceAlba1">
     <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
@@ -119,7 +119,7 @@ input{
 <!-- 지역별 알바검색 및  업종별 알바 검색 -->
 <div class="row" style="padding: 100px;">
 	<div class="col-lg-6" id="district">
-		<p><strong>지역별 알바</strong></p>
+		<p style="font-size:25px"><strong>지역별 알바</strong></p>
 		<br />
 		<div class="col-lg-2">종로구</div>
 		<div class="col-lg-2">중구</div>
@@ -148,7 +148,7 @@ input{
 		<div class="col-lg-2">강동구</div>
 	</div>
 	<div class="col-lg-6" id="category">
-		<p style="padding-left: 10px"><strong>업종별 알바</strong></p>
+		<p style="padding-left: 10px; font-size:25px"><strong>업종별 알바</strong></p>
 		<br />
 		<div class="col-lg-4">외식·음료</div>
 		<div class="col-lg-4">유통·판매</div>
@@ -166,10 +166,29 @@ input{
 	</div>
 </div>
 
+<script>
+	$(function(){
+		// 지역별로 이동
+		$(".col-lg-2").click(function(){
+			
+			location.href="<%= request.getContextPath() %>/districtSub.se";
+			
+		});
+		
+		// 업종별로 이동
+		$(".col-lg-4").click(function(){
+			
+			location.href="<%= request.getContextPath() %>/cateSub.se";
+			
+		});
+		
+	});
+</script>
+
 <!--상품적용알바 -->
 
 <div class="row" >
-<p style="padding-left: 100px"><strong>플래티넘알바</strong></p>
+<p style="padding-left: 100px; font-size:25px"><strong>플래티넘알바</strong></p>
 <br />
 <div class="row" id="choiceAlba2" align="left">
     
@@ -199,7 +218,7 @@ input{
 					var i =0;
 					$.each(data, function(index, value){
 						
-						var $div = $("<div>").attr("class","col-sm-2 mb-4").css("padding-top","30px"); // <div> </div>
+						var $div = $("<div>").attr("class","col-sm-2 mb-4").css("padding-top","40px"); // <div> </div>
 						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum");
 						var $div1 = $("<div>").attr("class","card h-10");
 						var $div2 = $("<div>").attr("class","card-body");
