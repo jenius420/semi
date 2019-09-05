@@ -18,6 +18,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 50px;
+        text-align: center;
 
     }
 
@@ -36,6 +37,8 @@
     #findId{
         height: 65px;
     }
+
+    
 
 
 
@@ -61,8 +64,8 @@
                 <tr>
                     <td>주민번호</td>
                     <td>
-                        <input id="ecNum1" name="ecNum1" type="number"  style="width:85px;" oninput="maxLengthCheck(this)" maxlength="6"></input> - 
-                        <input id="ecNum2" name="ecNum2" type="password" style="width:85px;" maxlength="7"></input>
+                        <input id="cNum1" name="cNum1" type="number"  style="width:85px;" oninput="maxLengthCheck(this)" maxlength="6"></input> - 
+                        <input id="cNum2" name="cNum2" type="password" style="width:85px;" maxlength="7"></input>
                     </td>
                 </tr>
                 <tr>
@@ -70,14 +73,13 @@
                 </tr>
             </table>
             <br>
-            <div>
-                <div class="btn-group" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary" onclick="location.href=<%= contextPath %>/findId.me">아이디 찾기</button>
-                    <button type="button" class="btn btn-secondary" onclick="location.href=<%= contextPath %>/findPwd.me">비밀번호 찾기</button>
-                    <button type="button" class="btn btn-secondary" onclick="window.open('joinSelect.jsp', '_self', '회원가입')">회원가입</button>
-                </div>
-                
+            
+            <div class="btn-group" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary" onclick="window.open('findPwd.jsp', '_self', '비밀번호 찾기')">비밀번호 찾기</button>
+                <button type="button" class="btn btn-secondary" onclick="window.open('joinSelect.jsp', '_self', '회원가입')">회원가입</button>
             </div>
+                
+           
 
 
 
@@ -87,8 +89,8 @@
 
     <script>
 
-        var ecNum1 = document.getElementById("ecNum1");
-        var ecNum2 = document.getElementById("ecNum2");
+        var cNum1 = document.getElementById("cNum1");
+        var cNum2 = document.getElementById("cNum2");
         
         function maxLengthCheck(object){
    			if (object.value.length > object.maxLength){
@@ -103,36 +105,36 @@
                 return false;
             }
             
-            if($("#ecNum1").val().trim().length == 0){
+            if($("#cNum1").val().trim().length == 0){
                 alert("주민등록번호를 입력해주세요");
-                $("#ecNum1").focus();
+                $("#cNum1").focus();
                 return false;
             }
             
-            if($("#ecNum2").val().trim().length == 0){
+            if($("#cNum2").val().trim().length == 0){
                 alert("주민등록번호를 입력해주세요");
-                $("#ecNum2").focus();
+                $("#cNum2").focus();
                 return false;
             }
 
             var arrNum1 = new Array();
             var arrNum2 = new Array();
 
-            for (var i=0; i<ocNum1.value.length; i++) {
-                arrNum1[i] = ocNum1.value.charAt(i);
+            for (var i=0; i<cNum1.value.length; i++) {
+                arrNum1[i] = cNum1.value.charAt(i);
             } // 주민번호 앞자리를 배열에 순서대로 담는다.
 
-            for (var i=0; i<ocNum2.value.length; i++) {
-                arrNum2[i] = ocNum2.value.charAt(i);
+            for (var i=0; i<cNum2.value.length; i++) {
+                arrNum2[i] = cNum2.value.charAt(i);
             } // 주민번호 뒷자리를 배열에 순서대로 담는다.
 
             var tempSum=0;
 
-            for (var i=0; i<ocNum1.value.length; i++) {
+            for (var i=0; i<cNum1.value.length; i++) {
                 tempSum += arrNum1[i] * (2+i);
             } // 주민번호 검사방법을 적용하여 앞 번호를 모두 계산하여 더함
 
-            for (var i=0; i<ocNum2.value.length-1; i++) {
+            for (var i=0; i<cNum2.value.length-1; i++) {
                 if(i>=2) {
                     tempSum += arrNum2[i] * i;
                 }
@@ -143,11 +145,9 @@
 
             if((11-(tempSum%11))%10!=arrNum2[6]) {
                 alert("주민등록번호를 확인 해주세요.");
-                ocNum1.value = "";
-                ocNum2.value = "";
+                cNum1.value = "";
+                cNum2.value = "";
                 return false;
-            }else{
-                $(ocNumResult).text("");
             }
         }
         
