@@ -97,8 +97,6 @@ public class BoardUpdateServlet extends HttpServlet {
 				b.setbBody(bBody);
 				b.setBoardCount(boardCount);
 				
-				System.out.println("서블레ㅅ1" + bBody);
-				System.out.println("서블레ㅅ1" + b.getbBody());
 				
 				
 				ArrayList<Attachment> fileList = new ArrayList<>();
@@ -111,7 +109,10 @@ public class BoardUpdateServlet extends HttpServlet {
 					at.setChangeName(changeFiles.get(i));
 					
 					fileList.add(at);
+					
+					System.out.println("서블레ㅅ" + i + changeFiles.get(i));
 				}
+				
 				
 				
 				int result = new BoardService().updateBoard(b, fileList);

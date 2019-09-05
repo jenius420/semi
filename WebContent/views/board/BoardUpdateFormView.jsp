@@ -79,7 +79,7 @@
 	#detailImgArea1, #detailImgArea2, #detailImgArea3{
 		width:120px;
 		height:100px;
-		border:2px solid violet;
+		border:2px solid violet; !important;
 		display:table-cell;
 	}
 	#detailImgArea1:hover, #detailImgArea2:hover, #detailImgArea3:hover{
@@ -91,7 +91,7 @@
 	} 
 	
 	input{
-		border:0px;
+		border: 1px solid white;
 	}
 	
 	textarea{
@@ -184,16 +184,16 @@
 					<% for(int i=0; i<fileList.size(); i++){
 					%>
 							<td colspan="2" class="photo">
-									<div id="detailImgArea<%=i+1%>" style="width:250" style="height:200">
-										<img id="detailImg<%=i+1%>" width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+									<div id="detailImgArea<%=i+1%>" class="detailImgArea" style="width:250" style="height:200">
+										<img id="detailImg<%=i+1%>" class="detailImg" width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
 									</div>
 							</td>
 		
 					<% } %>
 					<% for(int i=0; i<3-fileList.size(); i++){%>
 							<td colspan="2" class="photo">
-									<div id="detailImgArea<%=i+2%>" style="width:250" style="height:200" >
-										<img id="detailImg<%=i+2%>" width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
+									<div id="detailImgArea<%=i+2%>"  class="detailImgArea" style="width:250" style="height:200" >
+										<img id="detailImg<%=i+2%>"  width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
 									</div>
 							</td>
 					<% } %>
@@ -206,19 +206,40 @@
 				
 				
 				
+					<% for(int i=0; i<fileList.size(); i++){%>		
+							<div id="fileArea">
+								<input type="file" multiple name="thumbnailImg<%=i+1%>" id="thumbnailImg<%=i+1%>" onchange="loadImg(this, <%=i+1%>);" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+							</div>
+					<% } %>
+					<% for(int i=0; i<3-fileList.size(); i++){%>
+							<div id="fileArea">
+								<input type="file" multiple name="thumbnailImg<%=i+2%>" id="thumbnailImg<%=i+2%>" onchange="loadImg(this, <%=i+2%>);" value="<%=contextPath%>/photo/attachment/null.PNG">
+							</div>			
+					<% } %>
+	
+	
+	
+	
 	
 				
 				
 				<!-- 파일 업로드 하는 div -->
-				<div id="fileArea">
+				<!-- <div id="fileArea">
 					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this, 1);">
 					<input type="file" multiple name="thumbnailImg2" id="thumbnailImg2" onchange="loadImg(this, 2);">
 					<input type="file" multiple name="thumbnailImg3" id="thumbnailImg3" onchange="loadImg(this, 3);">
-				</div>
+				</div> -->
 				
 				
 				
 				<script>
+				
+				
+				$()
+				
+				
+				
+				
 					// 미리보기 이미지 영역을 클릭할 때 파일 첨부 창이 뜨도록!
 					$(function(){						
 						$("#detailImgArea1").click(function(){

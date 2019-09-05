@@ -114,7 +114,7 @@ public class BoardService {
 		System.out.println("서비스1" + result1);
 		System.out.println("서비스2" + result2);
 		
-		if(result1 > 0 && result2 > 0) {
+		if(result1 > 0 || result2 > 0) {
 			commit(conn);
 		}else {
 			rollback(conn);
@@ -164,14 +164,14 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		int result1 = new BoardDao().updateBoard(conn, board);
-		int result2 = new BoardDao().insertAttachment(conn, fileList, board);
+		int result2 = new BoardDao().updateAttachment(conn, fileList, board);
 		
-		System.out.println(result1);
-		System.out.println(result2);
+		System.out.println("수정용service1"+result1);
+		System.out.println("수정용service2"+result2);
 		
 
 		
-		if(result1 > 0 && result2 > 0) {
+		if(result1 > 0 || result2 > 0) {
 			commit(conn);
 		}else {
 			rollback(conn);

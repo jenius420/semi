@@ -396,6 +396,52 @@ private Properties prop = new Properties();
 	}
 	
 	
+	/**
+	 * 사진 수정용 호출
+	 * @param conn
+	 * @param fileList
+	 * @param b
+	 * @return
+	 */
+	public int updateAttachment(Connection conn, ArrayList<Attachment> fileList, Board b) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateAttachment");
+		
+		try {
+			
+			for(int i=0; i<fileList.size(); i++) {
+				
+				Attachment at = fileList.get(i);
+				
+				pstmt = conn.prepareStatement(sql);
+				/*pstmt.setInt(1, b.geteNum());*/
+				/*pstmt.setString(2, at.getFilePath());*/
+				pstmt.setInt(1, b.gettNum());
+				pstmt.setString(2, at.getOriginName());
+				pstmt.setString(3, at.getChangeName());
+				
+				result = pstmt.executeUpdate();
+				
+				if(result <= 0) {
+					break;
+				}
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
 	
 	
 	
