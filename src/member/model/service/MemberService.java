@@ -155,11 +155,11 @@ public class MemberService {
 	 * @param cNum
 	 * @return
 	 */
-	public Member findIdEmp(String id, String cNum) {
+	public Member findIdEmp(String name, String cNum) {
 		
 		Connection conn = getConnection();
 		
-		Member userId = new MemberDao().findIdEmp(conn, id, cNum);
+		Member userId = new MemberDao().findIdEmp(conn, name, cNum);
 		
 		close(conn);
 		

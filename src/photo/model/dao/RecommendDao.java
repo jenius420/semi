@@ -30,6 +30,12 @@ public class RecommendDao {
 
 	
 	
+	/**
+	 * 추천 알바 조회
+	 * @param conn
+	 * @param eNum
+	 * @return
+	 */
 	public ArrayList<Photo> selectRecommend(Connection conn, int eNum){
 		ArrayList<Photo> list = new ArrayList<>();
 		

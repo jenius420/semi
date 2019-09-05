@@ -13,9 +13,6 @@ public class Photo {
 		super();
 	}
 	
-	
-
-
 	public Photo(int wNum, String wTitle, String saveName, int eNum, int oNum) {
 		super();
 		this.wNum = wNum;
@@ -24,8 +21,6 @@ public class Photo {
 		this.eNum = eNum;
 		this.oNum = oNum;
 	}
-
-
 
 
 	public Photo(int wNum, String wTitle, String saveName,int oNum) {

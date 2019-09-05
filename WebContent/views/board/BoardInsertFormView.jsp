@@ -19,10 +19,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 
+	.all{
+		width:1000px;
+		height:1000px;
+		background:#f2e6ff;
+		margin-left:auto;
+		margin-right:auto;
+	
+	}
 	.outer{
 		width:800px;
 		height:500px;
-		background:white;
 		color:purple;
 		margin-left:auto;
 		margin-right:auto;
@@ -39,25 +46,25 @@
 	
 
 	th{
-		background:rgb(255, 225, 255);
+		background:#d9b3ff;
 		color:black;
 	}
 	tr{
 	border-top: 1px solid black;!important;
-		border:1px solid purple;
+		border:1px solid #d9b3ff;
 	}
 	
 	#content{
 		height:230px;
-		border : 1px solid purple;
+		border : 1px solid #d9b3ff;
 	}
 	#photo{
 		height:130px;
-		border : 1px solid purple;
+		border : 1px solid #d9b3ff;
 	}
 	button{
 		background:white;
-		color:purple;
+		color:#d9b3ff;
 		padding-right:10px;
 		padding-left:10px;
 	}
@@ -72,7 +79,7 @@
 	#contentImgArea1, #contentImgArea2, #contentImgArea3{
 		width:250px;
 		height:100px;
-		border:2px solid violet;
+		border:2px solid #d9b3ff;
 		display:table-cell;
 	}
 	#contentImgArea1:hover, #contentImgArea2:hover, #contentImgArea3:hover{
@@ -122,7 +129,7 @@
 
 
 
-
+<div class="all">
 
 	<div class="outer">
 		<br>
@@ -143,10 +150,7 @@
 					<td colspan="5"><input type="text" name="title" style="width:555px"></td>
 				</tr>
 				<tr>
-				<td colspan="6" height=30px></td>
-				</tr>
-				<tr>
-					<th colspan="6"></th>
+					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
 					<td colspan="6">
@@ -154,7 +158,13 @@
 					</td>
 				</tr>
 				<tr>
+					<td colspan="6" height=30px></td>
+				</tr>
+				<tr>
 					<th colspan="6" style="text-align:center">첨부사진</th>
+				</tr>
+				<tr>
+					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="photo" style="width:270">
@@ -240,6 +250,7 @@
 		</div>
 			</form>
 		</div>
+</div>
 		
 		<%@ include file="../common/footer.jsp" %>
 	

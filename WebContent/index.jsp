@@ -66,6 +66,7 @@ input{
 			console.log("oNum : " + oNum);
 			location.href= getContextPath()+"/detail.se?num="+eNum+"&oNum="+oNum; 
 		});
+		// url:"recommend.li",
 		if(<%=loginUser%>!=null){
 			$.ajax({
 				url:"test22.sss",
@@ -212,15 +213,9 @@ input{
 		});
 		 
 		$.ajax({
-				url:"test.sss",
-				
+				url:"platinum.li",
 				type:"get",
 				success:function(data){  
-					
-					$.each(data, function(index, value){
-						console.log(value.saveName);
-					});					
-				
 					
 					var $platinum = $("#choiceAlba2");
 					

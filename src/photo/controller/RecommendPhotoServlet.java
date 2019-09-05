@@ -17,7 +17,7 @@ import photo.model.vo.Photo;
 /**
  * Servlet implementation class RecommendPhotoServlet
  */
-@WebServlet("/test22.sss")
+@WebServlet("/recommend.li")
 public class RecommendPhotoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

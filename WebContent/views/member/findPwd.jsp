@@ -18,7 +18,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 50px;
-
+        text-align: center;
     }
 
     input[type="number"]::-webkit-inner-spin-button {
@@ -52,7 +52,6 @@
             </div>
 
             <table>
-                
                 <tr>
                     <td>아이디</td>
                     <td><input type="text" name="id" id="id" maxlength="15"></td>
@@ -74,18 +73,12 @@
                 </tr>
             </table>
             <br>
-            <div>
-                <div class="btn-group" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary" onclick="window.open('findId.jsp', '_self', '비밀번호 찾기')">아이디 찾기</button>
-                    <button type="button" class="btn btn-secondary" onclick="window.open('joinSelect.jsp', '_self', '회원가입')">회원가입</button>
-                </div>
-                
+            <div class="btn-group" role="group" aria-label="First group" align="center">
+                <button type="button" class="btn btn-secondary" onclick="window.open('findId.jsp', '_self', '비밀번호 찾기')">아이디 찾기</button>
+                <button type="button" class="btn btn-secondary" onclick="window.open('joinSelect.jsp', '_self', '회원가입')">회원가입</button>
             </div>
-
-
-
-
         </form>
+
     </div>
 
     <script>

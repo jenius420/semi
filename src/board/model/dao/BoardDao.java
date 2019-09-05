@@ -40,7 +40,7 @@ private Properties prop = new Properties();
 	 * @param boardLimit
 	 * @return
 	 */
-	public ArrayList<Board> selectList(Connection conn/*, int currentPage, int boardLimit*/){
+	public ArrayList<Board> selectList(Connection conn, int currentPage, int boardLimit){
 		
 		ArrayList<Board> list = new ArrayList<>();	
 		
@@ -52,12 +52,14 @@ private Properties prop = new Properties();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			
-			/*int startRow = 1;
-			int endRow = 100;
+	
+			int startRow = (currentPage - 1) * boardLimit + 1;
+			int endRow = startRow + boardLimit -1;
 			
 			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);*/
+			pstmt.setInt(2, endRow);
+			
+			
 			
 			rset = pstmt.executeQuery();
 			
