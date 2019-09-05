@@ -61,7 +61,7 @@ input{
 	 $(function(){ 
 		
 		$.ajax({
-				url:"test22.sss",
+				url:"recommend.li",
 				data:{eNum:$('#eNum').val()},
 				type:"get",
 				success:function(result){  
@@ -184,15 +184,9 @@ input{
 	 $(function(){ 
 		
 		$.ajax({
-				url:"test.sss",
-				
+				url:"platinum.li",
 				type:"get",
 				success:function(data){  
-					
-					$.each(data, function(index, value){
-						console.log(value.saveName);
-					});					
-				
 					
 					var $platinum = $("#choiceAlba2");
 					
