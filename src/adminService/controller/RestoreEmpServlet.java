@@ -1,30 +1,25 @@
-package photo.controller;
+package adminService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import photo.model.service.RecommendService;
-import photo.model.vo.Photo;
+import adminService.model.service.ManageMemService;
 
 /**
- * Servlet implementation class RecommendPhotoServlet
+ * Servlet implementation class RestoreEmpServlet
  */
-@WebServlet("/test22.sss")
-public class RecommendPhotoServlet extends HttpServlet {
+@WebServlet("/restoreEmp.as")
+public class RestoreEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecommendPhotoServlet() {
+    public RestoreEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,15 +29,18 @@ public class RecommendPhotoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		int eNum = Integer.parseInt(request.getParameter("eNum"));
 		
-		ArrayList<Photo> list = new RecommendService().selectRecommend(eNum);
-	
-		Gson gson = new Gson();
-		response.setContentType("application/json; charset=utf-8");
-		gson.toJson(list, response.getWriter());
+		int result = new ManageMemService().restoreEmp(eNum);
+		
+		if(result > 0) {
+			request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

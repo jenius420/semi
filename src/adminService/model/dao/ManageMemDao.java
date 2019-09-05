@@ -191,6 +191,31 @@ public class ManageMemDao {
 		
 	}
 	
+	public int restoreEmp(Connection conn, int eNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("restoreEmp");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, eNum);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
+	}
+	
 	public int deleteOwner(Connection conn, int oNum) {
 		
 		int result = 0;
@@ -198,6 +223,56 @@ public class ManageMemDao {
 		PreparedStatement pstmt = null;
 
 		String sql = prop.getProperty("deleteOwner");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, oNum);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
+	}
+	
+	public int restoreOwner(Connection conn, int oNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("restoreOwner");
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, oNum);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+		
+	}
+	
+	public int certifyOwner(Connection conn, int oNum) {
+		
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+
+		String sql = prop.getProperty("certifyOwner");
 
 		try {
 			pstmt = conn.prepareStatement(sql);

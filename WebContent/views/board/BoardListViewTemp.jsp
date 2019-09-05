@@ -27,78 +27,133 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>BoardList</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 
+<style>
+.tableArea{
+	width:800px;
+	height:350px;
+	margin-left:auto;
+	margin-right:auto;
+}
+</style>
+
+</head>
   <body>
   
-    <h1>게시판 리스트</h1>
+  <%@ include file="../common/header.jsp"%>
+  	<div></div>
+	<div class="jumbotron" id="jumbotron">
+		<br />
+		<br />
+		<br /> <br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+  
+    <h1 align="center">게시판 리스트</h1>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   -->
+  
   
   
   <div class="tableArea">
-  	<table class="table table-hover listArea" id="listArea">
-  
+  	<table class="table table-hover" id="listArea">
     	<tr>
-      		<th scope="col" width="100">글번호</th>
-      		<th scope="col" width="300">글제목</th>
-      		<th scope="col" width="100">작성자</th>
-      		<th scope="col" width="100">조회수</th>
-      		<th scope="col" width="150">작성일</th>
+      		<th width="100" style="text-align:center">글번호</th>
+      		<th width="300">글제목</th>
+      		<th width="100">작성자</th>
+      		<th width="100">조회수</th>
+      		<th width="150">작성일</th>
     	</tr>
-     	<% if(list.isEmpty()){ %>
+    	
+    	
+    	<% if(list.isEmpty()){ %>
 		<tr>
 			<td colspan="5">조회된 리스트가 없습니다</td>
 		</tr>
-		<% }else{ %>
-					
+		<% }else{ %>		
 			<% for(Board b : list){ %>
-			<tr>
-				<td scope="col"><%= b.gettNum() %></td>
-				<td scope="col"><%= b.getTitle() %></td>
-				<td scope="col"><%= b.geteName() %></td>
-				<td scope="col"><%= b.getBoardCount() %></td>
-				<td scope="col"><%= b.getUpdateDate() %></td>				
-			</tr>	
+				<%if(b.getIsNotice().equals("Y")){ %>
+					<tr>
+						<td style="text-align:center"><img src="<%=contextPath%>/photo/logoImages/postIcon2.jpeg"><%= b.gettNum() %></td>
+						<td><img src="<%=contextPath%>/photo/logoImages/postIcon.jpeg"><%= b.getTitle() %></td>
+						<td><%= b.geteName() %></td>
+						<td><%= b.getBoardCount() %></td>
+						<td><%= b.getUpdateDate() %></td>				
+					</tr>
+				<%} %>
 			<% } %>
-		<% } %>
-			
+		<% } %>			
+    	
+    	
+ 
+     	<% if(list.isEmpty()){ %>
+		<tr>
+			<td colspan="6">조회된 리스트가 없습니다</td>
+		</tr>
+		<% }else{ %>		
+			<% for(Board b : list){ %>
+				<%if(b.getIsNotice().equals("N")){ %>
+					<tr>
+						<td colspan="1" style="text-align:center"><%= b.gettNum() %></td>
+						<td><%= b.getTitle() %></td>
+						<td><%= b.geteName() %></td>
+						<td><%= b.getBoardCount() %></td>
+						<td><%= b.getUpdateDate() %></td>				
+					</tr>
+				<%} %>	
+			<% } %>
+		<% } %>			
 	</table>
   </div>
 		
 		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option>----</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
+			<select id="searchCondition" name="category">
+				<option name="category" value="title">제목</option>
+				<option name="category" value="eName">작성자</option>
+				<option name="category" value="bBody">내용</option>
 			</select>
 			
-			<input type="search" id="BoardListSearch">
+			<input type="text" id="BoardListSearch" name="sText">
 			
-			<button type="submit">검색하기</button>
+			<button type="button" onclick='search();'>검색하기</button>
 			
-			<%-- <%if(loginUser != null){ %> --%>
+			
+			
+			
+			
+			<%if(loginUser != null){ %>
 			<button onclick="location.href='<%= contextPath %>/insertForm.bo'">작성하기</button>
-			<%-- <%} %> --%>
+			<%} %>
 			
 		</div>
   
   
+  		<script>
+				function search() {
+					location.href="<%=contextPath%>/search.bo?category=" + $('select[name=category]').val()+"&sText="+$('#BoardListSearch').val();
+				}
+		</script>
+  
   
   <script>
+  
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"darkgray", "cursor":"pointer"}));
+				$(this).parent().css({"background":"violet", "cursor":"pointer","color":"white"});
 			}).mouseout(function(){
-				$(this).parent().css("background", "white");
+				$(this).parent().css({"background":"white","color":"black"});
 			}).click(function(){
 				
 				var tNum = $(this).parent().children().eq(0).text();

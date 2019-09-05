@@ -53,9 +53,11 @@ public class EmpServiceService {
 		Connection conn = getConnection();
 		
 		int result = 0;
+		int check  = new EmpServiceDao().checkAddHopeEnt(conn, eNum, oNum); // 이미 관심기업으로 등록 돼있는지 검사
 		
-		result = new EmpServiceDao().addHopeEnt(conn, eNum, oNum);
-			
+		if(check == 0 ) { // 등록 데이터가 없다면 추가
+			result = new EmpServiceDao().addHopeEnt(conn, eNum, oNum);
+		}
 		
 		if(result > 0) {
 			commit(conn);

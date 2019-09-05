@@ -1,30 +1,25 @@
-package photo.controller;
+package adminService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import photo.model.service.RecommendService;
-import photo.model.vo.Photo;
+import adminService.model.service.ManageMemService;
 
 /**
- * Servlet implementation class RecommendPhotoServlet
+ * Servlet implementation class CertifyOwnerServlet
  */
-@WebServlet("/test22.sss")
-public class RecommendPhotoServlet extends HttpServlet {
+@WebServlet("/certifyOwner.as")
+public class CertifyOwnerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecommendPhotoServlet() {
+    public CertifyOwnerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,16 +28,20 @@ public class RecommendPhotoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
 		
-		request.setCharacterEncoding("utf-8");
+		String[] oNumArr = request.getParameterValues("oNumArr");
 		
-		int eNum = Integer.parseInt(request.getParameter("eNum"));
+		int result = new ManageMemService().certifyOwner(oNumArr);
 		
-		ArrayList<Photo> list = new RecommendService().selectRecommend(eNum);
-	
-		Gson gson = new Gson();
-		response.setContentType("application/json; charset=utf-8");
-		gson.toJson(list, response.getWriter());
+		if(result > 0) {
+			request.getRequestDispatcher("/views/adminService/OwnerList.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package ownerService.controller;
+package adminService.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,25 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import adminService.model.service.ManageMemService;
 import empService.model.vo.Emp;
 import ownerService.model.vo.Owner;
-import ownerService.model.service.IncruitService;
-import ownerService.model.service.OwnerServiceService;
-import ownerService.model.vo.Incruit;
 
 /**
- * Servlet implementation class IncruitListServlet
+ * Servlet implementation class MemListServlet
  */
-@WebServlet("/incruitList.os")
-public class IncruitListServlet extends HttpServlet {
+@WebServlet("/empList.as")
+public class EmpListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IncruitListServlet() {
+    public EmpListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,24 +32,13 @@ public class IncruitListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		request.setCharacterEncoding("UTF-8");
 		
-//		Member mem = (Member)request.getSession().getAttribute("loginUser");
-//		Owner owner = new OwnerServiceService().selectOwner(mem.getoNum());
+		ArrayList<Emp> empList = new ManageMemService().selectEmpList();
+//		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
 		
-		Owner owner = new OwnerServiceService().selectOwner(9);
-//		Owner owner = new OwnerServiceService().selectOwner(2);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("owner", owner);
-		
-		ArrayList<Incruit> list = new IncruitService().selectIncruitList(owner.getoNum());
-
-		
-
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/ownerService/IncruitList.jsp").forward(request, response);
+		request.setAttribute("empList", empList);
+		request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
 
 		
 	}

@@ -1,4 +1,4 @@
-package photo.controller;
+package board.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import photo.model.service.RecommendService;
-import photo.model.vo.Photo;
+import board.model.service.BoardService;
+import board.model.vo.Board;
 
 /**
- * Servlet implementation class RecommendPhotoServlet
+ * Servlet implementation class BoardSearchServlet
  */
-@WebServlet("/test22.sss")
-public class RecommendPhotoServlet extends HttpServlet {
+@WebServlet("/search.bo")
+public class BoardSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecommendPhotoServlet() {
+    public BoardSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,16 +31,21 @@ public class RecommendPhotoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+
 		request.setCharacterEncoding("utf-8");
 		
-		int eNum = Integer.parseInt(request.getParameter("eNum"));
+		String category = request.getParameter("category");
+		String sText = request.getParameter("sText");
+		System.out.println("ser1:"+category);
+		System.out.println("ser2:"+sText);
+		ArrayList<Board> list = new BoardService().boardSearch(category,sText);
+		int listCount = new BoardService().getSearchListCount(category,sText);
 		
-		ArrayList<Photo> list = new RecommendService().selectRecommend(eNum);
-	
-		Gson gson = new Gson();
-		response.setContentType("application/json; charset=utf-8");
-		gson.toJson(list, response.getWriter());
+		request.setAttribute("list", list);
+		
+		request.getRequestDispatcher("views/board/boardListView.jsp").forward(request, response);
+		
 	}
 
 	/**

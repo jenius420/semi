@@ -1,8 +1,6 @@
 package adminService.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,20 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import adminService.model.service.ManageMemService;
-import empService.model.vo.Emp;
-import ownerService.model.vo.Owner;
 
 /**
- * Servlet implementation class MemListServlet
+ * Servlet implementation class DeleteMemServlet
  */
-@WebServlet("/empList.as")
-public class MemListServlet extends HttpServlet {
+@WebServlet("/deleteEmp.as")
+public class DeleteEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemListServlet() {
+    public DeleteEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +29,18 @@ public class MemListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Emp> empList = new ManageMemService().selectEmpList();
-//		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
+		request.setCharacterEncoding("UTF-8");
 		
+		int eNum = Integer.parseInt(request.getParameter("eNum"));
 		
-		request.setAttribute("empList", empList);
-		request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
-
+		int result = new ManageMemService().deleteEmp(eNum);
+		
+		if(result > 0) {
+			request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+		}
 		
 	}
 

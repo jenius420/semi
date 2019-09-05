@@ -30,13 +30,23 @@ public class AddHopeEntServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		Emp emp = (Emp)request.getSession().getAttribute("emp");
+		request.setCharacterEncoding("UTF-8");
 		
+		int eNum = Integer.parseInt(request.getParameter("eNum"));
 		int oNum = Integer.parseInt(request.getParameter("oNum"));
 		
-		int result = new EmpServiceService().addHopeEnt(emp.getEmpNum(), oNum);
+		int result = new EmpServiceService().addHopeEnt(eNum, oNum);
 		
-		//json으로 처리?
+		
+		// 비동기 경우에는 응답 방식 바꿔야함
+		if(result > 0) {
+			request.setAttribute("oNum", oNum);
+			request.getRequestDispatcher("/views/??????????").forward(request, response);
+		}else {
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+		}
+		
 		
 	}
 

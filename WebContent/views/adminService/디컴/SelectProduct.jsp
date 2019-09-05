@@ -43,7 +43,7 @@ int pPay = prod.getpPay();
 	수정 updateProduct.as input 4개다
 	취소-뒤로가기
 	
-	
+	코드 이름 내용 비용
 
 			</div> <!-- /메인콘텐트 -->
 			

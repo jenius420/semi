@@ -68,16 +68,16 @@
     
     <div>
         <div class="asm1">공고 관리</div>
-        <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/ingIncruit.as';">진행중 공고</div>
-        <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/doneIncruit.as';">지난 공고</div>
+        <!-- <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/ingIncruit.as';">진행중 공고</div> -->
+        <!-- <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/doneIncruit.as';">지난 공고</div> -->
         <div class="asLink" onclick="location.href='<%=request.getContextPath()%>/manageProduct.as';">공고 상품 관리</div>
     </div>
     <div class="space"></div>
     
     <div>
         <div class="asm1">게시판 관리</div>
-      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/boardReportList.as';">게시글 신고내역</div>
-      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/commentReportList.as';">댓글 신고내역</div>
+      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/boardReportList.as';">신고 유저 게시글 리스트</div>
+      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/commentReportList.as';">신고 유저 댓글 리스트</div>
     </div>
     <div class="space"></div>
 
