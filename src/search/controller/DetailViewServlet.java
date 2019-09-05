@@ -1,6 +1,7 @@
 package search.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,11 +37,11 @@ public class DetailViewServlet extends HttpServlet {
 		System.out.println(oNum);
 		
 		IncruitInfo i = new SearchService().detailView(num);
-		
+		ArrayList<OPhoto> list = new SearchService().incruitPhotos(num);
 		OPhoto p = new SearchService().searchLogo(oNum);
 		request.setAttribute("info", i);
 		request.setAttribute("logo", p);
-		
+		request.setAttribute("pList", list);
 		request.getRequestDispatcher("views/search/IncruitDetail.jsp").forward(request, response);;
 		
 	}

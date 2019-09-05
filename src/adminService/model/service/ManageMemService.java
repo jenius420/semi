@@ -87,42 +87,91 @@ public class ManageMemService {
 		
 	}
 	
-	public int deleteEmp(String[] memArr) {
+	public int deleteEmp(int eNum) {
 		
 		Connection conn = getConnection();
-		
-		int count = 0;
-		int result = 0;
-		
-		for(int i=0; i<memArr.length; i++) {
 			
-			result = new ManageMemDao().deleteEmp(conn, Integer.parseInt(memArr[i]));
+		int result = new ManageMemDao().deleteEmp(conn, eNum);
 	
-			if (result > 0) {
-				commit(conn);
-				count++;
-	
-			} else {
-				rollback(conn);
-			}
-		}
+		if (result > 0) {
+			commit(conn);
 
+		} else {
+			rollback(conn);
+		}
+		
 		close(conn);
 
-		return count;
+		return result;
 		
 	}
 	
-	public int deleteOwner(String[] memArr) {
+	public int restoreEmp(int eNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ManageMemDao().restoreEmp(conn, eNum);
+	
+		if (result > 0) {
+			commit(conn);
+
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+
+		return result;
+	}
+	
+	public int deleteOwner(int oNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ManageMemDao().deleteOwner(conn, oNum);
+	
+		if (result > 0) {
+			commit(conn);
+
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+
+		return result;
+		
+	}
+	
+	public int restoreOwner(int oNum) {
+		
+		Connection conn = getConnection();
+		
+		int result = new ManageMemDao().restoreOwner(conn, oNum);
+	
+		if (result > 0) {
+			commit(conn);
+
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+
+		return result;
+		
+	}
+	
+	public int certifyOwner(String[] oNumArr) {
 		
 		Connection conn = getConnection();
 		
 		int count = 0;
 		int result = 0;
 		
-		for(int i=0; i<memArr.length; i++) {
+		for(int i=0; i<oNumArr.length; i++) {
 			
-			result = new ManageMemDao().deleteOwner(conn, Integer.parseInt(memArr[i]));
+			result = new ManageMemDao().certifyOwner(conn, Integer.parseInt(oNumArr[i]));
 	
 			if (result > 0) {
 				commit(conn);
@@ -136,7 +185,6 @@ public class ManageMemService {
 		close(conn);
 
 		return count;
-		
 	}
 	
 	

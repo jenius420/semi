@@ -32,23 +32,28 @@ public class FindIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int kind = Integer.parseInt(request.getParameter("kind"));
-		String id = request.getParameter("name");
+		String name = request.getParameter("name");
 		String cNum1 = request.getParameter("cNum1");
 		String cNum2 = request.getParameter("cNum2");
-		String cNum = cNum1 + cNum2;
+		String cNum = cNum1 + "-" + cNum2;
+		
+		System.out.println(kind);
+		System.out.println(name);
 		
 		if(kind == 1) {
 			
-			Member userId = new MemberService().findIdEmp(id, cNum);
+			Member userId = new MemberService().findIdEmp(name, cNum);
 			
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("userId", userId);
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath()+"returnId.jsp");
+			//request.getRequestDispatcher("returnId.jsp").forward(request, response);
+			
 			
 		}else {
 			
-			Member userId = new MemberService().fidIdOwn(id, cNum);
+			Member userId = new MemberService().fidIdOwn(name, cNum);
 		}
 		
 		

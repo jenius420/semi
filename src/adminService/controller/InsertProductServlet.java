@@ -32,9 +32,9 @@ public class InsertProductServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String pTitle = request.getParameter("pTitle");
-		int pPay = Integer.parseInt(request.getParameter("pPay"));
-		String pExplain = request.getParameter("pExplain");
+		String pTitle = request.getParameter("newpTitle");
+		int pPay = Integer.parseInt(request.getParameter("newpPay"));
+		String pExplain = request.getParameter("newpExplain");
 		
 		IncruitProduct prod = new IncruitProduct(pTitle, pExplain, pPay);
 		

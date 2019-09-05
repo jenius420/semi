@@ -45,68 +45,13 @@ input{
 <br /><br />
 
 <!-- 추천알바 -->
-<%if(loginUser != null){ %> <!-- 로그인한 회원만 보이게 -->
+<%if(loginUser != null && loginUser.getKind()==1){ %> <!-- 로그인한 회원만 보이게 -->
 <div>
+<input type="hidden" id="eNum" value="<%=loginUser.geteNum()%>">
 <p style="padding-left: 100px; font-size:25px"><strong>추천알바</strong></p>
 <br />
 <div class="row" id="choiceAlba1">
-    <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt="">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project Oneaaaaaaaaaaaaaaaaaa</a>
-          </h5>
-         </div>
-      </div>
-    <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
-      <div class="card h-10">
-        	<img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt="">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;" >
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div><div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div>
-      <div class="col-lg-2 col-sm-6 mb-4" style="padding-left: 5px; padding-right: 5px;">
-      <div class="card h-10">
-        <a href="#"><img class="card-img-top col-lg-12 col-sm-12" src="photo/logoImages/noLogo.jpg" alt=""></a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="#">Project One</a>
-          </h5>
-         </div>
-      </div>  
+    
 	</div>
 </div>
 <% } %>
@@ -117,20 +62,15 @@ input{
 		
 		$.ajax({
 				url:"test22.sss",
-				
+				data:{eNum:$('#eNum').val()},
 				type:"get",
-				success:function(data1){  
-					
-					$.each(data1, function(index, value){
-						console.log(value.saveName);
-					});					
-				
+				success:function(result){  
 					
 					var $platinum = $("#choiceAlba1");
 					
 					$platinum.html("").css("padding-left","40px").css("padding-right","39px");
 					var i =0;
-					$.each(data, function(index, value){
+					$.each(result, function(index, value){
 						
 						var $div = $("<div>").attr("class","col-sm-2 mb-4").css("padding-top","40px"); // <div> </div>
 						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum");

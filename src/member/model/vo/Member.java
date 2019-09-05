@@ -44,7 +44,7 @@ public class Member {
 	//private String mailAccept;
 	//private String smsAccept;	
 	//private String invalidId;	
-	
+	private int kind;			//1. 개인 2. 기업
 	
 	
 	
@@ -130,6 +130,7 @@ public class Member {
 		this.smsAccept = smsAccept;
 		this.invalidId = invalidId;
 		this.warningCount = warningCount;
+		this.kind = 1;
 	}
 	
 	
@@ -156,6 +157,7 @@ public class Member {
 		this.smsAccept = smsAccept;
 		this.invalidId = invalidId;
 		this.checkoNum = checkoNum;
+		this.kind = 2;
 	}
 
 
@@ -206,6 +208,19 @@ public class Member {
 	public Member(String eId) {
 		super();
 		this.eId = eId;
+	}
+	
+	
+
+
+	public int getKind() {
+		return kind;
+	}
+
+
+
+	public void setKind(int kind) {
+		this.kind = kind;
 	}
 
 

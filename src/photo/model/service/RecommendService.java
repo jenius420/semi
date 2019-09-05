@@ -14,10 +14,10 @@ public class RecommendService {
 	 *  플래티넘 상품 조회용 서비스
 	 * @return
 	 */
-	public ArrayList<Photo> selectRecommend(){
+	public ArrayList<Photo> selectRecommend(int eNum){
 		Connection conn = getConnection();
 		
-		ArrayList<Photo> list = new RecommendDao().selectRecommend(conn);
+		ArrayList<Photo> list = new RecommendDao().selectRecommend(conn, eNum);
 		
 		close(conn);
 		
