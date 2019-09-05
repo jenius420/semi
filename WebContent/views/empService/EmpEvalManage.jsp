@@ -8,12 +8,13 @@ ArrayList<EmpEvaluationBefore> empEvalBf = (ArrayList<EmpEvaluationBefore>)reque
 <!DOCTYPE html ">
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 <link rel="stylesheet" type="text/css" href="resources/css/starability-all.min.css">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
-
-<title>알바 후기 관리</title>
 
 
 <style>

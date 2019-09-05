@@ -24,8 +24,11 @@ Attachment at = (Attachment)request.getAttribute("at");
 <!DOCTYPE html >
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>이력서 보기</title>
+
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 </head>
 <body>	

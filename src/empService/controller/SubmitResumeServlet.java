@@ -50,7 +50,7 @@ public class SubmitResumeServlet extends HttpServlet {
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 
-			int maxSize = 1024 * 1024 * 10;
+			int maxSize = 1024 * 1024 * 100;
 			
 			String resources = request.getSession().getServletContext().getRealPath("/photo");
 			

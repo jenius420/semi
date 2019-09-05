@@ -18,8 +18,10 @@ String edu = resume.getEdu();
 <!DOCTYPE html ">
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>지원자모음에서 이력서 조회</title>
+
 </head>
 <body>
 
