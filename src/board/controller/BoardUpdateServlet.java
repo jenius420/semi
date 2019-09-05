@@ -110,7 +110,7 @@ public class BoardUpdateServlet extends HttpServlet {
 					
 					fileList.add(at);
 					
-					System.out.println("서블레ㅅ" + i + changeFiles.get(i));
+					System.out.println("update서블렛" + i + changeFiles.get(i));
 				}
 				
 				

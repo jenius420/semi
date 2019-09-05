@@ -166,8 +166,8 @@ public class BoardService {
 		int result1 = new BoardDao().updateBoard(conn, board);
 		int result2 = new BoardDao().updateAttachment(conn, fileList, board);
 		
-		System.out.println("수정용service1"+result1);
-		System.out.println("수정용service2"+result2);
+		System.out.println("수정용service1 :"+result1);
+		System.out.println("수정용service2 :"+result2);
 		
 
 		

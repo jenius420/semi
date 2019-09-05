@@ -206,17 +206,17 @@
 				
 				
 				
-					<% for(int i=0; i<fileList.size(); i++){%>		
+					 <% for(int i=0; i<fileList.size(); i++){%>		
 							<div id="fileArea">
 								<input type="file" multiple name="thumbnailImg<%=i+1%>" id="thumbnailImg<%=i+1%>" onchange="loadImg(this, <%=i+1%>);" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
 							</div>
 					<% } %>
 					<% for(int i=0; i<3-fileList.size(); i++){%>
 							<div id="fileArea">
-								<input type="file" multiple name="thumbnailImg<%=i+2%>" id="thumbnailImg<%=i+2%>" onchange="loadImg(this, <%=i+2%>);" value="<%=contextPath%>/photo/attachment/null.PNG">
+								<input type="file" multiple name="thumbnailImg<%=i+3%>" id="thumbnailImg<%=i+3%>" onchange="loadImg(this, <%=i+3%>);" value="<%=contextPath%>/photo/attachment/null.PNG">
 							</div>			
 					<% } %>
-	
+	 
 	
 	
 	
@@ -253,19 +253,15 @@
 						});
 					});
 					
-					// 파일 첨부했을 때 미리보기 공간에 미리보기 가능하게 하는 함수
-					// [참고] https://developer.mozilla.org/ko/docs/Web/API/FileReader
+				
+				
+				
+				
 					function loadImg(value, num){
-						// value => input태그
-						// num => 조건문으로 작업
-						
-						// file이 존재하는지 
 						if(value.files && value.files[0]){
 							
-							// 파일을 읽어들일 FileReader객체 생성
 							var reader = new FileReader();
 							
-							// 파일 읽기가 다 완료되었을 때 실행되는 메소드
 							reader.onload = function(e){
 								
 								switch(num){
@@ -274,9 +270,8 @@
 								case 3: $("#detailImg3").attr("src", e.target.result); break;
 								}
 								
-							}
+						}
 							
-							// 파일 읽어주는 메소드
 							reader.readAsDataURL(value.files[0]);
 							
 							
