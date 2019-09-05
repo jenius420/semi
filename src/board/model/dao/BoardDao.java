@@ -563,4 +563,117 @@ private Properties prop = new Properties();
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	/**
+	 *  게시글 찾기용 호출
+	 * @param conn
+	 * @param category
+	 * @param sText
+	 * @return
+	 */
+	public ArrayList<Board> selectSearchList(Connection conn, String category, String sText/*, int currentPage, int boardLimit*/){
+		
+		ArrayList<Board> list = new ArrayList<>();	
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = null;
+		
+		if(category.equals("title")) {	
+			sql = prop.getProperty("selectTitleSearchBoardList");
+		}else if(category.equals("eName")) {
+			sql = prop.getProperty("selecteNameSearchBoardList");
+		}else if(category.equals("bBody")) {
+			sql = prop.getProperty("selectbBodySearchBoardList");
+		}
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+sText+"%");
+			System.out.println(sText);
+			
+			
+			/*int startRow = 1;
+			int endRow = 100;
+			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);*/
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Board( rset.getInt("tNum"),
+									rset.getString("title"),
+									rset.getInt("eNum"),
+									rset.getString("eName"),
+									rset.getDate("updateDate"),
+									rset.getString("bBody"),
+									rset.getString("invalidPost"),
+									rset.getString("isNotice"),
+									rset.getInt("boardCount")));
+			}
+			
+			System.out.println("dao" + list);
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	
+	
+	/**
+	 *  찾은 게시판 리스트 갯수 조회용 호출
+	 * @param conn
+	 * @param category
+	 * @param sText
+	 * @return
+	 */
+	public int getSearchListCount(Connection conn, String category, String sText ) {
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("getSearchListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, category);
+			pstmt.setString(2, "%"+sText+"%");
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+		
+	}
+	
+	
+	
+	
 }

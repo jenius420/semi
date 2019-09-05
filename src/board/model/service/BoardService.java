@@ -252,5 +252,43 @@ public class BoardService {
 		
 		return result;
 	}
+	
+	
+	
+	/**
+	 * 게시글 찾기 서비스
+	 * @param category
+	 * @param search
+	 * @return
+	 */
+	public ArrayList<Board> boardSearch(String category, String sText){
+		Connection conn = getConnection();
+				
+		ArrayList<Board> list = new BoardDao().selectSearchList(conn, category, sText);
+		
+		System.out.println("service" + list);
+		
+		close(conn);
+
+		return list;
+		
+	}
+	
+	
+	
+	
+	/**
+	 * 찾은 게시글 갯수 확인 서비스
+	 * @return
+	 */
+	public int getSearchListCount(String category, String sText) {
+		
+		Connection conn = getConnection();
+		
+		int result = new BoardDao().getSearchListCount(conn, category, sText);
+		
+		
+		return result;
+	}
 
 }

@@ -41,7 +41,6 @@ public class BoardInsertServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	System.out.println("test1");
 		request.setCharacterEncoding("utf-8");
 		
 		//String title = request.getParameter("title");

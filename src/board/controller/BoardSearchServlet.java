@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import board.model.service.BoardService;
 import board.model.vo.Board;
-import common.model.vo.PageInfo;
 
 /**
- * Servlet implementation class BoardListServlet
+ * Servlet implementation class BoardSearchServlet
  */
-@WebServlet("/list.bo")
-public class BoardListServlet extends HttpServlet {
+@WebServlet("/search.bo")
+public class BoardSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardListServlet() {
+    public BoardSearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +31,20 @@ public class BoardListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		int listCount = new BoardService().getListCount();
-	
 
-		ArrayList<Board> list = new BoardService().selectList();
+
+		request.setCharacterEncoding("utf-8");
+		
+		String category = request.getParameter("category");
+		String sText = request.getParameter("sText");
+		System.out.println("ser1:"+category);
+		System.out.println("ser2:"+sText);
+		ArrayList<Board> list = new BoardService().boardSearch(category,sText);
+		int listCount = new BoardService().getSearchListCount(category,sText);
+		
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/board/boardListView.jsp").forward(request, response);
-		
-		
 		
 	}
 

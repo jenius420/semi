@@ -30,6 +30,8 @@
     <title>BoardList</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 
 <style>
 .tableArea{
@@ -117,26 +119,36 @@
   </div>
 		
 		<div class="searchArea" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option>----</option>
-				<option value="writer">작성자</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
+			<select id="searchCondition" name="category">
+				<option name="category" value="title">제목</option>
+				<option name="category" value="eName">작성자</option>
+				<option name="category" value="bBody">내용</option>
 			</select>
 			
-			<input type="search" id="BoardListSearch">
+			<input type="text" id="BoardListSearch" name="sText">
 			
-			<button type="submit">검색하기</button>
+			<button type="button" onclick='search();'>검색하기</button>
 			
-			<%-- <%if(loginUser != null){ %> --%>
+			
+			
+			
+			
+			<%if(loginUser != null){ %>
 			<button onclick="location.href='<%= contextPath %>/insertForm.bo'">작성하기</button>
-			<%-- <%} %> --%>
+			<%} %>
 			
 		</div>
   
   
+  <script>
+				function search() {
+					location.href="<%=contextPath%>/search.bo?category=" + $('select[name=category]').val()+"&sText="+$('#BoardListSearch').val();
+				}
+			</script>
+  
   
   <script>
+  
 		$(function(){
 			$("#listArea td").mouseenter(function(){
 				$(this).parent().css({"background":"violet", "cursor":"pointer","color":"white"});
