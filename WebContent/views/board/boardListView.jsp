@@ -35,7 +35,7 @@
 
 <style>
 .tableArea{
-	width:800px;
+	width:1000px;
 	height:350px;
 	margin-left:auto;
 	margin-right:auto;
@@ -56,8 +56,9 @@
 		<br />
 		<br />
 	</div>
-  
-    <h1 align="center">게시판 리스트</h1>
+		<hr>
+    	<p align="center" style="font-size:20px">게시판 리스트</p>
+  		<hr>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -71,9 +72,9 @@
   	<table class="table table-hover" id="listArea">
     	<tr>
       		<th width="100" style="text-align:center">글번호</th>
-      		<th width="300">글제목</th>
-      		<th width="100">작성자</th>
-      		<th width="100">조회수</th>
+      		<th width="200">글제목</th>
+      		<th width="80">작성자</th>
+      		<th width="80" style="text-align:center">조회수</th>
       		<th width="150">작성일</th>
     	</tr>
     	
@@ -86,17 +87,19 @@
 			<% for(Board b : list){ %>
 				<%if(b.getIsNotice().equals("Y")){ %>
 					<tr>
-						<td style="text-align:center"><img src="<%=contextPath%>/photo/logoImages/postIcon2.jpeg"><%= b.gettNum() %></td>
-						<td><img src="<%=contextPath%>/photo/logoImages/postIcon.jpeg"><%= b.getTitle() %></td>
+						<td style="text-align:center"><%= b.gettNum() %></td>
+						<td>※ <%= b.getTitle() %> ※</td>
 						<td><%= b.geteName() %></td>
-						<td><%= b.getBoardCount() %></td>
+						<td style="text-align:center"><%= b.getBoardCount() %></td>
 						<td><%= b.getUpdateDate() %></td>				
 					</tr>
 				<%} %>
 			<% } %>
 		<% } %>			
     	
-    	
+    	<tr>
+    		<td colspan="5">
+    	</tr>
  
      	<% if(list.isEmpty()){ %>
 		<tr>
@@ -109,7 +112,7 @@
 						<td colspan="1" style="text-align:center"><%= b.gettNum() %></td>
 						<td><%= b.getTitle() %></td>
 						<td><%= b.geteName() %></td>
-						<td><%= b.getBoardCount() %></td>
+						<td style="text-align:center"><%= b.getBoardCount() %></td>
 						<td><%= b.getUpdateDate() %></td>				
 					</tr>
 				<%} %>	

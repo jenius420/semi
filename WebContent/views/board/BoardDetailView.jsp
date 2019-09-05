@@ -50,6 +50,7 @@
 		background:rgb(255, 225, 255);
 		color:black;
 		width:130px;
+		text-align: center; !important;
 	}
 	tr{
 		border-top: 1px solid black;!important;
@@ -115,7 +116,9 @@
 	<div class="outer">
 		<br>
 		
-		<h2 align="center">게시판 상세보기</h2>
+		<hr>
+    	<p align="center" style="font-size:20px">게시판 상세보기</p>
+  		<hr>
 		
 		<div class="tableArea">
 			
@@ -124,16 +127,16 @@
 					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th>제목</th>
-					<td colspan="5"><%= b.getTitle() %></td>
+					<th style="text-align:center">제목</th>
+					<td colspan="5" style="padding-left:30px"><%= b.getTitle() %></td>
 				</tr>
 				<tr>
-					<th>작성자</th>
-					<td><%= b.geteName() %></td>
-					<th>작성일</th>
-					<td><%= b.getUpdateDate() %></td>
-					<th>조회수</th>
-					<td><%= b.getBoardCount() %></td>
+					<th style="text-align:center">작성자</th>
+					<td style="text-align:center"><%= b.geteName() %></td>
+					<th style="text-align:center">작성일</th>
+					<td style="text-align:center"><%= b.getUpdateDate() %></td>
+					<th style="text-align:center">조회수</th>
+					<td style="text-align:center"><%= b.getBoardCount() %></td>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
@@ -153,7 +156,7 @@
 				<% if(fileList.size()>0) { %>
 				
 					<tr>
-						<th colspan="6">첨부사진</th>
+						<th colspan="6"  style="text-align:center">첨부 사진</th>
 					</tr> 
 					<tr>
 						
@@ -175,21 +178,25 @@
 					<% } %>
 					</tr>
 				<% } %>
+				<tr>
+    				<td colspan="5">
+    			</tr>
 			</table>
 			
 	<div class="replyArea">
 		<div class="replyWriterArea">
 			<table align="center">
+				
 				<tr>
-					<th colspan="6"></th>
+					<td colspan="6" style="height:50px"></th>
 				</tr>
 				<tr>
-					<td>댓글작성</td>
+					<td style="width:50px"> </td>
 					<td><textarea rows="3" cols="80" id="replyContent" style="resize:none;"></textarea></td>
-					<td><button id="addReply">댓글등록</button></td>
+					<td><button id="addReply">댓글 등록</button></td>
 				</tr>
 				<tr>
-					<th colspan="6"></th>
+					<td colspan="6" style="height:50px"></th>
 				</tr>
 			</table>
 		</div>
@@ -198,7 +205,9 @@
 	
 		<div id="replySelectArea">
 			<table id="replySelectTable" border="1" align="center">
-				
+				<tr>
+					<td colspan="6" style="height:10px"></th>
+				</tr>
 			</table>
 		</div>
 	
@@ -208,6 +217,8 @@
 	
 	
 			<div align="center">
+			<br>
+			<br>
 				<button type="button" onclick="history.go(-1);">이전으로</button>
 				
 				<%-- <% if(eNum == loginUser.getUserNo()){ %> --%>

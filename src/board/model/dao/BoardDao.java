@@ -287,7 +287,14 @@ private Properties prop = new Properties();
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("insertBoard");
+		String sql = null;
+		
+		
+		if(User = admin) {
+			prop.getProperty("insertPostBoard");
+		}else {
+			prop.getProperty("insertBoard");
+		}
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

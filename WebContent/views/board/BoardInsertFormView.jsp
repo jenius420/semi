@@ -127,7 +127,9 @@
 	<div class="outer">
 		<br>
 		
-		<h2 align="center">게시판 작성</h2>
+		<hr>
+    	<p align="center" style="font-size:20px">게시판 작성</p>
+  		<hr>
 		
 		<!-- 파일 업로드를 위해 enctype을 지정해줘야된다. -->
 		<form action="<%= request.getContextPath() %>/insert.bo" method="post" enctype="multipart/form-data">
@@ -139,7 +141,7 @@
 				<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th>제목</th>
+					<th style="text-align:center">제목</th>
 					<td colspan="5"><input type="text" name="title"></td>
 				</tr>
 				<tr>
@@ -154,7 +156,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th colspan="6">첨부사진</th>
+					<th colspan="6" style="text-align:center">첨부사진</th>
 				</tr>
 				<tr>
 					<td colspan="2" class="photo">
