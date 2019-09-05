@@ -43,9 +43,6 @@ public class ManageResumeServlet extends HttpServlet {
 		
 		Member mem = (Member)request.getSession().getAttribute("loginUser");
 		Emp emp = new EmpServiceService().selectEmp(mem.geteNum());
-		//샘플 데이터
-//		Emp emp = new EmpServiceService().selectEmp(6);
-//		Emp emp = new EmpServiceService().selectEmp(1);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("emp", emp);

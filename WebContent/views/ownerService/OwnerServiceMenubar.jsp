@@ -9,9 +9,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/display.css">
-<title>기업서비스 메뉴바</title>
+
 <style>
 
 .osMenubar{

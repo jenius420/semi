@@ -6,10 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 
-<title>공고상품 조회</title>
 
 <style>
 
