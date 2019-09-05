@@ -204,14 +204,20 @@ public class Member {
 		this.roadSub = roadSub;
 	}
 	
-	// 아이디 찾기
+	// 개인 아이디 찾기
 	public Member(String eId) {
 		super();
 		this.eId = eId;
+		this.kind = 1;
 	}
 	
+	// 사업자 아이디 찾기
+	public Member(String oId) {
+		super();
+		this.oId = oId;
+		this.kind = 2;
+	}
 	
-
 
 	public int getKind() {
 		return kind;

@@ -20,11 +20,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 
 <style>
+
+		
+		
 
 
 	.outer{
@@ -48,6 +53,7 @@
 		background:rgb(255, 225, 255);
 		color:black;
 		width:130px;
+		text-align: center; !important;
 	}
 	tr{
 	border-top: 1px solid black;!important;
@@ -92,6 +98,8 @@
 	
 	input{
 		border: 1px solid white;
+		width: 100%;
+		font-size : 30px;
 	}
 	
 	textarea{
@@ -140,7 +148,10 @@
 
 <div class="outer">
 		<br>
-		<h2 align="center">게시판 수정</h2>
+		
+		<hr>
+    	<p align="center" style="font-size:20px">게시판 수정</p>
+  		<hr>
 		<div class="tableArea">
 			<form action="<%= request.getContextPath() %>/update.bo" method="post" enctype="multipart/form-data">
 			
@@ -149,17 +160,17 @@
 					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th>제목</th>
-					<td colspan="3"><input type="text" name="title" value="<%=b.getTitle()%>"></td>
-					<th>게시판 번호</th>
+					<th style="text-align:center">제목</th>
+					<td colspan="3"><input type="text" name="title" style="width:390px" value="<%=b.getTitle()%>"></td>
+					<th style="text-align:center">게시판 번호</th>
 					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
 				</tr>
 				<tr>
-					<th>작성자</th>
+					<th style="text-align:center">작성자</th>
 					<td><input type="text" name="eName" value="<%=b.geteName()%>" readonly></td>
-					<th>작성일</th>
+					<th style="text-align:center">작성일</th>
 					<td><input type="text" name="updateDate" value="<%=b.getUpdateDate()%>" readonly></td>
-					<th>조회수</th>
+					<th style="text-align:center">조회수</th>
 					<td><input type="text" name="boardCount" value="<%= b.getBoardCount() %>" readonly></td>
 				</tr>
 				<tr>
@@ -176,7 +187,7 @@
 				<% if(fileList.size()>0) { %>
 				
 					<tr>
-						<th colspan="6">첨부사진</th>
+						<th colspan="6" style="text-align:center">첨부사진</th>
 					</tr> 
 					<tr>
 						
@@ -292,6 +303,10 @@
 			</form>
 		</div>
 	</div>
+
+	<%@ include file="../common/footer.jsp" %>
+	
+	
 
 </body>
 </html>

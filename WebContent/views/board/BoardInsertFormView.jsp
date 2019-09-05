@@ -14,13 +14,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BoardInsert</title>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <style>
 
+	.all{
+		width:1000px;
+		height:1000px;
+		background:#f2e6ff;
+		margin-left:auto;
+		margin-right:auto;
+	
+	}
 	.outer{
 		width:800px;
 		height:500px;
-		background:white;
 		color:purple;
 		margin-left:auto;
 		margin-right:auto;
@@ -37,25 +46,25 @@
 	
 
 	th{
-		background:rgb(255, 225, 255);
+		background:#d9b3ff;
 		color:black;
 	}
 	tr{
 	border-top: 1px solid black;!important;
-		border:1px solid purple;
+		border:1px solid #d9b3ff;
 	}
 	
 	#content{
 		height:230px;
-		border : 1px solid purple;
+		border : 1px solid #d9b3ff;
 	}
 	#photo{
 		height:130px;
-		border : 1px solid purple;
+		border : 1px solid #d9b3ff;
 	}
 	button{
 		background:white;
-		color:purple;
+		color:#d9b3ff;
 		padding-right:10px;
 		padding-left:10px;
 	}
@@ -70,7 +79,7 @@
 	#contentImgArea1, #contentImgArea2, #contentImgArea3{
 		width:250px;
 		height:100px;
-		border:2px solid violet;
+		border:2px solid #d9b3ff;
 		display:table-cell;
 	}
 	#contentImgArea1:hover, #contentImgArea2:hover, #contentImgArea3:hover{
@@ -87,7 +96,7 @@
 	}
 	
 	textarea{
-	 	width:800px;
+	 	width:850px;
 	 	height:225px;
 	 	resize:none;
 	 	border:0px;
@@ -120,12 +129,14 @@
 
 
 
-
+<div class="all">
 
 	<div class="outer">
 		<br>
 		
-		<h2 align="center">게시판 작성</h2>
+		<hr>
+    	<p align="center" style="font-size:20px">게시판 작성</p>
+  		<hr>
 		
 		<!-- 파일 업로드를 위해 enctype을 지정해줘야된다. -->
 		<form action="<%= request.getContextPath() %>/insert.bo" method="post" enctype="multipart/form-data">
@@ -133,18 +144,13 @@
 				
 			<div class="tableArea">
 					<table align="center" width="800px" class="listArea">
+			
 				<tr>
-				<td colspan="6" height=30px></td>
+					<th style="text-align:center">제목</th>
+					<td colspan="5"><input type="text" name="title" style="width:555px"></td>
 				</tr>
 				<tr>
-					<th>제목</th>
-					<td colspan="5"><input type="text" name="title"></td>
-				</tr>
-				<tr>
-				<td colspan="6" height=30px></td>
-				</tr>
-				<tr>
-					<th colspan="6"></th>
+					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
 					<td colspan="6">
@@ -152,22 +158,28 @@
 					</td>
 				</tr>
 				<tr>
-					<th colspan="6">첨부사진</th>
+					<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<td colspan="2" class="photo">
+					<th colspan="6" style="text-align:center">첨부사진</th>
+				</tr>
+				<tr>
+					<td colspan="6" height=30px></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="photo" style="width:270">
 						<div id="contentImgArea1">
-							<img id="contentImg1" width="250" height="200">
+							<img id="contentImg1" width="270" height="200">
 						</div>
 					</td>
-					<td colspan="2" class="photo">
+					<td colspan="2" class="photo" style="width:270">
 						<div id="contentImgArea2">
-							<img id="contentImg2" width="250" height="200">
+							<img id="contentImg2" width="270" height="200">
 						</div>
 					</td>
-					<td colspan="2" class="photo">
+					<td colspan="2" class="photo" style="width:270">
 						<div id="contentImgArea3">
-							<img id="contentImg3" width="250" height="200">
+							<img id="contentImg3" width="270" height="200">
 						</div>
 					</td>
 				</tr>					
@@ -232,12 +244,15 @@
 				<br>
 				
 				<div align="center">
-					<button type="reset">취소하기</button>
+					<button type="reset" onclick="history.go(-1);">취소하기</button>
 					<button type="submit">등록하기</button>
 				</div>
 		</div>
 			</form>
 		</div>
+</div>
+		
+		<%@ include file="../common/footer.jsp" %>
 	
 </body>
 </html>
