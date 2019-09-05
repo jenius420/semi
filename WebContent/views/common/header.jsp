@@ -103,7 +103,7 @@ $(window).load(function() {
 	cursor: pointer;
 	}
 	#jumbotron{
-	background-image: url('resources/images/slide2.jpg');
+	background-image: url('<%= request.getContextPath()%>/resources/images/slide2.jpg');
 	}
 </style>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">

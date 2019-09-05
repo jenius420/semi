@@ -33,6 +33,8 @@
 
   <body>
   
+  <%@ include file="../common/header.jsp"%>
+  
     <h1 align="center">게시판 리스트</h1>
 
     <!-- Optional JavaScript -->
