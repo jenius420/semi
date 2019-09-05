@@ -328,7 +328,7 @@ public class MemberDao {
 	 * @param cNum
 	 * @return
 	 */
-	public Member findIdEmp(Connection conn, String id, String cNum) {
+	public Member findIdEmp(Connection conn, String name, String cNum) {
 		
 		Member userId = null;
 		PreparedStatement pstmt = null;
@@ -337,7 +337,7 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, name);
 			pstmt.setString(2, cNum);
 			
 			rset = pstmt.executeQuery();
@@ -357,9 +357,40 @@ public class MemberDao {
 	}
 
 
-	public Member findIdOwn(Connection conn, String id, String cNum) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * 사업자 아이디 찾기
+	 * @param conn
+	 * @param name
+	 * @param cNum
+	 * @return
+	 */
+	public Member findIdOwn(Connection conn, String name, String cNum) {
+		
+		Member userId = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findIdEmp");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, cNum);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				userId = new Member(rset.getString("oId"));
+			}
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+		
+		
+		return userId;
+		
 	}
 
 
