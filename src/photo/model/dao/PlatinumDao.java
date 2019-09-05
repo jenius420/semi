@@ -31,6 +31,10 @@ public class PlatinumDao {
 
 	
 	
+	/** 플래티넘 알바 조회
+	 * @param conn
+	 * @return
+	 */
 	public ArrayList<Photo> selectPlatinum(Connection conn){
 		ArrayList<Photo> list = new ArrayList<>();
 		

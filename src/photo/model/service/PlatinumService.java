@@ -12,7 +12,7 @@ import photo.model.vo.Photo;
 public class PlatinumService {
 
 	/**
-	 *  플래티넘 상품 조회용 서비스
+	 *  플래티넘 알바 조회용 서비스
 	 * @return
 	 */
 	public ArrayList<Photo> selectPlatinum(){
