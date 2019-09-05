@@ -87,7 +87,7 @@
 				근무시간 :
 				<%=i.getWorkTime() %></p>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-6" style=" padding-top: 70px;">
 			<p>
 				인원 :
 				<%=i.getPeopleCount() %></p>
@@ -124,9 +124,11 @@
 			</div>
 				<%if(loginUser!=null){ %>
 				<div class="buttons" style="padding-left: 450px;">
-					<button class="btn btn-default" onclick="popup();">지원하기</button>
+					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/resumeCheck.se';">지원하기</button>
 				</div>
 				<%} %>
+					
+					
 		</div>
 		<%@ include file="../common/footer.jsp"%>
 	</div>

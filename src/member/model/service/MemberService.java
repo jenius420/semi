@@ -3,8 +3,10 @@ package member.model.service;
 import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import member.model.dao.MemberDao;
+import member.model.vo.Category;
 import member.model.vo.Member;
 
 public class MemberService {
@@ -173,6 +175,20 @@ public class MemberService {
 		close(conn);
 		
 		return userId;
+	}
+
+	public ArrayList<Category> getBigcategory() {
+		Connection conn =getConnection();
+		ArrayList<Category> list = new MemberDao().getBigCategory(conn);
+		close(conn);
+		return list;
+	}
+
+	public ArrayList<Category> getSubcategory(String bigCategoryName) {
+		Connection conn = getConnection();
+		ArrayList<Category> list = new MemberDao().getSubCategory(conn,bigCategoryName);
+		close(conn);
+		return list;
 	}
 
 

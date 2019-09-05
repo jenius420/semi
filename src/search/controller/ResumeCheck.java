@@ -8,21 +8,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import search.model.service.SearchService;
-import search.model.vo.IncruitInfo;
+import empService.model.service.EmpServiceService;
+import empService.model.service.ResumeService;
+import empService.model.vo.Emp;
+import empService.model.vo.Resume;
+import member.model.vo.Member;
 
 /**
- * Servlet implementation class CateSubServlet
+ * Servlet implementation class ResumeCheck
  */
-@WebServlet("/cateSub.se")
-public class CateSubServlet extends HttpServlet {
+@WebServlet("/resumeCheck.se")
+public class ResumeCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CateSubServlet() {
+    public ResumeCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,14 +35,19 @@ public class CateSubServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String[] cate = {request.getParameter("cate")};
-		ArrayList<IncruitInfo> list = new SearchService().categorySearch(cate, 1, 20);
-		int listCount = new SearchService().getCateListCount(cate);
-		request.setAttribute("incruitList", list);
-		request.setAttribute("maxPage", (listCount-1)/20+1);
-		request.setAttribute("cate", cate[0]);
-		request.getRequestDispatcher("views/search/searchCategoryList.jsp").forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+
+		
+		Member mem = (Member)request.getSession().getAttribute("loginUser");
+		Emp emp = new EmpServiceService().selectEmp(mem.geteNum());
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("emp", emp);
+		
+		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/views/search/searchResume.jsp").forward(request, response);
 	}
 
 	/**

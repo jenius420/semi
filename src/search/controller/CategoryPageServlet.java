@@ -75,7 +75,7 @@ public class CategoryPageServlet extends HttpServlet {
 		}
 		System.out.println("page movePage"+movePage);
 		
-		maxPage = listCount/20+1;
+		maxPage = (listCount-1)/20+1;
 		
 		
 		ArrayList<PageInfo> list = new ArrayList<>();

@@ -59,8 +59,15 @@ input{
 <script>
 
 	 $(function(){ 
-		
-		$.ajax({
+		$(document).on("click",".recommend>div",function(){
+			var eNum=$(this).parent().children().eq(0).children().eq(1).val();
+			var oNum=$(this).parent().children().eq(0).children().eq(2).val();
+			console.log("eNum : " + eNum);
+			console.log("oNum : " + oNum);
+			location.href= getContextPath()+"/detail.se?num="+eNum+"&oNum="+oNum; 
+		});
+		if(<%=loginUser%>!=null){
+			$.ajax({
 				url:"test22.sss",
 				data:{eNum:$('#eNum').val()},
 				type:"get",
@@ -72,10 +79,11 @@ input{
 					var i =0;
 					$.each(result, function(index, value){
 						
-						var $div = $("<div>").attr("class","col-sm-2 mb-4").css("padding-top","40px"); // <div> </div>
-						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum");
+						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum").val(value.wNum);
+						var $hidden2 = $("<input>").attr("type","hidden").attr("class","onum").val(value.oNum);
+						var $div = $("<div>").attr("class","col-sm-2 mb-4 recommend").css("padding-top","40px"); // <div> </div>
 						var $div1 = $("<div>").attr("class","card h-10");
-						var $div2 = $("<div>").attr("class","card-body");
+						var $div2 = $("<div>").attr("class","card-body").css("padding-top","20px");
 						var $a = $("<a>") // <a> </a>
 						var $a1 = $("<a>").text(value.wTitle).css("height","50px");
 						var $h5 = $("<h5>").attr("class","card-title"); // <h5> </h5>
@@ -87,6 +95,8 @@ input{
 						$div.append($div2);
 						$div2.append($h5);
 						$h5.append($a1);
+						$div1.append($hidden);
+						$div1.append($hidden2);
 						// <div> <div>  <a> <img> </a> </div> <div> <h5> <a> </a> </h5> </div> </div>
 						 
 						i++;
@@ -98,6 +108,8 @@ input{
 					console.log("이미지 불러오기 실패");
 				}
 			});
+		}
+		
 			
 		});
 
@@ -155,17 +167,23 @@ input{
 </div>
 
 <script>
-		// 지역별로 이동
+
+	$(function(){
 		$('.mainarea').click(function(){
 			var dis=$(this).text();
+			console.log(dis);
 			location.href="<%= request.getContextPath() %>/districtSub.se?dis="+dis;
 		});
-		
-		// 업종별로 이동
 		$('.maintype').click(function(){
 			var cate=$(this).text();
 			location.href="<%= request.getContextPath() %>/cateSub.se?cate="+cate;
 		});
+		
+	});
+		
+		
+		
+		
 </script>
 
 <!--상품적용알바 -->
@@ -180,9 +198,19 @@ input{
 
 
 <script>
-
+	function getContextPath(){
+		return window.location.pathname.substring(0,window.location.pathname.indexOf("/",2));
+	}
 	 $(function(){ 
-		
+		$(document).on('click','.platinum>div',function(){
+			var eNum=$(this).parent().children().eq(0).children().eq(1).val();
+			var oNum=$(this).parent().children().eq(0).children().eq(2).val();
+			console.log("eNum : " + eNum);
+			console.log("oNum : " + oNum);
+			location.href= getContextPath()+"/detail.se?num="+eNum+"&oNum="+oNum; 
+			
+		});
+		 
 		$.ajax({
 				url:"test.sss",
 				
@@ -196,25 +224,33 @@ input{
 					
 					var $platinum = $("#choiceAlba2");
 					
-					$platinum.html("").css("padding-left","40px").css("padding-right","39px");
+					$platinum.html("").css("padding-left","20px").css("padding-right","20px");
 					var i =0;
 					$.each(data, function(index, value){
 						
-						var $div = $("<div>").attr("class","col-sm-2 mb-4").css("padding-top","40px"); // <div> </div>
-						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum");
+						var $div = $("<div>").attr("class","col-sm-2 mb-4 platinum").css("padding-top","40px"); // <div> </div>
+						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum").val(value.wNum);
+						var $hidden2 = $("<input>").attr("type","hidden").attr("class","onum").val(value.oNum);
 						var $div1 = $("<div>").attr("class","card h-10");
 						var $div2 = $("<div>").attr("class","card-body");
 						var $a = $("<a>") // <a> </a>
 						var $a1 = $("<a>").text(value.wTitle).css("height","50px");
 						var $h5 = $("<h5>").attr("class","card-title"); // <h5> </h5>
-						var $img = $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/" + value.saveName).css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
-						
+						var $img;
+						if(value.save==null||value.save==undefined){
+							$img= $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/noLogo.jpg").css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
+							
+						}else{
+							$img= $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/" + value.saveName).css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
+						}
 						$div.append($div1);
 						$div1.append($a);
 						$a.append($img);
 						$div.append($div2);
 						$div2.append($h5);
 						$h5.append($a1);
+						$div1.append($hidden);
+						$div1.append($hidden2);
 						// <div> <div>  <a> <img> </a> </div> <div> <h5> <a> </a> </h5> </div> </div>
 						 
 						i++;

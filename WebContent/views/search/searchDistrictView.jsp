@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% ArrayList<IncruitInfo> incruitList = (ArrayList)request.getAttribute("incruitList");
- int maxPage = (Integer)request.getSession().getAttribute("maxPage");
+ int maxPage = (Integer)request.getAttribute("maxPage");
  String dis=(String)request.getAttribute("dis");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

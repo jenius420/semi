@@ -59,6 +59,7 @@ public class LoginServlet extends HttpServlet {
     	}else {
     		// 사업자 로그인
     		Member loginUser = new MemberService().loginOwn(id, pwd);
+    		System.out.println(loginUser);
     		if(loginUser != null) {
     			HttpSession session = request.getSession();
     			
@@ -67,6 +68,8 @@ public class LoginServlet extends HttpServlet {
     			session.setAttribute("loginUser", loginUser);
     			
     			response.sendRedirect(request.getContextPath());				
+    		}else {
+    			request.setAttribute("msg","로그인 실패");
     		}
     		
     		
