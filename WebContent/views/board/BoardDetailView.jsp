@@ -29,6 +29,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <style>
+
+
+
+
 	.outer{
 		width:800px;
 		height:500px;
@@ -109,7 +113,6 @@
 		<br />
 		<br />
 	</div>
-
 
 
 
@@ -228,7 +231,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	
 	
 	

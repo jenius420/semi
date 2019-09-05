@@ -28,6 +28,9 @@
 
 <style>
 
+		
+		
+
 
 	.outer{
 		width:800px;
@@ -300,8 +303,7 @@
 			</form>
 		</div>
 	</div>
-	
-	
+
 	<%@ include file="../common/footer.jsp" %>
 	
 	
