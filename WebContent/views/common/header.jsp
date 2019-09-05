@@ -39,14 +39,14 @@ http://www.templatemo.com/tm-406-flex
         
         <!-- Place somewhere in the <head> of your document -->
         
-<link rel="stylesheet" href="<%=request.getContextPath() %>/flexslider.css" type="text/css">
+<%-- <link rel="stylesheet" href="<%=request.getContextPath() %>/flexslider.css" type="text/css"> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/jquery.flexslider.js"></script>
 
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
 $(window).load(function() {
-    $('.flexslider').flexslider();
+   /*  $('.flexslider').flexslider(); */
   });
   
   $(function(){ 
@@ -171,7 +171,7 @@ $(window).load(function() {
         <script>window.jQuery || document.write("<script src='<%=request.getContextPath()%>/resources/js/vendor/jquery-1.11.0.min.js'><\/script>")</script>
         <script src="<%=request.getContextPath()%>/resources/js/bootstrap.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/plugins.js"></script>
-        <script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+       <%--  <script src="<%=request.getContextPath()%>/resources/js/main.js"></script> --%>
         
         
         
