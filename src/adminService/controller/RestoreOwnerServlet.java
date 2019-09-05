@@ -7,20 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import adminService.model.service.ManageIncruitService;
-import ownerService.model.vo.IncruitProduct;
+import adminService.model.service.ManageMemService;
 
 /**
- * Servlet implementation class InsertProductServlet
+ * Servlet implementation class RestoreOwnerServlet
  */
-@WebServlet("/insertProduct.as")
-public class InsertProductServlet extends HttpServlet {
+@WebServlet("/restoreOwner.as")
+public class RestoreOwnerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertProductServlet() {
+    public RestoreOwnerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,24 +28,19 @@ public class InsertProductServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		
-		String pTitle = request.getParameter("newpTitle");
-		int pPay = Integer.parseInt(request.getParameter("newpPay"));
-		String pExplain = request.getParameter("newpExplain");
+		int oNum = Integer.parseInt(request.getParameter("oNum"));
 		
-		IncruitProduct prod = new IncruitProduct(pTitle, pExplain, pPay);
-		
-		int result = new ManageIncruitService().InsertProduct(prod);
+		int result = new ManageMemService().restoreOwner(oNum);
 		
 		if(result > 0) {
-			response.sendRedirect("manageProduct.as");
+			request.getRequestDispatcher("/views/adminService/OwnerList.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "상품 등록에 실패했습니다");
-			request.getRequestDispatcher("views/common/errorPage.jsp");
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
-		
 	}
 
 	/**

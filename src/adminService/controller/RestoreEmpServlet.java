@@ -7,20 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import adminService.model.service.ManageIncruitService;
-import ownerService.model.vo.IncruitProduct;
+import adminService.model.service.ManageMemService;
 
 /**
- * Servlet implementation class InsertProductServlet
+ * Servlet implementation class RestoreEmpServlet
  */
-@WebServlet("/insertProduct.as")
-public class InsertProductServlet extends HttpServlet {
+@WebServlet("/restoreEmp.as")
+public class RestoreEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertProductServlet() {
+    public RestoreEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,21 +31,16 @@ public class InsertProductServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String pTitle = request.getParameter("newpTitle");
-		int pPay = Integer.parseInt(request.getParameter("newpPay"));
-		String pExplain = request.getParameter("newpExplain");
+		int eNum = Integer.parseInt(request.getParameter("eNum"));
 		
-		IncruitProduct prod = new IncruitProduct(pTitle, pExplain, pPay);
-		
-		int result = new ManageIncruitService().InsertProduct(prod);
+		int result = new ManageMemService().restoreEmp(eNum);
 		
 		if(result > 0) {
-			response.sendRedirect("manageProduct.as");
+			request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "상품 등록에 실패했습니다");
-			request.getRequestDispatcher("views/common/errorPage.jsp");
+			request.setAttribute("msg", "요청을 실패했습니다");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
-		
 	}
 
 	/**
