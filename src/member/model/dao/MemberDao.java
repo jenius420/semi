@@ -145,7 +145,6 @@ public class MemberDao {
 			pstmt.setString(2, mem.getePwd());
 			pstmt.setString(3, mem.geteName());
 			pstmt.setString(4, mem.getEcNum());
-			
 			pstmt.setString(5, mem.getRoadName());
 			pstmt.setInt(6, mem.getRoadMain());
 			pstmt.setInt(7, mem.getRoadSub());
@@ -208,7 +207,7 @@ public class MemberDao {
 			pstmt.setString(11, mem.getOcNum());
 			pstmt.setString(12, mem.getPhone());
 			pstmt.setString(13, mem.getEmail());
-			//pstmt.setInt(14, mem.getTypeNum());
+			
 			if(mem.getMailAccept() == null || mem.getMailAccept().equals("")) {
 				pstmt.setString(14, "N");
 			}else {

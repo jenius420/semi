@@ -8,13 +8,14 @@
 <!DOCTYPE html >
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
-
-<title>지원자 관리</title>
 
 <style>
 

@@ -94,6 +94,22 @@
 <body>
 
 
+
+<%@ include file="../common/header.jsp"%>
+  	<div></div>
+	<div class="jumbotron" id="jumbotron">
+		<br />
+		<br />
+		<br /> <br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+
+
+
+
 	<div class="outer">
 		<br>
 		

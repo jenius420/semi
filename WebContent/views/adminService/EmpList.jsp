@@ -7,6 +7,9 @@
 <!DOCTYPE html >
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 
@@ -64,7 +67,6 @@ display:none;
 }
 </style>
 
-<title>회원 리스트</title>
 
 </head>
 <body>

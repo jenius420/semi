@@ -44,7 +44,7 @@ public class DeleteResumeServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			File failedFile = new File(request.getContextPath() + "/resources/uploadFiles/" + changeName);
+			File failedFile = new File(request.getContextPath() + "/photo/resumeImage/" + changeName);
 			failedFile.delete();
 			
 			response.sendRedirect("manageResume.es");

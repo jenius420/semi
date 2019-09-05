@@ -38,8 +38,8 @@ public class InsertOwnServlet extends HttpServlet {
 		String opNum3 = request.getParameter("opNum3");				// 사업자 번호3
 		String opNum = opNum1 + "-" +  opNum2 + "-" + opNum3;		// 사업자 번호
 		String oName = request.getParameter("oName");				// 사업자 성명
-		String tel1 = request.getParameter("tel1");	// 전화번호1
-		String tel2 = request.getParameter("tel2");	// 전화번호2
+		String tel1 = request.getParameter("tel1");					// 전화번호1
+		String tel2 = request.getParameter("tel2");					// 전화번호2
 		String tel3 = request.getParameter("tel3");	// 전화번호3
 		String oTel = tel1 + "-" + tel2 + "-" + tel3;				// 사업장전화번호
 		String ocNum1 = request.getParameter("ocNum1");				// 사업자 주번1
@@ -48,7 +48,7 @@ public class InsertOwnServlet extends HttpServlet {
 		String phone1 = request.getParameter("phone1");				// 휴대전화1
 		String phone2 = request.getParameter("phone2");				// 휴대전화2
 		String phone3 = request.getParameter("phone3");				// 휴대전화3
-		String phone = phone1 + phone2 + phone3;					// 휴대전화
+		String phone = phone1 + "-" + phone2 + "-" + phone3;		// 휴대전화
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		//int typeNum = Integer.parseInt(request.getParameter());	// 업직종번호
@@ -103,7 +103,7 @@ public class InsertOwnServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			request.setAttribute("msg", "회원가입성공");
+			//request.setAttribute("msg", "회원가입성공");
 			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			

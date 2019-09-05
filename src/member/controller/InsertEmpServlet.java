@@ -41,7 +41,7 @@ public class InsertEmpServlet extends HttpServlet {
 		String phone1 = request.getParameter("phone1"); 			// 전화번호 010
 		String phone2 = request.getParameter("phone2"); 			// 휴대전화 앞자리
 		String phone3 = request.getParameter("phone3"); 			// 휴대전화 뒷자리
-		String phone = phone1 + "-" + "-" + phone2 + "-" + phone3;	// 휴대전화
+		String phone = phone1 + "-" + phone2 + "-" + phone3;		// 휴대전화
 		String email1 = request.getParameter("email1");				// 이메일1
 		String email2 = request.getParameter("email2");				// 이메일2
 		String email = email1 + email2;								// 이메일 결합
@@ -80,7 +80,7 @@ public class InsertEmpServlet extends HttpServlet {
 		if(result > 0) {
 			
 
-			request.setAttribute("msg", "회원가입성공");
+			//request.setAttribute("msg", "회원가입성공");
 			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

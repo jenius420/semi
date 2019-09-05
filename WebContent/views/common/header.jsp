@@ -20,6 +20,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 
@@ -39,14 +40,14 @@ http://www.templatemo.com/tm-406-flex
         
         <!-- Place somewhere in the <head> of your document -->
         
-<link rel="stylesheet" href="<%=request.getContextPath() %>/flexslider.css" type="text/css">
+<%-- <link rel="stylesheet" href="<%=request.getContextPath() %>/flexslider.css" type="text/css"> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/jquery.flexslider.js"></script>
 
 <!-- Place in the <head>, after the three links -->
 <script type="text/javascript" charset="utf-8">
-$(window).load(function() {
-    $('.flexslider').flexslider();
+ $(window).load(function() {
+   /*  $('.flexslider').flexslider(); */
   });
   
   $(function(){ 
@@ -103,7 +104,7 @@ $(window).load(function() {
 	cursor: pointer;
 	}
 	#jumbotron{
-	background-image: url('resources/images/slide2.jpg');
+	background-image: url('<%= request.getContextPath()%>/resources/images/slide2.jpg');
 	}
 </style>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
@@ -142,7 +143,7 @@ $(window).load(function() {
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <% if(loginUser == null){ %>
- 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
+ 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=500 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
@@ -171,7 +172,7 @@ $(window).load(function() {
         <script>window.jQuery || document.write("<script src='<%=request.getContextPath()%>/resources/js/vendor/jquery-1.11.0.min.js'><\/script>")</script>
         <script src="<%=request.getContextPath()%>/resources/js/bootstrap.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/plugins.js"></script>
-        <script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+       <%--  <script src="<%=request.getContextPath()%>/resources/js/main.js"></script> --%>
         
         
         

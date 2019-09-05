@@ -7,10 +7,13 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 <!DOCTYPE >
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 
-<title></title>
+
 <style>
 
 .column1 {
@@ -141,20 +144,21 @@ display:none;
 												<td class="cell100 column2"><%=a.getDong()%> <%=a.getOpAddress()%></td>
 												<td class="cell100 column3"><%=a.getPhone()%></td>
 												<td class="cell100 column4"><%=a.getCategory()%> :: <%=a.getType()%></td>
-												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInter();">
-												<form action="" id="detailForm" method="post">
-													<input type="hidden" name="hNo" value="<%=a.gethNum()%>">
-												</form></td>
+												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInterest();">
+													<form action="" id="deleteForm" method="post">
+														<input type="hidden" name="hNo" value="<%=a.gethNum()%>">
+													</form>
+												</td>
 											</tr>
 											<%}}%>
 											<script>		
-												function deleteInter(){
+												function deleteInterest(){
 													
 													var con = confirm("관심기업에서 삭제 하시겠습니까");
 													
 													if(con){
-														$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteInterestOwnerServlet.es");
-														$("#detailForm").submit();
+														$("#deleteForm").attr("action", "<%=request.getContextPath()%>/deleteInterestOwnerServlet.es");
+														$("#deleteForm").submit();
 													}else{
 														return false;
 													}
@@ -210,6 +214,7 @@ display:none;
 												<td class="cell100 column44"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
 												<td class="cell100 column55"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
 												<td class="cell100 column66"><%=a.getDoneDate()%></td>
+		
 											</tr>
 											<%}}%>
 									</tbody>

@@ -22,9 +22,12 @@ String keyword = (String)request.getAttribute("keyword");
 <!DOCTYPE html >
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<title>인재 검색</title>
+
 <style>
 
 input:focus, select:focus {

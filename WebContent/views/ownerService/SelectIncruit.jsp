@@ -8,11 +8,13 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 <!DOCTYPE html >
 <html>
 <head>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
 
-<title>공고 보기</title>
 </head>
 <body>
 
