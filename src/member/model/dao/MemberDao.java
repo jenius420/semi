@@ -189,7 +189,7 @@ public class MemberDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertEmp");
+		String sql = prop.getProperty("insertOwn");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
