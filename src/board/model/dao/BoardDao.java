@@ -384,12 +384,9 @@ private Properties prop = new Properties();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			/*pstmt.setInt(1, b.gettNum());*/
+	
 			pstmt.setString(1, b.getTitle());
-			/*pstmt.setInt(3, b.geteNum());
-			pstmt.setDate(4, b.getUpdateDate());*/
 			pstmt.setString(2, b.getbBody());
-			/*pstmt.setInt(6, b.getBoardCount());*/
 			pstmt.setInt(3, b.gettNum());
 			
 			result = pstmt.executeUpdate();

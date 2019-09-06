@@ -153,7 +153,7 @@
     	<p align="center" style="font-size:20px">게시판 수정</p>
   		<hr>
 		<div class="tableArea">
-			<form action="<%= request.getContextPath() %>/update.bo" method="post" enctype="multipart/form-data">
+			<form action="<%= request.getContextPath() %>/BoardUpdate.bo" method="post" enctype="multipart/form-data">
 			
 					<table align="center" width="800px" class="listArea">
 				<tr>
@@ -238,17 +238,17 @@
 	
 	
 				
-<!-- <!-- 				
-				파일 업로드 하는 div
+				
+				<!-- <!-- 파일 업로드 하는 div -->
 				 <div id="fileArea">
 					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this, 1);">
 					<input type="file" multiple name="thumbnailImg2" id="thumbnailImg2" onchange="loadImg(this, 2);">
 					<input type="file" multiple name="thumbnailImg3" id="thumbnailImg3" onchange="loadImg(this, 3);">
-				</div> 
+				</div>  -->
 				
-				 --> -->
+			
 				
-				<script>
+				<!-- <script>
 				
 				
 				$()
@@ -268,12 +268,10 @@
 							$("#thumbnailImg3").click();
 						});
 					});
-					
-					// 파일 첨부했을 때 미리보기 공간에 미리보기 가능하게 하는 함수
-					// [참고] https://developer.mozilla.org/ko/docs/Web/API/FileReader
+				
+				
+				
 					function loadImg(value, num){
-						// value => input태그
-						// num => 조건문으로 작업
 						
 						// file이 존재하는지 
 						if(value.files && value.files[0]){
@@ -297,7 +295,7 @@
 							
 							
 						}
-					}
+					} -->
 					
 					
 					
@@ -322,25 +320,13 @@
 						}
 					} --%>
 					
-					/* function test(){
-						if(thumbnailImg1 != null){
-							<input type="hidden" name="photo1" value="1">
-						}
-						
-						if(thumbnailImg2 != null){
-							<input type="hidden" name="photo2" value="2">
-						}
-						
-						if(thumbnailImg3 != null){
-							<input type="hidden" name="photo3" value="3">
-						}
-						 */
+					
 					
 				</script>
 				
 				<br>
 				<div align="center">
-					<button type="submit" id="updateBtn" onclick="test();">수정</button>
+					<button type="submit" id="updateBtn">수정</button>
 					<button onclick="history.go(-1);">취소</button>
 				</div>
 			</form>

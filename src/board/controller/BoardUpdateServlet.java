@@ -25,7 +25,7 @@ import member.model.vo.Member;
 /**
  * Servlet implementation class BoardUpdateServlet
  */
-@WebServlet("/update.bo")
+@WebServlet("/update.boooooooooooooooooooooooooooooooooooooooooooooo")
 public class BoardUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -80,12 +80,13 @@ public class BoardUpdateServlet extends HttpServlet {
 				int tNum = Integer.parseInt(multiRequest.getParameter("tNum"));
 				String title = multiRequest.getParameter("title");
 				int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
-
 				Date updateDate = Date.valueOf(multiRequest.getParameter("updateDate"));
 				String bBody = multiRequest.getParameter("bBody");
 				int boardCount = Integer.parseInt(multiRequest.getParameter("boardCount"));
 			
-			
+				
+				
+				/*String bWriter = String.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());*/
 				
 				Board b = new Board();
 				b.settNum(tNum);
@@ -94,9 +95,10 @@ public class BoardUpdateServlet extends HttpServlet {
 				b.setUpdateDate(updateDate);
 				b.setbBody(bBody);
 				b.setBoardCount(boardCount);
+				/*
+				System.out.println("서블레ㅅ1" + bBody);
+				System.out.println("서블레ㅅ1" + b.getbBody());*/
 				
-				System.out.println("update서블렛"+eNum);
-
 				
 				ArrayList<Attachment> fileList = new ArrayList<>();
 				
@@ -108,22 +110,17 @@ public class BoardUpdateServlet extends HttpServlet {
 					at.setChangeName(changeFiles.get(i));
 					
 					fileList.add(at);
-					
-					System.out.println("update서블렛" + i + changeFiles.get(i));
 				}
 				
 				
-				
 				int result = new BoardService().updateBoard(b, fileList);
-				System.out.println(result);
-				
 				
 				if(result > 0) {
 					/*response.sendRedirect("detail.bo");*/
-					response.sendRedirect("detail.bo?tNum=" + tNum);
-//
-//					request.setAttribute("tNum", tNum);
-//					request.getRequestDispatcher("detail.bo?tNum=" + tNum).forward(request, response);
+					response.sendRedirect("detail.no?tNum=" + tNum);
+/*
+					request.setAttribute("tNum", tNum);
+					request.getRequestDispatcher("detail.no?tNum=" + tNum).forward(request, response);*/
 				}else {
 				
 				

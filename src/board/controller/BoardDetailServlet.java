@@ -34,12 +34,12 @@ public class BoardDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int tNum = Integer.parseInt(request.getParameter("tNum"));
-		
+
 		Board b = new BoardService().selectBoard(tNum);
 		
 		ArrayList<Attachment> fileList = new BoardService().selectAttachment(tNum);
 		
-		
+
 		if(b != null) {
 			request.setAttribute("b", b);
 			request.setAttribute("fileList", fileList);
