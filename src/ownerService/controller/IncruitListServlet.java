@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import empService.model.vo.Emp;
+import member.model.vo.Member;
 import ownerService.model.vo.Owner;
 import ownerService.model.service.IncruitService;
 import ownerService.model.service.OwnerServiceService;
@@ -38,7 +39,7 @@ public class IncruitListServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
-//		Member mem = (Member)request.getSession().getAttribute("loginUser");
+		Member mem = (Member)request.getSession().getAttribute("loginUser");
 //		Owner owner = new OwnerServiceService().selectOwner(mem.getoNum());
 		
 		Owner owner = new OwnerServiceService().selectOwner(95);
