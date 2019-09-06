@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import common.model.vo.Attachment;
 import empService.model.vo.*;
 import ownerService.model.vo.Appliant;
 import ownerService.model.vo.*;
@@ -392,7 +393,7 @@ public class EmpServiceDao {
 		
 	}
 	
-	public int applyDuplicationCheck(Connection conn, int wNum, int rNum) {
+	public int applyDuplicationCheck(Connection conn, int eNum, int wNum) {
 		
 		int result = 0;
 
@@ -403,7 +404,7 @@ public class EmpServiceDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, rNum);
+			pstmt.setInt(1, eNum);
 			pstmt.setInt(2, wNum);
 	
 			result = pstmt.executeUpdate();
@@ -492,5 +493,35 @@ public class EmpServiceDao {
 		
 	}
 	
+	public Attachment selectAttachment(Connection conn, int oNum) {
+		
+		Attachment at = new Attachment();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAttachment2");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, oNum);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				
+				at.setChangeName(rset.getString("SAVENAME"));
+				at.setfId(rset.getInt("PNUM"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return at;
+	}
 
 }

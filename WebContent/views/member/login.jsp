@@ -107,6 +107,10 @@
    			}else{
    				kind = kindArr[1].value;
    			}
+   			
+   			if($("#userId").val() == "admin"){
+   				kind = 3;
+   			}
     		
     		window.opener.location.href = "<%= contextPath %>/login.me?userId="+$("#userId").val()+"&userPwd="+$("#userPwd").val()+"&kind="+kind;
     		window.close();
