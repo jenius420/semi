@@ -339,7 +339,8 @@ public class MemberDao {
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				userId = new Member(rset.getString("eId"));
+				userId = new Member();
+				userId.seteId(rset.getString(1));
 			}
 			
 			} catch (SQLException e) {
@@ -353,7 +354,7 @@ public class MemberDao {
 		return userId;
 	}
 
-
+	
 	/**
 	 * 사업자 아이디 찾기
 	 * @param conn
@@ -375,7 +376,8 @@ public class MemberDao {
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				userId = new Member(rset.getString("oId"));
+				userId = new Member();
+				userId.setoId(rset.getString(1));
 			}
 			
 			} catch (SQLException e) {
