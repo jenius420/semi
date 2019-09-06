@@ -95,7 +95,7 @@ public class ManageMemDao {
 				owner.setoNum(rs.getInt("ONUM"));
 				owner.setoId(rs.getString("OID"));
 				owner.setOpName(rs.getString("OPNAME"));
-				owner.setOpNum(rs.getInt("OPNUM"));
+				owner.setOpNum(rs.getString("OPNUM"));
 				owner.setoName(rs.getString("ONAME"));
 				owner.setoTel(rs.getString("OTEL"));
 				owner.setPhone(rs.getString("PHONE"));

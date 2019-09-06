@@ -336,68 +336,69 @@ public class ResumeDao {
 		return list;
 	}
 
-	public ArrayList<Incruit> selectSuitableIncruit(Connection conn, Resume resume) {
-		
-		ArrayList<Incruit> list = new ArrayList<>();	
-		Incruit incruit = null;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		String sql = prop.getProperty("selectSuitableIncruit");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, resume.getDistrict());
-			pstmt.setString(2, resume.getType());
-			pstmt.setString(3, resume.getEdu());
-			pstmt.setString(4, resume.getDesireForm());
-			pstmt.setInt(5, resume.getDesireIncome());
-			
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				incruit = new Incruit(
-										rs.getInt("WNUM"),
-										rs.getString("WTITLE"),
-										rs.getInt("ONUM"),
-										rs.getString("OPNAME"),
-										rs.getDate("WORKSTARTTERM"),
-										rs.getDate("WORKENDTERM"),
-										rs.getString("WORKDAY"),
-										rs.getString("WORKSTARTTIME"),
-										rs.getString("WORKENDTIME"),
-										rs.getString("TERMNAME"),
-										rs.getString("WORKGENDER"),
-										rs.getInt("WORKAGE"),
-										rs.getString("WORKEDU"),
-										rs.getDate("STARTDATE"),
-										rs.getString("INCRUITSTATUS"),
-										rs.getDate("ENDDATE"),
-										rs.getString("WORKFORM"),
-										rs.getInt("SALARY"),
-										rs.getString("PTITLE"),
-										rs.getString("REXPLAIN"),
-										rs.getInt("PEOPLECOUNT"),
-										rs.getString("DONGNAME"),
-										rs.getString("DISTRICTNAME"),
-										rs.getString("TYPENAME")
-					);
-				
-				list.add(incruit);
-			}
-			
-		}catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return list;
-	}
+//	디컴
+//	public ArrayList<Incruit> selectSuitableIncruit(Connection conn, Resume resume) {
+//		
+//		ArrayList<Incruit> list = new ArrayList<>();	
+//		Incruit incruit = null;
+//		
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		
+//		String sql = prop.getProperty("selectSuitableIncruit");
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			
+//			pstmt.setString(1, resume.getDistrict());
+//			pstmt.setString(2, resume.getType());
+//			pstmt.setString(3, resume.getEdu());
+//			pstmt.setString(4, resume.getDesireForm());
+//			pstmt.setInt(5, resume.getDesireIncome());
+//			
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				incruit = new Incruit(
+//										rs.getInt("WNUM"),
+//										rs.getString("WTITLE"),
+//										rs.getInt("ONUM"),
+//										rs.getString("OPNAME"),
+//										rs.getDate("WORKSTARTTERM"),
+//										rs.getDate("WORKENDTERM"),
+//										rs.getString("WORKDAY"),
+//										rs.getString("WORKSTARTTIME"),
+//										rs.getString("WORKENDTIME"),
+//										rs.getString("TERMNAME"),
+//										rs.getString("WORKGENDER"),
+//										rs.getInt("WORKAGE"),
+//										rs.getString("WORKEDU"),
+//										rs.getDate("STARTDATE"),
+//										rs.getString("INCRUITSTATUS"),
+//										rs.getDate("ENDDATE"),
+//										rs.getString("WORKFORM"),
+//										rs.getInt("SALARY"),
+//										rs.getString("PTITLE"),
+//										rs.getString("REXPLAIN"),
+//										rs.getInt("PEOPLECOUNT"),
+//										rs.getString("DONGNAME"),
+//										rs.getString("DISTRICTNAME"),
+//										rs.getString("TYPENAME")
+//					);
+//				
+//				list.add(incruit);
+//			}
+//			
+//		}catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			close(rs);
+//			close(pstmt);
+//		}
+//		
+//		return list;
+//	}
 	
 	// 디컴?
 //	public ArrayList<Incruit> selectSuitableRecruitList(Connection conn, Filter filter) {

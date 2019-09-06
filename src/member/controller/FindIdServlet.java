@@ -44,17 +44,21 @@ public class FindIdServlet extends HttpServlet {
 			
 			Member userId = new MemberService().findIdEmp(name, cNum);
 			
-			HttpSession session = request.getSession();
 			
-			session.setAttribute("userId", userId);
-			response.sendRedirect(request.getContextPath());
-			//request.getRequestDispatcher("returnId.jsp").forward(request, response);
+			//response.sendRedirect(request.getContextPath());
+			
+			request.setAttribute("kind", kind);
+			request.setAttribute("userId", userId);
+			request.getRequestDispatcher("returnId.jsp").forward(request, response);
+			
 			
 			
 		}else {
 			
 			Member userId = new MemberService().fidIdOwn(name, cNum);
 			
+			HttpSession session = request.getSession();
+			request.getRequestDispatcher("returnId.jsp").forward(request, response);
 			
 			
 			

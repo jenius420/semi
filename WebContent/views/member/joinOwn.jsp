@@ -112,7 +112,7 @@
 					<tr>
 						<td><b>사업장명</b></td>
 						<td><input type="text" name="opName" id="opName" size="30" placeholder="사업장명 입력"></td>
-
+						<td><label id="opNameResult"></label></td>
 					</tr>
 
 					<tr>
@@ -128,7 +128,7 @@
 					<tr>
 						<td><b>성명</b></td>
 						<td><input id="oName" name="oName" type="text" size="30" maxlength="5" placeholder="성명 입력"></input></td>
-						<td><label id="nameResult"></label></td>
+						<td><label id="oNameResult"></label></td>
 					</tr>
 				
 					<tr>
@@ -257,20 +257,27 @@
 		var pwdw = document.getElementById("pwdw");
 		var pwdResult2 = document.getElementById("pwdResult2");
 		var oName = document.getElementById("oName");
-		var nameResult = document.getElementById("nameResult");
+		var oNameResult = document.getElementById("oNameResult");
 		var email1 = document.getElementById("email1");
 		var email2 = document.getElementById("email2");
 		var emailResult = document.getElementById("emailResult");
 		var ocNum1 = document.getElementById("ocNum1");
 		var ocNum2 = document.getElementById("ocNum2");
+		var ocNum = ocNum1 + ocNum2;
 		var ocNumResult = document.getElementById("ocNumResult");
 		var opNum1 = document.getElementById("opNum1");
 		var opNum2 = document.getElementById("opNum2");
 		var opNum3 = document.getElementById("opNum3");
 		var opNum = opNum1 + opNum2 + opNum3;
 		var opNumResult = document.getElementById("opNumResult");
+		var opName = document.getElementById("opName");
+		var opNameResult = document.getElementById("opNameResult");
+		var tel1 = document.getElementById("tel1");
+		var tel1 = document.getElementById("tel2");
+		var tel1 = document.getElementById("tel3");
 
 		$(function(){
+			
 			$(oId).on('blur', function(e){
 				
 				if(!(/^[a-z0-9]{4,}$/.test(oId.value))){
@@ -318,7 +325,7 @@
 			$(oName).on('blur', function(e){
 				if(!(/^[가-힣]{2,5}$/.test(oName.value))){
 					oName.value="";
-					$(nameResult).text("성명을 확인 해주세요.");
+					$(oNameResult).text("성명을 확인 해주세요.");
 					//eName.focus();
 				}
 			});
@@ -425,6 +432,129 @@
     			object.value = object.value.slice(0, object.maxLength);
    			}   
   		}
+
+		
+		function joinValidate(){
+			if($(oId).val().trim().length == 0){
+				$(idResult).text("");
+				$(idResult).text("아이디를 입력해주세요");
+				$(oId).focus();
+				return false;
+			}
+			
+			if($(pwd).val().trim().length == 0){
+				$(pwdResult1).text("");
+				$(pwdResult1).text("비밀번호를 입력해주세요");
+				$(pwd).focus();
+				return false;
+
+			}
+			
+			if($(pwd2).val().trim().length == 0){
+				$(pwdResult2).text("");
+				$(pwdResult2).text("비밀번호를 입력해주세요");
+				$(pwd2).focus();
+				return false;
+			}
+			
+			if($(opName).val().trim().length == 0){
+				$(opNameResult).text("");
+				$(opNameResult).text("사업장명을 입력해주세요");
+				$(opName).focus();
+				return false;
+			}
+			
+			if($(opNum1).val().trim.length == 0){
+				$(opNumResult).text("사업자번호를 입력해주세요");
+				$(opNum1).focus();
+				return false;
+			}
+
+			if($(opNum2).val().trim.length == 0){
+				$(opNum1).text("");
+				$(opNumResult).text("사업자번호를 입력해주세요");
+				$(opNum1).focus();
+				return false;
+			}
+
+			if($(opNum3).val().trim.length == 0){
+				$(opNum1).text("");
+				$(opNum2).text("");
+				$(opNumResult).text("사업자번호를 입력해주세요");
+				$(opNum1).focus();
+				return false;
+			}
+
+			/*
+			if($(opNum).val().trim().length <= 9){
+				$(opNum1).text("");
+				$(opNum2).text("");
+				$(opNum3).text("");
+				$(opNumResult).text("");
+				$(opNumResult).text("사업자번호를 입력해주세요");
+				$(opNum1).focus();
+				return false;
+			}
+			*/
+			
+			
+
+			/*
+			if($(opNum1).val().trim().length == 0 && $(opNum2).val().trim().length == 0 && $(opNum3).val().trim().length == 0){
+				$(opNumResult).text("");
+				$(opNumResult).text("사업자 번호를 입력해주세요");
+				$(opNum1).text("");
+				$(opNum2).text("");
+				$(opNum3).text("");
+				$(opNum3).focus();
+				return false;
+			}
+			*/
+
+			if($(oName).val().trim().length == 0){
+				$(oNameResult).text("");
+				$(oNameResult).text("이름을 입력해주세요");
+				$(oName).focus();
+				return false;
+			}
+
+			if($(ocNum1).val().trim.length == 0){
+				$(ocNumResult).text("");
+				$(ocNumResult).text("주민등록번호를 입력해주세요");
+				$(ocNum1).focus();
+				return false;
+			}
+
+			if($(ocNum2).val().trim.length == 0){
+				$(ocNumResult).text("");
+				$(ocNumResult).text("주민등록번호를 입력해주세요");
+				$(ocNum1).focus();
+				return false;
+			}
+
+
+			/*
+			if($(ocNum1).val().trim.length == 0){
+				if($(ocNum2).val().trim.length == 0){
+					$(ocNumResult).text("");
+					$(ocNumResult).text("주민등록번호를 입력해주세요");
+					$(ocNum1).text("");
+					$(ocNum2).text("");
+					$(ocNum1).focus();
+					return false;
+				}
+			}
+			*/
+
+			
+			
+
+			
+			
+			
+			
+			
+		}
 
 			
 

@@ -108,7 +108,7 @@ display:none;
 											<th class="cell100 column3">주민등록번호</th>
 											<th class="cell100 column4">전화번호</th>
 											<th class="cell100 column5">이메일</th>
-											<th class="cell100 column6">경고 횟수</th>
+											<th class="cell100 column6">신고 횟수</th>
 											<th class="cell100 column7"></th>
 										</tr>
 									</thead>
@@ -131,7 +131,7 @@ display:none;
 												<td class="cell100 column4"><%=a.getPhone()%></td>
 												<td class="cell100 column5"><%=a.getEmail()%></td>
 												<td class="cell100 column6"><%=a.getWarningCount()%></td>
-												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteEmp(<%=a.getEmpNum()%>);">
+												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteEmp('<%=a.geteName()%>', '<%=a.geteId()%>');">
 												<form action="" id="detailForm" method="post">
 													<input type="hidden" name="eNum" value="<%=a.getEmpNum() %>">
 												</form></td>
@@ -139,9 +139,9 @@ display:none;
 											<%}}}%>
 											
 											<script>		
-												function deleteEmp(name){
+												function deleteEmp(name, id){
 													
-													var con = confirm(name + " 회원을 탈퇴시키겠습니까?");
+													var con = confirm(name + "(" + id + ")" + " 회원을 탈퇴시키겠습니까?");
 													
 													if(con){
 														$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEmp.as");
@@ -163,7 +163,7 @@ display:none;
 			</div>
 			
 			
-			
+			<form action="" id="detailForm" method="post">
 			<div id="empDropBox" class="box">
 				<!--===============================================================================================-->	
 				<div class="limiter">
@@ -180,7 +180,7 @@ display:none;
 											<th class="cell100 column3">주민등록번호</th>
 											<th class="cell100 column4">전화번호</th>
 											<th class="cell100 column5">이메일</th>
-											<th class="cell100 column6">경고 횟수</th>
+											<th class="cell100 column6">신고 횟수</th>
 											<th class="cell100 column7"></th>
 										</tr>
 									</thead>
@@ -203,17 +203,14 @@ display:none;
 												<td class="cell100 column4"><%=a.getPhone()%></td>
 												<td class="cell100 column5"><%=a.getEmail()%></td>
 												<td class="cell100 column6"><%=a.getWarningCount()%></td>
-												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="복구" onclick="restoreEmp();">
-												<form action="" id="detailForm" method="post">
-													<input type="hidden" name="eNum" value="<%=a.getEmpNum()%>">
-												</form></td>
+												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="복구" onclick="restoreEmp(<%=a.getEmpNum()%>);">									
 											</tr>
 											<%}}}%>
 											
 											<script>		
-												function restoreEmp(){
+												function restoreEmp(eNum){
 													
-													$("#detailForm").attr("action", "<%=request.getContextPath()%>/restoreEmp.as");
+													$("#detailForm").attr("action", "<%=request.getContextPath()%>/restoreEmp.as?eNum="+eNum);
 													$("#detailForm").submit();
 
 												}
@@ -227,7 +224,7 @@ display:none;
 				</div>
 				<!--===============================================================================================-->	
 				</div>
-				
+				</form></td>
 	
 				<script>
 					function showBox(element){

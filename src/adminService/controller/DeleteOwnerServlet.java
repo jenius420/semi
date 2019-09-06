@@ -36,7 +36,7 @@ public class DeleteOwnerServlet extends HttpServlet {
 		int result = new ManageMemService().deleteOwner(oNum);
 		
 		if(result > 0) {
-			request.getRequestDispatcher("/views/adminService/OwnerList.jsp").forward(request, response);
+			response.sendRedirect("ownerList.as");
 		}else {
 			request.setAttribute("msg", "요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);

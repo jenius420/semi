@@ -67,7 +67,7 @@ input{
 			location.href= getContextPath()+"/detail.se?num="+eNum+"&oNum="+oNum; 
 		});
 		// url:"recommend.li",
-		if(<%=loginUser%>!=null){
+		
 			$.ajax({
 				url:"recommend.li",
 				data:{eNum:$('#eNum').val()},
@@ -75,7 +75,6 @@ input{
 				success:function(result){  
 					
 					var $platinum = $("#choiceAlba1");
-					
 					$platinum.html("").css("padding-left","40px").css("padding-right","39px");
 					var i =0;
 					$.each(result, function(index, value){
@@ -109,7 +108,7 @@ input{
 					console.log("이미지 불러오기 실패");
 				}
 			});
-		}
+		
 		
 			
 		});
@@ -232,7 +231,7 @@ input{
 						var $a1 = $("<a>").text(value.wTitle).css("height","50px");
 						var $h5 = $("<h5>").attr("class","card-title"); // <h5> </h5>
 						var $img;
-						if(value.save==null||value.save==undefined){
+						if(value.saveName==null||value.saveName==undefined){
 							$img= $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/noLogo.jpg").css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
 							
 						}else{

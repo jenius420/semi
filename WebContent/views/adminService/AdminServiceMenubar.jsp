@@ -76,8 +76,8 @@
     
     <div>
         <div class="asm1">게시판 관리</div>
-      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/boardReportList.as';">신고 유저 게시글 리스트</div>
-      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/commentReportList.as';">신고 유저 댓글 리스트</div>
+      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/boardReportList.as';">신고 글 리스트</div>
+      	<div class="asLink" onclick="location.href='<%=request.getContextPath()%>/commentReportList.as';">신고  댓글 리스트</div>
     </div>
     <div class="space"></div>
 

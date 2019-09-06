@@ -138,20 +138,20 @@ public class ResumeService {
 //
 //		return list;
 //	}
-	
-	public ArrayList<Incruit> selectSuitableIncruit(int rNum) {
-		
-		Connection conn = getConnection();
-
-		Resume resume = new ResumeDao().selectResume(conn, rNum);
-		
-		ArrayList<Incruit> list = new ResumeDao().selectSuitableIncruit(conn, resume);
-
-		close(conn);
-
-		return list;
-		
-	}
+//	
+//	public ArrayList<Incruit> selectSuitableIncruit(int rNum) {
+//		
+//		Connection conn = getConnection();
+//
+//		Resume resume = new ResumeDao().selectResume(conn, rNum);
+//		
+//		ArrayList<Incruit> list = new ResumeDao().selectSuitableIncruit(conn, resume);
+//
+//		close(conn);
+//
+//		return list;
+//		
+//	}
 	
 	
 
