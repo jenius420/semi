@@ -40,9 +40,9 @@ public class IncruitListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Member mem = (Member)request.getSession().getAttribute("loginUser");
-//		Owner owner = new OwnerServiceService().selectOwner(mem.getoNum());
+		Owner owner = new OwnerServiceService().selectOwner(mem.getoNum());
 		
-		Owner owner = new OwnerServiceService().selectOwner(95);
+//		Owner owner = new OwnerServiceService().selectOwner(95);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("owner", owner);
