@@ -79,15 +79,13 @@ public class BoardUpdateServlet extends HttpServlet {
 				
 				int tNum = Integer.parseInt(multiRequest.getParameter("tNum"));
 				String title = multiRequest.getParameter("title");
-				/*int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());*/
-				int eNum = 1;
+				int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
+
 				Date updateDate = Date.valueOf(multiRequest.getParameter("updateDate"));
 				String bBody = multiRequest.getParameter("bBody");
 				int boardCount = Integer.parseInt(multiRequest.getParameter("boardCount"));
 			
-				
-				
-				/*String bWriter = String.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());*/
+			
 				
 				Board b = new Board();
 				b.settNum(tNum);
@@ -97,7 +95,8 @@ public class BoardUpdateServlet extends HttpServlet {
 				b.setbBody(bBody);
 				b.setBoardCount(boardCount);
 				
-				
+				System.out.println("update서블렛"+eNum);
+
 				
 				ArrayList<Attachment> fileList = new ArrayList<>();
 				

@@ -184,6 +184,35 @@ public class BoardService {
 		
 		
 	}
+	/**
+	 *  게시판 수정용 서비스
+	 * @param board
+	 * @param fileList
+	 * @return
+	 */
+	public int updateBoard(Board board) {
+		
+		Connection conn = getConnection();
+		
+		int result1 = new BoardDao().updateBoard(conn, board);
+		
+		System.out.println("수정용service1 :"+result1);
+		
+		
+		
+		if(result1 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		
+		return result1;
+		
+		
+	}
 	
 	
 	

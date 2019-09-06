@@ -238,15 +238,15 @@
 	
 	
 				
-				
-				<!-- 파일 업로드 하는 div -->
+<!-- <!-- 				
+				파일 업로드 하는 div
 				 <div id="fileArea">
 					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this, 1);">
 					<input type="file" multiple name="thumbnailImg2" id="thumbnailImg2" onchange="loadImg(this, 2);">
 					<input type="file" multiple name="thumbnailImg3" id="thumbnailImg3" onchange="loadImg(this, 3);">
 				</div> 
 				
-				
+				 --> -->
 				
 				<script>
 				
