@@ -32,12 +32,14 @@ public class UpdateProductServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int pCode = Integer.parseInt(request.getParameter("pCode"));
-		String pTilte = request.getParameter("pTilte");
-		String pExplain = request.getParameter("pExplain");
-		int pPay = Integer.parseInt(request.getParameter("pPay"));
+		String count =  request.getParameter("count");
 		
-		IncruitProduct prod = new IncruitProduct(pCode, pTilte, pExplain, pPay);
+		int pCode = Integer.parseInt(request.getParameter("pCode"+count));
+		String pTitle = request.getParameter("pTitle"+count);
+		String pExplain = request.getParameter("pExplain"+count);
+		int pPay = Integer.parseInt(request.getParameter("pPay"+count));
+		
+		IncruitProduct prod = new IncruitProduct(pCode, pTitle, pExplain, pPay);
 		
 		int result = new ManageIncruitService().updateProduct(prod);
 		

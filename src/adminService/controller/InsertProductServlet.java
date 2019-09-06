@@ -38,7 +38,7 @@ public class InsertProductServlet extends HttpServlet {
 		
 		IncruitProduct prod = new IncruitProduct(pTitle, pExplain, pPay);
 		
-		int result = new ManageIncruitService().InsertProduct(prod);
+		int result = new ManageIncruitService().insertProduct(prod);
 		
 		if(result > 0) {
 			response.sendRedirect("manageProduct.as");

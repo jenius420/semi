@@ -8,12 +8,12 @@
 	Board b = (Board)request.getAttribute("b");
 	ArrayList<Attachment> fileList = (ArrayList<Attachment>)request.getAttribute("fileList");
 	String contextPath = request.getContextPath();
-	/* String[] arr = b.geteName().split(","); 
-	// arr[0] ==> "회원번호"
+/* 	 String[] arr = b.geteName().split(","); 
+	//arr[0] ==> "회원번호"
 	// arr[1] ==> "회원명"
 	
 	int eNum = Integer.parseInt(arr[0]); // 회원번호
-	String eName = arr[1]; // 회원명 */
+	String eName = arr[1]; // 회원명  */
 %>
 
     
@@ -224,10 +224,10 @@
 			<br>
 				<button type="button" onclick="history.go(-1);">이전으로</button>
 				
-				<%-- <% if(eNum == loginUser.getUserNo()){ %> --%>
+				<% if(b.geteNum() == loginUser.geteNum()){ %>
 					<button type="button" onclick="updateForm();">수정하기</button>
 					<button type="button" onclick="deleteBoard();">삭제하기</button>
-				<%-- <%} %> --%>
+				<%} %>
 			</div>
 		</div>
 	</div>
@@ -331,6 +331,42 @@
 		
 	</script>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+		<br />
+		<br />
+		<br /> 
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br /> 
+		<br />		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br /> 
+		<br />		
+		<br />
+		<br />
+		<br />
+		<br /> 
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 	
 	<%@ include file="../common/footer.jsp" %>
 	

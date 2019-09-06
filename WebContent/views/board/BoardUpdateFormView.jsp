@@ -197,6 +197,7 @@
 							<td colspan="2" class="photo">
 									<div id="detailImgArea<%=i+1%>" class="detailImgArea" style="width:250" style="height:200">
 										<img id="detailImg<%=i+1%>" class="detailImg" width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+									<%-- <input type="hidden" name="thumbnailImg<%=i+1%>" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>" /> --%>
 									</div>
 							</td>
 		
@@ -205,6 +206,7 @@
 							<td colspan="2" class="photo">
 									<div id="detailImgArea<%=i+2%>"  class="detailImgArea" style="width:250" style="height:200" >
 										<img id="detailImg<%=i+2%>"  width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
+										<%-- <input type="hidden" name="thumbnailImg<%=i+2%>" value="null" /> --%>
 									</div>
 							</td>
 					<% } %>
@@ -216,32 +218,35 @@
 				
 				
 				
-				
+				<%-- 
 					  <% for(int i=0; i<fileList.size(); i++){%>		
 							<div id="fileArea">
 								<input type="file" multiple name="thumbnailImg<%=i+1%>" id="thumbnailImg<%=i+1%>" onchange="loadImg(this, <%=i+1%>);" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+								<input type="hidden" name="thumbnailImg<%=i+1%>" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
+							
 							</div>
 					<% } %>
 					<% for(int i=0; i<3-fileList.size(); i++){%>
 							<div id="fileArea">
 								<input type="file" multiple name="thumbnailImg<%=i+3%>" id="thumbnailImg<%=i+3%>" onchange="loadImg(this, <%=i+3%>);" value="<%=contextPath%>/photo/attachment/null.PNG">
+								<input type="hidden" name="thumbnailImg<%=i+3%>" value="null">
 							</div>			
-					<% } %> 
+					<% } %>  --%>
 	 
 	
 	
 	
 	
 				
-				
-				<!-- 파일 업로드 하는 div -->
+<!-- <!-- 				
+				파일 업로드 하는 div
 				 <div id="fileArea">
 					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this, 1);">
 					<input type="file" multiple name="thumbnailImg2" id="thumbnailImg2" onchange="loadImg(this, 2);">
 					<input type="file" multiple name="thumbnailImg3" id="thumbnailImg3" onchange="loadImg(this, 3);">
 				</div> 
 				
-				
+				 --> -->
 				
 				<script>
 				
@@ -251,7 +256,7 @@
 				
 				
 				
-					// 미리보기 이미지 영역을 클릭할 때 파일 첨부 창이 뜨도록!
+					// 미리보기 이미지 영역을 클릭할 때 파일 첨부 창이 뜨도록!s
 					$(function(){						
 						$("#detailImgArea1").click(function(){
 							$("#thumbnailImg1").click();
@@ -293,16 +298,80 @@
 							
 						}
 					}
+					
+					
+					
+<%-- 					function test(){
+						if(thumbnailImg1 = null){
+							var comSubmit1 = new ComSubmit();
+				            comSubmit1.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
+				            /* comSubmit1.submit(fileList.get(1).getChangeName()); */
+				            comSubmit1.addParam("photo1",$("#detailImg1").val(););
+						}
+						if(thumbnailImg2 = null){
+							var comSubmit2 = new ComSubmit();
+				            comSubmit2.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
+				            /* comSubmit2.submit(fileList.get(2).getChangeName()); */
+				            comSubmit2.addParam("photo2",$("#detailImg2").val(););
+						}
+						 if(thumbnailImg3 = null){
+							 var comSubmit3 = new ComSubmit();
+					         comSubmit3.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
+					         /* comSubmit3.submit(fileList.get(3).getChangeName()); */
+					         comSubmit3.addParam("photo3",$("#detailImg3").val(););
+						}
+					} --%>
+					
+					/* function test(){
+						if(thumbnailImg1 != null){
+							<input type="hidden" name="photo1" value="1">
+						}
+						
+						if(thumbnailImg2 != null){
+							<input type="hidden" name="photo2" value="2">
+						}
+						
+						if(thumbnailImg3 != null){
+							<input type="hidden" name="photo3" value="3">
+						}
+						 */
+					
 				</script>
 				
 				<br>
 				<div align="center">
-					<button type="submit" id="updateBtn">수정</button>
+					<button type="submit" id="updateBtn" onclick="test();">수정</button>
 					<button onclick="history.go(-1);">취소</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+
+		<br />
+		<br />
+		<br /> 
+		<br />
+		<br />
+		<br />
+		<br /> 
+		<br />		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+
 
 	<%@ include file="../common/footer.jsp" %>
 	

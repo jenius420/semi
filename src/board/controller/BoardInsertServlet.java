@@ -140,8 +140,8 @@ public class BoardInsertServlet extends HttpServlet {
 			// 3_1. 파일 외에 게시판 제목, 내용, 작성자 회원번호 받아오기 --> Board 객체 생성
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
-			int eNum = 1;
-			//int eNum = request.getSession().getAttribute("loginUser").geteNum();
+			String bWriter = String.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
+			int eNum = ((Member)request.getSession().getAttribute("loginUser")).geteNum();
 			/*String bWriter = String.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());*/
 			
 			Board b = new Board();
