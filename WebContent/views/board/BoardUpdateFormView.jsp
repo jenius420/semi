@@ -301,7 +301,7 @@
 					
 					
 					
-					function test(){
+<%-- 					function test(){
 						if(thumbnailImg1 = null){
 							var comSubmit1 = new ComSubmit();
 				            comSubmit1.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
@@ -320,8 +320,20 @@
 					         /* comSubmit3.submit(fileList.get(3).getChangeName()); */
 					         comSubmit3.addParam("photo3",$("#detailImg3").val(););
 						}
-					}
+					} --%>
 					
+					function test(){
+						if(thumbnailImg1 != null){
+							<input type="hidden" name="photo1" value="1">
+						}
+						
+						if(thumbnailImg2 != null){
+							<input type="hidden" name="photo2" value="2">
+						}
+						
+						if(thumbnailImg3 != null){
+							<input type="hidden" name="photo3" value="3">
+						}
 						
 					
 				</script>

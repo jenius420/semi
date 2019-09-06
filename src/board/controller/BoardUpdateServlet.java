@@ -118,6 +118,7 @@ public class BoardUpdateServlet extends HttpServlet {
 				int result = new BoardService().updateBoard(b, fileList);
 				System.out.println(result);
 				
+				
 				if(result > 0) {
 					/*response.sendRedirect("detail.bo");*/
 					response.sendRedirect("detail.bo?tNum=" + tNum);
