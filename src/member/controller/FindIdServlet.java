@@ -39,6 +39,7 @@ public class FindIdServlet extends HttpServlet {
 		
 		System.out.println(kind);
 		System.out.println(name);
+		System.out.println(cNum);
 		
 		if(kind == 1) {
 			
@@ -47,9 +48,13 @@ public class FindIdServlet extends HttpServlet {
 			
 			//response.sendRedirect(request.getContextPath());
 			
-			request.setAttribute("kind", kind);
-			request.setAttribute("userId", userId);
-			request.getRequestDispatcher("returnId.jsp").forward(request, response);
+			if(userId != null) {
+				request.setAttribute("userId", userId);
+				request.getRequestDispatcher("returnId.jsp").forward(request, response);				
+			}else {
+				
+				request.getRequestDispatcher("errorPage.jsp").forward(request, response);
+			}
 			
 			
 			
@@ -57,8 +62,13 @@ public class FindIdServlet extends HttpServlet {
 			
 			Member userId = new MemberService().fidIdOwn(name, cNum);
 			
-			HttpSession session = request.getSession();
-			request.getRequestDispatcher("returnId.jsp").forward(request, response);
+			
+			if(userId != null) {
+				request.setAttribute("userId", userId);
+				request.getRequestDispatcher("views/member/returnId.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			}
 			
 			
 			

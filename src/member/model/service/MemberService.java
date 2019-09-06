@@ -166,11 +166,11 @@ public class MemberService {
 		return userId;
 	}
 
-	public Member fidIdOwn(String id, String cNum) {
+	public Member fidIdOwn(String name, String cNum) {
 
 		Connection conn = getConnection();
 		
-		Member userId = new MemberDao().findIdOwn(conn, id, cNum);
+		Member userId = new MemberDao().findIdOwn(conn, name, cNum);
 		
 		close(conn);
 		
