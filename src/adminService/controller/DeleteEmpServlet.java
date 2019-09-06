@@ -36,7 +36,7 @@ public class DeleteEmpServlet extends HttpServlet {
 		int result = new ManageMemService().deleteEmp(eNum);
 		
 		if(result > 0) {
-			request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
+			response.sendRedirect("empList.as");
 		}else {
 			request.setAttribute("msg", "요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);

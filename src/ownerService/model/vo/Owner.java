@@ -6,7 +6,7 @@ public class Owner {
 	private String oId;
 	private String oPwd;
 	private String opName;
-	private int opNum;
+	private String opNum;
 	private int dongNum;
 	private String dongName;
 	private int dongMain;
@@ -41,7 +41,7 @@ public class Owner {
 
 
 
-	public Owner(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, String dongName,
+	public Owner(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, String dongName,
 			int dongMain, int dongSub, int roadNum, String roadName, int roadMain, int roadSub, int districtNum,
 			String district, String opAddress, String oName, String oTel, String ocNum, String phone, String email,
 			int typeNum, String type, String category, String mailAccept, String smsAccept, String invalidId,
@@ -82,7 +82,7 @@ public class Owner {
 
 
 
-	public Owner(int oNum, String oId, String oPwd, String opName, int opNum, int dongNum, int roadNum,
+	public Owner(int oNum, String oId, String oPwd, String opName, String opNum, int dongNum, int roadNum,
 			String opAddress, String oName, String oTel, String ocNum, String phone, String email, int typeNum,
 			String mailAccept, String smsAccept, String invalidId, String checkONum) {
 		super();
@@ -272,11 +272,11 @@ public class Owner {
 		this.opName = opName;
 	}
 
-	public int getOpNum() {
+	public String getOpNum() {
 		return opNum;
 	}
 
-	public void setOpNum(int opNum) {
+	public void setOpNum(String opNum) {
 		this.opNum = opNum;
 	}
 

@@ -55,7 +55,7 @@ public class OwnerServiceDao {
 					owner.setoId(rs.getString("OID"));
 					owner.setoPwd(rs.getString("OPWD"));
 					owner.setOpName(rs.getString("OPNAME"));
-					owner.setOpNum(rs.getInt("OPNUM"));
+					owner.setOpNum(rs.getString("OPNUM"));
 					owner.setRoadNum(rs.getInt("ROADNUM"));
 					owner.setOpAddress(rs.getString("OPADDRESS"));
 					owner.setoName(rs.getString("ONAME"));
