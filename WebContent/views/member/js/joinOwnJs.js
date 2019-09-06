@@ -15,7 +15,7 @@ $(function(){
 					var $bigCategory= $("<option>").attr("value",value.bigCategory).text(value.bigCategory);
 					$searchResult.append($bigCategory);
 				});
-				$('#bigCategory').children().attr("selected","selected");
+				
 			},error:function(){
 				console.log("ajax통신 실패");
 			}
@@ -23,8 +23,9 @@ $(function(){
 	
 	
 	$('#bigCategory').on('change',function(){
-		var cate= $('option[selected=selected]').val();
-		console.log(cate);
+		
+		var cate= $(this).val();
+		console.log("cate"+cate);
 		$.ajax({
 			url:"subCategory.me",
 				contentType: "application/x-www-form-urlencoded; charset=UTF-8", 

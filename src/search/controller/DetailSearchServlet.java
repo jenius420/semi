@@ -39,7 +39,7 @@ public class DetailSearchServlet extends HttpServlet {
 		int listCount = new SearchService().detailListCount(details);
 		request.setAttribute("incruitList", list);
 		request.setAttribute("detail", request.getParameter("detail"));
-		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
+		request.setAttribute("maxPage", (listCount-1)/20+1);
 		request.getRequestDispatcher("views/search/searchAllView.jsp").forward(request, response);
 		
 	}

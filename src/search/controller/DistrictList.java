@@ -36,7 +36,7 @@ public class DistrictList extends HttpServlet {
 		ArrayList<IncruitInfo> list = new SearchService().allList(1,20);
 		
 		request.setAttribute("incruitList", list);
-		request.getSession().setAttribute("maxPage", (listCount-1)/20+1);
+		request.setAttribute("maxPage", (listCount-1)/20+1);
 		request.getRequestDispatcher("views/search/searchDistrictView.jsp").forward(request, response);
 	}
 
