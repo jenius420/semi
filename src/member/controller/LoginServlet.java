@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import member.model.service.MemberService;
 import member.model.vo.Member;
@@ -33,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
+    	String msg = (String)request.getAttribute("msg");
     	int kind = Integer.parseInt(request.getParameter("kind"));
     	String id = request.getParameter("userId");
     	String pwd = request.getParameter("userPwd");
@@ -53,8 +54,12 @@ public class LoginServlet extends HttpServlet {
     			
     			session.setAttribute("loginUser", loginUser);
     			response.sendRedirect(request.getContextPath());
-
+    		}else {
+    			
+    			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
     		}
+    		
+    		
     		
     	}else {
     		// 사업자 로그인
@@ -69,7 +74,8 @@ public class LoginServlet extends HttpServlet {
     			
     			response.sendRedirect(request.getContextPath());				
     		}else {
-    			request.setAttribute("msg","로그인 실패");
+    			
+    			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
     		}
     		
     		

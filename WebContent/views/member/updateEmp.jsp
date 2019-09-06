@@ -1,5 +1,10 @@
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	Member m = (Member)session.getAttribute("loginUser");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +84,7 @@
             <table name="idPwd">
                 <tr>
                     <td width="150"><b>아이디</b></td>
-                    <td width="170px"><label id=""></label></td>
+                    <td width="170px"><input value="<%= m.geteId() %>"></input></td>
                 </tr>
         
                 <tr>
@@ -95,7 +100,7 @@
 
                 <tr>
                     <td><b>성명</b></td>
-                    <td><input id="name" name="name" type="text" size="35" maxlength="5"></input></td>
+                    <td><input id="name" name="name" type="text" size="35" maxlength="5" readonly value="<%= m.geteName() %>"></input></td>
                     <td><label id="nameResult"></label></td>
                 </tr>
             
@@ -105,13 +110,7 @@
                 <tr>
                     <td><b>메일주소</b></td>
                     <td>
-                        <input id="email1" name="email1" type="text" size="17"></input> @
-                        <select id="email2" name="email2"> 
-                            <option value="@gmail.com">gmail.com</option>
-                            <option value="@naver.com">naver.com</option>
-                            <option value="@daum.net">daum.net</option>
-                            <option value="@nate.com">nate.com</option>
-                        </select>
+                        <input id="email1" name="email1" type="email" size="35" value="<%= m.getEmail() %>"></input>
                         
                     </td>
                     <td><label id="emailResult"></label></td>
