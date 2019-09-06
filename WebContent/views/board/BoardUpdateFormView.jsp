@@ -322,7 +322,7 @@
 						}
 					} --%>
 					
-					function test(){
+					/* function test(){
 						if(thumbnailImg1 != null){
 							<input type="hidden" name="photo1" value="1">
 						}
@@ -334,7 +334,7 @@
 						if(thumbnailImg3 != null){
 							<input type="hidden" name="photo3" value="3">
 						}
-						
+						 */
 					
 				</script>
 				
