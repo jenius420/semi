@@ -289,22 +289,22 @@ private Properties prop = new Properties();
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = null;
-		
-		
-		if(User = admin) {
-			prop.getProperty("insertPostBoard");
-		}else {
-			prop.getProperty("insertBoard");
-		}
+		String sql = prop.getProperty("insertBoard");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, b.getTitle());
-			/*pstmt.setInt(2, b.geteNum());*/
-			pstmt.setString(2, b.getbBody());
+			pstmt.setInt(2, b.geteNum());
+			pstmt.setString(3, b.getbBody());
 			
+			
+			System.out.println("dao1");
+			System.out.println(b.getTitle());
+			System.out.println("dao2");
+			System.out.println(b.geteNum());
+			System.out.println("dao3");
+			System.out.println(b.getbBody());
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -338,10 +338,11 @@ private Properties prop = new Properties();
 				Attachment at = fileList.get(i);
 				
 				pstmt = conn.prepareStatement(sql);
-				/*pstmt.setInt(1, b.geteNum());*/
+				pstmt.setInt(1, b.geteNum());
 				/*pstmt.setString(2, at.getFilePath());*/
-				pstmt.setString(1, at.getOriginName());
-				pstmt.setString(2, at.getChangeName());
+				/*pstmt.setInt(2, b.gettNum());*/
+				pstmt.setString(2, at.getOriginName());
+				pstmt.setString(3, at.getChangeName());
 				
 				result = pstmt.executeUpdate();
 				
@@ -426,11 +427,11 @@ private Properties prop = new Properties();
 				Attachment at = fileList.get(i);
 				
 				pstmt = conn.prepareStatement(sql);
-				/*pstmt.setInt(1, b.geteNum());*/
+				pstmt.setInt(1, b.geteNum());
 				/*pstmt.setString(2, at.getFilePath());*/
-				pstmt.setInt(1, b.gettNum());
-				pstmt.setString(2, at.getOriginName());
-				pstmt.setString(3, at.getChangeName());
+				pstmt.setInt(2, b.gettNum());
+				pstmt.setString(3, at.getOriginName());
+				pstmt.setString(4, at.getChangeName());
 				
 				result = pstmt.executeUpdate();
 				

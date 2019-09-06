@@ -62,27 +62,18 @@ public class BoardListServlet extends HttpServlet {
 				pageLimit = 10;
 				
 				// * maxPage : 총 페이지 수
-				// ex) boardLimit : 10
-				// 100/10 ==>  	10페이지
-				// 101/10 ==>	11페이지
-				// 105/10 ==>	11페이지
 				
 				maxPage = (int)Math.ceil((double) listCount/boardLimit);
 					
 				// * startPagge : 현재 페이지에 보여지는 페이지방비의 시작 수
-				// ex) pageLimit : 10
-				
-				//currentPage = 1	=> 0 * 10 +1 ==> 1
-				//correntPage = 5 	=> 0* 10 + 1 ==>1
-				
 				startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
 				
 				// * endPage : 현재 피이지에서 보여질 마지막 페이지 수
 				endPage = startPage + pageLimit -1;
 				
-				// ex) maxPage = 13, endPage =20
+		
 				if(maxPage < endPage) {
-					endPage = maxPage; // maxPage =13, endPage = 13;	
+					endPage = maxPage; 
 				}
 				
 
