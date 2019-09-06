@@ -242,13 +242,13 @@ public class ManageIncruitDao {
 		
 	}
 	
-	public int InsertProduct(Connection conn, IncruitProduct prod) {
+	public int insertProduct(Connection conn, IncruitProduct prod) {
 		
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("InsertProduct");
+		String sql = prop.getProperty("insertProduct");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

@@ -214,9 +214,7 @@ padding-left:2px;
 				
 				
 					<div>
-					진행중/마감 탭으로 보이도록
-					 공고 클릭시 지원자리스트가 나옴. 클릭시(examineResume.os input rnum) 해당 이력서로 넘어가서  채용/반려 선택
-					마감은 이력서 안 넘어감
+
 					</div>
 					
 

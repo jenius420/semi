@@ -11,27 +11,51 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<%@ include file="../common/includeTable.jsp"%>
+<link href="resources/form/css/form.css" rel="stylesheet" media="all">
+
 <style>
 
 .column1 {
-  width: 15%;
-  padding-left: 40px;
+  width: 20%;
+
    text-align: center;
 }
 
 .column2 {
-  width: 10%;
+  width: 40%;
   text-align: center;
 }
 
 .column3 {
-  width: 45%;
+  width: 20%;
    text-align: center;
 }
 
 .column4 {
-  width: 15%;
+  width: 20%;
    text-align: center;
+}
+
+
+
+.cell100 input, .cell100 textarea{
+margin:auto; 
+text-align:center;
+border: 1px outset #e0e0e0 !important;
+vertical-align: middle ;
+box-shadow: 3px 3px 4px rgba(0, 0, 0.15, 0.15);
+resize: none;
+}
+
+input:focus, textarea:focus , tr:focus{
+border:2px solid #df9dfb !important;
+
+}
+
+
+td:hover{
+cursor: default !important;
 }
 </style>
 
@@ -54,14 +78,13 @@
 		
 		<div id="content-center">
 		
-		상품 리스트 출력
 		
 			<form action="" id="detailForm" method="post">
 				<!--===============================================================================================-->	
 				<div class="limiter">
 					<div class="container-table100">
 						<div class="wrap-table100">
-							<div class="table100 ver4 ">
+							<div class="table100 ver5 ">
 								<div class="table100-head">
 									<table>
 										<thead>
@@ -79,10 +102,10 @@
 									<table>
 										<tbody>
 										
-											<tr class="row100 body" style="height:50px;">
+											<tr class="row100 body" style="height:200px; ">
 		
-												<td class="cell100 column1"><input type="text" name="newpTitle"></td>
-												<td class="cell100 column2"><textarea name="newpExplain" rows="40" cols="15"></textarea> <!-- style="width:450px; min-height:80px; -->
+												<td class="cell100 column1"><input type="text" name="newpTitle"  style="width:200px;"></td>
+												<td class="cell100 column2"><textarea name="newpExplain" rows="3" cols="50"></textarea> <!-- style="width:450px; min-height:80px; -->
 												<td class="cell100 column3"><input type="text" name="newpPay"></td>
 												<td class="cell100 column4">
 													<input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="enrollProduct();">						
@@ -90,18 +113,19 @@
 												</td>
 												
 											</tr>
-											
+											<tr style="height:50px;> <td colspan="4" ></td></tr>
+											<%int count = 0; %>
 											<%for(IncruitProduct a : list) {%>
-												<tr class="row100 body" style="height:50px;">
-													<td class="cell100 column1"><input type="text" name="pTitle" value="<%=a.getpTitle()%>"></td>
-													<td class="cell100 column2"><textarea name="pExplain" rows="40" cols="15" value="<%=a.getpExplain()%>"></textarea> <!-- style="width:450px; min-height:80px; -->
-													<td class="cell100 column3"><input type="text" name="pPay" value="<%=a.getpPay()%>"></td>
+												<tr class="row100 body" style="height:100px; ">
+													<td class="cell100 column1"><input type="text" name="pTitle<%=count%>" value="<%=a.getpTitle()%>" style="width:200px;"></td>
+													<td class="cell100 column2"><textarea name="pExplain<%=count%>" rows="3" cols="50" ><%=a.getpExplain()%></textarea> <!-- style="width:450px; min-height:80px; -->
+													<td class="cell100 column3"><input type="text" name="pPay<%=count%>" value="<%=a.getpPay()%>"></td>
 													<td class="cell100 column4">
-														<input type="button" class="gs-btn" style="padding: 10px 10px" value="수정" onclick="updateProduct();">						
-														<input type="hidden" name="pCode" value="<%=a.getpCode() %>">				
+														<input type="button" class="gs-btn" style="padding: 10px 10px" value="수정" onclick="updateProduct(<%=count%>);">						
+														<input type="hidden" name="pCode<%=count%>" value="<%=a.getpCode() %>">				
 													</td>
 												</tr>
-											<%}%>
+											<%count++; }%>
 										</tbody>
 									</table>
 								</div>
@@ -118,11 +142,11 @@
 						$("#detailForm").submit();
 				}
 				
-				function updateProduct(){
+				function updateProduct(count){
 					var con = confirm("상품 정보를 수정하시겠습니까?");
 					
 					if(con){
-						$("#detailForm").attr("action", "<%=request.getContextPath()%>/updateProduct.as");
+						$("#detailForm").attr("action", "<%=request.getContextPath()%>/updateProduct.as?count="+count);
 						$("#detailForm").submit();
 					}else{
 						return false;
@@ -130,12 +154,6 @@
 				}
 			</script>
 
-	 수정	updateProduct.as input 4개다
-	
-	
-	삭제는 없는걸로 
-	
-	
 
 			</div> <!-- /메인콘텐트 -->
 			

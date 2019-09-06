@@ -61,11 +61,11 @@ public class ManageIncruitService {
 		
 	}
 	
-	public int InsertProduct(IncruitProduct prod) {
+	public int insertProduct(IncruitProduct prod) {
 		
 		Connection conn = getConnection();
 		
-		int result = new ManageIncruitDao().InsertProduct(conn, prod);
+		int result = new ManageIncruitDao().insertProduct(conn, prod);
 
 		if (result > 0) {
 			commit(conn);
