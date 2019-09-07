@@ -153,7 +153,7 @@
     	<p align="center" style="font-size:20px">게시판 수정</p>
   		<hr>
 		<div class="tableArea">
-			<form action="<%= request.getContextPath() %>/BoardUpdate.bo" method="post" enctype="multipart/form-data">
+			<form action="<%= request.getContextPath() %>/test.bo" method="get" enctype="multipart/form-data">
 			
 					<table align="center" width="800px" class="listArea">
 				<tr>
@@ -161,23 +161,27 @@
 				</tr>
 				<tr>
 					<th style="text-align:center">제목</th>
-					<td colspan="3"><input type="text" name="title" style="width:390px" value="<%=b.getTitle()%>"></td>
-					<th style="text-align:center">게시판 번호</th>
-					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
+					<td colspan="5"><input type="text" name="title" style="width:390px" value="<%=b.getTitle()%>">
+ 					<input type="hidden" name="tNum" value="<%=b.gettNum()%>">
+					</td>
+					<!-- <th style="text-align:center">게시판 번호</th> -->
+<%-- 					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
+ 						<input type="hidden" name="nno" value="<%= n.getnNo() %>">
 				</tr>
 				<tr>
-					<th style="text-align:center">작성자</th>
-					<td><input type="text" name="eName" value="<%=b.geteName()%>" readonly></td>
-					<th style="text-align:center">작성일</th>
-					<td><input type="text" name="updateDate" value="<%=b.getUpdateDate()%>" readonly></td>
-					<th style="text-align:center">조회수</th>
-					<td><input type="text" name="boardCount" value="<%= b.getBoardCount() %>" readonly></td>
+					<td colspan="6" height=30px></td>
+				<%-- 	 <!-- <th style="text-align:center">작성자</th> -->
+					<td><input type="hidden" name="eName" value="<%=b.geteName()%>" readonly></td>
+					<!-- <th style="text-align:center">작성일</th> -->
+					<td><input type="hidden" name="updateDate" value="<%=b.getUpdateDate()%>" readonly></td>
+					<!-- <th style="text-align:center">조회수</th> -->
+					<td><input type="hidden" name="boardCount" value="<%= b.getBoardCount() %>" readonly></td>  --%>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th colspan="6"></th>
+					<th colspan="6">내용</th>
 				</tr>
 				<tr>
 					<td colspan="6">
@@ -239,12 +243,13 @@
 	
 				
 				
-				<!-- <!-- 파일 업로드 하는 div -->
-				 <div id="fileArea">
+				 <!-- 파일 업로드 하는 div -->
+				
+				<!--  <div id="fileArea">
 					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this, 1);">
 					<input type="file" multiple name="thumbnailImg2" id="thumbnailImg2" onchange="loadImg(this, 2);">
 					<input type="file" multiple name="thumbnailImg3" id="thumbnailImg3" onchange="loadImg(this, 3);">
-				</div>  -->
+				</div>   -->
 				
 			
 				

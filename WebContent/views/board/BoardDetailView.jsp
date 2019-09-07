@@ -222,7 +222,7 @@
 			<div align="center">
 			<br>
 			<br>
-				<button type="button" onclick="history.go(-1);">이전으로</button>
+				<button onclick="location.href='<%= contextPath %>/list.bo'">이전으로</button>
 				
 				<% if(b.geteNum() == loginUser.geteNum()){ %>
 					<button type="button" onclick="updateForm();">수정하기</button>

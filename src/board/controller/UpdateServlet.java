@@ -16,7 +16,7 @@ import member.model.vo.Member;
 /**
  * Servlet implementation class UpdateServlet
  */
-@WebServlet("/BoardUpdate.bo")
+@WebServlet("/test.bo")
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,27 +36,28 @@ request.setCharacterEncoding("UTF-8");
 
 	System.out.println("확인"+request.getParameter("tNum"));
 		
-		int tNum = Integer.parseInt(request.getParameter("tNum"));
-		System.out.println(tNum);
+		String tNum2 = request.getParameter("tNum");
+		System.out.println(tNum2);
 		String title = request.getParameter("title");
 		System.out.println(title);
 		int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
-		Date updateDate = Date.valueOf(request.getParameter("updateDate"));
+		/*Date updateDate = Date.valueOf(request.getParameter("updateDate"));*/
 		String bBody = request.getParameter("bBody");
-		int boardCount = Integer.parseInt(request.getParameter("boardCount"));
-				
+		/*int boardCount = Integer.parseInt(request.getParameter("boardCount"));*/
+		
+		int tNum = Integer.valueOf(tNum2);
 		Board b = new Board();
 		b.settNum(tNum);
 		b.setTitle(title);
 		b.seteNum(eNum);
-		b.setUpdateDate(updateDate);
+		/*b.setUpdateDate(updateDate);*/
 		b.setbBody(bBody);
-		b.setBoardCount(boardCount);
+		/*b.setBoardCount(boardCount);*/
 		
 		int result = new BoardService().updateBoard(b);
 		
 		if(result > 0) {
-			response.sendRedirect("detail.no?tNum=" + tNum);
+			response.sendRedirect("detail.bo?tNum=" + tNum);
 		} else {
 			request.setAttribute("msg", "게시글 수정에 실패했습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
