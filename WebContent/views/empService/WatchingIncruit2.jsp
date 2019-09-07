@@ -244,7 +244,7 @@ margin: 30px;
 						
 						<div class='form-row' style="margin-top:300px;">
 						  <button type="submit" class="btn" onclick="return submitCheck();" style="margin-left: 50px;">지원하기</button>
-						   <button type="button" class="btn" onclick="javascript:history.back();" style="margin-left:20px; padding-left:30px; padding-right:30px;">뒤로가기</button>
+						   <button type="button" class="btn" onclick="location.href='<%=request.getContextPath()%>/interestOwner.es';" style="margin-left:20px; padding-left:30px; padding-right:30px;">뒤로가기</button>
 						</div>
 		
 					</div>

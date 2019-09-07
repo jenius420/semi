@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.model.vo.Attachment;
+import empService.model.service.ResumeService;
 import empService.model.vo.Resume;
 import ownerService.model.service.IncruitService;
+import ownerService.model.vo.Appliant;
 
 /**
  * Servlet implementation class ExamineResumeServlet
@@ -35,11 +38,19 @@ public class ExamineResumeServlet extends HttpServlet {
 		
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
 		
-		Resume resume = new IncruitService().selectResume(rNum);
 		int result = new IncruitService().checkResume(rNum);
+		
+		Resume resume = new IncruitService().selectResume(rNum);
+		Attachment at = new ResumeService().selectAttachment(rNum);
+		Appliant ap = new IncruitService().selectAppliant(rNum);
+		
+		
+		
 		
 		if(resume != null) {
 			request.setAttribute("resume", resume);
+			request.setAttribute("at", at);
+			request.setAttribute("ap", ap);
 			request.getRequestDispatcher("/views/ownerService/ExamineResume.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");

@@ -41,8 +41,10 @@ height: 60px;
 padding: 8px;
 margin-top:20px;
 margin-bottom:20px;
-background-color: #faf4ff;
+background-color: 	#DDA0DD;
 width:95%;
+color: #000080;
+border-radius: 5px;
 }
 
 .filter{

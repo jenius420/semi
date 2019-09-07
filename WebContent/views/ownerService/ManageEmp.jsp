@@ -88,7 +88,7 @@
 }
 
 .selectHover:hover td{
-	 background-color: #f2e6ff;
+ background-color: #f2e6ff;
 }
 
 .doneIncruit{

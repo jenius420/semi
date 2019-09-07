@@ -106,6 +106,7 @@ http://www.templatemo.com/tm-406-flex
 	}
 	#jumbotron{
 	background-image: url('<%= request.getContextPath()%>/resources/images/slide2.jpg');
+
 	}
 </style>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">

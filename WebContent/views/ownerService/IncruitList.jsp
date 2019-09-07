@@ -13,6 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
+<link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
 
 
 <style>
@@ -46,6 +47,14 @@
    text-align: center;
 }
 
+input[type=checkbox]+label:before{
+
+border: 2px solid gray;
+height:1.8em;
+width:1.3em;
+padding-left:2px;
+}
+
 
 </style>
 </head>
@@ -66,6 +75,11 @@
 		<div id="content-left"><%@ include file="../ownerService/OwnerServiceMenubar.jsp"%></div>
 		
 		<div id="content-center">
+		
+			<div  class="m-l-25 m-t-30" style="margin-bottom:-30px;">
+			 	<input id='checkbox1' name='checkbox1' type='checkbox' onclick="hideDoneIncruitTable2();" />
+			 	<label class='checkbox-label' for='checkbox1'><span>&nbsp;마감된 공고 숨기기</span></label>
+			 </div>
 		
 
 				<!--===============================================================================================-->	
@@ -95,15 +109,15 @@
 												<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
 											<%}else{ %>
 												<%for(Incruit a : list) {%>
-										
-														<tr class="row100 body" onclick="selectIncruit(<%=a.getwNum()%>);">
-															<td class="cell100 column1"><%=a.getwTitle()%></td>
-															<td class="cell100 column2"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
-															<td class="cell100 column3"><%=a.getEnrollDate()%> ~ <%=a.getDoneDate()%></td>
-															<td class="cell100 column4"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
-															<td class="cell100 column5"><%=a.getProduct()%></td>
-															<td class="cell100 column6"><%if(a.getStatus().equals("Y")){%>진행중<%}else{%>마감<%} %></td>
-														</tr>
+									
+													<tr class="row100 body <%if(a.getStatus().equals("N")){%>doneIncruitTable<%}%>" onclick="selectIncruit(<%=a.getwNum()%>);">
+														<td class="cell100 column1"><%=a.getwTitle()%></td>
+														<td class="cell100 column2"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
+														<td class="cell100 column3"><%=a.getEnrollDate()%> ~ <%=a.getDoneDate()%></td>
+														<td class="cell100 column4"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
+														<td class="cell100 column5"><%=a.getProduct()%></td>
+														<td class="cell100 column6"><%if(a.getStatus().equals("Y")){%>진행중<%}else{%>마감<%} %></td>
+													</tr>
 												
 											<%}}%>
 										</tbody>
@@ -122,6 +136,22 @@
 				<script>
 					function selectIncruit(wNum){
 						location.href='<%=request.getContextPath()%>/selectIncruit.os?wNum='+ wNum;
+					}
+					
+					function hideDoneIncruitTable(){
+				 		var cb = document.getElementsByName("checkbox1");
+				 		var doneIncruitTable = document.getElementsByClassName("doneIncruitTable");
+				 		
+				 		if(cb[0].checked){
+				 			doneIncruitTable[0].style.display = "none";
+				 		}else{
+				 			doneIncruitTable[0].style.display = "inline-table";
+				 		}
+				 	}  
+					
+					function hideDoneIncruitTable2(){
+						
+						$(".doneIncruitTable").toggle();
 					}
 				</script>
 	
