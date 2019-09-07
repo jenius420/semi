@@ -34,13 +34,10 @@ public class EmpListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<Emp> empList = new ManageMemService().selectEmpList();
-//		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
-		
-		
+
 		request.setAttribute("empList", empList);
 		request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
 
-		
 	}
 
 	/**

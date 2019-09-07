@@ -127,7 +127,7 @@
 
 				<div class='form-row'>
 				  <label for='comment'>하고싶은 말</label>
-				  <textarea id='comment' name='comment'></textarea>
+				  <textarea id='comment' name='comment' style="min-height: 200px;"></textarea>
 				</div>
 	
 				<div class='form-row'>

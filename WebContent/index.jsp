@@ -109,8 +109,6 @@ input{
 				}
 			});
 		
-		
-			
 		});
 
 </script>
@@ -181,9 +179,6 @@ input{
 		
 	});
 		
-		
-		
-		
 </script>
 
 <!--상품적용알바 -->
@@ -208,7 +203,6 @@ input{
 			console.log("eNum : " + eNum);
 			console.log("oNum : " + oNum);
 			location.href= getContextPath()+"/detail.se?num="+eNum+"&oNum="+oNum; 
-			
 		});
 		 
 		$.ajax({
@@ -231,12 +225,14 @@ input{
 						var $a1 = $("<a>").text(value.wTitle).css("height","50px");
 						var $h5 = $("<h5>").attr("class","card-title"); // <h5> </h5>
 						var $img;
+						
 						if(value.saveName==null||value.saveName==undefined){
 							$img= $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/noLogo.jpg").css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
 							
 						}else{
 							$img= $("<img>").attr("src","<%= request.getContextPath() %>/photo/logoImages/" + value.saveName).css("height","100px").attr("class","card-img-top col-lg-12 col-sm-12 plapic"); // <img>
 						}
+						
 						$div.append($div1);
 						$div1.append($a);
 						$a.append($img);

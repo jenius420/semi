@@ -48,6 +48,7 @@ http://www.templatemo.com/tm-406-flex
 <script type="text/javascript" charset="utf-8">
  $(window).load(function() {
    /*  $('.flexslider').flexslider(); */
+  
   });
   
   $(function(){ 
@@ -123,7 +124,7 @@ http://www.templatemo.com/tm-406-flex
                     <div class="container">
                         <div id="menu-wrapper">
                             <div class="row">
-                                <div class="logo-wrapper col-md-2 col-sm-2" OnClick="location.href ='<%= request.getContextPath()%>/index.jsp'" style="cursor:pointer;">
+                                <div class="logo-wrapper col-md-2 col-sm-2" OnClick="location.href ='<%= request.getContextPath()%>/index.jsp'" style="cursor:pointer; width:150px; margin-left:20px;">
                                 </div> <!-- /.logo-wrapper -->
                                 
                                 <div class="search-wrapper"> <!-- 수정 -->
@@ -151,8 +152,27 @@ http://www.templatemo.com/tm-406-flex
                                         <li><a href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
                                         <li><a href="<%=request.getContextPath()%>/category.se">업종별</a></li>
                                         <li><a href='<%=request.getContextPath()%>/list.bo'>게시판</a></li>
-                                        <li><a href='<%=request.getContextPath()%>/manageResume.es'>개인서비스</a></li> 
-										<li><a href='<%=request.getContextPath()%>/incruitList.os'>기업서비스</a></li>                                   
+                                   
+                                        <%if(loginUser != null && loginUser.getKind() == 3){ %>
+	                                        <li><a href='<%=request.getContextPath()%>/empList.as'>관리자서비스</a></li>
+										<%}else{%>
+											<li><a href='<%=request.getContextPath()%>/manageResume.es' <%if(loginUser == null || loginUser.getKind() != 1){ %>onclick="return empCheck();"<%} %>>개인서비스</a></li> 
+											<li><a href='<%=request.getContextPath()%>/incruitList.os' <%if(loginUser == null || loginUser.getKind() != 2){ %>onclick="return ownerCheck();"<%} %>>기업서비스</a></li>
+										<%} %>
+										
+										<script>
+											function empCheck(){
+												alert("구직자 회원만 이용할 수 있는 메뉴입니다.");
+												return false;
+											}
+											
+											function ownerCheck(){
+												alert("사업자 회원만 이용할 수 있는 메뉴입니다.");
+												return false;
+											}
+										</script>
+										
+                          		
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->

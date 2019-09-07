@@ -1,7 +1,7 @@
 package board.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,20 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import board.model.service.BoardService;
 import board.model.vo.Board;
-import common.model.vo.Attachment;
 import member.model.vo.Member;
 
 /**
- * Servlet implementation class BoardUpdateFormServlet
+ * Servlet implementation class UpdateServlet
  */
-@WebServlet("/updateForm.bo")
-public class BoardUpdateFormServlet extends HttpServlet {
+@WebServlet("/BoardUpdate.bo")
+public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardUpdateFormServlet() {
+    public UpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,25 +32,35 @@ public class BoardUpdateFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+request.setCharacterEncoding("UTF-8");
+
+	System.out.println("확인"+request.getParameter("tNum"));
 		
 		int tNum = Integer.parseInt(request.getParameter("tNum"));
-		int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum()); 
-		Board board = new BoardService().selectBoard(tNum);
+		System.out.println(tNum);
+		String title = request.getParameter("title");
+		System.out.println(title);
+		int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
+		Date updateDate = Date.valueOf(request.getParameter("updateDate"));
+		String bBody = request.getParameter("bBody");
+		int boardCount = Integer.parseInt(request.getParameter("boardCount"));
+				
+		Board b = new Board();
+		b.settNum(tNum);
+		b.setTitle(title);
+		b.seteNum(eNum);
+		b.setUpdateDate(updateDate);
+		b.setbBody(bBody);
+		b.setBoardCount(boardCount);
 		
-		ArrayList<Attachment> fileList = new BoardService().selectAttachment(tNum);
+		int result = new BoardService().updateBoard(b);
 		
-		if(board != null) {
-			request.setAttribute("board", board);
-			request.setAttribute("fileList", fileList);
-			request.setAttribute("tNum", tNum);
-			request.setAttribute("eNum", eNum);
-			request.getRequestDispatcher("views/board/BoardUpdateFormView.jsp").forward(request, response);
+		if(result > 0) {
+			response.sendRedirect("detail.no?tNum=" + tNum);
 		} else {
-			request.setAttribute("msg", "수정할 게시글을 불러오는데 실패했습니다.");
+			request.setAttribute("msg", "게시글 수정에 실패했습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
-		
 	}
 
 	/**

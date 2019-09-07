@@ -105,7 +105,9 @@ height:1.8em;
 width:1.3em;
 padding-left:2px;
 }
-
+.head th{
+font-size: 14px !important;
+}
 
 </style>
 

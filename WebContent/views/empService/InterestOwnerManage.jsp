@@ -234,12 +234,7 @@ display:none;
 				
 				
 				<script>
-					$(function(){
-						$(".select td").click(function(){
-							var num = $(this).parent().children().eq(5).text();
-							location.href="<%=request.getContextPath()%>/watchingIncruit2.es?wNum=" + num;
-						});
-					});
+				
 				</script>
 				<script>
 					function selectIncruit(wNum){

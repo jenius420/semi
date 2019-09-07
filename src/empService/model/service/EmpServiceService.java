@@ -5,8 +5,9 @@ import static common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-
+import common.model.vo.Attachment;
 import empService.model.dao.EmpServiceDao;
+import empService.model.dao.ResumeDao;
 import empService.model.vo.*;
 import ownerService.model.vo.Appliant;
 import ownerService.model.vo.Incruit;
@@ -111,14 +112,14 @@ public class EmpServiceService {
 		return iList2;
 	}
 	
-	public int apply(int wNum, int rNum) {
+	public int apply(int eNum, int wNum, int rNum) {
 		
 		Connection conn = getConnection();
 		
 		int check = 0;
 		int result = 0;
 		
-		check = new EmpServiceDao().applyDuplicationCheck(conn, wNum, rNum);
+		check = new EmpServiceDao().applyDuplicationCheck(conn, eNum, wNum);
 		
 		if(check == 0) {
 			result = new EmpServiceDao().apply(conn, wNum, rNum);
@@ -146,6 +147,17 @@ public class EmpServiceService {
 
 		return emp;
 		
+	}
+	
+	public Attachment selectAttachment(int oNum) {
+		
+		Connection conn = getConnection();
+		
+		Attachment at = new EmpServiceDao().selectAttachment(conn, oNum);
+		
+		close(conn);
+		
+		return at;
 	}
 	
 	

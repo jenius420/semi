@@ -46,7 +46,7 @@ public class Member {
 	//private String mailAccept;
 	//private String smsAccept;	
 	//private String invalidId;	
-	private int kind;			//1. 개인 2. 기업
+	private int kind;			//1.개인 2.기업  3.관리자
 	
 	
 	

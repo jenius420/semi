@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String userId = (String)request.getAttribute("userId");
-	int kind = (int)(request.getAttribute("kind"));
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -13,13 +13,7 @@
 </head>
 <body>
 	<div>
-		<%if(kind == 1){%>
-		<label>회원님의 아이디는 <%= userId %> 입니다.</label>		
-		<%}else{ %>
-		<label>회원님의 아이디는 <%= userId %> 입니다.</label>		
-		<%} %>
-		
-			
+		<label>회원님의 아이디는 <%= userId %> 입니다.</label>			
 	</div>
 </body>
 </html>

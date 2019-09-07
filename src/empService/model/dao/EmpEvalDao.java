@@ -223,6 +223,8 @@ public class EmpEvalDao {
 					eval.setSevalPoint(rs.getInt("SEVALPOINT"));
 					eval.seteComment(rs.getString("ECOMMENT"));
 					eval.setEnrollDate(rs.getDate("ENROLLDATE"));
+					eval.seteName(rs.getString("ENAME"));
+					eval.seteId(rs.getString("EID"));
 					
 					list.add(eval);
 		

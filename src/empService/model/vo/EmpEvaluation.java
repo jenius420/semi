@@ -7,12 +7,13 @@ public class EmpEvaluation {
 	private int sevalNum;
 	private int applyNum;
 	private int eNum;
+	private String eId;
 	private int oNum;
 	private String opName;
 	private int sevalPoint;
 	private String eComment;
 	private Date enrollDate;
-	
+	private String eName;
 	
 	
 	public EmpEvaluation() {
@@ -22,18 +23,47 @@ public class EmpEvaluation {
 
 
 
-	public EmpEvaluation(int sevalNum, int applyNum, int eNum, int oNum,String opName, int sevalPoint,
-			String eComment, Date enrollDate) {
+
+
+	public EmpEvaluation(int sevalNum, int applyNum, int eNum, String eId, int oNum, String opName, int sevalPoint,
+			String eComment, Date enrollDate, String eName) {
 		super();
 		this.sevalNum = sevalNum;
 		this.applyNum = applyNum;
 		this.eNum = eNum;
+		this.eId = eId;
 		this.oNum = oNum;
-
 		this.opName = opName;
 		this.sevalPoint = sevalPoint;
 		this.eComment = eComment;
 		this.enrollDate = enrollDate;
+		this.eName = eName;
+	}
+
+
+
+
+
+	public String geteId() {
+		return eId;
+	}
+
+
+
+	public void seteId(String eId) {
+		this.eId = eId;
+	}
+
+
+
+	public String geteName() {
+		return eName;
+	}
+
+
+
+	public void seteName(String eName) {
+		this.eName = eName;
 	}
 
 
