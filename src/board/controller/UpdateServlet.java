@@ -34,10 +34,10 @@ public class UpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 request.setCharacterEncoding("UTF-8");
 
-//	System.out.println("확인"+request.getParameter("tNum"));
+	System.out.println("확인"+request.getParameter("tNum"));
 		
-//		int tNum = Integer.parseInt(request.getParameter("tNum"));
-//		System.out.println(tNum);
+		int tNum = Integer.parseInt(request.getParameter("tNum"));
+		System.out.println(tNum);
 		String title = request.getParameter("title");
 		System.out.println(title);
 		int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
