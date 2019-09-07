@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import empService.model.service.EmpServiceService;
+import empService.model.vo.Emp;
 
 /**
  * Servlet implementation class ApplyServlet
@@ -31,21 +32,25 @@ public class ApplyServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
+		
 		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
 		
-		int result = new EmpServiceService().apply(wNum, rNum);
+		int result = new EmpServiceService().apply(emp.getEmpNum(), wNum, rNum);
 		
+		response.sendRedirect("applicationState.es");
 		
-		
-		if(result > 0) {
-			response.sendRedirect("/applicationState.es");
-		}else if(result == -1){
-			//어디로 보낼지?
-		}else {
-			request.setAttribute("msg", "요청에 실패했습니다");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-		}
+		// 디컴
+//		if(result > 0) {
+//			response.sendRedirect("applicationState.es");
+//		}else if(result == -1){
+//			request.setAttribute("msg", "이미 지원한 공고입니다. \n[알바 지원 현황] 메뉴에서 확인해주세요.");
+//			request.getRequestDispatcher("/views/empService/WatchingIncruit2.jsp").forward(request, response);
+//		}else {
+//			request.setAttribute("msg", "요청에 실패했습니다");
+//			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+//		}
 		
 	}
 

@@ -188,7 +188,7 @@
 	
 					<div class='form-row'>
 					  <label for='rExplain'>상세 내역</label>
-					  <textarea id='rExplain' name='rExplain'></textarea>
+					  <textarea id='rExplain' name='rExplain' style="min-height: 200px;"></textarea>
 					</div>
 		
 					
