@@ -129,15 +129,20 @@ http://www.templatemo.com/tm-406-flex
                                 
                                 <div class="search-wrapper"> <!-- 수정 -->
                                     <h1>
-                                       <input type="text" name="detail"  id="test" class="search" required placeholder="Search">
+                                       <input type="text" name="detail"  id="test" class="search" required placeholder="Search" onkeyup="enterkey();">
                                     </h1>
                                 </div>
                                	<div class="search-icon">
-                                       <button type="button" onclick="detailSearch();">검색</button>
+                                       <button type="button" onclick="detailSearch();" >검색</button>
                                	</div>
    								<script>
    									function detailSearch(){
    										location.href="<%=request.getContextPath()%>/detailSearch.se?detail="+$('#test').val();
+   									}
+   									function enterkey() {
+   								        if (window.event.keyCode == 13) {
+   								        	detailSearch();
+   								        }
    									}
    								</script>
                                 <div class="col-md-10 col-sm-10 main-menu text-right toggle-wrapper">
