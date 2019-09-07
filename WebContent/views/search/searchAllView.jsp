@@ -191,15 +191,15 @@
                   </td>
                   <td style="padding-top: 18px;">
                   	<%if(incruitList.get(i).getWorkForm().equals("시급")){ %>
-                  	<div class="payType" style="border: 1px solid orange; display: inline;color: orange; padding: 1px;">월</div>
+                  	<div class="payType" style="border: 1px solid orange; display: inline;color: orange; padding: 1px;">시</div>
                   	<%}else if(incruitList.get(i).getWorkForm().equals("일급")){ %>
-                  	<div class="payType" style="border: 1px solid blue; display: inline;color: blue; padding: 1px;">월</div>
+                  	<div class="payType" style="border: 1px solid blue; display: inline;color: blue; padding: 1px;">일</div>
                   	<%}else if(incruitList.get(i).getWorkForm().equals("주급")){ %>
-                  	<div class="payType" style="border: 1px solid purple; display: inline;color: purple; padding: 1px;">월</div>
+                  	<div class="payType" style="border: 1px solid purple; display: inline;color: purple; padding: 1px;">주</div>
                   	<%}else if(incruitList.get(i).getWorkForm().equals("월급")){ %>
                   	<div class="payType" style="border: 1px solid green; display: inline;color: green; padding: 1px;">월</div>
                   	<%}else{ %>
-                  	<div class="payType" style="border: 1px solid red; display: inline;color: red; padding: 1px;">월</div>
+                  	<div class="payType" style="border: 1px solid red; display: inline;color: red; padding: 1px;">연</div>
                   	<%} %>
                   	
                   	

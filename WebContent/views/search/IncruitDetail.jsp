@@ -38,10 +38,12 @@
 	<br />
 	<div class="row"
 		style="padding-top: 50px; padding-left: 150px; padding-right: 150px;">
-		<input type="hidden" value="글번호" />
+		<input type="hidden" value="<%=i.getNum() %>" />
 		<p><%=i.getStartDate() %></p>
 		<div class="col-sm-12" style="border: 1px solid lightgrey;"><%=i.getTitle() %></div>
-		<div class="col-sm-2"></div>
+		<div class="col-sm-2">
+			<button class="btn btn-sm" style="background: rgb(176,18,241); color:white;">관심 기업추가</button>
+		</div>
 		<div class="col-sm-4"
 			style="height: 250px; border: 1px solid lightgrey;">
 			<img class="card-img-top col-lg-12 col-sm-12" style="padding-top:50px; width: auto; height: auto; max-width:300px ;max-height: 200px;" 
@@ -124,12 +126,17 @@
 			</div>
 				<%if(loginUser!=null){ %>
 				<div class="buttons" style="padding-left: 450px;">
-					<button class="btn btn-default" onclick="location.href='<%=request.getContextPath()%>/resumeCheck.se';">지원하기</button>
+					<button class="btn btn-default" onclick="supply();">지원하기</button>
 				</div>
 				<%} %>
 					
 					
 		</div>
+		<script>
+			function supply(){
+				location.href='<%=request.getContextPath()%>/resumeCheck.se?wNum=<%=i.getNum() %>';
+			}
+		</script>
 		<%@ include file="../common/footer.jsp"%>
 	</div>
 </body>
