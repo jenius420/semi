@@ -5,6 +5,13 @@
 	Member m = (Member)session.getAttribute("loginUser");
 	String contextPath = request.getContextPath();
 
+	String eId = m.geteId();
+	String eName = m.geteName();
+	String email = m.getEmail();
+	String phone = m.getPhone();
+	String mailAccept = m.getMailAccept();
+	String smsAccept = m.getSmsAccept();
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -85,12 +92,12 @@
             <table name="idPwd">
                 <tr>
                     <td width="150"><b>아이디</b></td>
-                    <td width="170px"><input value="<%= m.geteId() %>"></input></td>
+                    <td width="170px"><input value="<%= eId %>"></input></td>
                 </tr>
         
                 <tr>
                     <td><b>비밀번호</b></td>
-                    <td><input id="newpwd" type="password" size="28" maxlength="16" placeholder="현재 비밀번호를 입력하세요"></td>		
+                    <td><input id="pwd" type="password" size="28" maxlength="16" placeholder="현재 비밀번호를 입력하세요"></td>		
                 </tr>
 
             </table>
@@ -101,7 +108,7 @@
 
                 <tr>
                     <td><b>성명</b></td>
-                    <td><input id="name" name="name" type="text" size="35" maxlength="5" readonly value="<%= m.geteName() %>"></input></td>
+                    <td><input id="name" name="name" type="text" size="35" maxlength="5" readonly value="<%= eName %>"></input></td>
                     <td><label id="nameResult"></label></td>
                 </tr>
             
@@ -111,7 +118,7 @@
                 <tr>
                     <td><b>메일주소</b></td>
                     <td>
-                        <input id="email1" name="email1" type="email" size="35" value="<%= m.getEmail() %>"></input>
+                        <input id="email1" name="email1" type="email" size="35" value="<%= email %>"></input>
                         
                     </td>
                     <td><label id="emailResult"></label></td>
