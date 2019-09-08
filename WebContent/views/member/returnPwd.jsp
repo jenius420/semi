@@ -49,7 +49,7 @@ String id= (String)request.getAttribute("id");
 </head>
 <body>
     <div>
-        <form form id="updatePwd" onsubmit="return Validate();" method="post" action="<%= request.getContextPath()%>/changePwd.me ">
+        <form id="updatePwd" onsubmit="return Validate();" method="post" action="<%= request.getContextPath()%>/changePwd.me ">
 
             <table>
                 
@@ -71,7 +71,7 @@ String id= (String)request.getAttribute("id");
                         확인
                     </td>
                     <td>
-                        <input id="pwd2" name="pwd2" type="password"  maxlength="7"></input>
+                        <input id="pwd2" name="pwd2" type="password"  maxlength="15"></input>
                     </td>
                 </tr>
                 
