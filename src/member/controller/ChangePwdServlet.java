@@ -43,8 +43,8 @@ public class ChangePwdServlet extends HttpServlet {
 		
 		if (result>0) {
 			
-			request.setAttribute("msg", "비밀번호변경에 성공하였습니다.\n 변경된 비밀번호로 로그인해주세요");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.setAttribute("msg", "비밀번호변경에 성공하였습니다. 변경된 비밀번호로 로그인해주세요");
+			request.getRequestDispatcher("views/member/successChangePwd.jsp").forward(request, response);
 			
 		} else {
 			request.setAttribute("msg", "비밀번호 변경에 실패하셨습니다");
