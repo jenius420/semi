@@ -31,7 +31,7 @@ public class CheckResumeServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		int rNum = (int)request.getAttribute("rNum");
+		int rNum = Integer.parseInt(request.getParameter("rNum"));
 		
 		int result = new IncruitService().reCheckResume(rNum);
 		

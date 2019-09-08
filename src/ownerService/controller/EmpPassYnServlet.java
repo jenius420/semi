@@ -35,15 +35,14 @@ public class EmpPassYnServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		
-		String passYn = (String)request.getAttribute("passYn");
-		int applyNum = (int)request.getAttribute("applyNum");
+		String passYn = (String)request.getParameter("passYn");
+		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
 		
 		int result = new IncruitService().empPassYn(applyNum, passYn);
 		
+		
 		if(result > 0) {
-			request.setAttribute("msg", "성공적으로 처리했습니다");	
-//			request.getRequestDispatcher("/views/ownerService/ManageEmp.jsp").forward(request, response);
-//			response.sendRedirect("manageEmp.os");
+			response.sendRedirect("manageEmp.os");
 		}else {
 			request.setAttribute("msg", "처리에 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);

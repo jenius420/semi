@@ -192,6 +192,18 @@ public class IncruitService {
 		return result;
 		
 	}
+	
+	public Appliant selectAppliant(int rNum) {
+		
+		Connection conn = getConnection();
+		
+		Appliant ap = new IncruitDao().selectAppliant(conn, rNum);
+		
+		close(conn);
+
+		return ap;
+		
+	}
 
 
 }
