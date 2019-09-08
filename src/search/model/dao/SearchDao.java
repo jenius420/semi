@@ -91,13 +91,25 @@ public class SearchDao {
 			pstmt.setInt(cates.length+2, endPage);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				list.add(new IncruitInfo(rset.getInt(2), rset.getString(3), rset.getString(4), 
-						rset.getInt(5), rset.getInt(6), rset.getString(7), rset.getString(8), 
-						rset.getString(9), rset.getString(10), rset.getString(11), rset.getString(12), 
-						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
-						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
-						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
+				list.add(new IncruitInfo(rset.getInt(2), 
+						rset.getString(3), 
+						rset.getString(4), 
+						rset.getInt(5), 
+						rset.getInt(6), 
+						rset.getString(7), 
+						rset.getString(8), 
+						rset.getString(9), 
+						rset.getString(10), 
+						rset.getString(11), 
+						rset.getString(12), 
+						rset.getString(13), 
+						rset.getString(14), 
+						rset.getString(15), 
+						rset.getDate(16), 
+						rset.getDate(17), 
+						rset.getString(18),  rset.getString(19), rset.getInt(20), 
+						rset.getInt(21), rset.getString(22), rset.getString(23), rset.getString(24), rset.getString(25), 
+						rset.getString(26), rset.getString(27), rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getInt(33)));
 //				i 1,4,5,20,21 d16,17			
 			}
 		} catch (SQLException e) {
@@ -125,13 +137,25 @@ public class SearchDao {
 			pstmt.setInt(2, end);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				list.add(new IncruitInfo(rset.getInt(2), rset.getString(3), rset.getString(4), 
-						rset.getInt(5), rset.getInt(6), rset.getString(7), rset.getString(8), 
-						rset.getString(9), rset.getString(10), rset.getString(11), rset.getString(12), 
-						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
-						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
-						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
+				list.add(new IncruitInfo(rset.getInt(2), 
+						rset.getString(3), 
+						rset.getString(4), 
+						rset.getInt(5), 
+						rset.getInt(6), 
+						rset.getString(7), 
+						rset.getString(8), 
+						rset.getString(9), 
+						rset.getString(10), 
+						rset.getString(11), 
+						rset.getString(12), 
+						rset.getString(13), 
+						rset.getString(14), 
+						rset.getString(15), 
+						rset.getDate(16), 
+						rset.getDate(17), 
+						rset.getString(18),  rset.getString(19), rset.getInt(20), 
+						rset.getInt(21), rset.getString(22), rset.getString(23), rset.getString(24), rset.getString(25), 
+						rset.getString(26), rset.getString(27), rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getInt(33)));
 //				i 1,4,5,20,21 d16,17			
 			}
 		} catch (SQLException e) {
@@ -222,14 +246,26 @@ public class SearchDao {
 			pstmt.setInt(district.length+2, end);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
-				list.add(new IncruitInfo(rset.getInt(2), rset.getString(3), rset.getString(4), 
-						rset.getInt(5), rset.getInt(6), rset.getString(7), rset.getString(8), 
-						rset.getString(9), rset.getString(10), rset.getString(11), rset.getString(12), 
-						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
-						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
-						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
-//				i 1,4,5,20,21 d16,17			
+				list.add(new IncruitInfo(rset.getInt(2), 
+						rset.getString(3), 
+						rset.getString(4), 
+						rset.getInt(5), 
+						rset.getInt(6), 
+						rset.getString(7), 
+						rset.getString(8), 
+						rset.getString(9), 
+						rset.getString(10), 
+						rset.getString(11), 
+						rset.getString(12), 
+						rset.getString(13), 
+						rset.getString(14), 
+						rset.getString(15), 
+						rset.getDate(16), 
+						rset.getDate(17), 
+						rset.getString(18),  rset.getString(19), rset.getInt(20), 
+						rset.getInt(21), rset.getString(22), rset.getString(23), rset.getString(24), rset.getString(25), 
+						rset.getString(26), rset.getString(27), rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getInt(33)));
+			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -264,13 +300,25 @@ public class SearchDao {
 			}
 			rset =pstmt.executeQuery();
 			while(rset.next()) {
-				list.add(new IncruitInfo(rset.getInt(2), rset.getString(3), rset.getString(4), 
-						rset.getInt(5), rset.getInt(6), rset.getString(7), rset.getString(8), 
-						rset.getString(9), rset.getString(10), rset.getString(11), rset.getString(12), 
-						rset.getString(13), rset.getString(14), rset.getString(15), rset.getString(16), rset.getDate(17), 
-						rset.getDate(18), rset.getString(19),  rset.getString(20), rset.getInt(21), 
-						rset.getInt(22), rset.getString(23), rset.getString(24), rset.getString(25), rset.getString(26), 
-						rset.getString(27), rset.getString(28), rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getString(33),rset.getInt(34)));
+				list.add(new IncruitInfo(rset.getInt(2), 
+						rset.getString(3), 
+						rset.getString(4), 
+						rset.getInt(5), 
+						rset.getInt(6), 
+						rset.getString(7), 
+						rset.getString(8), 
+						rset.getString(9), 
+						rset.getString(10), 
+						rset.getString(11), 
+						rset.getString(12), 
+						rset.getString(13), 
+						rset.getString(14), 
+						rset.getString(15), 
+						rset.getDate(16), 
+						rset.getDate(17), 
+						rset.getString(18),  rset.getString(19), rset.getInt(20), 
+						rset.getInt(21), rset.getString(22), rset.getString(23), rset.getString(24), rset.getString(25), 
+						rset.getString(26), rset.getString(27), rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getInt(33)));
 
 			}
 			
@@ -332,11 +380,11 @@ public class SearchDao {
 			if(rset.next()) {
 				i=	new IncruitInfo(rset.getInt(1), rset.getString(2), rset.getString(3), 
 						rset.getInt(4), rset.getInt(5), rset.getString(6), rset.getString(7), 
-						rset.getString(8), rset.getString(9), rset.getString(10), rset.getString(11), 
-						rset.getString(12), rset.getString(13), rset.getString(14), rset.getString(15), rset.getDate(16), 
-						rset.getDate(17), rset.getString(18),  rset.getString(19), rset.getInt(20), 
-						rset.getInt(21), rset.getString(22), rset.getString(23), rset.getString(24), rset.getString(25), 
-						rset.getString(26), rset.getString(27), rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getString(32),rset.getInt(33));
+						rset.getString(8), rset.getString(9), rset.getString(10), 
+						rset.getString(11), rset.getString(12), rset.getString(13), rset.getString(14), rset.getDate(15), 
+						rset.getDate(16), rset.getString(17),  rset.getString(18), rset.getInt(19), 
+						rset.getInt(20), rset.getString(21), rset.getString(22), rset.getString(23), rset.getString(24), 
+						rset.getString(25), rset.getString(26), rset.getString(27),rset.getString(28),rset.getString(29),rset.getString(30),rset.getString(31),rset.getInt(32));
 			System.out.println(i);
 			}
 			
