@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%
 	Member m = (Member)session.getAttribute("loginUser");
+	String contextPath = request.getContextPath();
 
 %>
 <!DOCTYPE html>
@@ -157,6 +158,7 @@
             <br>
 
             <div style="text-align:center">
+                <button type="button"  name="updatePwd" class="btn btn-secondary" onclick="updatePwd();">비밀번호 수정</button>
                 <button type="submit"  name="insertBtn" class="btn btn-secondary">수정완료</button>
             </div>
             
@@ -202,6 +204,10 @@
     			object.value = object.value.slice(0, object.maxLength);
    			}   
   		}
+        
+        function updatePwd() {
+			location.href="<%= contextPath %>/updatePwdForm.me"
+		}
 
           
 

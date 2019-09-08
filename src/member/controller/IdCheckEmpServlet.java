@@ -15,13 +15,13 @@ import member.model.service.MemberService;
  * Servlet implementation class idCheckEmpServlet
  */
 @WebServlet("/idCheckEmp.me")
-public class idCheckEmpServlet extends HttpServlet {
+public class IdCheckEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public idCheckEmpServlet() {
+    public IdCheckEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

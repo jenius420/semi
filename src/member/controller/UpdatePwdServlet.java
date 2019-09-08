@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.service.MemberService;
 
 /**
- * Servlet implementation class FindPwd
+ * Servlet implementation class UpdatePwdServlet
  */
-@WebServlet("/findPwd.me")
-public class FindPwd extends HttpServlet {
+@WebServlet("/updatePwd.me")
+public class UpdatePwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindPwd() {
+    public UpdatePwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,38 +28,30 @@ public class FindPwd extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		
 		int kind = Integer.parseInt(request.getParameter("kind"));
 		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String cNum1 = request.getParameter("ecNum1");
-		String cNum2 = request.getParameter("ecNum2");
-		String cNum = cNum1 + "-" + cNum2;
-		System.out.println("kind"+kind);
-		String pwd =null;
-		if (kind==1) {
-			pwd = new MemberService().findEmpPwd(id,name,cNum);
-		} else if(kind==2){
-			pwd = new MemberService().findOwnPwd(id,name,cNum);
-			
-		}
+		String pwd = request.getParameter("pwd");
+		String newPwd = request.getParameter("newPwd");
 		
+		int result;
 		
-		
-		if(pwd != null) {
-			
-			request.setAttribute("kind", kind);
-			request.setAttribute("name", name);
-			request.setAttribute("cNum", cNum);
-			request.setAttribute("id", id);
-			System.out.println("일치");
-			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);
+		if(kind == 1) {
+			result = new MemberService().updateEmpPwd(newPwd, id, pwd);
 		}else {
-			request.setAttribute("msg", "일치하는 정보가 없습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
-			System.out.println("불일치");
+			result = new MemberService().updateOwnPwd(newPwd, id, pwd);
 		}
+		
+		if(result > 0) {
+			
+			request.setAttribute("msg", "비밀번호가 변경 되였습니다.");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		} else {
+			request.setAttribute("msg", "비밀번호 변경에  실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
+	
 	}
 
 	/**
