@@ -62,7 +62,7 @@
 <div class="esMenubar">
     <div>
     	<div class="esm1">이력서</div>
-       	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageResume.es';">이력서 관리</div>
+       	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageResume.es';">이력서 리스트</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';">이력서 작성</div>
         <!-- <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/suitableIncruit.es';">이력서 맞춤 알바</div> -->
     </div>
@@ -77,7 +77,7 @@
     
     <div>
         <div class="esm1">관심 정보</div>
-       	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/interestOwner.es';">관심 기업</div>
+       	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/interestOwner.es';">관심기업</div>
 	</div>
     <div class="space"></div>
     

@@ -1,6 +1,7 @@
 package empService.model.vo;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 public class Resume {
 	
@@ -26,6 +27,11 @@ public class Resume {
 	private String saveName;
 	private int dongNum;
 	private int roadNum;
+	private String roadName;
+	private int roadMain;
+	private int age;
+	private String gender;
+	private String ecNum;
 	
 	public Resume() {
 		super();
@@ -64,7 +70,7 @@ public class Resume {
 	
 	public Resume(int rNum, int empNum, String eName, String address, String phone, String email, int districtNum,
 			String district, int typeNum, String type, String category, String comment, Date updateDate, String invalid,
-			String desireForm, int desireIncome, String openSet, String edu) {
+			String desireForm, int desireIncome, String openSet, String edu, String ecNum, int roadNum) {
 		super();
 		this.rNum = rNum;
 		this.empNum = empNum;
@@ -84,11 +90,90 @@ public class Resume {
 		this.desireIncome = desireIncome;
 		this.openSet = openSet;
 		this.edu = edu;
+		this.ecNum = ecNum;
+		this.roadNum = roadNum;
+		
 	}
 
 
 	public int getDongNum() {
 		return dongNum;
+	}
+
+
+	public int getAge() {
+		String n = this.ecNum;
+		
+		int year2 = Integer.parseInt(n.substring(0, 2));
+		int year4 = 0;
+		
+		if(year2 >= 20 && year2 <=99) {
+			year4 = 1900 + year2;
+		}else {
+			year4 = 2000 + year2;
+		}
+		
+		int age = Calendar.getInstance().get(Calendar.YEAR) - year4;
+
+		return age;
+	}
+
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+	public String getRoadName() {
+		return roadName;
+	}
+
+
+	public void setRoadName(String roadName) {
+		this.roadName = roadName;
+	}
+
+
+	public int getRoadMain() {
+		return roadMain;
+	}
+
+
+	public void setRoadMain(int roadMain) {
+		this.roadMain = roadMain;
+	}
+
+
+	public String getGender() {
+
+		String n = this.ecNum;
+		
+		String gender = "ㅋ";
+		
+		int flag = n.substring(6, 7).equals("-") ? Integer.parseInt(n.substring(7, 8)) : Integer.parseInt(n.substring(6, 7));
+		
+		if(flag == 1 || flag == 3) {
+			gender= "남";
+		}else {
+			gender= "여";
+		}
+		
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+	public String getEcNum() {
+		return ecNum;
+	}
+
+
+	public void setEcNum(String ecNum) {
+		this.ecNum = ecNum;
 	}
 
 

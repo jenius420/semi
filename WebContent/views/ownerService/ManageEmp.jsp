@@ -166,7 +166,7 @@ font-size: 14px !important;
 															<tr <%if(i.getStatus().equals("N")||r.getInvalid().equals("Y")){%>class="row100 body" <%}else{%> onclick="selectIncruit(<%=r.getrNum()%>);" class="row100 body selectHover" <%} %> >
 																<td class="cell100 column00 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>"></td>
 																<td class="cell100 column11 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>"><%=r.geteName()%></td>
-																<td class="cell100 column22 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">19 남</td>
+																<td class="cell100 column22 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>"><%=r.getAge()%> <%=r.getGender()%></td>
 																<td class="cell100 column33 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>"><%=r.getPhone()%></td>
 																<td class="cell100 column44 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">희망 <%=r.getDesireForm()%> <%=r.getDesireIncome()%>원</td>
 																<td class="cell100 column55 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">(지원일)&nbsp;<%=alist.get(j).getApplyDate()%></td>

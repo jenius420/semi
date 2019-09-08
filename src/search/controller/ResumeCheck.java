@@ -35,14 +35,11 @@ public class ResumeCheck extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
-		Member mem = (Member)request.getSession().getAttribute("loginUser");
-		Emp emp = new EmpServiceService().selectEmp(mem.geteNum());
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("emp", emp);
 		int wNum = Integer.parseInt(request.getParameter("wNum"));
 		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
 		request.setAttribute("wNum", wNum);

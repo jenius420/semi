@@ -38,19 +38,12 @@ public class IncruitListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		
-		Member mem = (Member)request.getSession().getAttribute("loginUser");
-		Owner owner = new OwnerServiceService().selectOwner(mem.getoNum());
-		
+
 //		Owner owner = new OwnerServiceService().selectOwner(884);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("owner", owner);
+		Owner owner = (Owner)request.getSession().getAttribute("owner");
 		
 		ArrayList<Incruit> list = new IncruitService().selectIncruitList(owner.getoNum());
-	
 
-		
 
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/ownerService/IncruitList.jsp").forward(request, response);

@@ -163,15 +163,17 @@ display: inline-block;
 						<p><%=i.getrExplain() %></p>
 					<%} %>
 				</div>
+				<%if(loginUser!=null){ %>
+				<div class="buttons" style="padding-left: 450px;">
+				<br /><br /><br />
+					<button class="btn btn-default" onclick="supply();">지원하기</button>
+				</div>
+				<%} %>
 			</div>
 			
 			
 			
-				<%if(loginUser!=null){ %>
-				<div class="buttons" style="padding-left: 450px;">
-					<button class="btn btn-default" onclick="supply();">지원하기</button>
-				</div>
-				<%} %>
+				
 					
 					
 		</div>

@@ -410,9 +410,9 @@ public class IncruitDao {
 			pstmt.setString(1, "%"+keyword+"%");
 			pstmt.setInt(2, filter.getDistrictNum());
 			pstmt.setInt(3, filter.getTypeNum());
-			pstmt.setString(4, filter.getDesireForm());
-			pstmt.setInt(5, filter.getDesireIncome());
-			pstmt.setString(6, filter.getFinalEdu());
+//			pstmt.setString(4, filter.getDesireForm());
+//			pstmt.setInt(5, filter.getDesireIncome());
+			pstmt.setString(4, filter.getFinalEdu());
 
 		
 			rs = pstmt.executeQuery();
@@ -437,7 +437,10 @@ public class IncruitDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNUM")
+									rs.getString("FINALEDUNUM"),
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
+									
 									);
 				list.add(resume);
 			}
@@ -487,8 +490,11 @@ public class IncruitDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNUM")
+									rs.getString("FINALEDUNUM"),
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
 									);
+				
 			}
 			
 		}catch (SQLException e) {
@@ -551,6 +557,35 @@ public class IncruitDao {
 		}
 		
 		return result;
+		
+	}
+	
+	public Resume addRoad3(Connection conn, Resume r) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("addRoad3");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getRoadNum());
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				r.setRoadName(rs.getString("ROADNAME"));
+				r.setRoadMain(rs.getInt("ROADMAIN"));
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return r;
 		
 	}
 

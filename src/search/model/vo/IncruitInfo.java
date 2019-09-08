@@ -36,8 +36,15 @@ public class IncruitInfo {
 	private String termName;
 	private String termBigName;
 	private int oNum;
-	public IncruitInfo(int num, String title, String roadName, int roadMain, int roadSub, String districtName,
-			String typeName, String categoryName, String logoSaveName, String pValid, String workDay, String workTime,
+	public IncruitInfo(int num, 
+			String title, 
+			String roadName, 
+			int roadMain, 
+			int roadSub, 
+			String districtName,
+			String typeName, 
+			String categoryName, 
+			String logoSaveName, String workDay, String workTime,
 			String workGender, String workAge, String workEdu, Date startDate, Date endDate, String iStatus,
 			String workForm, int salary, int applyProduct, String rExplain, String peopleCount, String opName,
 			String opAddress, String oName, String oTel, String oPhone, String email, String totalInfo, String termName,
@@ -51,7 +58,6 @@ public class IncruitInfo {
 		this.typeName = typeName;
 		this.categoryName = categoryName;
 		this.logoSaveName = logoSaveName;
-		this.pValid = pValid;
 		this.workDay = workDay;
 		this.workTime = workTime;
 		this.workGender = workGender;

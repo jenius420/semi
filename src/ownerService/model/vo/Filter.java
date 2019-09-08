@@ -12,6 +12,8 @@ public class Filter {
 	private String desireForm; // 급여형태
 	private int desireIncome; // 급여액수
 	private String finalEdu; // 최종학력
+	private String gender; // 성별
+	private String ageType; // 나이
 	
 	public Filter() {
 		super();
@@ -33,6 +35,31 @@ public class Filter {
 		this.desireForm = desireForm;
 		this.desireIncome = desireIncome;
 		this.finalEdu = finalEdu;
+	}
+
+
+
+	public String getGender() {
+		return gender;
+	}
+
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+
+
+	public String getAgeType() {
+		return ageType;
+	}
+
+
+
+	public void setAgeType(String ageType) {
+		this.ageType = ageType;
 	}
 
 
