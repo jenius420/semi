@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+int kind = (Integer)request.getAttribute("kind");
+String name = (String)request.getAttribute("name");
+String cNum=(String)request.getAttribute("cNum");
+String id= (String)request.getAttribute("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +49,7 @@
 </head>
 <body>
     <div>
-        <form form id="updatePwd" onsubmit="return Validate();" method="post" action="<%= request.getContextPath()%>/returnPwd.me ">
+        <form id="updatePwd" onsubmit="return Validate();" method="post" action="<%= request.getContextPath()%>/changePwd.me ">
 
             <table>
                 
@@ -51,6 +57,10 @@
                     <td>
                         새로운 <br> 
                         비밀번호
+                        <input type="hidden" name ="kind" value="<%=kind %>" />
+                        <input type="hidden" name ="name" value="<%=name %>" />
+                        <input type="hidden" name ="id" value="<%=id %>" />
+                        <input type="hidden" name ="cNum" value="<%=cNum %>" />
                     </td>
                     <td><input type="password" name="pwd" id="pwd" maxlength="15"></td>
                     <td rowspan="2"><button type="submit" id="findId" class="btn btn-secondary" onclick="returnPwd();">비밀번호 <br> 변경</button></td>
@@ -61,7 +71,7 @@
                         확인
                     </td>
                     <td>
-                        <input id="pwd2" name="pwd2" type="password"  maxlength="7"></input>
+                        <input id="pwd2" name="pwd2" type="password"  maxlength="15"></input>
                     </td>
                 </tr>
                 

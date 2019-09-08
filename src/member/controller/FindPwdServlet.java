@@ -6,22 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import member.model.service.MemberService;
-import member.model.vo.Member;
 
 /**
- * Servlet implementation class FindId
+ * Servlet implementation class FindPwd
  */
-@WebServlet("/findId.me")
-public class FindIdServlet extends HttpServlet {
+@WebServlet("/findPwd.me")
+public class FindPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindIdServlet() {
+    public FindPwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,48 +29,37 @@ public class FindIdServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		int kind = Integer.parseInt(request.getParameter("kind"));
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		String cNum1 = request.getParameter("cNum1");
-		String cNum2 = request.getParameter("cNum2");
+		String cNum1 = request.getParameter("ecNum1");
+		String cNum2 = request.getParameter("ecNum2");
 		String cNum = cNum1 + "-" + cNum2;
-		
-		System.out.println(kind);
-		System.out.println(name);
-		System.out.println(cNum);
-		
-		String userId;
-		if(kind == 1) {
-			
-			userId = new MemberService().findIdEmp(name, cNum);
-			
-			
-			//response.sendRedirect(request.getContextPath());
-			
-			
-			
-			
-		}else {
-			
-			userId = new MemberService().fidIdOwn(name, cNum);
-			
-			
+		System.out.println("kind"+kind);
+		String pwd =null;
+		if (kind==1) {
+			pwd = new MemberService().findEmpPwd(id,name,cNum);
+		} else if(kind==2){
+			pwd = new MemberService().findOwnPwd(id,name,cNum);
 			
 		}
 		
-		if(userId != null) {
-			request.setAttribute("userId", userId);
-			request.getRequestDispatcher("views/member/returnId.jsp").forward(request, response);				
+		
+		
+		if(pwd != null) {
+			
+			request.setAttribute("kind", kind);
+			request.setAttribute("name", name);
+			request.setAttribute("cNum", cNum);
+			request.setAttribute("id", id);
+			System.out.println("일치");
+			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "아이디 찾기에 실패했습니다.");
+			request.setAttribute("msg", "일치하는 정보가 없습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
+			System.out.println("불일치");
 		}
-		
-		
-		
-		
-		
-		
 	}
 
 	/**

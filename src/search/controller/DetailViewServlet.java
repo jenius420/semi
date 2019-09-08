@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import empService.model.service.EmpEvalService;
+import empService.model.vo.EmpEvaluation;
 import search.model.service.SearchService;
 import search.model.vo.IncruitInfo;
 import search.model.vo.OPhoto;
@@ -39,9 +41,13 @@ public class DetailViewServlet extends HttpServlet {
 		IncruitInfo i = new SearchService().detailView(num);
 		ArrayList<OPhoto> list = new SearchService().incruitPhotos(num);
 		OPhoto p = new SearchService().searchLogo(oNum);
+		ArrayList<EmpEvaluation> eList = new EmpEvalService().selectEmpEvalList(oNum);
+		
+		
 		request.setAttribute("info", i);
 		request.setAttribute("logo", p);
 		request.setAttribute("pList", list);
+		request.setAttribute("eList", eList);
 		request.getRequestDispatcher("views/search/IncruitDetail.jsp").forward(request, response);;
 		
 	}

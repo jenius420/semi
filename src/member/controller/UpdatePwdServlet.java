@@ -1,29 +1,25 @@
-package ownerService.controller;
+package member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ownerService.model.vo.Owner;
-import ownerService.model.service.IncruitService;
-import ownerService.model.vo.Appliant;
+import member.model.service.MemberService;
 
 /**
- * Servlet implementation class EmpPassYnServlet
+ * Servlet implementation class UpdatePwdServlet
  */
-@WebServlet("/passYn.os")
-public class EmpPassYnServlet extends HttpServlet {
+@WebServlet("/updatePwd.me")
+public class UpdatePwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpPassYnServlet() {
+    public UpdatePwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,23 +29,29 @@ public class EmpPassYnServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
 		
-		String passYn = (String)request.getParameter("passYn");
-		int applyNum = Integer.parseInt(request.getParameter("applyNum"));
+		int kind = Integer.parseInt(request.getParameter("kind"));
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String newPwd = request.getParameter("newPwd");
 		
-		int result = new IncruitService().empPassYn(applyNum, passYn);
+		int result;
 		
-		
-		if(result > 0) {
-			response.sendRedirect("manageEmp.os");
+		if(kind == 1) {
+			result = new MemberService().updateEmpPwd(newPwd, id, pwd);
 		}else {
-			request.setAttribute("msg", "처리에 실패했습니다");
-			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
+			result = new MemberService().updateOwnPwd(newPwd, id, pwd);
 		}
 		
-		
-		
+		if(result > 0) {
+			
+			request.setAttribute("msg", "비밀번호가 변경 되였습니다.");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		} else {
+			request.setAttribute("msg", "비밀번호 변경에  실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
+	
 	}
 
 	/**

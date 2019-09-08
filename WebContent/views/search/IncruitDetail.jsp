@@ -1,21 +1,37 @@
 <%@page import="search.model.vo.OPhoto"%>
 <%@page import="search.model.vo.IncruitInfo"%>
+<%@page import="empService.model.vo.EmpEvaluation"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	IncruitInfo i = (IncruitInfo)request.getAttribute("info");
 	OPhoto p = (OPhoto)request.getAttribute("logo");
 	ArrayList<OPhoto> pList = (ArrayList<OPhoto>)request.getAttribute("pList");
+	ArrayList<EmpEvaluation> eList = (ArrayList<EmpEvaluation>)request.getAttribute("eList");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Donjo - Albamoon site</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 <style>
 #jumbotron {
 	background-image:
 		url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
+}
+.evalArea{
+font-weight: 400;
+font-size: 14px;
+}
+
+.star{
+vertical-align:middle;
+width:20px;
+height:20px;
+background-image: url('<%= request.getContextPath()%>/resources/images/star.png') !important;
+background-size: cover;
+display: inline-block;
 }
 </style>
 </head>
@@ -38,11 +54,14 @@
 	<br />
 	<div class="row"
 		style="padding-top: 50px; padding-left: 150px; padding-right: 150px;">
-		<input type="hidden" value="<%=i.getNum() %>" />
+		<input type="hidden" id="wNum" value="<%=i.getNum() %>" />
+		<input type="hidden" id="oNum" value="<%=i.getoNum() %>" />
 		<p><%=i.getStartDate() %></p>
 		<div class="col-sm-12" style="border: 1px solid lightgrey;"><%=i.getTitle() %></div>
 		<div class="col-sm-2">
-			<button class="btn btn-sm" style="background: rgb(176,18,241); color:white;">관심 기업추가</button>
+			<%if(loginUser!=null){ %>
+			<button class="btn btn-sm" id="hopeEnt" style="background: rgb(176,18,241); color:white;"></button>
+			<%} %>
 		</div>
 		<div class="col-sm-4"
 			style="height: 250px; border: 1px solid lightgrey;">
@@ -113,6 +132,27 @@
 				<%} %>
 			</div>
 			
+			<!-- 평가 시작 -->
+			
+			<div class="col-sm-12" style=" height: 200px;width:60%; align-items: center; ">
+				<%for(EmpEvaluation e : eList) {%>
+					<div class="col-sm-12 evalArea">
+						<div>
+							<%=e.geteId()%> &nbsp;|&nbsp; <%=e.getEnrollDate()%>&nbsp; |&nbsp;
+		
+						    <%for(int j=1; j<=e.getSevalPoint(); j++){ %>
+						 	   <div class="star"></div>
+						    <% }%>
+						</div>
+						<div style="margin-top:7px;">
+							&quot;<%=e.geteComment()%>&quot;
+						</div>
+					</div>
+					<%} %>
+				</div>
+			
+			<!-- 평가 끝 -->
+			
 			<div class="col-sm-12" style="height: 700px;">
 				<hr />
 				<div class="col-sm-12"
@@ -124,6 +164,9 @@
 					<%} %>
 				</div>
 			</div>
+			
+			
+			
 				<%if(loginUser!=null){ %>
 				<div class="buttons" style="padding-left: 450px;">
 					<button class="btn btn-default" onclick="supply();">지원하기</button>
@@ -137,6 +180,8 @@
 				location.href='<%=request.getContextPath()%>/resumeCheck.se?wNum=<%=i.getNum() %>';
 			}
 		</script>
+		<script type="text/javascript"
+	src="<%=request.getContextPath() %>/views/search/js/incruitDetail.js"></script>
 		<%@ include file="../common/footer.jsp"%>
 	</div>
 </body>

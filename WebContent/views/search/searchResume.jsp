@@ -138,8 +138,8 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
 				function apply(){
 					
 					var choiceResume=$('input[name="choiceResume"]:checked').val();
-					console.log(choiceResume)
-					location.href='<%=request.getContextPath()%>/apply.es/rnum='+choiceResume+'&wNum=<%=wNum%>';
+					console.log(choiceResume);
+					location.href='<%=request.getContextPath()%>/apply.es?rNum='+choiceResume+'&wNum=<%=wNum%>';
 					
 				}
 			</script>

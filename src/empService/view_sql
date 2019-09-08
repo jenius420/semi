@@ -1,0 +1,83 @@
+drop view view_resume;
+create or replace view view_resume
+as 
+select rnum, enum, ename, eaddress, phone, email, DISTRICTNum, 
+DISTRICTNAME, typeNum, typeName, categoryname, ecomment, updateDate, 
+invalidResume, desireForm, desireIncome, openset, finaledunum, dongnum, roadnum
+from employeeresume
+join employee using(enum)
+join jobtype using(typenum)
+join DISTRICT using(districtnum);
+
+
+drop view view_appliant;
+create or replace view view_appliant
+as
+select applynum, rnum, ecomment, enum, ename, wnum, wTitle, onum, opname,incruitStatus, endDate, applydate, passorfail, sevalNum
+from appliant
+join employeeresume using(rnum)
+join INCRUITMEMBER using(wnum)
+join employee using(enum)
+join ownerinfo using(onum);
+
+
+drop view view_saleEval;
+create or replace view view_saleEval
+as 
+select sevalNum, eNum, eid, ename, oNum, opname, sevalpoint, ecomment, enrollDate, INVALIDEVAL
+from saleEvaluation
+join ownerinfo using(onum)
+join employee using(enum)
+where invalidEval = 'N';
+
+
+drop view view_saleEvalable;
+create or replace view view_saleEvalable
+as 
+SELECT applyNum, enum, rNum, oNum, wnum, wtitle, opname
+FROM appliant
+JOIN incruitMember using(wnum)
+join employeeresume using(rnum)
+join ownerinfo using(onum)
+WHERE passorfail = 'P'
+AND SYSDATE > ENDDATE
+and sevalNum is null;
+
+
+drop view view_hopeEnt;
+create or replace view view_hopeEnt
+as
+select hno, enum, onum, opname, phone, opaddress, 
+ deleteornot,categoryname,typename
+from hopeEnt
+join ownerinfo using(onum)
+join jobtype using(typenum);
+
+
+drop view view_incruit;
+create or replace view view_incruit
+as 
+SELECT A.WNUM, A.WTITLE, A.ONUM, OPNAME, workDay, workTime, A.termNo, 
+termName, termBigName, workgender, workage, workedu, 
+startDate, incruitstatus, endDate, workForm, salary, A.applyproduct, 
+ptitle, rexplain, peopleCount, opaddress, B.typeNum, typeName, categoryName
+FROM INCRUITMEMBER A, OWNERINFO B, WORKTERM C, PRODUCT D, JOBTYPE E
+WHERE A.ONUM = B.ONUM AND A.TERMNO = C.TERMNO AND A.APPLYPRODUCT = D.PCODE 
+AND B.TYPENUM = E.TYPENUM;
+
+
+drop view view_addRoad;
+create or replace view view_addRoad
+as
+select ONUM, OPNAME, OPADDRESS, ROADNAME, ROADMAIN, ROADSUB, districtname
+from OWNERINFO A, ROADINFO C, district d
+WHERE  A.ROADNUM = C.ROADNUM(+)
+and c.districtnum = d.districtnum;
+
+
+drop view view_owner;
+create or replace view view_owner
+as 
+SELECT ONUM,OID,OPWD,OPNAME,OPNUM,ROADNUM,OPADDRESS,ONAME,OTEL,OCNUM,PHONE,EMAIL,A.TYPENUM,MAILACCEPT,SMSACCEPT,INVALIDID,CHECKONUM,TYPENAME,CATEGORYNAME
+FROM OWNERINFO A, JOBTYPE B
+WHERE A.TYPENUM = B.TYPENUM(+);

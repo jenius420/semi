@@ -1,7 +1,6 @@
 package search.model.service;
 
-import static common.JDBCTemplate.close;
-import static common.JDBCTemplate.getConnection;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -91,6 +90,50 @@ public class SearchService {
 		ArrayList<OPhoto> list = new SearchDao().incruitPhotos(conn,num);
 		close(conn);
 		return list;
+	}
+
+	/**
+	 * 
+	 * @param oNum 기업번호
+	 * @param eId 회원번호
+	 * @return 업데이트 성공했는지 확인
+	 */
+	public int addHopeEnt(int oNum, int eId) {
+		Connection conn = getConnection();
+		int check = new SearchDao().checkHopeEnt(conn,oNum,eId);
+		int result;
+		if(check>0) {
+			result = new SearchDao().updateHopeEnt(conn,oNum,eId);
+		}else {
+			result = new SearchDao().insertHopeEnt(conn,oNum,eId);
+		}
+		
+		if (result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
+	public int deleteHopeEnt(int oNum, int eNum) {
+		Connection conn = getConnection();
+		int result = new SearchDao().deleteHopeEnt(conn,oNum,eNum);
+		if (result>0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
+	public int checkHopeEnt(int oNum, int eNum) {
+		Connection conn = getConnection();
+		int check = new SearchDao().checkHopeEnt2(conn,oNum,eNum);
+		close(conn);
+		return check;
 	}
 
 

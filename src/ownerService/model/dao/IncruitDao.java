@@ -296,6 +296,50 @@ public class IncruitDao {
 		
 		return list;
 		
+	}
+	
+	public Appliant selectAppliant(Connection conn, int rNum) {
+		
+		Appliant ap = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("selectAppliant");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rNum);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ap = new Appliant(
+											rs.getInt("APPLYNUM"),
+											rs.getInt("RNUM"),
+											rs.getString("eCOMMENT"),
+											rs.getInt("ENUM"),
+											rs.getString("ENAME"),
+											rs.getInt("WNUM"),
+											rs.getString("WTITLE"),
+											rs.getInt("ONUM"),
+											rs.getString("OPNAME"),
+											rs.getString("INCRUITSTATUS"),
+											rs.getDate("ENDDATE"),
+											rs.getDate("APPLYDATE"),
+											rs.getString("PASSORFAIL"),
+											rs.getInt("sevalNum")
+										);
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return ap;
 		
 	}
 	
@@ -334,8 +378,8 @@ public class IncruitDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, applyNum);
-			pstmt.setString(2, passOrFail);
+			pstmt.setString(1, passOrFail);
+			pstmt.setInt(2, applyNum);
 			
 			result = pstmt.executeUpdate();
 
