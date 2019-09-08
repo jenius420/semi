@@ -36,11 +36,11 @@ public class FindPwd extends HttpServlet {
 		String cNum1 = request.getParameter("ecNum1");
 		String cNum2 = request.getParameter("ecNum2");
 		String cNum = cNum1 + "-" + cNum2;
-		
-		String pwd;
+		System.out.println("kind"+kind);
+		String pwd =null;
 		if (kind==1) {
 			pwd = new MemberService().findEmpPwd(id,name,cNum);
-		} else {
+		} else if(kind==2){
 			pwd = new MemberService().findOwnPwd(id,name,cNum);
 			
 		}
@@ -56,9 +56,9 @@ public class FindPwd extends HttpServlet {
 			System.out.println("일치");
 			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);
 		}else {
-			System.out.println("불일치");
 			request.setAttribute("msg", "일치하는 정보가 없습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
+			System.out.println("불일치");
 		}
 	}
 
