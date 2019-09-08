@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.service.MemberService;
 
 /**
- * Servlet implementation class FindPwd
+ * Servlet implementation class ChangePwdServlet
  */
-@WebServlet("/findPwd.me")
-public class FindPwd extends HttpServlet {
+@WebServlet("/changePwd.me")
+public class ChangePwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindPwd() {
+    public ChangePwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,33 +29,26 @@ public class FindPwd extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		int kind = Integer.parseInt(request.getParameter("kind"));
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		String cNum1 = request.getParameter("cNum1");
-		String cNum2 = request.getParameter("cNum2");
-		String cNum = cNum1 + "-" + cNum2;
-		
-		String pwd;
-		if (kind==1) {
-			pwd = new MemberService().findEmpPwd(id,name,cNum);
-		} else {
-			pwd = new MemberService().findOwnPwd(id,name,cNum);
-			
+		String cNum = request.getParameter("cNum");
+		String pwd = request.getParameter("pwd");
+		int result;
+		if(kind==1) {
+			result = new MemberService().changeEmpPwd(id,name,cNum,pwd);
+		}else {
+			result = new MemberService().changeOwnPwd(id,name,cNum,pwd);
 		}
 		
-		
-		
-		if(pwd != null) {
-			request.setAttribute("kind", kind);
-			request.setAttribute("name", name);
-			request.setAttribute("cNum", cNum);
-			request.setAttribute("id", id);
-			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);				
-		}else {
-			request.setAttribute("msg", "일치하는 정보가 없습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
+		if (result>0) {
+			
+			request.setAttribute("msg", "비밀번호변경에 성공하였습니다.\n 변경된 비밀번호로 로그인해주세요");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+		} else {
+			request.setAttribute("msg", "비밀번호 변경에 실패하셨습니다");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

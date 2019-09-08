@@ -41,39 +41,32 @@ public class FindIdServlet extends HttpServlet {
 		System.out.println(name);
 		System.out.println(cNum);
 		
+		String userId;
 		if(kind == 1) {
 			
-			Member userId = new MemberService().findIdEmp(name, cNum);
+			userId = new MemberService().findIdEmp(name, cNum);
 			
 			
 			//response.sendRedirect(request.getContextPath());
 			
-			if(userId != null) {
-				request.setAttribute("userId", userId);
-				request.getRequestDispatcher("returnId.jsp").forward(request, response);				
-			}else {
-				
-				request.getRequestDispatcher("errorPage.jsp").forward(request, response);
-			}
 			
 			
 			
 		}else {
 			
-			Member userId = new MemberService().fidIdOwn(name, cNum);
-			
-			
-			if(userId != null) {
-				request.setAttribute("userId", userId);
-				request.getRequestDispatcher("views/member/returnId.jsp").forward(request, response);
-			}else {
-				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-			}
+			userId = new MemberService().fidIdOwn(name, cNum);
 			
 			
 			
 		}
 		
+		if(userId != null) {
+			request.setAttribute("userId", userId);
+			request.getRequestDispatcher("views/member/returnId.jsp").forward(request, response);				
+		}else {
+			request.setAttribute("msg", "아이디 찾기에 실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
+		}
 		
 		
 		

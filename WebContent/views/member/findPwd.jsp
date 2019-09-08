@@ -45,7 +45,7 @@
 <body>
 
 	<div>
-        <form action="">
+        <form action="findPwd.me" method="post">
             <div align="center">
                 <span><input type="radio" name="kind" value="1" id="emp" checked><label for="emp">개인회원</label></span>
                 <span><input type="radio" name="kind" value="2" id="own"><label for="own">기업회원</label></span>

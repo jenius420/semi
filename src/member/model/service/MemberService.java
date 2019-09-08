@@ -155,22 +155,22 @@ public class MemberService {
 	 * @param cNum
 	 * @return
 	 */
-	public Member findIdEmp(String name, String cNum) {
+	public String findIdEmp(String name, String cNum) {
 		
 		Connection conn = getConnection();
 		
-		Member userId = new MemberDao().findIdEmp(conn, name, cNum);
+		String userId = new MemberDao().findIdEmp(conn, name, cNum);
 		
 		close(conn);
 		
 		return userId;
 	}
 
-	public Member fidIdOwn(String name, String cNum) {
+	public String fidIdOwn(String name, String cNum) {
 
 		Connection conn = getConnection();
 		
-		Member userId = new MemberDao().findIdOwn(conn, name, cNum);
+		String userId = new MemberDao().findIdOwn(conn, name, cNum);
 		
 		close(conn);
 		
@@ -189,6 +189,46 @@ public class MemberService {
 		ArrayList<Category> list = new MemberDao().getSubCategory(conn,bigCategoryName);
 		close(conn);
 		return list;
+	}
+
+	public String findEmpPwd(String id, String name, String cNum) {
+		Connection conn = getConnection();
+		String findEmpPwd=new MemberDao().findEmpPwd(conn,id,name,cNum);
+		close(conn);
+		return findEmpPwd;
+	}
+
+	public String findOwnPwd(String id, String name, String cNum) {
+		Connection conn = getConnection();
+		String findOwnPwd=new MemberDao().findOwnPwd(conn,id,name,cNum);
+		close(conn);
+		return findOwnPwd;
+	}
+
+	public int changeEmpPwd(String id, String name, String cNum, String pwd) {
+		Connection conn = getConnection();
+		int result = new MemberDao().changeEmpPwd(conn,id,name,cNum,pwd);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
+	public int changeOwnPwd(String id, String name, String cNum, String pwd) {
+		Connection conn = getConnection();
+		int result = new MemberDao().changeOwnPwd(conn,id,name,cNum,pwd);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
 
 

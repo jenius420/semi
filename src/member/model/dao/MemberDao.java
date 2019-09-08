@@ -325,9 +325,9 @@ public class MemberDao {
 	 * @param cNum
 	 * @return
 	 */
-	public Member findIdEmp(Connection conn, String name, String cNum) {
+	public String findIdEmp(Connection conn, String name, String cNum) {
 		
-		Member userId = null;
+		String userId = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("findIdEmp");
@@ -339,8 +339,7 @@ public class MemberDao {
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				userId = new Member();
-				userId.seteId(rset.getString(1));
+				userId=rset.getString(1);
 			}
 			
 			} catch (SQLException e) {
@@ -362,9 +361,9 @@ public class MemberDao {
 	 * @param cNum
 	 * @return
 	 */
-	public Member findIdOwn(Connection conn, String name, String cNum) {
+	public String findIdOwn(Connection conn, String name, String cNum) {
 		
-		Member userId = null;
+		String userId = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("findIdEmp");
@@ -376,8 +375,7 @@ public class MemberDao {
 			
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				userId = new Member();
-				userId.setoId(rset.getString(1));
+				userId=(rset.getString(1));
 			}
 			
 			} catch (SQLException e) {
@@ -439,6 +437,106 @@ public class MemberDao {
 			close(pstmt);
 		}
 		return list;
+	}
+
+
+	public String findEmpPwd(Connection conn, String id, String name, String cNum) {
+		String pwd =null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findEmpPwd");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, cNum);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				pwd=rset.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return pwd;
+	}
+
+
+	public String findOwnPwd(Connection conn, String id, String name, String cNum) {
+		String pwd =null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("findOwnPwd");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, name);
+			pstmt.setString(3, cNum);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				pwd=rset.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return pwd;
+	}
+
+
+	public int changeEmpPwd(Connection conn, String id, String name, String cNum, String pwd) {
+		
+		PreparedStatement pstmt = null;
+		int result =0;
+		String sql = prop.getProperty("changeEmpPwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pwd);
+			pstmt.setString(2, id);
+			pstmt.setString(3, name);
+			pstmt.setString(4, cNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int changeOwnPwd(Connection conn, String id, String name, String cNum, String pwd) {
+		
+		PreparedStatement pstmt = null;
+		int result =0;
+		String sql = prop.getProperty("changeOwnPwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pwd);
+			pstmt.setString(2, id);
+			pstmt.setString(3, name);
+			pstmt.setString(4, cNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 
