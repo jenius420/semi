@@ -180,7 +180,8 @@ public class ResumeDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNUM")
+									rs.getString("FINALEDUNUM"),
+									rs.getString("ECNUM")
 				);
 			}
 				
@@ -320,7 +321,8 @@ public class ResumeDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNUM")
+									rs.getString("FINALEDUNUM"),
+									rs.getString("ECNUM")
 				);
 				
 				list.add(resume);

@@ -55,12 +55,15 @@ public class SearchResumeListServlet extends HttpServlet {
 		filter.setDistrictNum(Integer.parseInt(request.getParameter("districtNum")));
 		filter.setTypeNum(Integer.parseInt(request.getParameter("typeNum")));
 		filter.setFinalEdu(request.getParameter("edu"));
-		filter.setDesireForm(request.getParameter("desireForm"));
-		if(request.getParameter("desireForm").equals("무관")) {
-			filter.setDesireIncome(999999999);
-		}else {
-			filter.setDesireIncome(Integer.parseInt(request.getParameter("desireIncome")));
-		}
+		filter.setGender(request.getParameter("gender"));
+		filter.setAgeType(request.getParameter("ageType"));
+		
+//		filter.setDesireForm(request.getParameter("desireForm"));
+//		if(request.getParameter("desireForm").equals("무관")) {
+//			filter.setDesireIncome(999999999);
+//		}else {
+//			filter.setDesireIncome(Integer.parseInt(request.getParameter("desireIncome")));
+//		}
 
 		ArrayList<Resume> list = new IncruitService().selectSearchResumeList(keyword, filter);
 		ArrayList<Resume> list2 = new ResumeService().selectAttachmentList(list); // 사진 추가

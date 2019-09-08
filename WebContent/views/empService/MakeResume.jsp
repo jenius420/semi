@@ -7,6 +7,8 @@
 	String phone = emp.getPhone();
 	String address = emp.getAddress();
 	String email = emp.getEmail();
+	String gender = emp.getGender();
+	int age = emp.getAge();
 	
 	ArrayList<District> dList = (ArrayList<District>)request.getAttribute("dList");
 	ArrayList<JobType> tList = (ArrayList<JobType>)request.getAttribute("tList");
@@ -74,11 +76,14 @@
 				  <label class="lLabel">이름</label><p class="rLabel" style="width:180px;"><%=eName %></p>
 				  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>';">개인정보 수정하기</button>
 				</div>
+				<div class='form-row'>
+				  <label class="lLabel">나이/성별</label><p class="rLabel" style="width:180px;"><%=age %> <%=gender %></p>
+				</div>
 				<div class='form-row'>	
 				  <label class='lLabel'>전화번호</label><p class="rLabel"><%=emp.getPhone() %></p>
 				</div>
 				<div class='form-row'>
-				  <label class='lLabel'>주소</label> <p class="rLabel"><%=address %></p>
+				  <label class='lLabel'>주소</label> <p class="rLabel"> <%=emp.getDistrict() %> <%=emp.getRoadName() %> <%=emp.getRoadMain() %> <%=address %></p>
 				</div>
 				<div class='form-row'>
 				  <label class='lLabel'>이메일</label> <p class="rLabel"><%=email %></p>

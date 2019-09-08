@@ -67,7 +67,7 @@
 					<div class='form-row'>
 					  <label class='lLabel'>주소</label> <p class="rLabel">
 						<%if(owner.getRoadName() != null){%>
-					  	 	<%=owner.getRoadName()%> <%=owner.getRoadMain()%>-<%=owner.getRoadSub()%> <%=owner.getOpAddress()%>
+					  	 	<%=owner.getDistrict()%> <%=owner.getRoadName()%> <%=owner.getRoadMain()%>
 					  	 <%}else{ %>
 					  	 	<%if(owner.getOpAddress() !=null){%>
 					  	 		<%=owner.getOpAddress()%>

@@ -144,7 +144,7 @@ display:none;
 												<td class="cell100 column1"><%=a.getOpName()%></td>
 												<td class="cell100 column2">
 												<%if(a.getRoadName() != null) {%>
-													<%=a.getDistrict()%> <%=a.getRoadName()%> <%=a.getRoadMain()%>-<%=a.getRoadSub()%> <%=a.getOpAddress()%>
+													<%=a.getDistrict()%> <%=a.getRoadName()%> <%=a.getRoadMain()%>
 												<%}else{%>
 													<%if(a.getOpAddress() !=null){%>
 											  	 		<%=a.getOpAddress()%>

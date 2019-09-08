@@ -77,12 +77,16 @@ margin:10px !important;
 					  <p class="rLabel" style="width:180px;"><%=resume.geteName() %></p>
 					</div>
 					<div class='form-row'>	
+					  <label class='lLabel'>나이/성별</label>
+					  <p class="rLabel"><%=resume.getAge() %> <%=resume.getGender() %></p>
+					</div>
+					<div class='form-row'>	
 					  <label class='lLabel'>전화번호</label>
 					  <p class="rLabel"><%=resume.getPhone() %></p>
 					</div>
 					<div class='form-row'>
 					  <label class='lLabel'>주소</label>
-					  <p class="rLabel"><%=resume.getAddress() %></p>
+					  <p class="rLabel"><%=resume.getDistrict() %> <%=resume.getRoadNum() %> <%=resume.getAddress() %></p>
 					</div>
 					<div class='form-row'>
 					  <label class='lLabel'>이메일</label>

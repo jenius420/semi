@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import empService.model.service.EmpServiceService;
+import empService.model.vo.Emp;
 import member.model.service.MemberService;
 import member.model.vo.Member;
+import ownerService.model.service.OwnerServiceService;
+import ownerService.model.vo.Owner;
 
 /**
  * Servlet implementation class LoginServlet
@@ -45,16 +49,25 @@ public class LoginServlet extends HttpServlet {
 
 		System.out.println("로그인정보. id:" + id + " pwd:" + pwd + " kind:" + kind);
 		
-		
+		HttpSession session = request.getSession();
 
 		Member loginUser = null;
 		
 		switch(kind) {
 			
-			case 1: loginUser = new MemberService().loginEmp(id, pwd); break;
-			case 2: loginUser = new MemberService().loginOwn(id, pwd); break;
-			case 3: loginUser = new MemberService().loginEmp(id, pwd);
-					loginUser.setKind(kind); break;
+			case 1:
+				loginUser = new MemberService().loginEmp(id, pwd); 
+				Emp emp = new EmpServiceService().selectEmp(loginUser.geteNum());
+				session.setAttribute("emp", emp);
+				break;
+			case 2:
+				loginUser = new MemberService().loginOwn(id, pwd);
+				Owner owner = new OwnerServiceService().selectOwner(loginUser.getoNum());
+				session.setAttribute("owner", owner);
+				break;
+			case 3:
+				loginUser = new MemberService().loginEmp(id, pwd);
+				loginUser.setKind(kind); break;
 					
 			default: request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			
@@ -62,7 +75,6 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		if (loginUser != null) {
-			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
 			response.sendRedirect(request.getContextPath());

@@ -131,7 +131,7 @@ margin: .5em;
 width:60%;
 height:80%;
 margin:.5em;
-margin-top:20px;
+margin-top:10px;
 }
 
 .bottomside{
@@ -202,7 +202,7 @@ border-radius: 40px;
 			<div class="searchResume">
 			
 				<div class="filter" style="margin-left:15px;">
-					 <label for='districtNum' >희망근무지(구)</label>
+					 <label for='districtNum' >근무지(구)</label>
 					  <select id='districtNum' name='districtNum'>
 					  	<%for(District d : dList) {%>
 					  		<%if(filter != null && filter.getDistrictNum() == d.getDistrictNum()){ %>
@@ -214,7 +214,7 @@ border-radius: 40px;
 				</div>
 				
 				<div class="filter">
-					 <label for='typeNum'>희망업종</label>
+					 <label for='typeNum'>업종</label>
 					  <select id='typeNum' name='typeNum' style="width:300px;">
 						<%for(JobType t : tList) {%>
 							<%if(filter != null && filter.getTypeNum() == t.getTypeNum()){ %>
@@ -235,23 +235,48 @@ border-radius: 40px;
 					  </select>
 				</div>
 				
+				<!--  
 				<div class="filter">
 					 <label for='desireForm'>희망 급여</label> 
 					  <select id='desireForm' name='desireForm'>
-					  	<option value='무관' <%if(filter != null && filter.getDesireForm() == null){%>selected<%}%>>무관</option>
-					    <option value='시급' <%if(filter != null && filter.getDesireForm().equals("시급")){%>selected<%}%>>시급</option>
-					    <option value='일급' <%if(filter != null && filter.getDesireForm().equals("일급")){%>selected<%}%>>일급</option>
-					    <option value='월급' <%if(filter != null && filter.getDesireForm().equals("월급")){%>selected<%}%>>월급</option>
-					    <option value='연봉' <%if(filter != null && filter.getDesireForm().equals("연봉")){%>selected<%}%>>연봉</option>
+					  	<option value='무관' <%//if(filter != null && filter.getDesireForm() == null){%>selected<%//}%>>무관</option>
+					    <option value='시급' <%//if(filter != null && filter.getDesireForm().equals("시급")){%>selected<%//}%>>시급</option>
+					    <option value='일급' <%//if(filter != null && filter.getDesireForm().equals("일급")){%>selected<%//}%>>일급</option>
+					    <option value='월급' <%//if(filter != null && filter.getDesireForm().equals("월급")){%>selected<%//}%>>월급</option>
+					    <option value='연봉' <%//if(filter != null && filter.getDesireForm().equals("연봉")){%>selected<%//}%>>연봉</option>
 					  </select>
 					  <input id='desireIncome' name='desireIncome' type='text' onkeypress="inNumber();" style="width:120px;"
-					  <%if(filter != null && !filter.getDesireForm().equals("무관")){%>value="<%=filter.getDesireIncome()%>"<%}%>/>
+					  <%//if(filter != null && !filter.getDesireForm().equals("무관")){%>value="<%//filter.getDesireIncome()%>"<%//}%>/>
 					  <label for='desireIncome' style="text-align:left;" >원</label>
 				</div>
+				-->
+				
+				<div class="filter">
+					 <label for='ageType'>연령대</label> 
+					  <select id='ageType' name='ageType'>
+					  	<option value='무관' <%if(filter != null && filter.getAgeType() == null){%>selected<%}%>>무관</option>
+					    <option value='10대' <%if(filter != null && filter.getAgeType().equals("10대")){%>selected<%}%>>10대</option>
+					    <option value='20대' <%if(filter != null && filter.getAgeType().equals("20대")){%>selected<%}%>>20대</option>
+					    <option value='30대' <%if(filter != null && filter.getAgeType().equals("30대")){%>selected<%}%>>30대</option>
+					    <option value='40대' <%if(filter != null && filter.getAgeType().equals("40대")){%>selected<%}%>>40대</option>
+					    <option value='50대' <%if(filter != null && filter.getAgeType().equals("50대")){%>selected<%}%>>50대</option>
+					    <option value='60대' <%if(filter != null && filter.getAgeType().equals("60대")){%>selected<%}%>>60대</option>
+					  </select>
+				</div>
+				
+				<div class="filter">
+					 <label for='gender'>성별</label> 
+					  <select id='gender' name='gender'>
+					  	<option value='무관' <%if(filter != null && filter.getGender() == null){%>selected<%}%>>무관</option>
+					    <option value='남' <%if(filter != null && filter.getGender().equals("남")){%>selected<%}%>>남자</option>
+					    <option value='여' <%if(filter != null && filter.getGender().equals("여")){%>selected<%}%>>여자</option>
+					  </select>
+				</div>
+			
 				
 				<div class="filter" style="margin-right: 0;">
 					<div class="searchArea goInput">
-						<input id="keyword" type="text" placeholder="자기소개 검색..." value="<%if(keyword != null){%><%=keyword%><%}%>" onkeyup="enterkey();">
+						<input id="keyword" type="text" placeholder="자기소개 키워드 검색..." value="<%if(keyword != null){%><%=keyword%><%}%>" onkeyup="enterkey();">
 					</div>
 					<div class="searchArea go" onclick="searchResume();"></div>
 				</div>
@@ -275,15 +300,20 @@ border-radius: 40px;
 						var eduNum = document.getElementById("edu");
 						var edu = eduNum.options[eduNum.selectedIndex].value;
 						
-						var desireFormNum = document.getElementById("desireForm");
-						var desireForm = desireFormNum.options[desireFormNum.selectedIndex].value;
+						var age = document.getElementById("ageType");
+						var ageType = age.options[age.selectedIndex].value;
 						
-						var desireIncome = Number(document.getElementById("desireIncome").value);
+						var genderNum = document.getElementById("gender");
+						var gender = genderNum.options[genderNum.selectedIndex].value;
+						//var desireFormNum = document.getElementById("desireForm");
+						//var desireForm = desireFormNum.options[desireFormNum.selectedIndex].value;
+						
+						//var desireIncome = Number(document.getElementById("desireIncome").value);
 						
 						var keyword = document.getElementById("keyword").value;
 						
 						location.href="<%=request.getContextPath()%>/searchResumeList.os?districtNum=" + districtNum
-								+ "&typeNum="+typeNum + "&edu="+edu + "&desireForm="+desireForm + "&desireIncome="+desireIncome + "&keyword="+keyword;	
+								+ "&typeNum="+typeNum + "&edu="+edu + "&ageType=" + ageType + "&gender=" + gender + "&keyword="+keyword;	
 					}
 					
 					function enterkey() {
@@ -309,7 +339,8 @@ border-radius: 40px;
 							<img id="titleImg"  src="<%=request.getContextPath()%>/photo/resumeImage/<%= a.getSaveName() %>">
 						</div>
 						<div class="toprightside" >
-							<label > 이름 : <%= a.geteName() %></label>
+							<label > 이름 : <%= a.geteName() %></label><br>
+							<label > 나이/성별 : <%= a.getAge() %> <%= a.getGender() %></label>
 							<label > 전화번호 : <%= a.getPhone() %></label>
 							<label > 이메일 : <%= a.getEmail() %></label>
 							<label > 희망 급여 : <%= a.getDesireForm() %> <%= a.getDesireIncome() %>원</label>

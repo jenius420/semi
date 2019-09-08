@@ -478,7 +478,11 @@ public class EmpServiceDao {
 					emp.setSmsAccept(rs.getString("SMSACCEPT"));
 					emp.setInvalid(rs.getString("INVALIDID"));
 					emp.setWarningCount(rs.getInt("WARNINGCOUNT"));
-
+					emp.setRoadName(rs.getString("ROADNAME"));
+					emp.setRoadSub(rs.getInt("ROADSUB"));
+					emp.setRoadMain(rs.getInt("ROADMAIN"));
+					emp.setDistrict(rs.getString("DISTRICTNAME"));
+					
 				}
 		
 			
