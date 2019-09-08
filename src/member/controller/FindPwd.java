@@ -33,8 +33,8 @@ public class FindPwd extends HttpServlet {
 		int kind = Integer.parseInt(request.getParameter("kind"));
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		String cNum1 = request.getParameter("cNum1");
-		String cNum2 = request.getParameter("cNum2");
+		String cNum1 = request.getParameter("ecNum1");
+		String cNum2 = request.getParameter("ecNum2");
 		String cNum = cNum1 + "-" + cNum2;
 		
 		String pwd;
@@ -48,12 +48,15 @@ public class FindPwd extends HttpServlet {
 		
 		
 		if(pwd != null) {
+			
 			request.setAttribute("kind", kind);
 			request.setAttribute("name", name);
 			request.setAttribute("cNum", cNum);
 			request.setAttribute("id", id);
-			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);				
+			System.out.println("일치");
+			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);
 		}else {
+			System.out.println("불일치");
 			request.setAttribute("msg", "일치하는 정보가 없습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
 		}
