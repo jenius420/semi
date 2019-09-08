@@ -1,8 +1,6 @@
 package member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.service.MemberService;
 
 /**
- * Servlet implementation class idCheckEmpServlet
+ * Servlet implementation class FindPwd
  */
-@WebServlet("/idCheckEmp.me")
-public class idCheckEmpServlet extends HttpServlet {
+@WebServlet("/findPwd.me")
+public class FindPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public idCheckEmpServlet() {
+    public FindPwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +29,34 @@ public class idCheckEmpServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String eId = request.getParameter("eId");
 		
-		int result = new MemberService().idCheckEmp(eId);
+		int kind = Integer.parseInt(request.getParameter("kind"));
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String cNum1 = request.getParameter("cNum1");
+		String cNum2 = request.getParameter("cNum2");
+		String cNum = cNum1 + "-" + cNum2;
 		
-		PrintWriter out = response.getWriter();
-		
-		if(result > 0) {
-			out.print("fail");
-		}else {
-			out.print("success");
+		String pwd;
+		if (kind==1) {
+			pwd = new MemberService().findEmpPwd(id,name,cNum);
+		} else {
+			pwd = new MemberService().findOwnPwd(id,name,cNum);
+			
 		}
 		
+		
+		
+		if(pwd != null) {
+			request.setAttribute("kind", kind);
+			request.setAttribute("name", name);
+			request.setAttribute("cNum", cNum);
+			request.setAttribute("id", id);
+			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);				
+		}else {
+			request.setAttribute("msg", "일치하는 정보가 없습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
+		}
 	}
 
 	/**

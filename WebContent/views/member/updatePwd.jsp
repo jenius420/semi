@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	int kind = (Integer)request.getAttribute("kind");
+	String id= (String)request.getAttribute("id");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +57,7 @@
 <body>
     <div>
         
-        <form action="">
+        <form action="<%= request.getContextPath() %>/updatePwd.me" method="post" onsubmit="retrun validate();">
                 <h3 align="center">비밀번호 변경</h3>
         
                 <hr>
@@ -64,13 +70,13 @@
         
                 <tr>
                     <td><b>새로운비밀번호</b></td>
-                    <td><input id="newpwd" type="password" size="28" maxlength="16" placeholder="새로운 비밀번호"></td>		
+                    <td><input id="newPwd" type="password" size="28" maxlength="16" placeholder="새로운 비밀번호"></td>		
                     <td><label id="pwdResult2"></label></td>
                 </tr>
 
                 <tr>
                     <td><b>비밀번호확인</b></td>
-                    <td><input id="pwd2" type="password" size="28" maxlength="16" placeholder="비밀번호 확인"></td>
+                    <td><input id="newPwd2" type="password" size="28" maxlength="16" placeholder="비밀번호 확인"></td>
                     <td><label id="pwdResult3"></label></td>
                 </tr>
 
@@ -91,21 +97,101 @@
 
 
             <br>
+            
+            <input type="hidden" name ="kind" value="<%=kind %>" />
+            <input type="hidden" name ="id" value="<%=id %>" />
 
             <div style="text-align:center">
                 <button type="submit"  name="insertBtn" class="btn btn-secondary">수정완료</button>
             </div>
-            
-
-
 
         </form>
 
-
-
-
     </div>
 
+	<script type="text/javascript">
+
+        var pwd = document.getElementById("pwd");
+        var newPwd = document.getElementById("newPwd");
+        var newPwd2 = document.getElementById("newPwd2");
+        var pwdResult1 = document.getElementById("pwdResult1");
+        var pwdResult2 = document.getElementById("pwdResult2");
+        var pwdResult3 = document.getElementById("pwdResult3");
+
+		$(pwd).on('blur', function(e){
+
+			if(!(/^[a-zA-Z0-9!@#$%^&*]{8,}$/.test(pwd.value))){
+									
+				$(pwdResult1).text("비밀번호를 확인 해주세요.");					
+				pwd.value="";
+				//pwd.focus();
+			}else{
+				
+				$(pwdResult1).text("");
+				
+			}
+		});
+			
+		$(newPwd).on('blur', function(e){
+
+			if(!(/^[a-zA-Z0-9!@#$%^&*]{8,}$/.test(pwd.value))){
+									
+				$(pwdResult2).text("비밀번호를 확인 해주세요.");					
+				newPwd.value="";
+				newPwd2.value="";
+				//pwd.focus();
+			}else{
+				
+				$(pwdResult2).text("사용 가능한 비밀번호 입니다.");
+				
+			}
+		});
+		
+		$(newPwd2).on('blur', function(e){
+			if(newPwd.value != newPwd2.value){
+				
+				$(pwdResult3).text("비밀번호가 일치 하지 않습니다.");
+				newPwd.value="";
+				newPwd2.value="";
+				// pwd.focus();
+			}else{
+				
+				$(pwdResult3).text("비밀번호가 일치 합니다.");
+			}
+		});
+		
+		
+			
+	
+		function validate(){
+			
+			if($(pwd).val().trim().length == 0){
+				$(pwdResult1).text("");
+				$(pwdResult1).text("비밀번호를 입력해주세요");
+				$(pwd).focus();
+                return false;
+			}
+			
+			if($(newPwd).val().trim().length == 0){
+				$(pwdResult2).text("");
+				$(pwdResult2).text("비밀번호를 입력해주세요");
+				$(newPwd).focus();
+                return false;
+			}
+			
+			if($(newPwd2).val().trim().length == 0){
+				$(pwdResult3).text("");
+				$(pwdResult3).text("비밀번호를 입력해주세요");
+				$(newPwd2).focus();
+                return false;
+			}
+
+			
+		}
+	
+	
+	</script>
+	
 
 
 </body>

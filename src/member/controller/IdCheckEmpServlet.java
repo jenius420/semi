@@ -1,6 +1,8 @@
 package member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import member.model.service.MemberService;
 
 /**
- * Servlet implementation class FindPwd
+ * Servlet implementation class idCheckEmpServlet
  */
-@WebServlet("/findPwd.me")
-public class FindPwd extends HttpServlet {
+@WebServlet("/idCheckEmp.me")
+public class IdCheckEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindPwd() {
+    public IdCheckEmpServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,34 +31,18 @@ public class FindPwd extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String eId = request.getParameter("eId");
 		
-		int kind = Integer.parseInt(request.getParameter("kind"));
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String cNum1 = request.getParameter("cNum1");
-		String cNum2 = request.getParameter("cNum2");
-		String cNum = cNum1 + "-" + cNum2;
+		int result = new MemberService().idCheckEmp(eId);
 		
-		String pwd;
-		if (kind==1) {
-			pwd = new MemberService().findEmpPwd(id,name,cNum);
-		} else {
-			pwd = new MemberService().findOwnPwd(id,name,cNum);
-			
-		}
+		PrintWriter out = response.getWriter();
 		
-		
-		
-		if(pwd != null) {
-			request.setAttribute("kind", kind);
-			request.setAttribute("name", name);
-			request.setAttribute("cNum", cNum);
-			request.setAttribute("id", id);
-			request.getRequestDispatcher("views/member/returnPwd.jsp").forward(request, response);				
+		if(result > 0) {
+			out.print("fail");
 		}else {
-			request.setAttribute("msg", "일치하는 정보가 없습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);				
+			out.print("success");
 		}
+		
 	}
 
 	/**

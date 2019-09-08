@@ -231,6 +231,34 @@ public class MemberService {
 		return result;
 	}
 
+	public int updateEmpPwd(String newPwd, String id, String pwd) {
+		Connection conn = getConnection();
+		int result = new MemberDao().updateEmpPwd(conn, newPwd, id, pwd);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+
+	public int updateOwnPwd(String newPwd, String id, String pwd) {
+		Connection conn = getConnection();
+		int result = new MemberDao().updateOwnPwd(conn, newPwd, id, pwd);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+
 
 	
 	
