@@ -152,7 +152,8 @@ public class OwnerServiceDao {
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
 									rs.getString("FINALEDUNUM"),
-									rs.getString("ECNUM")
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
 				);
 			}
 				

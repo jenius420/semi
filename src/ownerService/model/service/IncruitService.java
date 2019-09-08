@@ -198,7 +198,7 @@ public class IncruitService {
 
 		close(conn);
 
-		return resume;
+		return resume2;
 		
 	}
 	

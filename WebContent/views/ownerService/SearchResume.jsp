@@ -24,9 +24,13 @@ String keyword = (String)request.getAttribute("keyword");
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="<%=request.getContextPath()%>/views/member/js/joinOwnJs.js"></script>
+    
 
 <style>
 
@@ -42,7 +46,7 @@ padding: 8px;
 margin-top:20px;
 margin-bottom:20px;
 background-color: 	#DDA0DD;
-width:95%;
+width:100%;
 color: #000080;
 border-radius: 5px;
 }
@@ -212,18 +216,21 @@ border-radius: 40px;
 					  		<%}}%>
 					  </select>
 				</div>
-				
+
 				<div class="filter">
-					 <label for='typeNum'>업종</label>
-					  <select id='typeNum' name='typeNum' style="width:300px;">
-						<%for(JobType t : tList) {%>
-							<%if(filter != null && filter.getTypeNum() == t.getTypeNum()){ %>
-					  			<option value='<%=t.getTypeNum()%>' selected><%=t.getCategoryName()%> :: <%=t.getTypeName()%></option>
-					  		<%}else{ %>
-					  			<option value='<%=t.getTypeNum()%>' ><%=t.getCategoryName()%> :: <%=t.getTypeName()%></option>
-					  		<%}}%>
+					 <label for='bigCategory'>업종</label>
+					  <select id='bigCategory'  style="width:auto;">
+
+					  			<option ></option>
+
+					  </select>
+					  &nbsp;
+					  <select id='subCategory' name='subCategory' style="width:200px;">
+					  		<option></option>
 					  </select>
 				</div>
+				
+				
 				
 				<div class="filter">
 					 <label for='edu'>학력</label>
@@ -294,8 +301,14 @@ border-radius: 40px;
 						var district = document.getElementById("districtNum");
 						var districtNum = district.options[district.selectedIndex].value;
 						
-						var type = document.getElementById("typeNum");
-						var typeNum = type.options[type.selectedIndex].value;
+						//var type = document.getElementById("typeNum");
+						//var typeNum = type.options[type.selectedIndex].value;
+						
+						var category = document.getElementById("subCategory");
+						var subCategory = category.options[category.selectedIndex].value;
+						
+						var category2 = document.getElementById("bigCategory");
+						var bigCategory = category2.options[category2.selectedIndex].value;
 						
 						var eduNum = document.getElementById("edu");
 						var edu = eduNum.options[eduNum.selectedIndex].value;
@@ -313,7 +326,7 @@ border-radius: 40px;
 						var keyword = document.getElementById("keyword").value;
 						
 						location.href="<%=request.getContextPath()%>/searchResumeList.os?districtNum=" + districtNum
-								+ "&typeNum="+typeNum + "&edu="+edu + "&ageType=" + ageType + "&gender=" + gender + "&keyword="+keyword;	
+								+ "&subCategory="+subCategory + "&bigCategory="+bigCategory + "&edu="+edu + "&ageType=" + ageType + "&gender=" + gender + "&keyword="+keyword;	
 					}
 					
 					function enterkey() {

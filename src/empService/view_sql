@@ -47,7 +47,7 @@ and sevalNum is null;
 drop view view_hopeEnt;
 create or replace view view_hopeEnt
 as
-select hno, enum, onum, opname, phone, opaddress, 
+select hno, enum, onum, otel, opname, phone, opaddress, 
  deleteornot,categoryname,typename
 from hopeEnt
 join ownerinfo using(onum)

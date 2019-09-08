@@ -86,7 +86,7 @@ margin:10px !important;
 					</div>
 					<div class='form-row'>
 					  <label class='lLabel'>주소</label>
-					  <p class="rLabel"><%=resume.getDistrict() %> <%=resume.getRoadNum() %> <%=resume.getAddress() %></p>
+					  <p class="rLabel"><%=resume.getDistrict() %> <%=resume.getRoadName() %> <%=resume.getRoadMain() %> <%=resume.getAddress() %></p>
 					</div>
 					<div class='form-row'>
 					  <label class='lLabel'>이메일</label>

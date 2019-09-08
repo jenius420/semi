@@ -53,11 +53,13 @@ public class SearchResumeListServlet extends HttpServlet {
 		Filter filter = new Filter();
 
 		filter.setDistrictNum(Integer.parseInt(request.getParameter("districtNum")));
-		filter.setTypeNum(Integer.parseInt(request.getParameter("typeNum")));
 		filter.setFinalEdu(request.getParameter("edu"));
+		filter.setSubCategory(request.getParameter("subCategory"));
+		filter.setBigCategory(request.getParameter("bigCategory"));
 		filter.setGender(request.getParameter("gender"));
 		filter.setAgeType(request.getParameter("ageType"));
 		
+//		filter.setTypeNum(Integer.parseInt(request.getParameter("typeNum")));
 //		filter.setDesireForm(request.getParameter("desireForm"));
 //		if(request.getParameter("desireForm").equals("무관")) {
 //			filter.setDesireIncome(999999999);

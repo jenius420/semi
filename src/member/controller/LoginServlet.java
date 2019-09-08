@@ -56,14 +56,24 @@ public class LoginServlet extends HttpServlet {
 		switch(kind) {
 			
 			case 1:
-				loginUser = new MemberService().loginEmp(id, pwd); 
-				Emp emp = new EmpServiceService().selectEmp(loginUser.geteNum());
-				session.setAttribute("emp", emp);
+				loginUser = new MemberService().loginEmp(id, pwd);
+				if(loginUser==null) {
+					request.setAttribute("msg", "입력 정보가 맞지 않습니다");
+					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+				}else {
+					Emp emp = new EmpServiceService().selectEmp(loginUser.geteNum());
+					session.setAttribute("emp", emp);
+				}
 				break;
 			case 2:
 				loginUser = new MemberService().loginOwn(id, pwd);
-				Owner owner = new OwnerServiceService().selectOwner(loginUser.getoNum());
-				session.setAttribute("owner", owner);
+				if(loginUser==null) {
+					request.setAttribute("msg", "입력 정보가 맞지 않습니다");
+					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+				}else {
+					Owner owner = new OwnerServiceService().selectOwner(loginUser.getoNum());
+					session.setAttribute("owner", owner);
+				}
 				break;
 			case 3:
 				loginUser = new MemberService().loginEmp(id, pwd);

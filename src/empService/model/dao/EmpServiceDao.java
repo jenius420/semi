@@ -220,6 +220,7 @@ public class EmpServiceDao {
 					he.setType(rs.getString("TYPENAME"));
 					he.setCategory(rs.getString("CATEGORYNAME"));
 					he.setDeleteornot(rs.getString("DELETEORNOT"));
+					he.setoTel(rs.getString("OTEL"));
 					
 					list.add(he);
 				}

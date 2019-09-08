@@ -32,6 +32,7 @@ public class Resume {
 	private int age;
 	private String gender;
 	private String ecNum;
+	private String subCategory;
 	
 	public Resume() {
 		super();
@@ -93,6 +94,17 @@ public class Resume {
 		this.ecNum = ecNum;
 		this.roadNum = roadNum;
 		
+	}
+	
+	
+
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
 	}
 
 

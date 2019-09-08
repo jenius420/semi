@@ -123,10 +123,10 @@ margin: 30px;
 							
 							<div class='form-row'>	
 							  <label class='lLabel'>전화번호 |</label><p class="rLabel">
-							  	<%if(owner.getPhone() == null){%>
+							  	<%if(owner.getoTel() == null){%>
 							  	 	없음
 							  	 <%}else{ %>
-							  	 	<%=owner.getPhone()%>
+							  	 	<%=owner.getoTel()%>
 							  	 <%}%>
 							  </p>
 							</div>

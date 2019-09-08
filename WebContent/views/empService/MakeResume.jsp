@@ -22,7 +22,8 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/views/member/js/joinOwnJs.js"></script>
 
 
 </head>
@@ -101,11 +102,13 @@
 				</div>
 				
 				<div class='form-row'>
-				  <label for='typeNum'>희망업종</label>
-				  <select id='typeNum' name='typeNum' style="width:300px;">
-					<%for(JobType t : tList) {%>
-				  		<option value='<%=t.getTypeNum()%>' ><%=t.getCategoryName()%> :: <%=t.getTypeName()%></option>
-				  	<%}%>
+				  <label for='bigCategory'>희망업종</label>
+				  <select id='bigCategory'  style="width:auto;">
+				  		<option></option>
+				  </select>
+				  &nbsp;&nbsp;&nbsp;
+				  <select id='subCategory' name='subCategory' style="width:200px;">
+				  		<option></option>
 				  </select>
 				</div>
 				

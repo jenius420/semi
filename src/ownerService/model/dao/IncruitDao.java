@@ -409,7 +409,8 @@ public class IncruitDao {
 			
 			pstmt.setString(1, "%"+keyword+"%");
 			pstmt.setInt(2, filter.getDistrictNum());
-			pstmt.setInt(3, filter.getTypeNum());
+			pstmt.setString(3, filter.getSubCategory());
+//			pstmt.setInt(3, filter.getTypeNum());
 //			pstmt.setString(4, filter.getDesireForm());
 //			pstmt.setInt(5, filter.getDesireIncome());
 			pstmt.setString(4, filter.getFinalEdu());
@@ -562,6 +563,8 @@ public class IncruitDao {
 	
 	public Resume addRoad3(Connection conn, Resume r) {
 		
+		Resume resume = r;
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -570,12 +573,12 @@ public class IncruitDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, r.getRoadNum());
-			
+			System.out.println("로드넘:" + r);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				r.setRoadName(rs.getString("ROADNAME"));
-				r.setRoadMain(rs.getInt("ROADMAIN"));
+				resume.setRoadName(rs.getString("ROADNAME"));
+				resume.setRoadMain(rs.getInt("ROADMAIN"));
 			}
 			
 		}catch (SQLException e) {
@@ -584,8 +587,9 @@ public class IncruitDao {
 			close(rs);
 			close(pstmt);
 		}
-		
-		return r;
+		System.out.println("리줌:" + resume);
+		System.out.println("로드리음:" + resume.getRoadName());
+		return resume;
 		
 	}
 

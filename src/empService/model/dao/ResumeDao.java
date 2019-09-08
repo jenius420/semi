@@ -45,7 +45,8 @@ public class ResumeDao {
 			
 			pstmt.setInt(1, resume.getEmpNum());
 			pstmt.setInt(2, resume.getDistrictNum());
-			pstmt.setInt(3, resume.getTypeNum());
+			//pstmt.setInt(3, resume.getTypeNum());
+			pstmt.setString(3, resume.getSubCategory());
 			pstmt.setString(4, resume.getComment());
 			pstmt.setString(5, resume.getDesireForm());
 			pstmt.setInt(6, resume.getDesireIncome());
@@ -181,7 +182,8 @@ public class ResumeDao {
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
 									rs.getString("FINALEDUNUM"),
-									rs.getString("ECNUM")
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
 				);
 			}
 				
@@ -322,7 +324,8 @@ public class ResumeDao {
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
 									rs.getString("FINALEDUNUM"),
-									rs.getString("ECNUM")
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
 				);
 				
 				list.add(resume);

@@ -153,7 +153,7 @@ display:none;
 											  	 	<%}%>
 												<%} %>
 												</td>
-												<td class="cell100 column3"><%=a.getPhone()%></td>
+												<td class="cell100 column3"><%=a.getoTel()%></td>
 												<td class="cell100 column4"><%=a.getCategory()%> :: <%=a.getType()%></td>
 												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInterest(<%=a.gethNum()%>);"></td>
 											</tr>
