@@ -401,6 +401,114 @@ public class SearchDao {
 		return list;
 	}
 
+	public int checkHopeEnt(Connection conn, int oNum, int eId) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("checkHopeEnt");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, oNum);
+			pstmt.setInt(2, eId);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				result =rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	
+	public int checkHopeEnt2(Connection conn, int oNum, int eId) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("checkHopeEnt2");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, oNum);
+			pstmt.setInt(2, eId);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				result =rset.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int updateHopeEnt(Connection conn, int oNum, int eId) {
+		int  result =-1;
+		PreparedStatement pstmt =null;
+		String sql = prop.getProperty("updateHopeEnt");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, oNum);
+			pstmt.setInt(2, eId);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int insertHopeEnt(Connection conn, int oNum, int eId) {
+		int  result =-1;
+		PreparedStatement pstmt =null;
+		String sql = prop.getProperty("insertHopeEnt");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, eId);
+			pstmt.setInt(2, oNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int deleteHopeEnt(Connection conn, int oNum, int eNum) {
+		int result =-1;
+		PreparedStatement pstmt =null;
+		String sql = prop.getProperty("deleteHopeEnt");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, oNum);
+			pstmt.setInt(2, eNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 
 	
 	
