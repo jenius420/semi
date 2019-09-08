@@ -65,6 +65,13 @@
 		margin-right:auto;
 		margin-top:50px;
 	}
+	button{
+		background:white;
+		color:purple;
+		padding-right:10px;
+		padding-left:10px;
+		border : 1px solid #d9b3ff; !important;
+	}
 </style>
 
 </head>
@@ -248,6 +255,15 @@
 					<%}%>
 			});
 		});
+		$(function(){
+			$("button").mouseenter(function(){
+				$(this).css({"background":"#d9b3ff", "cursor":"pointer","color":"white"});
+			}).mouseout(function(){
+				$(this).css({"background":"white","color":"black"});	
+		
+			});
+		});
+		
 	</script>
   
   
