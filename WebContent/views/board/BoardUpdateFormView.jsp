@@ -164,18 +164,6 @@
 					<td colspan="5"><input type="text" name="title" style="width:390px" value="<%=b.getTitle()%>">
  					<input type="hidden" name="tNum" value="<%=b.gettNum()%>">
 					</td>
-					<!-- <th style="text-align:center">게시판 번호</th> -->
-<%-- 					<td><input type="text" name="tNum" value="<%=b.gettNum()%>" readonly></td>
- 						<input type="hidden" name="nno" value="<%= n.getnNo() %>">
-				</tr>
-				<tr>
-					<td colspan="6" height=30px></td>
-				<%-- 	 <!-- <th style="text-align:center">작성자</th> -->
-					<td><input type="hidden" name="eName" value="<%=b.geteName()%>" readonly></td>
-					<!-- <th style="text-align:center">작성일</th> -->
-					<td><input type="hidden" name="updateDate" value="<%=b.getUpdateDate()%>" readonly></td>
-					<!-- <th style="text-align:center">조회수</th> -->
-					<td><input type="hidden" name="boardCount" value="<%= b.getBoardCount() %>" readonly></td>  --%>
 				</tr>
 				<tr>
 				<td colspan="6" height=30px></td>
@@ -201,7 +189,6 @@
 							<td colspan="2" class="photo">
 									<div id="detailImgArea<%=i+1%>" class="detailImgArea" style="width:250" style="height:200">
 										<img id="detailImg<%=i+1%>" class="detailImg" width="250" height="200" src="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
-									<%-- <input type="hidden" name="thumbnailImg<%=i+1%>" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>" /> --%>
 									</div>
 							</td>
 		
@@ -210,7 +197,6 @@
 							<td colspan="2" class="photo">
 									<div id="detailImgArea<%=i+2%>"  class="detailImgArea" style="width:250" style="height:200" >
 										<img id="detailImg<%=i+2%>"  width="250" height="200" src="<%=contextPath%>/photo/attachment/null.PNG">
-										<%-- <input type="hidden" name="thumbnailImg<%=i+2%>" value="null" /> --%>
 									</div>
 							</td>
 					<% } %>
