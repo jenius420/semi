@@ -226,7 +226,7 @@
 			<button onclick="location.href='<%= contextPath %>/insertForm.bo'">작성하기</button>
 			
 				<%if(loginUser.getKind() == 3){ %>
-				<button onclick="location.href='<%= contextPath %>/insertPostForm.bo'">작성하기</button>
+				<button onclick="location.href='<%= contextPath %>/insertPostForm.bo'">공지 작성하기</button>
 				<%} %>
 				
 			<%} %>
