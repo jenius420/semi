@@ -80,7 +80,7 @@ public class InsertEmpServlet extends HttpServlet {
 		if(result > 0) {
 			
 
-			//drequest.setAttribute("msg", "회원가입성공");
+			request.setAttribute("msg", "회원가입성공");
 			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
