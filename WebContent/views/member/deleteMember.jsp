@@ -26,14 +26,29 @@
 <title>Insert title here</title>
 
 <style>
-    .outer{
-        text-align: center;
-    }
+    
     .btn{
         height: 50px;
         width: 130px;
         background: rgb(176, 19, 242);
+        color: white;
         border: none;
+    }
+
+    form{
+        text-align: center;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+
+    h2{
+        font-size: 25px;
+    }
+
+    p{
+        font-size: 15px;
     }
 
 </style>
@@ -51,20 +66,22 @@
      <div id="content-left"><%@ include file="../empService/EmpServiceMenubar.jsp"%></div>
  	
     <div class="outer">
-        <h3 align="center">회원탈퇴</h3>
-
-        <h5 align="center">회원 탈퇴 시 아래 사항을 확인 해주세요.</h5>
+        <h1 align="center">회원탈퇴</h1>
+        <br>
+        <h2 align="center">회원 탈퇴 시 아래 사항을 확인 해주세요.</h2>
     
         <hr>
         <form onsubmit="deleteValidate();" method="post" action="<%= request.getContextPath()%>/delete.me ">
-            <h4>1. 해당 아이디로 재가입 불가능</h4>
+            
+            <h2>1. 해당 아이디로 재가입 불가능</h2>
             <p>회원탈퇴를 하시면 해당 아이디는 즉시탈퇴 처리되며 동일한 아이디로 재가입/로그인이 불가능 합니다.</p>
 
-            <h4>2. 회원정보 및 서비스 정보 삭제</h4>
+            <h2>2. 회원정보 및 서비스 정보 삭제</h2>
             <p>
-            	회원탈퇴 시 즉시 회원님의 모든 정보가 삭제 됩니다. <br>
-               	 단, 공공적 성격의 게시물은 삭제되지 않으므로 삭제를 원하실 경우 삭제를 완료하신 후 탈퇴를 신청하시기 바랍니다.
+                회원탈퇴 시 즉시 회원님의 모든 정보가 삭제 됩니다. <br>
+                    단, 공공적 성격의 게시물은 삭제되지 않으므로 삭제를 원하실 경우 삭제를 완료하신 후 탈퇴를 신청하시기 바랍니다.
             </p>
+           
 
             <br>
             <p align="center">알바문 고객센터</p>
@@ -74,8 +91,11 @@
 			
 			<input type="hidden" name="kind" value="<%=kind%>">
 			<input type="hidden" name="no" value="<%=no%>">
-
-            <div id="btn">
+            
+            <br>
+            <hr>
+            <br>
+            <div id="btn" align="center">
                 <button type="submit" name="insertBtn" class="btn btn-secondary" disabled>회원탈퇴</button>
             </div>
             
