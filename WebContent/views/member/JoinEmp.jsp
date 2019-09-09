@@ -32,7 +32,9 @@
 		/* border: 1px solid black; */
 		font-size: 10px;
 		padding: 7px;
+		resize: none;
 	}
+	
 	b{
 		font-size: 20px;
 	}
@@ -71,14 +73,11 @@
 
 </head>
 <body>
-	
+
 	<div class="output" align="center">
 		
 		<!--<b>이용약관에 모두 동의 합니다</b>
 			<input type="checkbox">-->
-			
-			
-			<br><br>
 			
 			<form id="joinForm" onsubmit="return joinValidate();" method="post" action="<%= request.getContextPath()%>/insertEmp.me">
 			
@@ -186,6 +185,7 @@
 				<button type="submit" name="insertBtn" class="btn btn-secondary">회원가입</button>
 			</div>
 		</form>
+		
 	</div>
 	
 	<script>

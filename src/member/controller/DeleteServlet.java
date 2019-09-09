@@ -47,6 +47,7 @@ public class DeleteServlet extends HttpServlet {
 		if(result > 0) {
 			request.getSession().removeAttribute("loginUser");
 			request.getSession().setAttribute("msg", "회원 탈퇴가 완료되었습니다.");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "회원탈퇴에 실패 했습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
