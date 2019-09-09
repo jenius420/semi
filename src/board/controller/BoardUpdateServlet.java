@@ -84,10 +84,7 @@ public class BoardUpdateServlet extends HttpServlet {
 				String bBody = multiRequest.getParameter("bBody");
 				int boardCount = Integer.parseInt(multiRequest.getParameter("boardCount"));
 			
-				
-				
-				/*String bWriter = String.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());*/
-				
+								
 				Board b = new Board();
 				b.settNum(tNum);
 				b.setTitle(title);
@@ -95,9 +92,6 @@ public class BoardUpdateServlet extends HttpServlet {
 				b.setUpdateDate(updateDate);
 				b.setbBody(bBody);
 				b.setBoardCount(boardCount);
-				/*
-				System.out.println("서블레ㅅ1" + bBody);
-				System.out.println("서블레ㅅ1" + b.getbBody());*/
 				
 				
 				ArrayList<Attachment> fileList = new ArrayList<>();
@@ -116,24 +110,17 @@ public class BoardUpdateServlet extends HttpServlet {
 				int result = new BoardService().updateBoard(b, fileList);
 				
 				if(result > 0) {
-					/*response.sendRedirect("detail.bo");*/
 					response.sendRedirect("detail.no?tNum=" + tNum);
-/*
-					request.setAttribute("tNum", tNum);
-					request.getRequestDispatcher("detail.no?tNum=" + tNum).forward(request, response);*/
 				}else {
 				
 				
 					for(int i=0; i<changeFiles.size(); i++) {
 						
-						// 삭제할 파일 객체 생성
 						File failedFile = new File(savePath + changeFiles.get(i));
 						failedFile.delete();
 						
 					}
 			
-/*					request.setAttribute("msg", "사진 게시판 수정 실패!!");
-					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);*/
 				}
 					
 					

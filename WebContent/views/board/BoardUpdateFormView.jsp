@@ -56,9 +56,7 @@
 	
 	th{
 		background:#ff33ff;
-		color:black;/* 
-		width:130px;
-		text-align: center; !important; */
+		color:black;
 	}
 	tr{
 	border-top: 1px solid black;!important;
@@ -209,114 +207,6 @@
 			</table>
 				
 				
-				
-				
-				<%-- 
-					  <% for(int i=0; i<fileList.size(); i++){%>		
-							<div id="fileArea">
-								<input type="file" multiple name="thumbnailImg<%=i+1%>" id="thumbnailImg<%=i+1%>" onchange="loadImg(this, <%=i+1%>);" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
-								<input type="hidden" name="thumbnailImg<%=i+1%>" value="<%=contextPath%>/photo/attachment/<%=fileList.get(i).getChangeName()%>">
-							
-							</div>
-					<% } %>
-					<% for(int i=0; i<3-fileList.size(); i++){%>
-							<div id="fileArea">
-								<input type="file" multiple name="thumbnailImg<%=i+3%>" id="thumbnailImg<%=i+3%>" onchange="loadImg(this, <%=i+3%>);" value="<%=contextPath%>/photo/attachment/null.PNG">
-								<input type="hidden" name="thumbnailImg<%=i+3%>" value="null">
-							</div>			
-					<% } %>  --%>
-	 
-	
-	
-	
-	
-				
-				
-				 <!-- 파일 업로드 하는 div -->
-				
-				<!--  <div id="fileArea">
-					<input type="file" multiple name="thumbnailImg1" id="thumbnailImg1" onchange="loadImg(this, 1);">
-					<input type="file" multiple name="thumbnailImg2" id="thumbnailImg2" onchange="loadImg(this, 2);">
-					<input type="file" multiple name="thumbnailImg3" id="thumbnailImg3" onchange="loadImg(this, 3);">
-				</div>   -->
-				
-			
-				
-				<!-- <script>
-				
-				
-				$()
-				
-				
-				
-				
-					// 미리보기 이미지 영역을 클릭할 때 파일 첨부 창이 뜨도록!s
-					$(function(){						
-						$("#detailImgArea1").click(function(){
-							$("#thumbnailImg1").click();
-						});
-						$("#detailImgArea2").click(function(){
-							$("#thumbnailImg2").click();
-						});
-						$("#detailImgArea3").click(function(){
-							$("#thumbnailImg3").click();
-						});
-					});
-				
-				
-				
-					function loadImg(value, num){
-						
-						// file이 존재하는지 
-						if(value.files && value.files[0]){
-							
-							// 파일을 읽어들일 FileReader객체 생성
-							var reader = new FileReader();
-							
-							// 파일 읽기가 다 완료되었을 때 실행되는 메소드
-							reader.onload = function(e){
-								
-								switch(num){
-								case 1: $("#detailImg1").attr("src", e.target.result); break;
-								case 2: $("#detailImg2").attr("src", e.target.result); break;
-								case 3: $("#detailImg3").attr("src", e.target.result); break;
-								}
-								
-							}
-							
-							// 파일 읽어주는 메소드
-							reader.readAsDataURL(value.files[0]);
-							
-							
-						}
-					} -->
-					
-					
-					
-<%-- 					function test(){
-						if(thumbnailImg1 = null){
-							var comSubmit1 = new ComSubmit();
-				            comSubmit1.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
-				            /* comSubmit1.submit(fileList.get(1).getChangeName()); */
-				            comSubmit1.addParam("photo1",$("#detailImg1").val(););
-						}
-						if(thumbnailImg2 = null){
-							var comSubmit2 = new ComSubmit();
-				            comSubmit2.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
-				            /* comSubmit2.submit(fileList.get(2).getChangeName()); */
-				            comSubmit2.addParam("photo2",$("#detailImg2").val(););
-						}
-						 if(thumbnailImg3 = null){
-							 var comSubmit3 = new ComSubmit();
-					         comSubmit3.setUrl("<c:url value='<%= request.getContextPath() %>/update.bo'/>");
-					         /* comSubmit3.submit(fileList.get(3).getChangeName()); */
-					         comSubmit3.addParam("photo3",$("#detailImg3").val(););
-						}
-					} --%>
-					
-					
-					
-				</script>
 				
 				<br>
 				<div align="center">

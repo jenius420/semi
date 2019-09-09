@@ -242,41 +242,6 @@ private Properties prop = new Properties();
 	
 	
 	
-/*	*//**
-	 * 글만 있는 게시글 올리는 호출 
-	 * @param conn
-	 * @param b
-	 * @return
-	 *//*
-	public int onlyInsertBoard(Connection conn, Board b) {
-		int result=0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("onlyInsertBoard");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, Integer.parseInt(b.getCategory()));
-			pstmt.setString(2, b.getbTitle());
-			pstmt.setString(3, b.getbContent());
-			pstmt.setInt(4, Integer.parseInt(b.getbWriter()));
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}*/
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 *  게시글 작성하기
@@ -458,7 +423,6 @@ private Properties prop = new Properties();
 				
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, b.geteNum());
-				/*pstmt.setString(2, at.getFilePath());*/
 				pstmt.setInt(2, b.gettNum());
 				pstmt.setString(3, at.getOriginName());
 				pstmt.setString(4, at.getChangeName());

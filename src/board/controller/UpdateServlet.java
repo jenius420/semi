@@ -41,18 +41,14 @@ request.setCharacterEncoding("UTF-8");
 		String title = request.getParameter("title");
 		System.out.println(title);
 		int eNum = Integer.valueOf(((Member)request.getSession().getAttribute("loginUser")).geteNum());
-		/*Date updateDate = Date.valueOf(request.getParameter("updateDate"));*/
 		String bBody = request.getParameter("bBody");
-		/*int boardCount = Integer.parseInt(request.getParameter("boardCount"));*/
 		
 		int tNum = Integer.valueOf(tNum2);
 		Board b = new Board();
 		b.settNum(tNum);
 		b.setTitle(title);
 		b.seteNum(eNum);
-		/*b.setUpdateDate(updateDate);*/
 		b.setbBody(bBody);
-		/*b.setBoardCount(boardCount);*/
 		
 		int result = new BoardService().updateBoard(b);
 		

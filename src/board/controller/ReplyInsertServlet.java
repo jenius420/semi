@@ -40,7 +40,6 @@ public class ReplyInsertServlet extends HttpServlet {
 		
 		
 		Member loginUser = (Member)request.getSession().getAttribute("eNum");
-		/*int eNum = loginUser.geteNum();*/
 		int eNum = 1;
 		
 		BoardComment c = new BoardComment();

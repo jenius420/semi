@@ -56,13 +56,13 @@ public class PostInsertServlet extends HttpServlet {
 			ArrayList<String> changeFiles = new ArrayList<>();
 			ArrayList<String> originFiles = new ArrayList<>();
 			
-			Enumeration<String> files= multiRequest.getFileNames(); // 전송된 역순으로 담겨있다.
+			Enumeration<String> files= multiRequest.getFileNames(); 
 			
 			while(files.hasMoreElements()) {
 				
-				String name = files.nextElement();	// files에 담겨있는 파일 하나씩 뽑아내기
+				String name = files.nextElement();	
 				
-				if(multiRequest.getFilesystemName(name) != null) { // 파일이 null이 아닐 경우
+				if(multiRequest.getFilesystemName(name) != null) {
 					
 					String changeName = multiRequest.getFilesystemName(name);
 
