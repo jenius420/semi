@@ -262,7 +262,21 @@ public class MemberService {
 
 	public String[] searchAddress(int rNum) {
 		Connection conn =getConnection();
-		String[] result = new SearchDao().searchAddress(conn,rNum);
+		String[] result = new MemberDao().searchAddress(conn,rNum);
+		close(conn);
+		return result;
+	}
+
+	public int changeEmp(int eNum, String eId, String pwd, String name, String phone, String email, String mailAccept,
+			String smsAccept, String roadName, int roadMain, int roadSub, String eAddress) {
+		Connection conn= getConnection();
+		int result=new MemberDao().changeEmp(conn,eNum,eId,pwd,name,phone,email,mailAccept,smsAccept,roadName,roadMain,roadSub,eAddress);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
 		close(conn);
 		return result;
 	}
