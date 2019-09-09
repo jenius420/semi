@@ -112,12 +112,22 @@
         height: 50px;
         width: 130px;
     }
+    
+    .outer{
+   		padding-left: 30%;
+   		padding-top: 10%;
+    }
+    
+    input, option, select{
+    font-size: 15px;
+    }
 
 
 </style>
 </head>
 <body>
-    <b>
+<div class="outer">
+ 
         
         <form action="updateEmp2.me" method="post">
                 <h3 align="center">정보 수정</h3>
@@ -168,7 +178,7 @@
                 <tr>
                     <td><b>휴대전화</b></td>
                     <td>
-                        <select style="width:45px;" name="phone1">
+                        <select style="width:auto; height:30px;" name="phone1">
 							<option value="010" <%if(phoneArr[0].equals("010")) {%>selected<%} %>>010</option>
 							<option value="011" <%if(phoneArr[0].equals("011")) {%>selected<%} %>>011</option>
 							<option value="016" <%if(phoneArr[0].equals("016")) {%>selected<%} %>>016</option>
@@ -176,8 +186,8 @@
 							<option value="018" <%if(phoneArr[0].equals("018")) {%>selected<%} %>>018</option>
 							<option value="019" <%if(phoneArr[0].equals("019")) {%>selected<%} %>>019</option>
 						</select> - 
-						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value="<%= phoneArr[1] %>"> -
-						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value="<%=phoneArr[2] %>">
+						<input type="number" name="phone2" style="width:50px; " oninput="maxLengthCheck(this)" maxlength="4" value="<%= phoneArr[1] %>"> -
+						<input type="number" name="phone3" style="width:50px; " oninput="maxLengthCheck(this)" maxlength="4" value="<%=phoneArr[2] %>">
                     </td>
                 </tr>
 
@@ -206,7 +216,7 @@
             <br>
 
             <div style="text-align:center">
-                <button type="button"  name="updatePwd" class="btn btn-secondary" onclick="javascript:history.go(-2);">이전페이지로</button>
+                &nbsp;<button type="button"  name="updatePwd" class="btn btn-secondary" onclick="javascript:history.go(-2);">이전페이지로</button> &nbsp;&nbsp;
                 <button type="submit"  name="insertBtn" class="btn btn-secondary">수정완료</button>
             </div>
             

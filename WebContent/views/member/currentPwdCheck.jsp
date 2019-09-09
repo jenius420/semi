@@ -10,6 +10,11 @@
 	background-image:
 		url('<%=request.getContextPath()%>/resources/images/slide2.jpg');
 }
+input[type=password]:focus{
+border:1px solid #df9dfb ;
+}
+
+
 </style>
 </head>
 <body>
@@ -30,8 +35,9 @@
 	<br />
 	<br />
 <div align="center" style="width: 100%;">
-<div><h1>현재 비밀번호를 입력하세요</h1></div>
+<div style="font-size:20px;">현재 비밀번호를 입력하세요</div><br>
 <input type="password" id="pwd" />
+
 <button onclick="changePwd();">확인</button>
 </div>
 

@@ -55,7 +55,7 @@ public class SubmitEmpEvalServlet extends HttpServlet {
 		if(result > 0) {
 			response.sendRedirect("empEvaluationManagement.es");
 		}else {
-			request.setAttribute("msg", "요청을 실패했습니다");
+			request.setAttribute("msg", "후기 등록 요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		

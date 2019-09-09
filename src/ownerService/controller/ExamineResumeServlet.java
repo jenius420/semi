@@ -53,7 +53,7 @@ public class ExamineResumeServlet extends HttpServlet {
 			request.setAttribute("ap", ap);
 			request.getRequestDispatcher("/views/ownerService/ExamineResume.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "페이지 요청에 실패했습니다. 다시 시도해주세요");
+			request.setAttribute("msg", "페이지 요청에 실패했습니다.");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 	}

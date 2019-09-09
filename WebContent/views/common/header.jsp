@@ -154,7 +154,7 @@ http://www.templatemo.com/tm-406-flex
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <% if(loginUser == null){ %>
- 											<li class="active"  style="border-top:3px solid purple"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=500 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
+ 											<li class="active"  style="border-top:3px solid purple"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=300 left=700 top=300 toolbar=no location=no status=no')">Login</a></li>
                                         
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>

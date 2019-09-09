@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 				loginUser = new MemberService().loginEmp(id, pwd);
 				System.out.println("loginUser:"+loginUser);
 				if(loginUser==null) {
-					request.setAttribute("msg", "입력 정보가 맞지 않습니다");
+					request.setAttribute("msg", "아이디 혹은 비밀번호가 맞지 않습니다.");
 					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 				}else {
 					Emp emp = new EmpServiceService().selectEmp(loginUser.geteNum());
@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
 			case 2:
 				loginUser = new MemberService().loginOwn(id, pwd);
 				if(loginUser==null) {
-					request.setAttribute("msg", "입력 정보가 맞지 않습니다");
+					request.setAttribute("msg", "아이디 혹은 비밀번호가 맞지 않습니다.");
 					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 				}else {
 					Owner owner = new OwnerServiceService().selectOwner(loginUser.getoNum());

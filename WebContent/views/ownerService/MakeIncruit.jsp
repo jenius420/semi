@@ -16,7 +16,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
-
+<style>
+.speaker-form{
+margin-left:-200px;
+}
+</style>
 </head>
 <body>
 
@@ -39,7 +43,7 @@
 		
 			<div class="outer">
 	
-				<form action="<%=request.getContextPath()%>/submitIncruit.os" method="post" class='speaker-form'  style="height: 1050px;">
+				<form action="<%=request.getContextPath()%>/submitIncruit.os" method="post" class='speaker-form'  style="height: auto; margin-bottom:40px;">
 			
 					<div class='form-row' style="border-bottom: 1px solid gray" >
 					  <label for='full-name'>제목</label>

@@ -44,6 +44,12 @@ window.onload = pop;
 </script>
 
 <style>
+
+.speaker-form{
+margin-left:-200px;
+}
+
+
 .divArea{
 display: inline-block;
 }

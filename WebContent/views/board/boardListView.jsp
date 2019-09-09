@@ -242,7 +242,7 @@
   
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"#d9b3ff", "cursor":"pointer","color":"white"});
+				$(this).parent().css({"background":"#d9b3ff", "cursor":"pointer","color":"black"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"#ffe6f9","color":"black"});
 			}).click(function(){

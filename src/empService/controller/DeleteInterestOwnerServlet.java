@@ -45,7 +45,7 @@ public class DeleteInterestOwnerServlet extends HttpServlet {
 		if(result > 0) {
 			response.sendRedirect("interestOwner.es");
 		}else {
-			request.setAttribute("msg", "요청을 실패했습니다");
+			request.setAttribute("msg", "관심기업 삭제 요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 			

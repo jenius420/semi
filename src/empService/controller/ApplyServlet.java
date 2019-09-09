@@ -40,17 +40,7 @@ public class ApplyServlet extends HttpServlet {
 		int result = new EmpServiceService().apply(emp.getEmpNum(), wNum, rNum);
 		
 		response.sendRedirect("applicationState.es");
-		
-		// 디컴
-//		if(result > 0) {
-//			response.sendRedirect("applicationState.es");
-//		}else if(result == -1){
-//			request.setAttribute("msg", "이미 지원한 공고입니다. \n[알바 지원 현황] 메뉴에서 확인해주세요.");
-//			request.getRequestDispatcher("/views/empService/WatchingIncruit2.jsp").forward(request, response);
-//		}else {
-//			request.setAttribute("msg", "요청에 실패했습니다");
-//			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
-//		}
+
 		
 	}
 
