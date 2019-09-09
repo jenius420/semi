@@ -49,7 +49,6 @@ public class CategoryPageServlet extends HttpServlet {
 		int boardLimit = 20; // 한페이지에 보여질 게시글 최대 갯수
 		int maxPage = (listCount-1)/ boardLimit + 1;
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		System.out.println("currentPage:"+currentPage);
 		int movePage;
 		if (mPage.equals("<<")||mPage.equals("&lt&lt")) {
 			movePage = 1;
@@ -82,8 +81,6 @@ public class CategoryPageServlet extends HttpServlet {
 		PageInfo p1 = new PageInfo();
 		p1.setMaxPage(maxPage);
 		p1.setCurrentPage(movePage);
-		System.out.println("maxPage"+maxPage);
-		System.out.println(movePage);
 		list.add(p1);
 		
 		response.setContentType("application/json; charset=utf-8");

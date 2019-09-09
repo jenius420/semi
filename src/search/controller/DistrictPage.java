@@ -50,7 +50,6 @@ public class DistrictPage extends HttpServlet {
 		int boardLimit = 20; // 한페이지에 보여질 게시글 최대 갯수
 		int maxPage = (listCount-1)/ boardLimit + 1;
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		System.out.println("currentPage:"+currentPage);
 		int movePage;
 		if (mPage.equals("<<")||mPage.equals("&lt&lt")) {
 			movePage = 1;
@@ -74,7 +73,6 @@ public class DistrictPage extends HttpServlet {
 		} else {
 			movePage = Integer.parseInt(mPage);
 		}
-		System.out.println("page movePage"+movePage);
 		
 		maxPage = listCount/20+1;
 		

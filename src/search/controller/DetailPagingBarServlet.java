@@ -35,7 +35,6 @@ public class DetailPagingBarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
-		System.out.println(request.getParameter("currentPage"));
 		
 		String[] detail=new String[25]; 
 		detail=request.getParameter("result").split(" ");
@@ -74,7 +73,6 @@ public class DetailPagingBarServlet extends HttpServlet {
 		} else {
 			movePage = Integer.parseInt(mPage);
 		}
-		System.out.println("page movePage"+movePage);
 		
 		maxPage = listCount/20+1;
 		
