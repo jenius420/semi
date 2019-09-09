@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import member.model.dao.MemberDao;
 import member.model.vo.Category;
 import member.model.vo.Member;
+import search.model.dao.SearchDao;
 
 public class MemberService {
 	
@@ -256,6 +257,13 @@ public class MemberService {
 		}
 		close(conn);
 		
+		return result;
+	}
+
+	public String[] searchAddress(int rNum) {
+		Connection conn =getConnection();
+		String[] result = new SearchDao().searchAddress(conn,rNum);
+		close(conn);
 		return result;
 	}
 

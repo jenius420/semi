@@ -12,7 +12,7 @@
 	String mailAccept = m.getMailAccept();
 	String smsAccept = m.getSmsAccept();
 	String eAddress = m.geteAddress();
-	
+	String[] phoneArr=phone.split("-");
 %>
 <!DOCTYPE html>
 <html>
@@ -92,7 +92,9 @@
                 <hr>
             <table name="idPwd">
                 <tr>
-                    <td width="150"><b>아이디</b></td>
+                    <td width="150"><b>아이디</b>
+                    	<input type="hidden" id="eNum" value="<%=m.geteNum()%>"/>
+                    </td>
                     <td width="170px"><input value="<%= eId %>"></input></td>
                 </tr>
         
@@ -129,15 +131,15 @@
                     <td><b>휴대전화</b></td>
                     <td>
                         <select style="width:45px;" name="phone1">
-							<option value="010" <%if(phone.substring(0,3).equals("010")) {%>selected<%} %>>010</option>
-							<option value="011" <%if(phone.substring(0,3).equals("011")) {%>selected<%} %>>011</option>
-							<option value="016" <%if(phone.substring(0,3).equals("016")) {%>selected<%} %>>016</option>
-							<option value="017" <%if(phone.substring(0,3).equals("017")) {%>selected<%} %>>017</option>
-							<option value="018" <%if(phone.substring(0,3).equals("018")) {%>selected<%} %>>018</option>
-							<option value="019" <%if(phone.substring(0,3).equals("019")) {%>selected<%} %>>019</option>
+							<option value="010" <%if(phoneArr[0].equals("010")) {%>selected<%} %>>010</option>
+							<option value="011" <%if(phoneArr[0].equals("011")) {%>selected<%} %>>011</option>
+							<option value="016" <%if(phoneArr[0].equals("016")) {%>selected<%} %>>016</option>
+							<option value="017" <%if(phoneArr[0].equals("017")) {%>selected<%} %>>017</option>
+							<option value="018" <%if(phoneArr[0].equals("018")) {%>selected<%} %>>018</option>
+							<option value="019" <%if(phoneArr[0].equals("019")) {%>selected<%} %>>019</option>
 						</select> - 
-						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value<%= phone.substring(4,8) %>> -
-						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value<%= phone.substring(9,11) %>>
+						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value="<%= phoneArr[1] %>"> -
+						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value="<%=phoneArr[2] %>">
                     </td>
                 </tr>
 
@@ -173,7 +175,7 @@
         </form>
 
     </div>
-
+	<script type="text/javascript" src="<%=request.getContextPath()%>/views/member/js/updateEmp.js %>"></script>
     <!-- 검색 기능을 표시할 <div>를 생성한다 -->
     <div id="postcodify"></div>
     
