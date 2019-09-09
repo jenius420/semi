@@ -123,10 +123,10 @@ margin: 30px;
 							
 							<div class='form-row'>	
 							  <label class='lLabel'>전화번호 |</label><p class="rLabel">
-							  	<%if(owner.getPhone() == null){%>
+							  	<%if(owner.getoTel() == null){%>
 							  	 	없음
 							  	 <%}else{ %>
-							  	 	<%=owner.getPhone()%>
+							  	 	<%=owner.getoTel()%>
 							  	 <%}%>
 							  </p>
 							</div>
@@ -134,7 +134,7 @@ margin: 30px;
 							<div class='form-row'>
 							  <label class='lLabel'>주소 |</label> <p class="rLabel">
 								<%if(owner.getRoadName() != null){%>
-							  	 	서울특별시 <%=owner.getDistrict()%> <%=owner.getRoadName()%> <%=owner.getRoadMain()%>
+							  	 	<%=owner.getDistrict()%> <%=owner.getRoadName()%> <%=owner.getRoadMain()%>
 							  	 <%}else{ %>
 							  	 	<%if(owner.getOpAddress() !=null){%>
 							  	 		<%=owner.getOpAddress()%>

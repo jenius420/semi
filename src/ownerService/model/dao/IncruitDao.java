@@ -409,10 +409,11 @@ public class IncruitDao {
 			
 			pstmt.setString(1, "%"+keyword+"%");
 			pstmt.setInt(2, filter.getDistrictNum());
-			pstmt.setInt(3, filter.getTypeNum());
-			pstmt.setString(4, filter.getDesireForm());
-			pstmt.setInt(5, filter.getDesireIncome());
-			pstmt.setString(6, filter.getFinalEdu());
+			pstmt.setString(3, filter.getSubCategory());
+//			pstmt.setInt(3, filter.getTypeNum());
+//			pstmt.setString(4, filter.getDesireForm());
+//			pstmt.setInt(5, filter.getDesireIncome());
+			pstmt.setString(4, filter.getFinalEdu());
 
 		
 			rs = pstmt.executeQuery();
@@ -437,7 +438,10 @@ public class IncruitDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNUM")
+									rs.getString("FINALEDUNUM"),
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
+									
 									);
 				list.add(resume);
 			}
@@ -487,8 +491,11 @@ public class IncruitDao {
 									rs.getString("DESIREFORM"),
 									rs.getInt("DESIREINCOME"),
 									rs.getString("OPENSET"),
-									rs.getString("FINALEDUNUM")
+									rs.getString("FINALEDUNUM"),
+									rs.getString("ECNUM"),
+									rs.getInt("ROADNUM")
 									);
+				
 			}
 			
 		}catch (SQLException e) {
@@ -551,6 +558,38 @@ public class IncruitDao {
 		}
 		
 		return result;
+		
+	}
+	
+	public Resume addRoad3(Connection conn, Resume r) {
+		
+		Resume resume = r;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("addRoad3");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getRoadNum());
+			System.out.println("로드넘:" + r);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				resume.setRoadName(rs.getString("ROADNAME"));
+				resume.setRoadMain(rs.getInt("ROADMAIN"));
+			}
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		System.out.println("리줌:" + resume);
+		System.out.println("로드리음:" + resume.getRoadName());
+		return resume;
 		
 	}
 

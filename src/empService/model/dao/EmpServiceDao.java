@@ -220,6 +220,7 @@ public class EmpServiceDao {
 					he.setType(rs.getString("TYPENAME"));
 					he.setCategory(rs.getString("CATEGORYNAME"));
 					he.setDeleteornot(rs.getString("DELETEORNOT"));
+					he.setoTel(rs.getString("OTEL"));
 					
 					list.add(he);
 				}
@@ -478,7 +479,11 @@ public class EmpServiceDao {
 					emp.setSmsAccept(rs.getString("SMSACCEPT"));
 					emp.setInvalid(rs.getString("INVALIDID"));
 					emp.setWarningCount(rs.getInt("WARNINGCOUNT"));
-
+					emp.setRoadName(rs.getString("ROADNAME"));
+					emp.setRoadSub(rs.getInt("ROADSUB"));
+					emp.setRoadMain(rs.getInt("ROADMAIN"));
+					emp.setDistrict(rs.getString("DISTRICTNAME"));
+					
 				}
 		
 			

@@ -40,15 +40,10 @@ public class ManageResumeServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 
-		
-		Member mem = (Member)request.getSession().getAttribute("loginUser");
-		Emp emp = new EmpServiceService().selectEmp(mem.geteNum());
-		
+
 //		Emp emp = new EmpServiceService().selectEmp(1);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("emp", emp);
-		
+		Emp emp = (Emp)request.getSession().getAttribute("emp");
+
 		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
 
 		request.setAttribute("list", list);

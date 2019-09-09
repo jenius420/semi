@@ -150,10 +150,42 @@ public class IncruitService {
 		Connection conn = getConnection();
 
 		ArrayList<Resume> list = new IncruitDao().selectSearchResumeList(conn, keyword, filter);
-
+		
+		ArrayList<Resume> rlist = new ArrayList<>();
+		
+		for(Resume r : list) {
+			
+			if(filter.getAgeType().equals("무관") || filter.getAgeType() == null || filter.getAgeType().equals("")) {		
+				rlist.add(r);
+			}else {
+			
+				int agetype = Integer.parseInt(filter.getAgeType().substring(0, 2)); 
+				
+				if(r.getAge() >= agetype && r.getAge() < agetype+10) {
+					rlist.add(r);
+				}
+			
+			}
+			
+		}
+		
+		ArrayList<Resume> rlist2 = new ArrayList<>();
+		
+		for(Resume r : rlist) {
+			
+			if(filter.getGender().equals("무관") || filter.getGender() == null || filter.getGender().equals("")) {		
+				rlist2.add(r);
+			}else if(r.getGender().equals(filter.getGender())){
+				rlist2.add(r);
+			}else {
+				break;
+			}
+			
+		}
+		
 		close(conn);
 
-		return list;
+		return rlist2;
 		
 	}
 	
@@ -162,10 +194,11 @@ public class IncruitService {
 		Connection conn = getConnection();
 		
 		Resume resume = new IncruitDao().selectResume(conn, rNum);
+		Resume resume2 = new IncruitDao().addRoad3(conn, resume);
 
 		close(conn);
 
-		return resume;
+		return resume2;
 		
 	}
 	

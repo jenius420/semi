@@ -1,7 +1,7 @@
 drop view view_resume;
 create or replace view view_resume
 as 
-select rnum, enum, ename, eaddress, phone, email, DISTRICTNum, 
+select rnum, enum, ename, ecnum, eaddress, phone, email, DISTRICTNum, 
 DISTRICTNAME, typeNum, typeName, categoryname, ecomment, updateDate, 
 invalidResume, desireForm, desireIncome, openset, finaledunum, dongnum, roadnum
 from employeeresume
@@ -47,7 +47,7 @@ and sevalNum is null;
 drop view view_hopeEnt;
 create or replace view view_hopeEnt
 as
-select hno, enum, onum, opname, phone, opaddress, 
+select hno, enum, onum, otel, opname, phone, opaddress, 
  deleteornot,categoryname,typename
 from hopeEnt
 join ownerinfo using(onum)
@@ -69,7 +69,7 @@ AND B.TYPENUM = E.TYPENUM;
 drop view view_addRoad;
 create or replace view view_addRoad
 as
-select ONUM, OPNAME, OPADDRESS, ROADNAME, ROADMAIN, ROADSUB, districtname
+select ONUM, OPNAME, OPADDRESS, C.ROADNUM, ROADNAME, ROADMAIN, ROADSUB, districtname
 from OWNERINFO A, ROADINFO C, district d
 WHERE  A.ROADNUM = C.ROADNUM(+)
 and c.districtnum = d.districtnum;

@@ -6,6 +6,7 @@ public class HopeEnt {
 	private int eNum;
 	private int oNum;
 	private String opName;
+	private String oTel;
 	private String phone;
 	private String type;
 	private String category;
@@ -40,6 +41,14 @@ public class HopeEnt {
 
 	
 	
+	public String getoTel() {
+		return oTel;
+	}
+
+	public void setoTel(String oTel) {
+		this.oTel = oTel;
+	}
+
 	public int getRoadMain() {
 		return roadMain;
 	}

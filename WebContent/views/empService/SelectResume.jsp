@@ -10,6 +10,7 @@ String phone = resume.getPhone();
 String email = resume.getEmail();
 String district = resume.getDistrict();
 String type = resume.getType();
+String category = resume.getCategory();
 String comment = resume.getComment();
 Date updateDate = resume.getUpdateDate();
 String desireForm = resume.getDesireForm();
@@ -84,8 +85,8 @@ Attachment at = (Attachment)request.getAttribute("at");
 				
 				<div class='form-row'>
 				  <label for='typeNum'>희망업종</label>
-				  <select id='typeNum' name='typeNum' style="width:300px;" disabled="disabled">
-				  		<option ><%=type%></option>
+				  <select id='typeNum' name='typeNum' style="width:auto;" disabled="disabled">
+				  		<option ><%=category %> :: <%=type%></option>
 				  </select>
 				</div>
 				

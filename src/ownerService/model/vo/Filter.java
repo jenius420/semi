@@ -8,10 +8,15 @@ public class Filter {
 	private String district; // 구
 	private int typeNum;
 	private String type; // 업직종
+	private String subCategory;
+	private String bigCategory;
 	private String comment; // 하고싶은말
 	private String desireForm; // 급여형태
 	private int desireIncome; // 급여액수
 	private String finalEdu; // 최종학력
+	private String gender; // 성별
+	private String ageType; // 나이
+	
 	
 	public Filter() {
 		super();
@@ -33,6 +38,55 @@ public class Filter {
 		this.desireForm = desireForm;
 		this.desireIncome = desireIncome;
 		this.finalEdu = finalEdu;
+	}
+
+
+
+	public String getBigCategory() {
+		return bigCategory;
+	}
+
+
+
+	public void setBigCategory(String bigCategory) {
+		this.bigCategory = bigCategory;
+	}
+
+
+
+	public String getGender() {
+		return gender;
+	}
+
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
+
+
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
+	}
+
+
+
+	public String getAgeType() {
+		return ageType;
+	}
+
+
+
+	public void setAgeType(String ageType) {
+		this.ageType = ageType;
 	}
 
 

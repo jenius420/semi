@@ -167,7 +167,7 @@ http://www.templatemo.com/tm-406-flex
 	                                        <li class="active"><a href='<%=request.getContextPath()%>/empList.as'>관리자서비스</a></li>
 										<%}else{%>
 											<li class="active"><a href='<%=request.getContextPath()%>/manageResume.es' <%if(loginUser == null || loginUser.getKind() != 1){ %>onclick="return empCheck();"<%} %>>개인서비스</a></li> 
-											<li class="active"><a href='<%=request.getContextPath()%>/incruitList.os' <%if(loginUser == null || loginUser.getKind() != 2){ %>onclick="return ownerCheck();"<%} %>>기업서비스</a></li>
+											<li class="active"><a href='<%=request.getContextPath()%>/incruitList.os' <%if(loginUser == null || loginUser.getKind() != 2){ %>onclick="return ownerCheck();"<%} %> <%if(loginUser != null && loginUser.getKind() == 2 && loginUser.getCheckoNum().equals("N")){ %>onclick="return ownerCheck2();"<%} %>>기업서비스</a></li>
 										<%} %>
 										
 										<script>
@@ -190,6 +190,10 @@ http://www.templatemo.com/tm-406-flex
 												});
 											});
 											
+											function ownerCheck2(){
+												alert("사업자번호 인증은 가입 후 익일 처리됩니다.");
+												return false;
+											}
 										</script>
 										
                           		
