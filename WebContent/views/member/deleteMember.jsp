@@ -26,10 +26,9 @@
 <title>Insert title here</title>
 
 <style>
-    #btn{
+    .outer{
         text-align: center;
     }
-
     .btn{
         height: 50px;
         width: 130px;
@@ -41,8 +40,17 @@
 
 </head>
 <body>
-
-    <div>
+	<div id="header"><%@ include file="../common/header.jsp"%>
+		<div class="jumbotron" id="jumbotron">
+	      <div class="container">
+	      	<br /><br /><br /><br /><br /><br /><br /><br />
+	      </div>
+	 	</div>
+     </div>
+     
+     <div id="content-left"><%@ include file="../ownerService/OwnerServiceMenubar.jsp"%></div>
+ 	
+    <div class="outer">
         <h3 align="center">회원탈퇴</h3>
 
         <h5 align="center">회원 탈퇴 시 아래 사항을 확인 해주세요.</h5>
@@ -70,6 +78,15 @@
             <div id="btn">
                 <button type="submit" name="insertBtn" class="btn btn-secondary" disabled>회원탈퇴</button>
             </div>
+            
+            </div> <!-- /메인콘텐트 -->
+			
+			<div id="content-right"></div>
+		
+			</div> <!-- /콘텐트 -->
+		
+			<div id="footer"><%@ include file="../common/footer.jsp" %></div>
+            
             
             <script>
                 
