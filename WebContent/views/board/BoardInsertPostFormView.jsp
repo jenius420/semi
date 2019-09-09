@@ -46,7 +46,7 @@
 	
 
 	th{
-		background:#ff33ff;
+		background:#d9b3ff;
 		color:black;
 	}
 	tr{
@@ -139,7 +139,7 @@
   		<hr>
 		
 		<!-- 파일 업로드를 위해 enctype을 지정해줘야된다. -->
-		<form action="<%= request.getContextPath() %>/insert.bo" method="post" enctype="multipart/form-data">
+		<form action="<%= request.getContextPath() %>/insertPost.bo" method="post" enctype="multipart/form-data">
 	
 				
 			<div class="tableArea">

@@ -299,11 +299,46 @@ private Properties prop = new Properties();
 			pstmt.setString(3, b.getbBody());
 			
 			
-			System.out.println("dao1");
 			System.out.println(b.getTitle());
-			System.out.println("dao2");
 			System.out.println(b.geteNum());
-			System.out.println("dao3");
+			System.out.println(b.getbBody());
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
+	/**
+	 * 공지글 작성용 호출
+	 * @param conn
+	 * @param b
+	 * @return
+	 */
+	public int insertPostBoard(Connection conn, Board b) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertPostBoard");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, b.getTitle());
+			pstmt.setInt(2, b.geteNum());
+			pstmt.setString(3, b.getbBody());
+			
+			
+			System.out.println(b.getTitle());
+			System.out.println(b.geteNum());
 			System.out.println(b.getbBody());
 			result = pstmt.executeUpdate();
 			

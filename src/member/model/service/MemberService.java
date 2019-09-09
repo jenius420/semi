@@ -95,13 +95,13 @@ public class MemberService {
 
 	/**
 	 * 개인 회원 탈퇴
-	 * @param id 
+	 * @param no 
 	 * @return
 	 */
-	public int deleteEmp(String id) {	
+	public int deleteEmp(int no) {	
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().deleteEmp(conn, id);
+		int result = new MemberDao().deleteEmp(conn, no);
 		
 		if(result > 0) {
 			commit(conn);
@@ -118,10 +118,10 @@ public class MemberService {
 	 * 사업자 회원 탈퇴
 	 * @return
 	 */
-	public int deleteOwn(String id) {
+	public int deleteOwn(int no) {
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().deleteOwn(conn, id);
+		int result = new MemberDao().deleteOwn(conn, no);
 		
 		if(result > 0) {
 			commit(conn);

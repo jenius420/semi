@@ -105,7 +105,6 @@ public class BoardService {
 	 * @return
 	 */
 	public int insertBoard(Board b, ArrayList<Attachment> fileList ) {
-		System.out.println("test");
 		Connection conn = getConnection();
 		
 		int result1 = new BoardDao().insertBoard(conn, b);
@@ -124,6 +123,30 @@ public class BoardService {
 	}
 	
 	
+	
+	/**
+	 * 공지 작성용 서비스
+	 * @param b
+	 * @param fileList
+	 * @return
+	 */
+	public int insertPostBoard(Board b, ArrayList<Attachment> fileList ) {
+		Connection conn = getConnection();
+		
+		int result1 = new BoardDao().insertPostBoard(conn, b);	
+		int result2 = new BoardDao().insertAttachment(conn, fileList, b);
+		
+		if(result1 > 0 || result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result1;
+		
+	}
 	
 	
 	

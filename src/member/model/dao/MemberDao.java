@@ -232,10 +232,10 @@ public class MemberDao {
 	/**
 	 * 개인 회원 탈퇴
 	 * @param conn
-	 * @param id
+	 * @param no
 	 * @return
 	 */
-	public int deleteEmp(Connection conn, String id) {
+	public int deleteEmp(Connection conn, int no) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
@@ -243,7 +243,7 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, no);
 			
 			result = pstmt.executeUpdate();
 			
@@ -263,7 +263,7 @@ public class MemberDao {
 	 * @param id
 	 * @return
 	 */
-	public int deleteOwn(Connection conn, String id) {
+	public int deleteOwn(Connection conn, int no) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
@@ -271,6 +271,7 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

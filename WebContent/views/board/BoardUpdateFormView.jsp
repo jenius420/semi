@@ -28,15 +28,20 @@
 
 <style>
 
-		
-		
+		.all{
+		width:1000px;
+		height:1000px;
+		background:#f2e6ff;
+		margin-left:auto;
+		margin-right:auto;
+	
+	}
+
 
 
 	.outer{
 		width:800px;
 		height:500px;
-		background:white;
-		color:purple;
 		margin-left:auto;
 		margin-right:auto;
 		margin-top:50px;
@@ -50,10 +55,10 @@
 	}
 	
 	th{
-		background:rgb(255, 225, 255);
-		color:black;
+		background:#ff33ff;
+		color:black;/* 
 		width:130px;
-		text-align: center; !important;
+		text-align: center; !important; */
 	}
 	tr{
 	border-top: 1px solid black;!important;
@@ -72,7 +77,7 @@
 	
 	button{
 		background:white;
-		color:purple;
+		color:#d9b3ff;
 		padding-right:10px;
 		padding-left:10px;
 	}
@@ -83,9 +88,9 @@
 		margin-right:auto;
 	}
 	#detailImgArea1, #detailImgArea2, #detailImgArea3{
-		width:120px;
+		width:250px;
 		height:100px;
-		border:2px solid violet; !important;
+		border:2px solid #d9b3ff;
 		display:table-cell;
 	}
 	#detailImgArea1:hover, #detailImgArea2:hover, #detailImgArea3:hover{
@@ -97,9 +102,7 @@
 	} 
 	
 	input{
-		border: 1px solid white;
-		width: 100%;
-		font-size : 30px;
+		border:0px;
 	}
 	
 	textarea{
@@ -116,9 +119,9 @@
 	
 	}
 	
-	td{
+	/* td{
 		width:100px;
-	}
+	} */
 	
 </style>
 
@@ -144,7 +147,7 @@
 
 
 
-
+<div class="all">
 
 <div class="outer">
 		<br>
@@ -169,7 +172,7 @@
 				<td colspan="6" height=30px></td>
 				</tr>
 				<tr>
-					<th colspan="6">내용</th>
+					<th colspan="6" style="text-align:center">내용</th>
 				</tr>
 				<tr>
 					<td colspan="6">
@@ -323,7 +326,7 @@
 			</form>
 		</div>
 	</div>
-	
+</div>
 	
 	
 	
