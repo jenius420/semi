@@ -105,7 +105,7 @@ http://www.templatemo.com/tm-406-flex
 	cursor: pointer;
 	}
 	#jumbotron{
-	background-image: url('<%= request.getContextPath()%>/resources/images/slide2.jpg');
+	background-image: url('<%= request.getContextPath()%>/resources/images/intro2.png'); 
 
 	}
 	
