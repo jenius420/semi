@@ -35,6 +35,10 @@
         background: rgb(176, 19, 242);
         border: none;
     }
+    p, h4, h3, h5, label{
+    font-size:20px !important;
+    line-height: 3em;
+    }
 
 </style>
 
@@ -50,15 +54,16 @@
      
      <div id="content-left"><%@ include file="../empService/EmpServiceMenubar.jsp"%></div>
  	
-    <div class="outer">
-        <h3 align="center">회원탈퇴</h3>
+    <div class="outer" style="margin-top:30px;">
 
-        <h5 align="center">회원 탈퇴 시 아래 사항을 확인 해주세요.</h5>
+
+        <h5 align="center" >회원 탈퇴 시 아래 사항을 확인 해주세요.</h5>
     
-        <hr>
+        <hr style="border:none; border:1px solid gray;">
         <form onsubmit="deleteValidate();" method="post" action="<%= request.getContextPath()%>/delete.me ">
             <h4>1. 해당 아이디로 재가입 불가능</h4>
             <p>회원탈퇴를 하시면 해당 아이디는 즉시탈퇴 처리되며 동일한 아이디로 재가입/로그인이 불가능 합니다.</p>
+            <br>
 
             <h4>2. 회원정보 및 서비스 정보 삭제</h4>
             <p>
@@ -66,17 +71,19 @@
                	 단, 공공적 성격의 게시물은 삭제되지 않으므로 삭제를 원하실 경우 삭제를 완료하신 후 탈퇴를 신청하시기 바랍니다.
             </p>
 
-            <br>
-            <p align="center">알바문 고객센터</p>
-            <p align="center" style="color:rgb(176, 19, 242)">010-3514-1361</p>
+            <hr style="border:none; border:1px solid gray;">
+            <p align="center" style="display: inline-block;">[알바문 고객센터]</p> &nbsp; &nbsp; &nbsp;
+
+            <label align="center" style="color:rgb(176, 19, 242)">010-3514-1361</label>
 
             <p align="center"><input type="checkbox" id="checkbox"><label for="checkbox">안내사항을 모두 확인 하였으며, 이에 동의합니다.</label></p>
 			
 			<input type="hidden" name="kind" value="<%=kind%>">
 			<input type="hidden" name="no" value="<%=no%>">
+			<br>
 
             <div id="btn">
-                <button type="submit" name="insertBtn" class="btn btn-secondary" disabled>회원탈퇴</button>
+                <button type="submit" name="insertBtn" class="btn btn-secondary" style="color:white; " disabled>회원탈퇴</button>
             </div>
             
             </div> <!-- /메인콘텐트 -->

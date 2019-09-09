@@ -62,14 +62,15 @@ width: 30%;
 		</div>
 		<div class="top" >
 			<h1>Error  &nbsp;:(</h1>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
-			<h4>"<%= msg %>"</h4>
+			<h4 style="color:#1a0033;">"<%= msg %>"</h4>
+			<h4 style="color:#350066;">"<%= msg %>"</h4>
+			<h4 style="color:#5c00b3;">"<%= msg %>"</h4>
+			<h4 style="color:#7700e6;">"<%= msg %>"</h4>
+			<h4 style="color:#901aff;">"<%= msg %>"</h4>
+			<h4 style="color:#a94dff;">"<%= msg %>"</h4>
+			<h4 style="color:#c180ff;">"<%= msg %>"</h4>
+			<h4 style="color:#dab3ff;">"<%= msg %>"</h4>
+			<h4 style="color:#f3e6ff;">"<%= msg %>"</h4>
 			
 			
 		</div>
