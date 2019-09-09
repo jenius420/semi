@@ -29,14 +29,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <style>
-
-
+	
+	.all{
+		width:1000px;
+		height:1000px;
+		background:#ffe6f9;
+		margin-left:auto;
+		margin-right:auto;
+	
+	}
 
 
 	.outer{
 		width:800px;
 		height:500px;
-		background:white;
 		color:purple;
 		margin-left:auto;
 		margin-right:auto;
@@ -51,10 +57,11 @@
 		margin-right:auto;
 	}
 	th{
-		background:rgb(255, 225, 255);
+		background:#ff33ff;
 		color:black;
 		width:130px;
 		text-align: center; !important;
+		border : 1px solid purple;
 	}
 	tr{
 		border-top: 1px solid black;!important;
@@ -115,6 +122,7 @@
 	</div>
 
 
+<div class="all">
 
 	<div class="outer">
 		<br>
@@ -229,7 +237,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 	
 	
 	
