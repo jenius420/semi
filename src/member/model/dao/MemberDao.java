@@ -579,6 +579,62 @@ public class MemberDao {
 
 
 
+	public String[] searchAddress(Connection conn, int rNum) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		String[] result= new String[4];
+		String sql = prop.getProperty("searchAddress");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, rNum);
+			rset= pstmt.executeQuery();
+			if(rset.next()) {
+				result[0]=rset.getString(1);
+				result[1]=rset.getInt(2)+"";
+				result[2]=rset.getInt(3)+"";
+				result[3]=rset.getString(4);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
+
+	public int changeEmp(Connection conn, int eNum, String eId, String pwd, String name, String phone, String email,
+			String mailAccept, String smsAccept, String roadName, int roadMain, int roadSub, String eAddress) {
+		int result = 0;
+		PreparedStatement pstmt =null;
+		String sql = prop.getProperty("changeEmp");
+		try {
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setString(1, eId);
+			pstmt.setString(2, pwd);
+			pstmt.setString(3, name);
+			pstmt.setString(4, phone);
+			pstmt.setString(5, email);
+			pstmt.setString(6, mailAccept);
+			pstmt.setString(7, smsAccept);
+			pstmt.setString(8, roadName);
+			pstmt.setInt(9, roadMain);
+			pstmt.setInt(10, roadSub);
+			pstmt.setString(11, eAddress);
+			pstmt.setInt(12, eNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(pstmt);
+		}
+		return result;
+	}
 
 
 
