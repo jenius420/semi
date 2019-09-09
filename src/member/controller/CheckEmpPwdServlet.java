@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import member.model.service.MemberService;
-
 /**
- * Servlet implementation class DeleteServlet
+ * Servlet implementation class CheckEmpPwdServlet
  */
-@WebServlet("/delete.me")
-public class DeleteServlet extends HttpServlet {
+@WebServlet("/checkEmpPwd.me")
+public class CheckEmpPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteServlet() {
+    public CheckEmpPwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,37 +26,7 @@ public class DeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int kind = Integer.parseInt(request.getParameter("kind"));
-		int no = Integer.parseInt(request.getParameter("no"));
-		int result=0;
-		
-		if(kind == 1) {
-			
-			// 개인회원 탈퇴
-			result =  new MemberService().deleteEmp(no);
-			
-		}else {
-			
-			// 사업자회원 탈퇴
-			result = new MemberService().deleteOwn(no);
-		}
-		
-		if(result > 0) {
-			request.getSession().removeAttribute("loginUser");
-			request.getSession().setAttribute("msg", "회원 탈퇴가 완료되었습니다.");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}else {
-			request.setAttribute("msg", "회원탈퇴에 실패 했습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
-		
-		
-		
-		
-		
-		
-		
+		request.getRequestDispatcher("views/member/currentPwdCheck.jsp").forward(request, response);
 	}
 
 	/**

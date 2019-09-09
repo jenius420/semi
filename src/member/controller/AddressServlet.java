@@ -34,13 +34,13 @@ public class AddressServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
-		String address[] = new String[3];
+		String address[] = new String[4];
 		address = new MemberService().searchAddress(rNum);
 		
-		
-
+		String addr="서울특별시 " +address[3]+" " +address[0]+" "+address[1]+"-"+address[2]; 
+		System.out.println("addr:" +addr);
 			JSONObject jsonUser = new JSONObject();
-			jsonUser.put("hopeBtn", hopeBtn);
+			jsonUser.put("addr", addr);
 
 			response.setContentType("application/json; charset=utf-8");
 			response.getWriter().print(jsonUser);

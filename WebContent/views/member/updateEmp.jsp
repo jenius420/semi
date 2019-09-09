@@ -25,7 +25,40 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/views/member/js/updateEmp.js"></script>
 <title>Insert title here</title>
+
+<script>
+	$(function(){
+	
+		if(<%=m.getMailAccept()%>=="Y") {
+			$('#mailAccept').attr('checked','checked').val('Y');
+		}
+		if(<%=m.getSmsAccept()%>=="Y"){
+			$('#smsAccept').attr('checked','checked').val('Y');
+		}
+		
+		$('#mailAccept').change(function(){
+			if($('#mailAccept').is(":checked")){
+				$('#mailAccept').val('Y');
+				console.log($('#mailAccept').val());
+			}else{
+				$('#mailAccept').val('N');
+			}
+		});
+		$('#smsAccept').change(function(){
+			if($('#smsAccept').is(":checked")){
+				$('#smsAccept').val('Y');
+				console.log($('#mailAccept').val());
+			}else{
+				$('#smsAccept').val('N');
+			}
+		});
+		
+			
+	})
+
+</script>
 <style>
     form{
 		border: 1px solid white;
@@ -86,23 +119,28 @@
 <body>
     <b>
         
-        <form action="">
+        <form action="updateEmp2.me" method="post">
                 <h3 align="center">정보 수정</h3>
         
                 <hr>
             <table name="idPwd">
                 <tr>
                     <td width="150"><b>아이디</b>
-                    	<input type="hidden" id="eNum" value="<%=m.geteNum()%>"/>
+                    	<input type="hidden" id="rNum" value="<%=m.getRoadNum()%>"/>
+                    	<input type="hidden" id="eNum" name="eNum" value="<%=m.geteNum()%>"/>
                     </td>
-                    <td width="170px"><input value="<%= eId %>"></input></td>
+                    <td width="170px"><input value="<%= eId %>" name="eId" readonly="readonly"></input></td>
                 </tr>
         
                 <tr>
                     <td><b>비밀번호</b></td>
-                    <td><input id="pwd" type="password" size="28" maxlength="16" placeholder="현재 비밀번호를 입력하세요"></td>		
+                    <td><input id="pwd" type="password" name="pwd" size="28" maxlength="16" placeholder="변경할 비밀번호를 입력하세요"></td>		
                 </tr>
-
+				<tr>
+                    <td><b>비밀번호 확인</b></td>
+                    <td><input id="pwd2" type="password" onkeyup="checkPwd();" size="28" maxlength="16" placeholder="변경할 비밀번호를 입력하세요"></td>	
+                    <td><label id="sameCheck"></label></td>	
+                </tr>
             </table>
 
             <hr>
@@ -146,36 +184,36 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input name="mailaccept" type="checkbox" value="checkEmail" <%if(mailAccept.equals("Y")) {%>checked<%} %>>  이메일 수신 동의
-                        <input name="smsaccept" type="checkbox" value="checkPhone" <%if(smsAccept.equals("Y")) {%>checked<%} %>> 문자수신 동의</td>
+                        <input id="mailAccept" name="mailaccept" type="checkbox" value="N" >  이메일 수신 동의
+                        <input id="smsAccept" name="smsaccept" type="checkbox" value="N" <%if(smsAccept.equals("Y")) {%>checked<%} %>> 문자수신 동의</td>
                     </td>
                 </tr>
 
                 <tr>
                     <td><b>주소</b></td>
-                    <td colspan="2"><input type="text" id="address" size="35" id="postcodify" name="" class="postcodify_address" readonly /></td>
+                    <td colspan="2"><input type="text" id="address" size="35" id="postcodify" name="address" class="postcodify_address" readonly /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="text" size="35" id="details" name="" class="extra_info" value="<%= eAddress %>" <% %>></td>
+                    <td><input type="text" size="35" id="details" name="eAddress" class="extra_info" value="<%= eAddress %>"></td>
                     
                 </tr>
 
 
         </table>
-            
+     	
 
             <br>
 
             <div style="text-align:center">
-                <button type="button"  name="updatePwd" class="btn btn-secondary" onclick="updatePwd();">비밀번호 수정</button>
+                <button type="button"  name="updatePwd" class="btn btn-secondary" onclick="javascript:history.go(-2);">이전페이지로</button>
                 <button type="submit"  name="insertBtn" class="btn btn-secondary">수정완료</button>
             </div>
             
         </form>
 
     </div>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/views/member/js/updateEmp.js %>"></script>
+
     <!-- 검색 기능을 표시할 <div>를 생성한다 -->
     <div id="postcodify"></div>
     
