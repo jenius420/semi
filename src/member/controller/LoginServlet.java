@@ -57,12 +57,14 @@ public class LoginServlet extends HttpServlet {
 			
 			case 1:
 				loginUser = new MemberService().loginEmp(id, pwd);
+				System.out.println("loginUser:"+loginUser);
 				if(loginUser==null) {
 					request.setAttribute("msg", "입력 정보가 맞지 않습니다");
 					request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 				}else {
 					Emp emp = new EmpServiceService().selectEmp(loginUser.geteNum());
 					session.setAttribute("emp", emp);
+					System.out.println("log1"+emp);
 				}
 				break;
 			case 2:

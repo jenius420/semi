@@ -231,7 +231,7 @@
   </div>
   
   </div>
-  <script>
+  			<script>
 				function search() {
 					location.href="<%=contextPath%>/search.bo?category=" + $('select[name=category]').val()+"&sText="+$('#BoardListSearch').val();
 				}

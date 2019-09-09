@@ -11,6 +11,7 @@
 	String phone = m.getPhone();
 	String mailAccept = m.getMailAccept();
 	String smsAccept = m.getSmsAccept();
+	String eAddress = m.geteAddress();
 	
 %>
 <!DOCTYPE html>
@@ -128,33 +129,33 @@
                     <td><b>휴대전화</b></td>
                     <td>
                         <select style="width:45px;" name="phone1">
-							<option value="010">010</option>
-							<option value="011">011</option>
-							<option value="016">016</option>
-							<option value="017">017</option>
-							<option value="018">018</option>
-							<option value="019">019</option>
+							<option value="010" <%if(phone.substring(0,3).equals("010")) {%>selected<%} %>>010</option>
+							<option value="011" <%if(phone.substring(0,3).equals("011")) {%>selected<%} %>>011</option>
+							<option value="016" <%if(phone.substring(0,3).equals("016")) {%>selected<%} %>>016</option>
+							<option value="017" <%if(phone.substring(0,3).equals("017")) {%>selected<%} %>>017</option>
+							<option value="018" <%if(phone.substring(0,3).equals("018")) {%>selected<%} %>>018</option>
+							<option value="019" <%if(phone.substring(0,3).equals("019")) {%>selected<%} %>>019</option>
 						</select> - 
-						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4"> -
-						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4">
+						<input type="number" name="phone2" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value<%= phone.substring(4,8) %>> -
+						<input type="number" name="phone3" style="width:50px;" oninput="maxLengthCheck(this)" maxlength="4" value<%= phone.substring(9,11) %>>
                     </td>
                 </tr>
 
                 <tr>
                     <td></td>
                     <td>
-                        <input name="mailaccept" type="checkbox" value="checkEmail"> 이메일 수신 동의
-                        <input name="smsaccept" type="checkbox" value="checkPhone"> 문자수신 동의</td>
+                        <input name="mailaccept" type="checkbox" value="checkEmail" <%if(mailAccept.equals("Y")) {%>checked<%} %>>  이메일 수신 동의
+                        <input name="smsaccept" type="checkbox" value="checkPhone" <%if(smsAccept.equals("Y")) {%>checked<%} %>> 문자수신 동의</td>
                     </td>
                 </tr>
 
                 <tr>
                     <td><b>주소</b></td>
-                    <td colspan="2"><input type="text" id="address" size="35" id="postcodify" name="" class="postcodify_address" readonly placeholder="주소입력" /></td>
+                    <td colspan="2"><input type="text" id="address" size="35" id="postcodify" name="" class="postcodify_address" readonly /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="text" size="35" id="details" name="" class="extra_info" placeholder="상세주소"></td>
+                    <td><input type="text" size="35" id="details" name="" class="extra_info" value="<%= eAddress %>" <% %>></td>
                     
                 </tr>
 

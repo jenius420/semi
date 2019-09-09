@@ -1,28 +1,23 @@
-package board.controller;
+package member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.model.service.BoardService;
-import board.model.vo.Board;
-
 /**
- * Servlet implementation class BoardSearchServlet
+ * Servlet implementation class UpdateEmpServelt
  */
-@WebServlet("/search.bo")
-public class BoardSearchServlet extends HttpServlet {
+@WebServlet("/updateEmp.me")
+public class UpdateEmpServelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardSearchServlet() {
+    public UpdateEmpServelt() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +26,9 @@ public class BoardSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-		request.setCharacterEncoding("utf-8");
 		
-		String category = request.getParameter("category");
-		String sText = request.getParameter("sText");
-		ArrayList<Board> list = new BoardService().boardSearch(category,sText);
-		int listCount = new BoardService().getSearchListCount(category,sText);
+		request.getRequestDispatcher("views/member/updateEmp.jsp").forward(request, response);
 		
-		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("views/board/boardListView.jsp").forward(request, response);
 		
 	}
 

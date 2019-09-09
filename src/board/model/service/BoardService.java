@@ -111,9 +111,6 @@ public class BoardService {
 		int result1 = new BoardDao().insertBoard(conn, b);
 		int result2 = new BoardDao().insertAttachment(conn, fileList, b);
 		
-		System.out.println("서비스1" + result1);
-		System.out.println("서비스2" + result2);
-		
 		if(result1 > 0 || result2 > 0) {
 			commit(conn);
 		}else {

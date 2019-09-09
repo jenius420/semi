@@ -108,6 +108,10 @@ http://www.templatemo.com/tm-406-flex
 	background-image: url('<%= request.getContextPath()%>/resources/images/slide2.jpg');
 
 	}
+	
+	
+	
+	
 </style>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 
@@ -150,20 +154,20 @@ http://www.templatemo.com/tm-406-flex
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <% if(loginUser == null){ %>
- 											<li class="active"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=500 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
+ 											<li class="active"  style="border-top:3px solid purple"><a href="#" onclick="window.open('views/member/login.jsp', '로그인', 'width=500, height=500 left=500 top=250 toolbar=no location=no status=no')">Login</a></li>
                                         
 										<%}else{ %>
 							               <li class="active"><a href="#" onclick="location.href='<%= request.getContextPath()%>/logout.me';">Logout</a></li>
 										<%} %>
-                                        <li><a href='<%=request.getContextPath()%>/district.se'">지역별</a></li>
-                                        <li><a href="<%=request.getContextPath()%>/category.se">업종별</a></li>
-                                        <li><a href='<%=request.getContextPath()%>/list.bo'>게시판</a></li>
+                                        <li class="active"><a href='<%=request.getContextPath()%>/district.se'>지역별</a></li>
+                                        <li class="active"><a href="<%=request.getContextPath()%>/category.se">업종별</a></li>
+                                        <li class="active"><a href='<%=request.getContextPath()%>/list.bo'>게시판</a></li>
                                    
                                         <%if(loginUser != null && loginUser.getKind() == 3){ %>
-	                                        <li><a href='<%=request.getContextPath()%>/empList.as'>관리자서비스</a></li>
+	                                        <li class="active"><a href='<%=request.getContextPath()%>/empList.as'>관리자서비스</a></li>
 										<%}else{%>
-											<li><a href='<%=request.getContextPath()%>/manageResume.es' <%if(loginUser == null || loginUser.getKind() != 1){ %>onclick="return empCheck();"<%} %>>개인서비스</a></li> 
-											<li><a href='<%=request.getContextPath()%>/incruitList.os' <%if(loginUser == null || loginUser.getKind() != 2){ %>onclick="return ownerCheck();"<%} %> <%if(loginUser != null && loginUser.getKind() == 2 && loginUser.getCheckoNum().equals("N")){ %>onclick="return ownerCheck2();"<%} %>>기업서비스</a></li>
+											<li class="active"><a href='<%=request.getContextPath()%>/manageResume.es' <%if(loginUser == null || loginUser.getKind() != 1){ %>onclick="return empCheck();"<%} %>>개인서비스</a></li> 
+											<li class="active"><a href='<%=request.getContextPath()%>/incruitList.os' <%if(loginUser == null || loginUser.getKind() != 2){ %>onclick="return ownerCheck();"<%} %> <%if(loginUser != null && loginUser.getKind() == 2 && loginUser.getCheckoNum().equals("N")){ %>onclick="return ownerCheck2();"<%} %>>기업서비스</a></li>
 										<%} %>
 										
 										<script>
@@ -176,6 +180,15 @@ http://www.templatemo.com/tm-406-flex
 												alert("사업자 회원만 이용할 수 있는 메뉴입니다.");
 												return false;
 											}
+											
+											$(function(){
+												$(".active").mouseenter(function(){
+													$(this).css({"border-top":"3px solid purple"});
+												}).mouseout(function(){
+													$(this).css({"border-top":"3px solid white"});	
+											
+												});
+											});
 											
 											function ownerCheck2(){
 												alert("사업자번호 인증은 가입 후 익일 처리됩니다.");
