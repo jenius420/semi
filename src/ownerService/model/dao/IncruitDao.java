@@ -409,8 +409,8 @@ public class IncruitDao {
 			
 			pstmt.setString(1, "%"+keyword+"%");
 			pstmt.setInt(2, filter.getDistrictNum());
-			pstmt.setString(3, filter.getSubCategory());
-//			pstmt.setInt(3, filter.getTypeNum());
+//			pstmt.setString(3, filter.getSubCategory());
+			pstmt.setInt(3, filter.getTypeNum());
 //			pstmt.setString(4, filter.getDesireForm());
 //			pstmt.setInt(5, filter.getDesireIncome());
 			pstmt.setString(4, filter.getFinalEdu());

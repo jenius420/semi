@@ -150,11 +150,10 @@ public class IncruitService {
 		Connection conn = getConnection();
 
 		ArrayList<Resume> list = new IncruitDao().selectSearchResumeList(conn, keyword, filter);
-		
+
 		ArrayList<Resume> rlist = new ArrayList<>();
 		
 		for(Resume r : list) {
-			
 			if(filter.getAgeType().equals("무관") || filter.getAgeType() == null || filter.getAgeType().equals("")) {		
 				rlist.add(r);
 			}else {
@@ -172,8 +171,9 @@ public class IncruitService {
 		ArrayList<Resume> rlist2 = new ArrayList<>();
 		
 		for(Resume r : rlist) {
-			
-			if(filter.getGender().equals("무관") || filter.getGender() == null || filter.getGender().equals("")) {		
+
+			if(filter.getGender().equals("무관") || filter.getGender() == null || filter.getGender().equals("")) {	
+	
 				rlist2.add(r);
 			}else if(r.getGender().equals(filter.getGender())){
 				rlist2.add(r);
