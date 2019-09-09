@@ -31,6 +31,12 @@ Attachment at = (Attachment)request.getAttribute("at");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
+
+<style>
+.speaker-form{
+margin-left:-200px;
+}
+</style>
 </head>
 <body>	
 	

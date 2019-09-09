@@ -28,35 +28,35 @@ INSERT INTO EMPLOYEE VALUES (0, 'user15', 'pwd15', '김숙', '861230-2426248', n
 
 
 -- 이력서 + 사진
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), 48, (select typenum from jobtype where typename='프로그래머'), 'JAVA 4년 경력입니다', '2019-09-09', 'N', '월급', 2000000, 'Y', '고졸 이상');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'JAVA 4년 경력입니다', '2019-09-09', 'N', '월급', 2000000, 'Y', '고졸 이상');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), 48, (select typenum from jobtype where typename='프로그래머'), 'JSON 초고수입니다', '2019-08-12', 'N', '시급', 12000, 'Y', '고졸 이상');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'JSON 초고수입니다', '2019-08-12', 'N', '시급', 12000, 'Y', '고졸 이상');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), 48, (select typenum from jobtype where typename='HTML코딩'), 'NEXACRO, ProObject 활용 경력 있습니다', '2019-09-10', 'N', '월급', 2300000, 'Y', '고졸 이상');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='HTML코딩'), 'NEXACRO, ProObject 활용 경력 있습니다', '2019-09-10', 'N', '월급', 2300000, 'Y', '고졸 이상');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), 47, (select typenum from jobtype where typename='웹·모바일기획'), '안녕하세요. 하루하루 개발하며 먹고 사는 사람입니다', '2019-08-30', 'N', '일급', 90000, 'Y', '고졸 이상');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='웹·모바일기획'), '안녕하세요. 하루하루 개발하며 먹고 사는 사람입니다', '2019-08-30', 'N', '일급', 90000, 'Y', '고졸 이상');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), 42, (select typenum from jobtype where typename='QA·테스터·검증'), '저를 뽑아주세욧', '2019-08-22', 'N', '연봉', 30000000, 'Y', '고졸 이상');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), (select districtnum from district where districtname='구로구'), (select typenum from jobtype where typename='QA·테스터·검증'), '저를 뽑아주세욧', '2019-08-22', 'N', '연봉', 30000000, 'Y', '고졸 이상');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='최정학'), 47, (select typenum from jobtype where typename='프로그래머'), '저 모르세요?', '2019-09-08', 'N', '월급', 2100000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='최정학'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='프로그래머'), '저 모르세요?', '2019-09-08', 'N', '월급', 2100000, 'Y', '대졸 이상(2,3년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST2', 'TEST2.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='최정학'), 42, (select typenum from jobtype where typename='프로그래머'), '웹언어/HTML/CSS/JS/JQUERY/AJAX', '2019-09-02', 'N', '시급', 18000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='최정학'), (select districtnum from district where districtname='구로구'), (select typenum from jobtype where typename='프로그래머'), '웹언어/HTML/CSS/JS/JQUERY/AJAX', '2019-09-02', 'N', '시급', 18000, 'Y', '대졸 이상(2,3년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST2', 'TEST2.jpg', 'Y'); 
 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='오정환'), 47, (select typenum from jobtype where typename='HTML코딩'), 'CISA 자격증 보유중', '2019-09-02', 'N', '월급', 2400000, 'Y', '대졸 이상(4년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='오정환'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='HTML코딩'), 'CISA 자격증 보유중', '2019-09-02', 'N', '월급', 2400000, 'Y', '대졸 이상(4년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST3', 'TEST1.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='오정환'), 42, (select typenum from jobtype where typename='HTML코딩'), '웹퍼블리싱 경력 4년차입니다', '2019-08-30', 'N', '월급', 2400000, 'Y', '대졸 이상(4년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='오정환'), (select districtnum from district where districtname='구로구'), (select typenum from jobtype where typename='HTML코딩'), '웹퍼블리싱 경력 4년차입니다', '2019-08-30', 'N', '월급', 2400000, 'Y', '대졸 이상(4년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST3', 'TEST1.jpg', 'Y'); 
 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='천수진'), 47, (select typenum from jobtype where typename='QA·테스터·검증'), '어제보다 오늘 더 강해집니다. 열심히 하겠습니다!', '2019-08-26', 'N', '연봉', 50000000, 'Y', '대졸 이상(4년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='천수진'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='QA·테스터·검증'), '어제보다 오늘 더 강해집니다. 열심히 하겠습니다!', '2019-08-26', 'N', '연봉', 50000000, 'Y', '대졸 이상(4년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST7', 'TEST1.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='천수진'), 48, (select typenum from jobtype where typename='프로그래머'), 'JAVA 10년 했습니다. 못하면 짜르세요', '2019-08-24', 'N', '월급', 3000000, 'Y', '대졸 이상(4년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='천수진'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'JAVA 10년 했습니다. 못하면 짜르세요', '2019-08-24', 'N', '월급', 3000000, 'Y', '대졸 이상(4년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST7', 'TEST1.jpg', 'Y'); 
 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='안사랑'), 47, (select typenum from jobtype where typename='웹·모바일기획'), '홈페이지 제작 횟수 20회', '2019-08-23', 'N', '일급', 1000000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='안사랑'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='웹·모바일기획'), '홈페이지 제작 횟수 20회', '2019-08-23', 'N', '일급', 1000000, 'Y', '대졸 이상(2,3년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST8', 'TEST8.jpg', 'Y'); 
-INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='안사랑'), 48, (select typenum from jobtype where typename='프로그래머'), 'KH정보교육원 수석 졸업했습니다. 안 뽑으면 손해입니다', '2019-09-01', 'N', '연봉', 200000000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='안사랑'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'KH정보교육원 수석 졸업했습니다. 안 뽑으면 손해입니다', '2019-09-01', 'N', '연봉', 200000000, 'Y', '대졸 이상(2,3년제)');
 INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST8', 'TEST8.jpg', 'Y'); 
 
 

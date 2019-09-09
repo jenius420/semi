@@ -168,7 +168,6 @@ display:none;
 			
 			
 			<div id="ownerNoCertifyBox" class="box">
-			<form action="<%=request.getContextPath()%>/certifyOwner.as" id="detailForm" method="post">
 				<!--===============================================================================================-->	
 				<div class="limiter">
 				<div class="container-table100">
@@ -213,12 +212,34 @@ display:none;
 												<td class="cell100 column8"><input type="checkbox" name="oNumArr" value="<%=a.getoNum()%>" style="margin-left:70px;"></td>
 											</tr>
 											<%}}}%>
-											
+				
 									</tbody>
 								</table>
 								<div style="text-align: right;">
-									<button type="submit" class="gs-btn" style="padding: 10px 10px; margin-right:40px;">인증하기</button>
+									<button type="button" class="gs-btn" onclick="certifyOwner();" style="padding: 10px 10px; margin-right:40px;">인증하기</button>
 								</div>
+								<script>
+			
+									function certifyOwner(){
+											
+										var	oNumArr = "";
+
+										var arrLength = $("input:checkbox[name='oNumArr']:checked").length;
+										
+										$("input:checkbox[name='oNumArr']:checked").each(function(index){
+											oNumArr += $(this).val() +",";
+										});
+									
+										if(arrLength>0){
+											$("#detailForm").attr("action", "<%=request.getContextPath()%>/certifyOwner.as?oNumArr="+oNumArr);
+											$("#detailForm").submit();
+										}else{
+											alert("1개 이상을 선택해야 합니다");
+											return false;
+										}
+									}
+								
+								</script>
 							</div>
 						</div>
 					</div>
@@ -226,7 +247,7 @@ display:none;
 				</div>`
 				<!--===============================================================================================-->	
 			
-			</form>
+
 			</div>
 			
 			

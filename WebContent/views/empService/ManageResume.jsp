@@ -50,6 +50,9 @@ ArrayList<Resume> list = (ArrayList<Resume>)request.getAttribute("list");
    text-align: center;
 }
 
+#content-center{
+height:auto !important;
+}
 
 </style>
 

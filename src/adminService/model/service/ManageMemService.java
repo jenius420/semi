@@ -162,23 +162,27 @@ public class ManageMemService {
 		
 	}
 	
-	public int certifyOwner(String[] oNumArr) {
+	public int certifyOwner(String oNumArr) {
 		
 		Connection conn = getConnection();
 		
 		int count = 0;
 		int result = 0;
 		
-		for(int i=0; i<oNumArr.length; i++) {
+		String[] list = oNumArr.split(",");
+		
+		for(int i=0; i<list.length; i++) {
 			
-			result = new ManageMemDao().certifyOwner(conn, Integer.parseInt(oNumArr[i]));
-	
-			if (result > 0) {
-				commit(conn);
-				count++;
-	
-			} else {
-				rollback(conn);
+			if(!list[i].equals("") && list[i]!= null) {
+				result = new ManageMemDao().certifyOwner(conn, Integer.parseInt(list[i]));
+
+				if (result > 0) {
+					commit(conn);
+					count++;
+		
+				} else {
+					rollback(conn);
+				}
 			}
 		}
 

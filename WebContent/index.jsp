@@ -26,6 +26,29 @@ input{
   text-align: left;
   font-size: 1px 
 }
+.mainarea, .maintype{
+font-size: 15px;
+text-align: center;
+padding-bottom:15px;
+color: #262626;
+}
+
+.card-body:hover, .card-img-top:hover{
+cursor: pointer;
+}
+
+.card-body{
+color:black;
+}
+
+.platinum{
+width:auto 40px;
+}
+
+.card-title{
+margin-bottom:-30px !important;
+}
+
 
 </style>
 
@@ -48,7 +71,7 @@ input{
 <%if(loginUser != null && loginUser.getKind()==1){ %> <!-- 로그인한 회원만 보이게 -->
 <div>
 <input type="hidden" id="eNum" value="<%=loginUser.geteNum()%>">
-<p style="padding-left: 100px; font-size:25px"><strong>추천알바</strong></p>
+<p style="padding-left: 100px; font-size:25px"><strong><span style="color:#6666ff;">★추천</span> 알바</strong></p>
 <br />
 <div class="row" id="choiceAlba1">
     
@@ -81,7 +104,7 @@ input{
 						
 						var $hidden = $("<input>").attr("type","hidden").attr("class","wnum").val(value.wNum);
 						var $hidden2 = $("<input>").attr("type","hidden").attr("class","onum").val(value.oNum);
-						var $div = $("<div>").attr("class","col-sm-2 mb-4 recommend").css("padding-top","40px"); // <div> </div>
+						var $div = $("<div>").attr("class","col-sm-2 mb-4 recommend").css("padding-top","20px"); // <div> </div>
 						var $div1 = $("<div>").attr("class","card h-10");
 						var $div2 = $("<div>").attr("class","card-body").css("padding-top","20px");
 						var $a = $("<a>") // <a> </a>
@@ -120,8 +143,8 @@ input{
 
 <!-- 지역별 알바검색 및  업종별 알바 검색 -->
 <div class="row" style="padding: 100px;">
-	<div class="col-lg-6" id="district">
-		<p style="font-size:25px"><strong>지역별 알바</strong></p>
+	<div class="col-lg-6" id="district" style="background-color: #fae6ff; ">
+		<p style="font-size:25px; "><strong><span style="color:#ff6699;">지역별</span> 알바</strong></p>
 		<br />
 		<div class="col-lg-2 mainarea">종로구</div>
 		<div class="col-lg-2 mainarea">중구</div>
@@ -149,8 +172,8 @@ input{
 		<div class="col-lg-2 mainarea">송파구</div>
 		<div class="col-lg-2 mainarea">강동구</div>
 	</div>
-	<div class="col-lg-6" id="category">
-		<p style="padding-left: 10px; font-size:25px"><strong>업종별 알바</strong></p>
+	<div class="col-lg-6" id="category" style="background-color: #ccd9ff;">
+		<p style="padding-left: 40px; font-size:25px"><strong><span style="color:#0099ff;">업종별</span> 알바</strong></p>
 		<br />
 		<div class="col-lg-4 maintype">외식·음료</div>
 		<div class="col-lg-4 maintype">유통·판매</div>
@@ -188,7 +211,7 @@ input{
 <!--상품적용알바 -->
 
 <div class="row" >
-<p style="padding-left: 100px; font-size:25px"><strong>플래티넘알바</strong></p>
+<p style="padding-left: 100px; font-size:25px"><strong><span style="color:#33cccc;">★플래티넘</span> 알바</strong></p>
 <br />
 <div class="row" id="choiceAlba2" align="left">
     
