@@ -8,12 +8,6 @@
 	Board b = (Board)request.getAttribute("b");
 	ArrayList<Attachment> fileList = (ArrayList<Attachment>)request.getAttribute("fileList");
 	String contextPath = request.getContextPath();
-/* 	 String[] arr = b.geteName().split(","); 
-	//arr[0] ==> "회원번호"
-	// arr[1] ==> "회원명"
-	
-	int eNum = Integer.parseInt(arr[0]); // 회원번호
-	String eName = arr[1]; // 회원명  */
 %>
 
     

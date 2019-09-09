@@ -2,8 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, board.model.vo.*, common.model.vo.Attachment"%>
     
 <%
-	/* Board b = (Board)request.getAttribute("board"); */
-	/* Attachment at = (Attachment)request.getAttribute("Attachment"); */
 	
 	Board b = new Board();
 	Attachment at = new Attachment();
@@ -138,7 +136,6 @@
     	<p align="center" style="font-size:20px">게시판 작성</p>
   		<hr>
 		
-		<!-- 파일 업로드를 위해 enctype을 지정해줘야된다. -->
 		<form action="<%= request.getContextPath() %>/insert.bo" method="post" enctype="multipart/form-data">
 	
 				
@@ -198,7 +195,6 @@
 				
 				
 				<script>
-					// 미리보기 이미지 영역을 클릭할 때 파일 첨부 창이 뜨도록!
 					$(function(){						
 						$("#contentImgArea1").click(function(){
 							$("#thumbnailImg1").click();
@@ -211,19 +207,12 @@
 						});
 					});
 					
-					// 파일 첨부했을 때 미리보기 공간에 미리보기 가능하게 하는 함수
-					// [참고] https://developer.mozilla.org/ko/docs/Web/API/FileReader
 					function loadImg(value, num){
-						// value => input태그
-						// num => 조건문으로 작업
 						
-						// file이 존재하는지 
 						if(value.files && value.files[0]){
 							
-							// 파일을 읽어들일 FileReader객체 생성
 							var reader = new FileReader();
 							
-							// 파일 읽기가 다 완료되었을 때 실행되는 메소드
 							reader.onload = function(e){
 								
 								switch(num){
@@ -234,12 +223,10 @@
 								
 							}
 							
-							// 파일 읽어주는 메소드
 							reader.readAsDataURL(value.files[0]);
 						}
 					}
 				</script>
-				
 				
 				<br>
 				
