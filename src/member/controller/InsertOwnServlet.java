@@ -109,10 +109,13 @@ public class InsertOwnServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			//request.setAttribute("msg", "회원가입성공");
+			request.setAttribute("msg", "회원가입성공");
 			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
+		}else {
+			request.setAttribute("msg", "회원가입 실패");
+			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

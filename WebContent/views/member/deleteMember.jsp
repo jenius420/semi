@@ -1,5 +1,19 @@
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	Member m = (Member)session.getAttribute("loginUser");
+	
+	int kind = m.getKind();
+	int no;
+	if(kind == 1){
+		no = m.geteNum();
+	}else{
+		no = m.getoNum();
+	}
+	
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +63,9 @@
             <p align="center" style="color:rgb(176, 19, 242)">010-3514-1361</p>
 
             <p align="center"><input type="checkbox" id="checkbox"><label for="checkbox">안내사항을 모두 확인 하였으며, 이에 동의합니다.</label></p>
-
+			
+			<input type="hidden" name="kind" value="<%=kind%>">
+			<input type="hidden" name="no" value="<%=no%>">
 
             <div id="btn">
                 <button type="submit" name="insertBtn" class="btn btn-secondary" disabled>회원탈퇴</button>
