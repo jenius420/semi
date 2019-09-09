@@ -7,23 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
-
-import member.model.service.MemberService;
-import member.model.vo.Member;
-import search.model.service.SearchService;
-
 /**
- * Servlet implementation class AddressServlet
+ * Servlet implementation class CheckEmpPwdServlet
  */
-@WebServlet("/address.me")
-public class AddressServlet extends HttpServlet {
+@WebServlet("/checkEmpPwd.me")
+public class CheckEmpPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddressServlet() {
+    public CheckEmpPwdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,20 +26,7 @@ public class AddressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		int rNum = Integer.parseInt(request.getParameter("rNum"));
-		String address[] = new String[4];
-		address = new MemberService().searchAddress(rNum);
-		
-		String addr="서울특별시 " +address[3]+" " +address[0]+" "+address[1]+"-"+address[2]; 
-		System.out.println("addr:" +addr);
-			JSONObject jsonUser = new JSONObject();
-			jsonUser.put("addr", addr);
-
-			response.setContentType("application/json; charset=utf-8");
-			response.getWriter().print(jsonUser);
-		
-		
+		request.getRequestDispatcher("views/member/currentPwdCheck.jsp").forward(request, response);
 	}
 
 	/**

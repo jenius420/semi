@@ -3,16 +3,29 @@ $(function(){
 	$.ajax({
 		url:"address.me",
 		data:{rNum:rNum},
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 		type:"get",
 		dataType:"json",
-		success:function(list){
-			$('#address').val(obj.address);
+		success:function(obj){
+			console.log("체크" +obj.addr);
+			$('#address').val(obj.addr);
 			
 		},
 		error:function(){
 			concole.log("paging 실패");
 		}
 		
-	})
+	});
+	
 });
+
+
+function checkPwd(){
+	var pwd1 = $('#pwd').val();
+	var pwd2 = $('#pwd2').val();
+	if(pwd1==pwd2){
+		$('#sameCheck').text("비밀번호 일치");
+	}else{
+		$('#sameCheck').text("비밀번호 불일치");
+	}
+	$('#pwd2').focus();
+}

@@ -15,7 +15,7 @@
 <style>
 
 .column0 {
-  width: 15%;
+  width: 10%;
   padding-left: 40px;
    text-align: center;
 }
@@ -28,7 +28,7 @@
   text-align: center;
 }
 .column3 {
-  width: 15%;
+  width: 10%;
    text-align: center;
 }
 .column4 {
@@ -36,17 +36,22 @@
    text-align: center;
 }
 .column5 {
-  width: 15%;
+  width: 12%;
    text-align: center;
 }
 .column6 {
-  width: 8%;
+  width: 15%;
    text-align: center;
 }
 .column7 {
-  width: 7%;
+  width: 12%;
    text-align: center;
 }
+.column8 {
+  width: 8%;
+   text-align: center;
+}
+
 
 
 #empDropBox{
@@ -105,11 +110,12 @@ display:none;
 											<th class="cell100 column0">고유 번호</th>
 											<th class="cell100 column1">아이디</th>
 											<th class="cell100 column2">이름</th>
-											<th class="cell100 column3">주민등록번호</th>
-											<th class="cell100 column4">전화번호</th>
-											<th class="cell100 column5">이메일</th>
-											<th class="cell100 column6">신고 횟수</th>
-											<th class="cell100 column7"></th>
+											<th class="cell100 column3">나이/성별</th>
+											<th class="cell100 column4">주민등록번호</th>
+											<th class="cell100 column5">전화번호</th>
+											<th class="cell100 column6">이메일</th>
+											<th class="cell100 column7">메일/SMS수신</th>
+											<th class="cell100 column8"></th>
 										</tr>
 									</thead>
 								</table>
@@ -127,11 +133,12 @@ display:none;
 												<td class="cell100 column0"><%=a.getEmpNum()%></td>
 												<td class="cell100 column1"><%=a.geteId()%></td>
 												<td class="cell100 column2"><%=a.geteName()%></td>
-												<td class="cell100 column3"><%=a.getEcNum().substring(0,8)%>******</td>
-												<td class="cell100 column4"><%=a.getPhone()%></td>
-												<td class="cell100 column5"><%=a.getEmail()%></td>
-												<td class="cell100 column6"><%=a.getWarningCount()%></td>
-												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteEmp('<%=a.geteName()%>', '<%=a.geteId()%>');">
+												<td class="cell100 column3"><%=a.getAge() %> <%=a.getGender()%></td>
+												<td class="cell100 column4"><%=a.getEcNum().substring(0,8)%>******</td>
+												<td class="cell100 column5"><%=a.getPhone()%></td>
+												<td class="cell100 column6"><%=a.getEmail()%></td>
+												<td class="cell100 column7"><%=a.getMailAccept()%> / <%=a.getSmsAccept()%></td>
+												<td class="cell100 column8"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteEmp('<%=a.geteName()%>', '<%=a.geteId()%>');">
 												<form action="" id="detailForm" method="post">
 													<input type="hidden" name="eNum" value="<%=a.getEmpNum() %>">
 												</form></td>
@@ -177,11 +184,12 @@ display:none;
 											<th class="cell100 column0">고유 번호</th>
 											<th class="cell100 column1">아이디</th>
 											<th class="cell100 column2">이름</th>
-											<th class="cell100 column3">주민등록번호</th>
-											<th class="cell100 column4">전화번호</th>
-											<th class="cell100 column5">이메일</th>
-											<th class="cell100 column6">신고 횟수</th>
-											<th class="cell100 column7"></th>
+											<th class="cell100 column3">나이/성별</th>
+											<th class="cell100 column4">주민등록번호</th>
+											<th class="cell100 column5">전화번호</th>
+											<th class="cell100 column6">이메일</th>
+											<th class="cell100 column7">메일/SMS수신</th>
+											<th class="cell100 column8"></th>
 										</tr>
 									</thead>
 								</table>
@@ -199,11 +207,12 @@ display:none;
 												<td class="cell100 column0"><%=a.getEmpNum()%></td>
 												<td class="cell100 column1"><%=a.geteId()%></td>
 												<td class="cell100 column2"><%=a.geteName()%></td>
-												<td class="cell100 column3"><%=a.getEcNum().substring(0,8)%>******</td>
-												<td class="cell100 column4"><%=a.getPhone()%></td>
-												<td class="cell100 column5"><%=a.getEmail()%></td>
-												<td class="cell100 column6"><%=a.getWarningCount()%></td>
-												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="복구" onclick="restoreEmp(<%=a.getEmpNum()%>);">									
+												<td class="cell100 column3"><%=a.getAge() %> <%=a.getGender()%></td>
+												<td class="cell100 column4"><%=a.getEcNum().substring(0,8)%>******</td>
+												<td class="cell100 column5"><%=a.getPhone()%></td>
+												<td class="cell100 column6"><%=a.getEmail()%></td>
+												<td class="cell100 column7"><%=a.getMailAccept()%> / <%=a.getSmsAccept()%></td>
+												<td class="cell100 column8"><input type="button" class="gs-btn" style="padding: 10px 10px" value="복구" onclick="restoreEmp(<%=a.getEmpNum()%>);">									
 											</tr>
 											<%}}}%>
 											
