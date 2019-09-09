@@ -1,34 +1,29 @@
-package empService.controller;
+package member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import empService.model.vo.Emp;
-import empService.model.service.EmpServiceService;
-import empService.model.service.ResumeService;
-import empService.model.vo.Resume;
+import org.json.simple.JSONObject;
+
+import member.model.service.MemberService;
 import member.model.vo.Member;
-import ownerService.model.service.OwnerServiceService;
+import search.model.service.SearchService;
 
 /**
- * Servlet implementation class ManageResumeServlet
+ * Servlet implementation class AddressServlet
  */
-@WebServlet("/manageResume.es")
-public class ManageResumeServlet extends HttpServlet {
+@WebServlet("/address.me")
+public class AddressServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManageResumeServlet() {
+    public AddressServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,20 +32,20 @@ public class ManageResumeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		int rNum = Integer.parseInt(request.getParameter("rNum"));
+		String address[] = new String[3];
+		address = new MemberService().searchAddress(rNum);
 		
-		request.setCharacterEncoding("UTF-8");
-
-
-//		Emp emp = new EmpServiceService().selectEmp(1);
-		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
-		System.out.println(emp);
 
-		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
+			JSONObject jsonUser = new JSONObject();
+			jsonUser.put("hopeBtn", hopeBtn);
 
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/views/empService/ManageResume.jsp").forward(request, response);
-
+			response.setContentType("application/json; charset=utf-8");
+			response.getWriter().print(jsonUser);
+		
+		
 	}
 
 	/**

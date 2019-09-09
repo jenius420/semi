@@ -557,6 +557,30 @@ public class SearchDao {
 		return result;
 	}
 
+	public String[] searchAddress(Connection conn, int rNum) {
+		PreparedStatement pstmt =null;
+		ResultSet rset = null;
+		String[] result= new String[3];
+		String sql = prop.getProperty("searchAddress");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, rNum);
+			rset= pstmt.executeQuery();
+			if(rset.next()) {
+				result[0]=rset.getString(1);
+				result[1]=(rset.getInt(2)+"";
+				result[2]=rset.getInt(3)+"";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+
 
 	
 	
