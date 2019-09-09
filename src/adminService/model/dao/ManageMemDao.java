@@ -59,6 +59,8 @@ public class ManageMemDao {
 				emp.setEmail(rs.getString("EMAIL"));
 				emp.setInvalid(rs.getString("INVALIDID"));
 				emp.setWarningCount(rs.getInt("WARNINGCOUNT"));
+				emp.setMailAccept(rs.getString("MAILACCEPT"));
+				emp.setSmsAccept(rs.getString("SMSACCEPT"));
 
 				list.add(emp);
 			}

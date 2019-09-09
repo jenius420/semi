@@ -81,7 +81,7 @@
 }
 
 
-#ownerDropBox{
+#ownerDropBox, #ownerNoCertifyBox{
 display:none;
 }
 
@@ -133,14 +133,15 @@ display:none;
 								<table>
 									<thead>
 										<tr class="row100 head">
-											<th class="cell100 column0">고유 번호</th>
-											<th class="cell100 column1">아이디</th>
-											<th class="cell100 column2">이름</th>
-											<th class="cell100 column3">주민등록번호</th>
+											<th class="cell100 column0">아이디</th>
+											<th class="cell100 column1">업체명</th>
+											<th class="cell100 column2">사업자번호</th>
+											<th class="cell100 column3">업종</th>
 											<th class="cell100 column4">전화번호</th>
-											<th class="cell100 column5">이메일</th>
-											<th class="cell100 column6">경고 횟수</th>
-											<th class="cell100 column7"></th>
+											<th class="cell100 column5">이름</th>
+											<th class="cell100 column6">휴대폰번호</th>
+											<th class="cell100 column7">이메일</th>
+											<th class="cell100 column8"></th>
 										</tr>
 									</thead>
 								</table>
@@ -155,14 +156,15 @@ display:none;
 											<%for(Owner a : ownerList) {
 												if(a.getInvalidId().equals("N")){%>
 											<tr class="row100 body">
-												<td class="cell100 column0"><%=a.get%></td>
-												<td class="cell100 column1"><%=a.geteId()%></td>
-												<td class="cell100 column2"><%=a.geteName()%></td>
-												<td class="cell100 column3"><%=a.getEcNum().substring(0,8)%>******</td>
-												<td class="cell100 column4"><%=a.getPhone()%></td>
-												<td class="cell100 column5"><%=a.getEmail()%></td>
-												<td class="cell100 column6"><%=a.getWarningCount()%></td>
-												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteOwner(<%=a.getoName() %>);">
+												<td class="cell100 column0"><%=a.getoId()%></td>
+												<td class="cell100 column1"><%=a.getOpName()%></td>
+												<td class="cell100 column2"><%=a.getOpNum()%></td>
+												<td class="cell100 column3"><%=a.getCategory()%> :: <%=a.getType()%></td>
+												<td class="cell100 column4"><%=a.getoTel()%></td>
+												<td class="cell100 column5"><%=a.getoName()%></td>
+												<td class="cell100 column6"><%=a.getPhone()%></td>
+												<td class="cell100 column7"><%=a.getEmail()%></td>
+												<td class="cell100 column8"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteOwner(<%=a.getoName() %>);">
 												<form action="" id="detailForm" method="post">
 													<input type="hidden" name="oNum" value="<%=a.getoNum() %>">
 												</form></td>
@@ -203,14 +205,15 @@ display:none;
 								<table>
 									<thead>
 										<tr class="row100 head">
-											<th class="cell100 column0">고유 번호</th>
-											<th class="cell100 column1">아이디</th>
-											<th class="cell100 column2">이름</th>
-											<th class="cell100 column3">주민등록번호</th>
+											<th class="cell100 column0">아이디</th>
+											<th class="cell100 column1">업체명</th>
+											<th class="cell100 column2">사업자번호</th>
+											<th class="cell100 column3">업종</th>
 											<th class="cell100 column4">전화번호</th>
-											<th class="cell100 column5">이메일</th>
-											<th class="cell100 column6">경고 횟수</th>
-											<th class="cell100 column7"></th>
+											<th class="cell100 column5">이름</th>
+											<th class="cell100 column6">휴대폰번호</th>
+											<th class="cell100 column7">이메일</th>
+											<th class="cell100 column8"></th>
 										</tr>
 									</thead>
 								</table>
@@ -225,14 +228,15 @@ display:none;
 											<%for(Owner a : ownerList) {
 												if(a.getInvalidId().equals("Y")){%>
 											<tr class="row100 body">
-												<td class="cell100 column0"><%=a.getEmpNum()%></td>
-												<td class="cell100 column1"><%=a.geteId()%></td>
-												<td class="cell100 column2"><%=a.geteName()%></td>
-												<td class="cell100 column3"><%=a.getEcNum().substring(0,8)%>******</td>
-												<td class="cell100 column4"><%=a.getPhone()%></td>
-												<td class="cell100 column5"><%=a.getEmail()%></td>
-												<td class="cell100 column6"><%=a.getWarningCount()%></td>
-												<td class="cell100 column7"><input type="button" class="gs-btn" style="padding: 10px 10px" value="복구" onclick="restoreOwner();">
+												<td class="cell100 column0"><%=a.getoId()%></td>
+												<td class="cell100 column1"><%=a.getOpName()%></td>
+												<td class="cell100 column2"><%=a.getOpNum()%></td>
+												<td class="cell100 column3"><%=a.getCategory()%> :: <%=a.getType()%></td>
+												<td class="cell100 column4"><%=a.getoTel()%></td>
+												<td class="cell100 column5"><%=a.getoName()%></td>
+												<td class="cell100 column6"><%=a.getPhone()%></td>
+												<td class="cell100 column7"><%=a.getEmail()%></td>
+												<td class="cell100 column8"><input type="button" class="gs-btn" style="padding: 10px 10px" value="복구" onclick="restoreOwner();">
 												<form action="" id="detailForm" method="post">
 													<input type="hidden" name="oNum" value="<%=a.getoNum()%>">
 												</form></td>
@@ -268,13 +272,15 @@ display:none;
 								<table>
 									<thead>
 										<tr class="row100 head">
-											<th class="cell100 column00"></th>
-											<th class="cell100 column11">아이디</th>
-											<th class="cell100 column22">이름</th>
-											<th class="cell100 column33">개인 전화번호</th>
-											<th class="cell100 column44">업체명</th>
-											<th class="cell100 column55">사업자번호</th>
-											<th class="cell100 column66">업체 전화번호</th>
+											<th class="cell100 column0">아이디</th>
+											<th class="cell100 column1">업체명</th>
+											<th class="cell100 column2">사업자번호</th>
+											<th class="cell100 column3">업종</th>
+											<th class="cell100 column4">전화번호</th>
+											<th class="cell100 column5">이름</th>
+											<th class="cell100 column6">휴대폰번호</th>
+											<th class="cell100 column7">이메일</th>
+											<th class="cell100 column8"></th>
 										</tr>
 									</thead>
 								</table>
@@ -289,13 +295,16 @@ display:none;
 											<%for(Owner a : ownerList) {
 												if(a.getCheckONum().equals("Y")){%>
 											<tr class="row100 body">
-												<td class="cell100 column00"><input type="checkbox" name="oNumArr" value="<%=a.getoNum()%>"></td>
-												<td class="cell100 column11"><%=a.getoId()%></td>
-												<td class="cell100 column22"><%=a.getoName()%></td>
-												<td class="cell100 column33"><%=a.getPhone()%></td>
-												<td class="cell100 column44"><%=a.getOpName()%></td>
-												<td class="cell100 column55"><%=a.getOpNum()%></td>
-												<td class="cell100 column66"><%=a.getoTel()%></td>
+					
+												<td class="cell100 column0"><%=a.getoId()%></td>
+												<td class="cell100 column1"><%=a.getOpName()%></td>
+												<td class="cell100 column2"><%=a.getOpNum()%></td>
+												<td class="cell100 column3"><%=a.getCategory()%> :: <%=a.getType()%></td>
+												<td class="cell100 column4"><%=a.getoTel()%></td>
+												<td class="cell100 column5"><%=a.getoName()%></td>
+												<td class="cell100 column6"><%=a.getPhone()%></td>
+												<td class="cell100 column7"><%=a.getEmail()%></td>
+												<td class="cell100 column8"><input type="checkbox" name="oNumArr" value="<%=a.getoNum()%>"></td>
 											</tr>
 											<%}}}%>
 									</tbody>
