@@ -36,8 +36,11 @@ public class BoardSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String category = request.getParameter("category");
+		System.out.println(category);
 		String sText = request.getParameter("sText");
+		System.out.println(sText);
 		ArrayList<Board> list = new BoardService().boardSearch(category,sText);
+		System.out.println(list);
 		int listCount = new BoardService().getSearchListCount(category,sText);
 		
 		request.setAttribute("list", list);
