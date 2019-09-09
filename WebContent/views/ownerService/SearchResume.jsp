@@ -218,15 +218,14 @@ border-radius: 40px;
 				</div>
 
 				<div class="filter">
-					 <label for='bigCategory'>업종</label>
-					  <select id='bigCategory'  style="width:auto;">
-
-					  			<option ></option>
-
-					  </select>
-					  &nbsp;
-					  <select id='subCategory' name='subCategory' style="width:200px;">
-					  		<option></option>
+					  <label for='typeNum'>업종</label>
+					  <select id='typeNum' name='typeNum' style="width:300px;">
+						<%for(JobType t : tList) {%>
+							<%if(filter != null && filter.getTypeNum() == t.getTypeNum()){ %>
+					  			<option value='<%=t.getTypeNum()%>' selected><%=t.getCategoryName()%> :: <%=t.getTypeName()%></option>
+					  		<%}else{ %>
+					  			<option value='<%=t.getTypeNum()%>' ><%=t.getCategoryName()%> :: <%=t.getTypeName()%></option>
+					  		<%}}%>
 					  </select>
 				</div>
 				
@@ -301,14 +300,14 @@ border-radius: 40px;
 						var district = document.getElementById("districtNum");
 						var districtNum = district.options[district.selectedIndex].value;
 						
-						//var type = document.getElementById("typeNum");
-						//var typeNum = type.options[type.selectedIndex].value;
+						var type = document.getElementById("typeNum");
+						var typeNum = type.options[type.selectedIndex].value;
 						
-						var category = document.getElementById("subCategory");
-						var subCategory = category.options[category.selectedIndex].value;
+						//var category = document.getElementById("subCategory");
+						//var subCategory = category.options[category.selectedIndex].value;
 						
-						var category2 = document.getElementById("bigCategory");
-						var bigCategory = category2.options[category2.selectedIndex].value;
+						//var category2 = document.getElementById("bigCategory");
+						//var bigCategory = category2.options[category2.selectedIndex].value;
 						
 						var eduNum = document.getElementById("edu");
 						var edu = eduNum.options[eduNum.selectedIndex].value;
@@ -326,7 +325,7 @@ border-radius: 40px;
 						var keyword = document.getElementById("keyword").value;
 						
 						location.href="<%=request.getContextPath()%>/searchResumeList.os?districtNum=" + districtNum
-								+ "&subCategory="+subCategory + "&bigCategory="+bigCategory + "&edu="+edu + "&ageType=" + ageType + "&gender=" + gender + "&keyword="+keyword;	
+								+ "&typeNum="+typeNum + "&edu="+edu + "&ageType=" + ageType + "&gender=" + gender + "&keyword="+keyword;	
 					}
 					
 					function enterkey() {
