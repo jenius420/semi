@@ -39,16 +39,13 @@ public class IncruitListServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-//		Owner owner = new OwnerServiceService().selectOwner(884);
 		Owner owner = (Owner)request.getSession().getAttribute("owner");
 		
 		ArrayList<Incruit> list = new IncruitService().selectIncruitList(owner.getoNum());
 
-
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/ownerService/IncruitList.jsp").forward(request, response);
 
-		
 	}
 
 	/**

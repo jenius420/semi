@@ -116,6 +116,7 @@ display:none;
 				<input type="radio" name="empEval" onclick="showBox(this);"  id="empEvalBf"><label for="empEvalBf">미작성 평가</label>		
 			</div>
 			
+			<form action="" id="detailForm" method="post">
 			<div id="empEvalBox" class="box">
 				<!--===============================================================================================-->	
 				<div class="limiter">
@@ -152,22 +153,18 @@ display:none;
 													    <%for(int i=1; i<=a.getSevalPoint(); i++){ %>
 													    <label for="rate<%=i %>" style="cursor:default;"></label>
 													    <% }%>
-												
 													  </fieldset>
 												</td>
-												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteEval();">
-												<form action="" id="detailForm" method="post">
-													<input type="hidden" name="sevalNum" value="<%=a.getSevalNum()%>">
-												</form></td>
+												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteEval('<%=a.getSevalNum()%>');">
 											</tr>
 											<%}}%>
 										<script>		
-											function deleteEval(){
+											function deleteEval(sevalNum){
 												
 												var con = confirm("평가를 삭제하시겠습니까");
-												
+										
 												if(con){
-													$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEval.es");
+													$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEval.es?sevalNum=" + sevalNum);
 													$("#detailForm").submit();
 												}else{
 													return false;
@@ -184,7 +181,7 @@ display:none;
 				<!--===============================================================================================-->	
 			
 			</div>
-			
+			</form>
 			<form action="" id="detailForm2" method="post">
 			<div id="empEvalBfBox" class="box">
 				<!--===============================================================================================-->	
@@ -219,24 +216,24 @@ display:none;
 												<td class="cell100 column22" ><%=a.getOpName()%></td>
 												<td class="cell100 column33">
 													<div class='form-row' >
-													  <textarea id='comment' name='eComment' style="width:450px; min-height:80px; margin-top:12px;"></textarea>
+													  <textarea id='comment' name='eComment' style="width:450px; min-height:80px; margin-top:12px; margin-left:60px;"></textarea>
 													</div>
 												</td>
 												<td class="cell100 column44">
-													<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:28px;"> 
-													    <input type="radio" id="rate5" name="sevalPoint" value="5" />
+													<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:50px;"> 
+													    <input type="radio" id="rate5" name="sevalPoint" value="1" />
 													    <label for="rate5" title="Amazing">5 stars</label>
 													
-													    <input type="radio" id="rate4" name="sevalPoint" value="4" />
+													    <input type="radio" id="rate4" name="sevalPoint" value="2" />
 													    <label for="rate4" title="Very good">4 stars</label>
 													
 													    <input type="radio" id="rate3" name="sevalPoint" value="3" />
 													    <label for="rate3" title="Average">3 stars</label>
 													
-													    <input type="radio" id="rate2" name="sevalPoint" value="2" />
+													    <input type="radio" id="rate2" name="sevalPoint" value="4" />
 													    <label for="rate2" title="Not good">2 stars</label>
 													
-													    <input type="radio" id="rate1" name="sevalPoint" value="1" />
+													    <input type="radio" id="rate1" name="sevalPoint" value="5" />
 													    <label for="rate1" title="Terrible">1 star</label>
 													  </fieldset>
 												</td>
@@ -280,9 +277,7 @@ display:none;
 					}
 				}
 		  	</script>
-			<form>
-  
-</form>
+
 
 			</div> <!-- /메인콘텐트 -->
 			

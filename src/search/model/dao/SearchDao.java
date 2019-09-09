@@ -43,11 +43,12 @@ public class SearchDao {
 		String sql = prop.getProperty("cateListCount");
 		for (int i = 0; i < cates.length; i++) {
 			if(i==cates.length-1) {
-				sql+="?";
+				sql+="?)";
 				break;
 			}
 			sql+="? OR CATEGORYNAME=";
 		}
+		sql+="AND ISTATUS='Y'";
 		System.out.println(sql);
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -80,7 +81,7 @@ public class SearchDao {
 			}
 			sql+="? OR CATEGORYNAME=";
 		}
-		sql+="ORDER BY STARTDATE DESC))WHERE RNUM BETWEEN ? AND ? ";
+		sql+="AND ISTATUS='Y' ORDER BY STARTDATE DESC))WHERE RNUM BETWEEN ? AND ? ";
 		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -197,11 +198,12 @@ public class SearchDao {
 		String sql = prop.getProperty("districtListCount");
 		for (int i = 0; i < district.length; i++) {
 			if(i==district.length-1) {
-				sql+="?";
+				sql+="?)";
 				break;
 			}
 			sql+="? OR DISTRICTNAME=";
 		}
+		sql+="AND ISTATUS='Y'";
 		System.out.println(sql);
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -235,7 +237,7 @@ public class SearchDao {
 			}
 			sql+="? OR DISTRICTNAME=";
 		}
-		sql+="ORDER BY STARTDATE DESC))WHERE RNUM BETWEEN ? AND ? ";
+		sql+="AND ISTATUS='Y' ORDER BY STARTDATE DESC))WHERE RNUM BETWEEN ? AND ? ";
 		System.out.println(sql);
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -285,7 +287,7 @@ public class SearchDao {
 		String sql = prop.getProperty("searchDetail");
 		for (int i = 0; i < details.length; i++) {
 			if(i==details.length-1) {
-				sql += "? ORDER BY STARTDATE DESC))";
+				sql += "? AND ISTATUS='Y' ORDER BY STARTDATE DESC))";
 				break;
 			}
 			sql+= "? AND TOTALINFO LIKE";
@@ -341,7 +343,7 @@ public class SearchDao {
 		String sql = prop.getProperty("detailListCount");
 		for (int i = 0; i < details.length; i++) {
 			if(i==details.length-1) {
-				sql+="?";
+				sql+="? AND ISTATUS='Y'";
 				break;
 			}
 			sql+="? AND TOTALINFO LIKE";

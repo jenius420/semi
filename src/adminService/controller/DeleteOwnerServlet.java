@@ -38,7 +38,7 @@ public class DeleteOwnerServlet extends HttpServlet {
 		if(result > 0) {
 			response.sendRedirect("ownerList.as");
 		}else {
-			request.setAttribute("msg", "요청을 실패했습니다");
+			request.setAttribute("msg", "회원 탈퇴 요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 	}

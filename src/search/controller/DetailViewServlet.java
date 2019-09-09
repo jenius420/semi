@@ -36,7 +36,6 @@ public class DetailViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int num = Integer.parseInt(request.getParameter("num"));
 		int oNum =Integer.parseInt(request.getParameter("oNum"));
-		System.out.println(oNum);
 		
 		IncruitInfo i = new SearchService().detailView(num);
 		ArrayList<OPhoto> list = new SearchService().incruitPhotos(num);

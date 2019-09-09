@@ -40,10 +40,8 @@ public class ApplicationStateServlet extends HttpServlet {
 		
 		ArrayList<Appliant> list = new EmpServiceService().selectApplicationState(emp.getEmpNum());
 		
-		
-			request.setAttribute("list", list);
-			request.getRequestDispatcher("/views/empService/ApplicationState.jsp").forward(request, response);
-		
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("/views/empService/ApplicationState.jsp").forward(request, response);
 		
 	}
 

@@ -14,7 +14,11 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
-
+<style>
+.speaker-form{
+margin-left:-200px;
+}
+</style>
 </head>
 <body>
 

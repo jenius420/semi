@@ -37,7 +37,7 @@ public class CancleAppliantServlet extends HttpServlet {
 		if(result > 0) {
 			response.sendRedirect("applicationState.es");
 		}else {
-			request.setAttribute("msg", "지원 취소에 실패했습니다");
+			request.setAttribute("msg", "지원 취소 요청을 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
 		

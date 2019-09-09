@@ -27,12 +27,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- --> <!-- 이거때매 안되고있었음........... -->
- 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
  
     <title>BoardList</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -247,7 +242,7 @@
   
 		$(function(){
 			$("#listArea td").mouseenter(function(){
-				$(this).parent().css({"background":"#d9b3ff", "cursor":"pointer","color":"white"});
+				$(this).parent().css({"background":"#d9b3ff", "cursor":"pointer","color":"black"});
 			}).mouseout(function(){
 				$(this).parent().css({"background":"#ffe6f9","color":"black"});
 			}).click(function(){

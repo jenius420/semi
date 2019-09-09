@@ -1,0 +1,161 @@
+﻿
+-- 상품. 프리미엄,기본상품은 잇으면 내용만 수정
+INSERT INTO PRODUCT (PTITLE, PEXPLAIN, PPAY)VALUES ('기본 상품', '공고 검색 시 조회 가능', 0);
+INSERT INTO PRODUCT (PTITLE, PEXPLAIN, PPAY)VALUES ('프리미엄', '메인화면에 노출되며 공고 검색 시 가장 상위에 노출되며 박스 테두리로 강조', 110000);
+INSERT INTO PRODUCT (PTITLE, PEXPLAIN, PPAY)VALUES ('플래티넘', '공고 검색 시 프리미엄 상품을 제외한 모든 상품 보다 상위에 노출', 55000);
+INSERT INTO PRODUCT (PTITLE, PEXPLAIN, PPAY)VALUES ('지역 Grand', '지역 검색 시 상위에 노출', 22000);
+INSERT INTO PRODUCT (PTITLE, PEXPLAIN, PPAY)VALUES ('검색 Focus', '공고 검색 결과에 강조 옵션 추가', 8800);
+
+
+-- 회원
+INSERT INTO EMPLOYEE VALUES (0, 'admin', 'admin', '관리자', '9002030-1495823', null, 434, 'kh정보교육원', '010-0417-5577', 'admin@albamoon.com', 'Y', 'Y', 'N', 0);
+
+INSERT INTO EMPLOYEE VALUES (0, 'user01', 'pwd01', '박규식', '861230-1426248', null, 43537, '뒤돌면우리집', '010-7578-1237', 'sdfwef@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user02', 'pwd02', '최정학', '90430-1934512', null, 54678, '레미안 203호', '010-4345-6575', 'fscg@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user03', 'pwd03', '오정환', '920510-1245692', null, 24567, '찬아트빌 304호', '010-3576-24665', 'efawe@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user04', 'pwd04', '천수진', '920623-2049563', null, 14678, '우남빌딩 2층', '010-3457-2345', 'fweabhndzvc@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user05', 'pwd05', '안사랑', '931115-2459234', null, 356782, '23층', '010-2345-3455', 'dfe@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user06', 'pwd06', '김희원', '750406-1548438', null, 48487, '2층', '010-5487-5487', 'pueur@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user07', 'pwd07', '지만원', '870106-1575458', null, 235762, '', '010-4742-37554', 'edie@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user08', 'pwd08', '오종인', '960705-1574642', null, 75645, '녹색문', '010-5567-1377', 'commit@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user09', 'pwd09', '박성태', '000701-3547512', null, 135877, '현대APT 207-1102', '010-3277-1275', 'gendge@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user10', 'pwd10', '강주연', '930423-2347254', null, 235797, '하얀집', '010-3147-4578', 'ggkz@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user11', 'pwd11', '이미영', '960220-2135757', null, 123467, '3층', '010-3754-5758', 'chired@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user12', 'pwd12', '김선달', '840724-1543254', null, 12457, '레미안 2307호', '010-3241-0125', 'pprkdr@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user13', 'pwd13', '임성택', '821012-1547951', null, 49856, '가장안쪽집', '010-0014-5278', 'pefjkcf@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user14', 'pwd14', '황인', '991115-1547578', null, 48657, '24층', '010-5782-1575', 'oinly@gmail.com', 'Y', 'Y', 'N', 0);
+INSERT INTO EMPLOYEE VALUES (0, 'user15', 'pwd15', '김숙', '861230-2426248', null, 232477, '15층', '010-7578-1237', 'aicekd@gmail.com', 'Y', 'Y', 'N', 0);
+
+
+-- 이력서 + 사진
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'JAVA 4년 경력입니다', '2019-09-09', 'N', '월급', 2000000, 'Y', '고졸 이상');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'JSON 초고수입니다', '2019-08-12', 'N', '시급', 12000, 'Y', '고졸 이상');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='HTML코딩'), 'NEXACRO, ProObject 활용 경력 있습니다', '2019-09-10', 'N', '월급', 2300000, 'Y', '고졸 이상');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'),  (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='웹·모바일기획'), '안녕하세요. 하루하루 개발하며 먹고 사는 사람입니다', '2019-08-30', 'N', '일급', 90000, 'Y', '고졸 이상');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='박규식'), (select districtnum from district where districtname='구로구'), (select typenum from jobtype where typename='QA·테스터·검증'), '저를 뽑아주세욧', '2019-08-22', 'N', '연봉', 30000000, 'Y', '고졸 이상');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST1', 'TEST1.jpg', 'Y'); 
+
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='최정학'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='프로그래머'), '저 모르세요?', '2019-09-08', 'N', '월급', 2100000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST2', 'TEST2.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='최정학'), (select districtnum from district where districtname='구로구'), (select typenum from jobtype where typename='프로그래머'), '웹언어/HTML/CSS/JS/JQUERY/AJAX', '2019-09-02', 'N', '시급', 18000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST2', 'TEST2.jpg', 'Y'); 
+
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='오정환'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='HTML코딩'), 'CISA 자격증 보유중', '2019-09-02', 'N', '월급', 2400000, 'Y', '대졸 이상(4년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST3', 'TEST1.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='오정환'), (select districtnum from district where districtname='구로구'), (select typenum from jobtype where typename='HTML코딩'), '웹퍼블리싱 경력 4년차입니다', '2019-08-30', 'N', '월급', 2400000, 'Y', '대졸 이상(4년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST3', 'TEST1.jpg', 'Y'); 
+
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='천수진'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='QA·테스터·검증'), '어제보다 오늘 더 강해집니다. 열심히 하겠습니다!', '2019-08-26', 'N', '연봉', 50000000, 'Y', '대졸 이상(4년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST7', 'TEST1.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='천수진'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'JAVA 10년 했습니다. 못하면 짜르세요', '2019-08-24', 'N', '월급', 3000000, 'Y', '대졸 이상(4년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST7', 'TEST1.jpg', 'Y'); 
+
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='안사랑'), (select districtnum from district where districtname='서초구'), (select typenum from jobtype where typename='웹·모바일기획'), '홈페이지 제작 횟수 20회', '2019-08-23', 'N', '일급', 1000000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST8', 'TEST8.jpg', 'Y'); 
+INSERT INTO EMPLOYEERESUME VALUES (0, (select enum from employee where ename='안사랑'),  (select districtnum from district where districtname='강남구'), (select typenum from jobtype where typename='프로그래머'), 'KH정보교육원 수석 졸업했습니다. 안 뽑으면 손해입니다', '2019-09-01', 'N', '연봉', 200000000, 'Y', '대졸 이상(2,3년제)');
+INSERT INTO PHOTO VALUES (0, NULL, NULL, NULL, EMPLOYEERESUME_seq.currval, NULL, 'TEST8', 'TEST8.jpg', 'Y'); 
+
+
+
+-- 사업자
+INSERT INTO OWNERINFO VALUES (0, 'TESTID', 'TESTPWD', 'KH정보교육원', '423-45-32425', null, 559103, '남도빌딩', '강보람', '02-562-2378', '9000101-2524843', '010-7621-9018', 'boram@kh.com', 101, 'Y', 'Y', 'N', 'Y');
+INSERT INTO PHOTO VALUES (0, (SELECT ONUM FROM OWNERINFO WHERE OPNAME = 'KH정보교육원'), NULL, NULL, NULL, NULL, 'KH', 'KH.png', 'Y');
+
+
+-- 공고+알바지원
+INSERT INTO INCRUITMEMBER VALUES (0, 'JAVA프로그래밍 강사님 모집합니다', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = 'KH정보교육원'), '월화수목금', '09:00~16:00', 5, '무관', '20대 이상', '대졸 이상(2,3년제)', '2019-09-01', 'Y', '2019-09-16', '월급', '4000000', (select pcode from product where ptitle = '프리미엄'), '밝고 성실한 분 지원해주세요 ^^ 휴가는 없어요^^', '2명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment ='JAVA 4년%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-09', 'F', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like '저 모르세%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-09', 'C', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like 'JAVA 10년 했습니다%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-12', 'UC', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like '웹퍼블리싱 경력%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-11', 'UC', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like 'KH정보교육원 수석%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-02', 'F', null);
+
+INSERT INTO INCRUITMEMBER VALUES (0, 'KH정보교육원 인사팀 1명 구함', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = 'KH정보교육원'), '월화수목금', '09:00~18:00',7, '여자', '20대~30대', '고졸 이상', '2019-09-02', 'Y', '2019-09-23', '월급', '3000000', (select pcode from product where ptitle = '플래티넘'), '인사과 경력이나 프로그래밍 관련 지식 보유자 우대. 칼퇴 보장. 에어컨 빵빵합니다 시원하게 일 합시다^^', '1명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE 'KH정보교육원 수석 졸업했습니다%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-11', 'UC', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE '어제보다 오늘%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-07', 'UC', null);
+
+INSERT INTO INCRUITMEMBER VALUES (0, '정보보안 전문 강사님 모집합니다', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = 'KH정보교육원'), '월수금', '09:00~18:00', 4, '남자', '30대', '대졸 이상(4년제)', '2019-09-04', 'Y', '2019-09-23', '월급', '5000000', (select pcode from product where ptitle = '지역 Grand'), 'CISA 자격증 필수입니다. 집과 가까우신 분 우대', '2명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE 'CISA 자격증%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-07', 'C', null);
+
+INSERT INTO INCRUITMEMBER VALUES (0, 'LG-CNS 웹로밍 프로젝트 JAVA 개발자 모집', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = '스탭포유'), '월화수목금', '09:00~19:00', 4, '무관', '무관', '대졸 이상(2,3년제)', '2019-09-03', 'Y', '2019-09-18', '월급', '4000000', (select pcode from product where ptitle = '검색 Focus'), 'nodeJS 경험자 우대', '1명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE 'JSON 초고수입니다'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-07', 'P', null);
+
+INSERT INTO INCRUITMEMBER VALUES (0, '[급구] 9월말 스마트가구 오픈 지원 개발자 8282', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = '(주)한샘개발'), '월화수목금토일', '09:00~23:00', 3, '무관', '무관', '무관', '2019-09-09', 'Y', '2019-09-12', '일급', '130000', (select pcode from product where ptitle = '프리미엄'), '관련 경력 보유자 우대', '2명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE 'NEXACRO%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-12', 'P, null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE 'JAVA 10년 했습니다%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-10', 'C', null);
+
+INSERT INTO INCRUITMEMBER VALUES (0, '웹언어 강사님 모집합니다', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = 'KH정보교육원'), '화목', '09:00~16:00', 5, '무관', '20대 이상', '대졸 이상(2,3년제)', '2019-06-08', 'N', '2019-08-02', '월급', '4000000', (select pcode from product where ptitle = '검색 Focus'), 'HTML/CSS/JS/JQUERY 필수. JSP,JSON,AJAX,GSON 우대', '1명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE '저를 뽑아%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-06-07', 'F', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE '홈페이지 제작%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-06-09', 'F', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment LIKE '웹퍼블리싱 경력%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-06-10', 'P', null);
+
+INSERT INTO INCRUITMEMBER VALUES (0, 'JAVA프로그래밍 강사님 모집합니다', (SELECT ONUM FROM OWNERINFO WHERE OPNAME = 'KH정보교육원'), '월화수목금', '09:00~16:00', 5, '무관', '20대 이상', '대졸 이상(2,3년제)', '2019-02-09', 'N', '2019-03-16', '월급', '4000000', (select pcode from product where ptitle = '프리미엄'), '밝고 성실한 분 지원해주세요 ^^ 휴가는 없어요^^', '2명');
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment ='JAVA 4년%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-09', 'P', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like '저 모르세%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-09', 'F', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like 'JAVA 10년 했습니다%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-12', 'P', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like '웹퍼블리싱 경력%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-11', 'C', null);
+INSERT INTO APPLIANT VALUES (0, (select rnum from EMPLOYEERESUME where ecomment like 'KH정보교육원 수석%'), INCRUITMEMBER_SEQ.CURRVAL, '2019-09-02', 'C', null);
+
+
+
+--관심기업 
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = 'KH정보교육원'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='최정학'), (select onum from OWNERINFO where opname = 'KH정보교육원'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='오정환'), (select onum from OWNERINFO where opname = 'KH정보교육원'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='천수진'), (select onum from OWNERINFO where opname = 'KH정보교육원'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='안사랑'), (select onum from OWNERINFO where opname = 'KH정보교육원'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '스탭포유'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '(주)한샘개발'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '대산인력'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '지안네트워크'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '템프서비스'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '에이치앤피'), 'N');
+INSERT INTO HOPEENT VALUES (0, (select enum from employee where ename='박규식'), (select onum from OWNERINFO where opname = '(주)엠케이프로모션'), 'N');
+
+
+
+-- 사업자 샘플 전화번호 누락으로 추가
+UPDATE OWNERINFO SET OTEL = '02-124-4341';
+UPDATE OWNERINFO SET OTEL = '02-235-4231' WHERE ONAME LIKE '%김%';
+UPDATE OWNERINFO SET OTEL = '02-622-6431' WHERE ONAME LIKE '%성%';
+UPDATE OWNERINFO SET OTEL = '02-322-6575' WHERE ONAME LIKE '%최%';
+UPDATE OWNERINFO SET OTEL = '02-146-3243' WHERE ONAME LIKE '%은%';
+UPDATE OWNERINFO SET OTEL = '02-863-2457' WHERE ONAME LIKE '%주%';
+UPDATE OWNERINFO SET OTEL = '02-435-2678' WHERE ONAME LIKE '%황%';
+UPDATE OWNERINFO SET OTEL = '02-360-2345' WHERE ONAME LIKE '%오%';
+UPDATE OWNERINFO SET OTEL = '02-446-2345' WHERE ONAME LIKE '%수%';
+UPDATE OWNERINFO SET OTEL = '02-345-2579' WHERE ONAME LIKE '%영%';
+UPDATE OWNERINFO SET OTEL = '02-742-0098' WHERE ONAME LIKE '%상%';
+UPDATE OWNERINFO SET OTEL = '02-345-2345' WHERE ONAME LIKE '%지%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

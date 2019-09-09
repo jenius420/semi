@@ -138,20 +138,18 @@ display:none;
 												<td class="cell100 column5"><%=a.getPhone()%></td>
 												<td class="cell100 column6"><%=a.getEmail()%></td>
 												<td class="cell100 column7"><%=a.getMailAccept()%> / <%=a.getSmsAccept()%></td>
-												<td class="cell100 column8"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteEmp('<%=a.geteName()%>', '<%=a.geteId()%>');">
-												<form action="" id="detailForm" method="post">
-													<input type="hidden" name="eNum" value="<%=a.getEmpNum() %>">
-												</form></td>
+												<td class="cell100 column8"><input type="button" class="gs-btn" style="padding: 10px 10px" value="탈퇴" onclick="deleteEmp('<%=a.geteName()%>', '<%=a.geteId()%>', '<%=a.getEmpNum() %>');">
+							
 											</tr>
 											<%}}}%>
 											
 											<script>		
-												function deleteEmp(name, id){
+												function deleteEmp(name, id, num){
 													
 													var con = confirm(name + "(" + id + ")" + " 회원을 탈퇴시키겠습니까?");
 													
 													if(con){
-														$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEmp.as");
+														$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEmp.as?eNum="+num);
 														$("#detailForm").submit();
 													}else{
 														return false;

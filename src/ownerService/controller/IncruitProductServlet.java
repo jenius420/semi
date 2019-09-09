@@ -33,11 +33,9 @@ public class IncruitProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<IncruitProduct> list = new IncruitProductService().selectIncruitProduct();
-
-
+		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/ownerService/IncruitProduct.jsp").forward(request, response);
-	
 		
 	}
 

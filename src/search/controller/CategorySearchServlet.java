@@ -36,7 +36,6 @@ public class CategorySearchServlet extends HttpServlet {
 		System.out.println("categorySearch.se 실행확인");
 		
 		request.setCharacterEncoding("utf-8");
-//		System.out.println(request.getParameter("currentPage"));
 		String[] category = new String[25];
 		category= request.getParameter("result").split("!");
 		
@@ -73,34 +72,25 @@ public class CategorySearchServlet extends HttpServlet {
 		} else {
 			movePage = Integer.parseInt(mPage);
 		}
-		System.out.println("list movePage"+movePage);
 
 		ArrayList<IncruitInfo> list;
 
 
 		int pageLimit;// 한페이지 하단에 보여질 페이지수
-		int startPage;// 한페이지 하단에 보여질 시작 페이지
 		int endPage;// 한페이지 하단에 보여질 마지막 페이지
 
 		// pageLimit : 한페이지 하단에 보여질 페이지수
 		pageLimit = 10;
 
 		// 현재페이지에보여지는 페이징 바의 시작수
-		startPage = ((movePage - 1) / pageLimit) * pageLimit + 1;
-		// (int)Math.floor((double)currentPage-1)/pageLimit)*pageLimit+1;
 		// 현재페이지에보여지는 페이징 바의 마지막수
 		endPage = ((movePage - 1) / pageLimit) * 10 + 10;
-		// ex)maxPage =13, endPage=20
 		if (endPage > maxPage) {
 			endPage = maxPage;
 		}
-		System.out.println("movePage :"+movePage);
 		int start = (movePage - 1) * boardLimit + 1;
 		int end = (movePage - 1) * boardLimit + 20;
-		System.out.println("시작끝"+start+",,"+end);
-		System.out.println("check12"+category[0]);
 		if (category[0]=="") {
-			System.out.println("확인");
 			list =new SearchService().allList(start,end);
 		} else {
 			

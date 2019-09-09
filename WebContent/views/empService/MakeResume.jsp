@@ -25,6 +25,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/views/member/js/joinOwnJs.js"></script>
 
+<style>
+.speaker-form{
+margin-left:-200px;
+}
+</style>
 
 </head>
 <body>
@@ -75,7 +80,7 @@
 	
 				<div class='form-row'>
 				  <label class="lLabel">이름</label><p class="rLabel" style="width:180px;"><%=eName %></p>
-				  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>';">개인정보 수정하기</button>
+				  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>/checkEmpPwd.me';">개인정보 수정하기</button>
 				</div>
 				<div class='form-row'>
 				  <label class="lLabel">나이/성별</label><p class="rLabel" style="width:180px;"><%=age %> <%=gender %></p>

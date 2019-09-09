@@ -40,8 +40,6 @@ public class ManageResumeServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 
-
-//		Emp emp = new EmpServiceService().selectEmp(1);
 		Emp emp = (Emp)request.getSession().getAttribute("emp");
 		
 		System.out.println(emp);
