@@ -37,8 +37,6 @@ public class BoardSearchServlet extends HttpServlet {
 		
 		String category = request.getParameter("category");
 		String sText = request.getParameter("sText");
-		System.out.println("ser1:"+category);
-		System.out.println("ser2:"+sText);
 		ArrayList<Board> list = new BoardService().boardSearch(category,sText);
 		int listCount = new BoardService().getSearchListCount(category,sText);
 		

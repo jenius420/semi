@@ -162,8 +162,6 @@
 						<th colspan="6"  style="text-align:center">첨부 사진</th>
 					</tr> 
 					<tr>
-						
-						
 					<% for(int i=0; i<fileList.size(); i++){%>
 							<td colspan="2" class="photo">
 									<div class="detailImgArea" style="width:250" style="height:200">
@@ -250,7 +248,6 @@
 	<script>
 		function updateForm(){
 			//location.href="<%=request.getContextPath()%>/updateForm.bo?tNum=" + <%= b.gettNum() %>;
-			// 위의 방식대로 하면 url에 그대로 노출.. --> 직접 url창에 타고 들어갈수있다!!!
 			
 			$("#detailForm").attr("action", "<%=request.getContextPath()%>/updateForm.bo");
 			$("#detailForm").submit();
@@ -261,11 +258,7 @@
 			$("#detailForm").submit();
 		}
 		
-
-		// 댓글 리스트 출력하는 함수
 		function selectRlist(){
-			
-			// 전달하고자 하는 게시글 번호
 			var tNum = <%= b.gettNum() %>;
 			
 			$.ajax({
@@ -274,9 +267,9 @@
 				type:"get",
 				success:function(list){
 					
-					var $replyTable = $("#replySelectTable"); // <table></table>
+					var $replyTable = $("#replySelectTable"); 
 					
-					$replyTable.html(""); // 기존 테이블 정보 초기화
+					$replyTable.html(""); 
 					
 					$.each(list, function(index, value){
 						
@@ -288,11 +281,8 @@
 						$tr.append($eName);
 						$tr.append($commentExplain);
 						$tr.append($enrollDate);
-						
 						$replyTable.append($tr);
-						
-					});
-					
+					});				
 				},
 				error:function(){
 					console.log("통신 실패");

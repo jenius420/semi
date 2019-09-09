@@ -339,8 +339,6 @@ private Properties prop = new Properties();
 				
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, b.geteNum());
-				/*pstmt.setString(2, at.getFilePath());*/
-				/*pstmt.setInt(2, b.gettNum());*/
 				pstmt.setString(2, at.getOriginName());
 				pstmt.setString(3, at.getChangeName());
 				
@@ -583,13 +581,11 @@ private Properties prop = new Properties();
 	 * @param sText
 	 * @return
 	 */
-	public ArrayList<Board> selectSearchList(Connection conn, String category, String sText/*, int currentPage, int boardLimit*/){
+	public ArrayList<Board> selectSearchList(Connection conn, String category, String sText){
 		
-		ArrayList<Board> list = new ArrayList<>();	
-		
+		ArrayList<Board> list = new ArrayList<>();			
 		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
+		ResultSet rset = null;		
 		String sql = null;
 		
 		if(category.equals("title")) {	
@@ -605,13 +601,6 @@ private Properties prop = new Properties();
 			
 			pstmt.setString(1, "%"+sText+"%");
 			System.out.println(sText);
-			
-			
-			/*int startRow = 1;
-			int endRow = 100;
-			
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);*/
 			
 			rset = pstmt.executeQuery();
 			
