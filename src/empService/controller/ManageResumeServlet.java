@@ -43,7 +43,9 @@ public class ManageResumeServlet extends HttpServlet {
 
 //		Emp emp = new EmpServiceService().selectEmp(1);
 		Emp emp = (Emp)request.getSession().getAttribute("emp");
-		System.out.println("log2"+emp);
+		
+		System.out.println(emp);
+
 		ArrayList<Resume> list = new ResumeService().selectResumeList(emp.getEmpNum());
 
 		request.setAttribute("list", list);
