@@ -134,10 +134,10 @@
 				 <%} %> 
 			<% } %>
 		<% } %>		
-    	
- <!--    	<tr>
+	
+	 	<tr>
     		<td colspan="5" style="cursor:default"></td>
-    	</tr> -->
+    	</tr>
  
      	<% if(list.isEmpty()){ %>
 		<tr>

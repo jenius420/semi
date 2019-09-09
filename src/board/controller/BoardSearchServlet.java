@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import board.model.service.BoardService;
 import board.model.vo.Board;
+import common.model.vo.PageInfo;
 
 /**
  * Servlet implementation class BoardSearchServlet
@@ -43,7 +44,42 @@ public class BoardSearchServlet extends HttpServlet {
 		System.out.println(list);
 		int listCount = new BoardService().getSearchListCount(category,sText);
 		
+		
+		
+		
+		int currentPage;   		
+		int pageLimit;			
+		int maxPage;			
+		int startPage;			
+		int endPage;			
+		
+		int boardLimit = 10;			
+		
+		currentPage=1;
+		
+
+		if(request.getParameter("currentPage") != null) {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		pageLimit = 10;
+		
+		maxPage = (int)Math.ceil((double) listCount/boardLimit);
+			
+		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
+		
+		endPage = startPage + pageLimit -1;
+		
+
+		if(maxPage < endPage) {
+			endPage = maxPage; 
+		}
+		
+		PageInfo pi = new PageInfo(currentPage, listCount, pageLimit, maxPage, startPage, endPage, boardLimit);
+		
+
 		request.setAttribute("list", list);
+		request.setAttribute("pi", pi);
 		
 		request.getRequestDispatcher("views/board/boardListView.jsp").forward(request, response);
 		
