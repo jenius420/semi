@@ -83,8 +83,10 @@
     
     <div>
         <div class="esm1">회원 정보</div>
+
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/updateEmp.me';">회원 정보 변경</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/deleteForm.me'">회원탈퇴</div>
+
     </div>
     <div class="space"></div>
     
