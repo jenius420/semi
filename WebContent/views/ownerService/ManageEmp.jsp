@@ -204,8 +204,10 @@ font-size: 14px !important;
 					 		
 					 		if(cb[0].checked){
 					 			doneIncruitTable[0].style.display = "none";
+					 			doneIncruitTable[1].style.display = "none";
 					 		}else{
 					 			doneIncruitTable[0].style.display = "block";
+					 			doneIncruitTable[1].style.display = "block";
 					 		}
 					 	}
 		   			 </script>
