@@ -76,10 +76,8 @@ public class SubmitResumeServlet extends HttpServlet {
 				
 			}
 	
-		
 			int empNum = emp.getEmpNum();
 			int districtNum = Integer.parseInt(multiRequest.getParameter("districtNum"));
-			//int typeNum = Integer.parseInt(multiRequest.getParameter("typeNum"));
 			String edu =multiRequest.getParameter("edu");
 			String subCategory =multiRequest.getParameter("subCategory");
 			String desireForm = multiRequest.getParameter("desireForm");
@@ -91,7 +89,6 @@ public class SubmitResumeServlet extends HttpServlet {
 			
 			resume.setEmpNum(empNum);
 			resume.setDistrictNum(districtNum);
-			//resume.setTypeNum(typeNum);
 			resume.setEdu(edu);
 			resume.setDesireForm(desireForm);
 			resume.setDesireIncome(desireIncome);
@@ -120,9 +117,7 @@ public class SubmitResumeServlet extends HttpServlet {
 			}
 		}
 		
-
 	}
-	
 	
 
 	/**

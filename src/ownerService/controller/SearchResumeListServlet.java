@@ -54,8 +54,6 @@ public class SearchResumeListServlet extends HttpServlet {
 
 		filter.setDistrictNum(Integer.parseInt(request.getParameter("districtNum")));
 		filter.setFinalEdu(request.getParameter("edu"));
-//		filter.setSubCategory(request.getParameter("subCategory"));
-//		filter.setBigCategory(request.getParameter("bigCategory"));
 		filter.setGender(request.getParameter("gender"));
 		filter.setAgeType(request.getParameter("ageType"));
 		
@@ -67,15 +65,13 @@ public class SearchResumeListServlet extends HttpServlet {
 		ArrayList<District> dList = new CommonService().selectDistrictList();
 		ArrayList<JobType> tList = new CommonService().selectTypeList();
 		
-		
 		request.setAttribute("dList", dList);
 		request.setAttribute("tList", tList);
 		request.setAttribute("list", list2);
 		request.setAttribute("filter", filter);
 		request.setAttribute("keyword", keyword);
 		request.getRequestDispatcher("/views/ownerService/SearchResume.jsp").forward(request, response);
-	
-		
+
 	}
 
 	/**

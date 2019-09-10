@@ -37,8 +37,6 @@
    text-align: center;
 }
 
-
-
 .cell100 input, .cell100 textarea{
 margin:auto; 
 text-align:center;
@@ -53,10 +51,10 @@ border:2px solid #df9dfb !important;
 
 }
 
-
 td:hover{
 cursor: default !important;
 }
+
 </style>
 
 </head>
@@ -77,7 +75,6 @@ cursor: default !important;
 		<div id="content-left"><%@ include file="../adminService/AdminServiceMenubar.jsp"%></div>
 		
 		<div id="content-center">
-		
 		
 			<form action="" id="detailForm" method="post">
 				<!--===============================================================================================-->	
@@ -101,17 +98,13 @@ cursor: default !important;
 								<div class="table100-body js-pscroll">
 									<table>
 										<tbody>
-										
 											<tr class="row100 body" style="height:200px; ">
-		
 												<td class="cell100 column1"><input type="text" name="newpTitle"  style="width:200px;"></td>
 												<td class="cell100 column2"><textarea name="newpExplain" rows="3" cols="50"></textarea> <!-- style="width:450px; min-height:80px; -->
 												<td class="cell100 column3"><input type="text" name="newpPay"></td>
 												<td class="cell100 column4">
-													<input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="enrollProduct();">						
-														<!-- <input type="hidden" name="sevalNum" value=""> -->						
+													<input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="enrollProduct();">										
 												</td>
-												
 											</tr>
 											<tr style="height:50px;> <td colspan="4" ></td></tr>
 											<%int count = 0; %>
@@ -153,7 +146,6 @@ cursor: default !important;
 					}
 				}
 			</script>
-
 
 			</div> <!-- /메인콘텐트 -->
 			

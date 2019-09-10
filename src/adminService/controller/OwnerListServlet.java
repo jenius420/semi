@@ -32,13 +32,12 @@ public class OwnerListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 
 		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
 		
-		
 		request.setAttribute("ownerList", ownerList);
 		request.getRequestDispatcher("/views/adminService/OwnerList.jsp").forward(request, response);
+		
 	}
 
 	/**

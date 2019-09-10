@@ -35,8 +35,8 @@ public class EmpListServlet extends HttpServlet {
 		
 		ArrayList<Emp> empList = new ManageMemService().selectEmpList();
 
-			request.setAttribute("empList", empList);
-			request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
+		request.setAttribute("empList", empList);
+		request.getRequestDispatcher("/views/adminService/EmpList.jsp").forward(request, response);
 
 	}
 

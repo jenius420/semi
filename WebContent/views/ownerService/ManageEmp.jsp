@@ -10,7 +10,6 @@
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
@@ -39,21 +38,23 @@
   width: 10%;
    text-align: center;
 }
+
 .column5 {
   width: 10%;
    text-align: center;
 }
+
 .column6 {
   width: 7%;
    text-align: center;
 }
-
 
 .column00 {
   width: 10%;
 
    text-align: center;
 }
+
 .column11 {
   width: 10%;
 
@@ -94,17 +95,18 @@
 .doneIncruit{
 background-color:#d4b3ff !important;
 }
+
 .doneIncruit2{
 color:#a6a6a6 !important;
 }
 
 input[type=checkbox]+label:before{
-
 border: 2px solid gray;
 height:1.8em;
 width:1.3em;
 padding-left:2px;
 }
+
 .head th{
 font-size: 14px !important;
 }
@@ -112,8 +114,8 @@ font-size: 14px !important;
 </style>
 
 </head>
-<body>
 
+<body>
 
 <div id="div">
 
@@ -171,10 +173,14 @@ font-size: 14px !important;
 																<td class="cell100 column44 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">희망 <%=r.getDesireForm()%> <%=r.getDesireIncome()%>원</td>
 																<td class="cell100 column55 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">(지원일)&nbsp;<%=alist.get(j).getApplyDate()%></td>
 																<td class="cell100 column66 <%if(i.getStatus().equals("N")){%>doneIncruit2<%}%>">
-																	<%if(alist.get(j).getPassOrFail().equals("UC")){%>사장님 확인전
-																	<%}else if(alist.get(j).getPassOrFail().equals("C")){%>사장님 확인함
-																	<%}else if(alist.get(j).getPassOrFail().equals("P")){%>합격
-																	<%}else if(alist.get(j).getPassOrFail().equals("F")){%>탈락
+																	<%if(alist.get(j).getPassOrFail().equals("UC")){%>
+																		사장님 확인전
+																	<%}else if(alist.get(j).getPassOrFail().equals("C")){%>
+																		사장님 확인함
+																	<%}else if(alist.get(j).getPassOrFail().equals("P")){%>
+																		합격
+																	<%}else if(alist.get(j).getPassOrFail().equals("F")){%>
+																		탈락
 																	<%}%>
 																	<%if(r.getInvalid().equals("Y")){ %>
 																		(이력서 삭제됨)
@@ -183,46 +189,40 @@ font-size: 14px !important;
 																<td class="cell100 column77"></td>
 															</tr>	
 												<%break;}}}%>
-												
 											</tbody>
-											</table>
-										</div>
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!--===============================================================================================-->	
-					<%} %>
-					 <script>
-					 	function selectIncruit(rNum){
-							location.href='<%=request.getContextPath()%>/examineResume.os?rNum='+ rNum;
-						}
-					 	
-					 	function hideDoneIncruitTable(){
-					 		var cb = document.getElementsByName("checkbox1");
-					 		var doneIncruitTable = document.getElementsByClassName("doneIncruitTable");
-					 		
-					 		if(cb[0].checked){
-					 			doneIncruitTable[0].style.display = "none";
-					 			doneIncruitTable[1].style.display = "none";
-					 		}else{
-					 			doneIncruitTable[0].style.display = "block";
-					 			doneIncruitTable[1].style.display = "block";
-					 		}
-					 	}
-		   			 </script>
-		   			 
-		   			 
-		   			 <br><br><br><br><br><br><br><br><br><br><br>
-			
-				
-				
-					<div>
-
 					</div>
-					
+					<!--===============================================================================================-->	
+				<%} %>
+				
+				 <script>
+				 	function selectIncruit(rNum){
+						location.href='<%=request.getContextPath()%>/examineResume.os?rNum='+ rNum;
+					}
+				 	
+				 	function hideDoneIncruitTable(){
+				 		var cb = document.getElementsByName("checkbox1");
+				 		var doneIncruitTable = document.getElementsByClassName("doneIncruitTable");
+				 		
+				 		if(cb[0].checked){
+				 			for(var i=0; i<doneIncruitTable.size(); i++){
+					 			doneIncruitTable[i].style.display = "none";
+				 			}
+				 		}else{
+				 			for(var i=0; i<doneIncruitTable.size(); i++){
+				 				doneIncruitTable[0].style.display = "block";
+				 			}
+				 		}
+				 	}
+	   			 </script>
+		   			 	 
+	    	<br><br><br><br><br><br><br><br><br><br><br>		
 
-			</div> <!-- /메인콘텐트 -->
+		</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>
 	

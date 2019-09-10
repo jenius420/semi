@@ -38,6 +38,7 @@ margin-left:0;
 margin-right:0;
 margin-top: 100px;
 }
+
 .gogo{
 margin-top:100px;
 display: inline-block;
@@ -50,15 +51,15 @@ width: 30%;
 }
 
 </style>
+
 </head>
+
 <body>
 	
 	<div class="outer">
-		<div class="top">
-		</div>
+		<div class="top"></div>
 		<div class="top">
 	        <img src="<%= request.getContextPath()%>/resources/images/error2.jpg"  width="400">
-
 		</div>
 		<div class="top" >
 			<h1>Error  &nbsp;:(</h1>
@@ -71,8 +72,6 @@ width: 30%;
 			<h4 style="color:#c180ff;">"<%= msg %>"</h4>
 			<h4 style="color:#dab3ff;">"<%= msg %>"</h4>
 			<h4 style="color:#f3e6ff;">"<%= msg %>"</h4>
-			
-			
 		</div>
 	</div>
 	
@@ -81,7 +80,6 @@ width: 30%;
 		<div class="gogo">
 		<div class="goBack" onclick="history.back();">이전 화면으로</div> &nbsp;&nbsp;&nbsp;
 			  <div class="goMain" onclick="location.href='<%=request.getContextPath()%>'">메인으로</div>
-			
 		</div>
 		<div class="gogo"></div>
 	</div>

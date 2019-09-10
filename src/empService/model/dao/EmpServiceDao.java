@@ -104,41 +104,7 @@ public class EmpServiceDao {
 
 		return result;
 		
-		
 	}
-	
-//	디컴
-//	public ArrayList<Integer> selectInterestOwnerNum(Connection conn, int empNum){
-//		
-//		ArrayList<Integer> list = new ArrayList<>();
-//		
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		String sql = prop.getProperty("selectInterestOwnerNum");
-//		
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setInt(1, empNum);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				
-//				list.add(rs.getInt("ONUM"));
-//
-//			}
-//			
-//		}catch (SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			close(rs);
-//			close(pstmt);
-//		}
-//		
-//		return list;
-//		
-//	}
 	
 	public int checkAddHopeEnt(Connection conn, int eNum, int oNum) {
 		

@@ -35,11 +35,9 @@ public class ManageProductServlet extends HttpServlet {
 		
 		ArrayList<IncruitProduct> list = new ManageIncruitService().selectProductList();
 		
-		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/views/adminService/ManageProduct.jsp").forward(request, response);
-	
-		
+
 	}
 
 	/**

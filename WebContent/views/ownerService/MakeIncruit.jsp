@@ -12,13 +12,15 @@
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
+
 <style>
+
 .speaker-form{
 margin-left:-200px;
+
 }
 </style>
 </head>
@@ -52,7 +54,6 @@ margin-left:-200px;
 					
 					<br><br>
 					
-		
 					<div class='form-row'>
 					  <label class="lLabel">업체명</label><p class="rLabel" style="width:180px;"><%=owner.getOpName() %></p>
 					  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>';">개인정보 수정하기</button>
@@ -94,14 +95,14 @@ margin-left:-200px;
 					</div>
 		
 					<div class='form-row'>
-					  <label class='lLabel' for='workDay'><span>근무 요일</span></label>
-						  <input id='workDay1' name='workDay' type='checkbox' value='월'/><label class='checkbox-label' for='workDay1' style=""><span>월</span></label>
-							<input id='workDay2' name='workDay' type='checkbox' value='화'/><label class='checkbox-label' for='workDay2'><span>화</span></label>
-							<input id='workDay3' name='workDay' type='checkbox' value='수'/><label class='checkbox-label' for='workDay3'><span>수</span></label>
-							<input id='workDay4' name='workDay' type='checkbox' value='목'/><label class='checkbox-label' for='workDay4'><span>목</span></label>
-							<input id='workDay5' name='workDay' type='checkbox' value='금'/><label class='checkbox-label' for='workDay5'><span>금</span></label>
-							<input id='workDay6' name='workDay' type='checkbox' value='토'/><label class='checkbox-label' for='workDay6'><span>토</span></label>
-							<input id='workDay7' name='workDay' type='checkbox' value='일'/><label class='checkbox-label' for='workDay7'><span>일</span></label>
+						<label class='lLabel' for='workDay'><span>근무 요일</span></label>
+						<input id='workDay1' name='workDay' type='checkbox' value='월'/><label class='checkbox-label' for='workDay1' style=""><span>월</span></label>
+						<input id='workDay2' name='workDay' type='checkbox' value='화'/><label class='checkbox-label' for='workDay2'><span>화</span></label>
+						<input id='workDay3' name='workDay' type='checkbox' value='수'/><label class='checkbox-label' for='workDay3'><span>수</span></label>
+						<input id='workDay4' name='workDay' type='checkbox' value='목'/><label class='checkbox-label' for='workDay4'><span>목</span></label>
+						<input id='workDay5' name='workDay' type='checkbox' value='금'/><label class='checkbox-label' for='workDay5'><span>금</span></label>
+						<input id='workDay6' name='workDay' type='checkbox' value='토'/><label class='checkbox-label' for='workDay6'><span>토</span></label>
+						<input id='workDay7' name='workDay' type='checkbox' value='일'/><label class='checkbox-label' for='workDay7'><span>일</span></label>
 					</div>
 					
 					<div class='form-row'>
@@ -123,13 +124,6 @@ margin-left:-200px;
 					<div class='form-row'>
 					  <label for='workAge1'>희망 연령</label>
 					  <input id='workAge' name='workAge' type='text' style="width:150px; margin-bottom:10px;"/>
-					  <!-- 
-					  <input id='workAge1' name='workAge1' type='text' style="width:50px; margin-bottom:10px;"/>
-					  <p class="rLabel"  style="width:35px; padding:2px 0px;">세 ~ </p>
-					  <input id='workAge2' name='workAge2' type='text' style="width:50px; margin-bottom:10px;"/>
-					  <p class="rLabel" style="width:40px; padding:2px 0px; max-width: 30px;">세</p>
-					  <input id='workAgeCheck' name='workAgeCheck' type='checkbox' value='Y'/><label class='checkbox-label' for='workAgeCheck'><span>무관</span></label>  
-						 -->
 					</div>
 					
 					<div class='form-row'>
@@ -144,7 +138,7 @@ margin-left:-200px;
 					<div class='form-row'>
 					  <label for='workEdu'>희망 학력</label>
 					  <select id='workEdu' name='workEdu' style="width:150px;">
-					 	 <option value='무관'>무관</option>
+					 	<option value='무관'>무관</option>
 					    <option value='대졸 이상(4년제)'>대졸 이상(4년제)</option>
 					    <option value='대졸 이상(2,3년제)'>대졸 이상(2,3년제)</option>
 					    <option value='고졸 이상'>고졸 이상</option>
@@ -195,7 +189,6 @@ margin-left:-200px;
 					  <textarea id='rExplain' name='rExplain' style="min-height: 200px;"></textarea>
 					</div>
 		
-					
 					<div class='form-row'>
 					  <button type="submit" class="btn" onclick="return submitCheck();">저장하기</button>
 					</div>
@@ -213,8 +206,8 @@ margin-left:-200px;
 					</script>
 	
 				</form>
+				
 			</div>
-
 
 		</div> <!-- /메인콘텐트 -->
 			

@@ -44,7 +44,6 @@ public class UpdateResumeServlet extends HttpServlet {
 		
 		Emp emp = (Emp)request.getSession().getAttribute("loginUser");
 		
-		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			
 			int maxSize = 1024 * 1024 * 10;
@@ -100,8 +99,6 @@ public class UpdateResumeServlet extends HttpServlet {
 			at.setChangeName(changeName);
 			
 			int result = new ResumeService().updateResume(resume, at);
-			
-			
 			
 			if(result > 0) {
 				request.setAttribute("msg", "이력서 수정 성공");	

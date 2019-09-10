@@ -14,11 +14,6 @@ import ownerService.model.vo.Incruit;
 
 public class EmpServiceService {
 
-	/**
-	 * 알바 지원 현황
-	 * @param emp
-	 * @return 세션유저가 지원한 알바 리스트
-	 */
 	public ArrayList<Appliant> selectApplicationState(int empNum) {
 
 		Connection conn = getConnection();

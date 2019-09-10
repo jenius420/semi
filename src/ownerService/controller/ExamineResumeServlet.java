@@ -33,7 +33,6 @@ public class ExamineResumeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		int rNum = Integer.parseInt(request.getParameter("rNum"));
@@ -43,9 +42,6 @@ public class ExamineResumeServlet extends HttpServlet {
 		Resume resume = new IncruitService().selectResume(rNum);
 		Attachment at = new ResumeService().selectAttachment(rNum);
 		Appliant ap = new IncruitService().selectAppliant(rNum);
-		
-		
-		
 		
 		if(resume != null) {
 			request.setAttribute("resume", resume);

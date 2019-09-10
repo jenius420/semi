@@ -49,8 +49,6 @@ public class UpdateProductServlet extends HttpServlet {
 			request.setAttribute("msg", "상품정보 수정에 실패했습니다");
 			request.getRequestDispatcher("/views/common/errorPage.jsp").forward(request, response);
 		}
-		
-
 	}
 
 	/**

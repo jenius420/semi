@@ -25,12 +25,12 @@ avg2 = (double)(Math.round(sum*10/eList.size()))/10;// 구직자 평점
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
 <link rel="stylesheet" type="text/css" href="resources/css/starability-all.min.css">
 <%@ include file="../common/includeTable.jsp"%>
+
 <script>
 function pop(){
  var str = <%=msg%>;
@@ -39,7 +39,6 @@ function pop(){
  }
 return;
 }
-
 window.onload = pop;
 </script>
 
@@ -48,7 +47,6 @@ window.onload = pop;
 .speaker-form{
 margin-left:-200px;
 }
-
 
 .divArea{
 display: inline-block;
@@ -85,9 +83,10 @@ margin: 30px;
 }
 
 </style>
-</head>
-<body>
 
+</head>
+
+<body>
 
 <div id="div">
 
@@ -108,13 +107,13 @@ margin: 30px;
 			<div class="outer">
 	
 				<form action="<%=request.getContextPath()%>/apply.es" method="post" class='speaker-form'  style="width:1150px; height: 850px;">
-				<input type="hidden" name="wNum" value="<%=i.getwNum() %>">
+					<input type="hidden" name="wNum" value="<%=i.getwNum() %>">
 					
 					<div class='form-row' style="border-bottom: 1px solid gray" >
 					  <label for='full-name' style="width:auto; margin-bottom:15px;"><%=i.getwTitle() %></label>
 					</div>
 					
-						<br><br>
+					<br><br>
 						
 					<div class="divArea" style="vertical-align: top;">
 					
@@ -128,26 +127,29 @@ margin: 30px;
 							</div>
 							
 							<div class='form-row'>	
-							  <label class='lLabel'>전화번호 |</label><p class="rLabel">
-							  	<%if(owner.getoTel() == null){%>
-							  	 	없음
-							  	 <%}else{ %>
-							  	 	<%=owner.getoTel()%>
-							  	 <%}%>
-							  </p>
+							  <label class='lLabel'>전화번호 |</label>
+								  <p class="rLabel">
+								  	<%if(owner.getoTel() == null){%>
+								  	 	없음
+								  	 <%}else{ %>
+								  	 	<%=owner.getoTel()%>
+								  	 <%}%>
+								  </p>
 							</div>
 							
 							<div class='form-row'>
-							  <label class='lLabel'>주소 |</label> <p class="rLabel">
-								<%if(owner.getRoadName() != null){%>
-							  	 	<%=owner.getDistrict()%> <%=owner.getRoadName()%> <%=owner.getRoadMain()%>
-							  	 <%}else{ %>
-							  	 	<%if(owner.getOpAddress() !=null){%>
-							  	 		<%=owner.getOpAddress()%>
-							  	 	<%}else{ %>
-							  	 		미확인
-							  	 	<%}%>
-							  	 <%}%></p>
+							  <label class='lLabel'>주소 |</label>
+							  	<p class="rLabel">
+									<%if(owner.getRoadName() != null){%>
+								  	 	<%=owner.getDistrict()%> <%=owner.getRoadName()%> <%=owner.getRoadMain()%>
+								  	 <%}else{ %>
+								  	 	<%if(owner.getOpAddress() !=null){%>
+								  	 		<%=owner.getOpAddress()%>
+								  	 	<%}else{ %>
+								  	 		미확인
+								  	 	<%}%>
+								  	 <%}%>
+								 </p>
 							</div>
 							
 							<div class='form-row'>
@@ -160,29 +162,27 @@ margin: 30px;
 							 	 <%for(int j=1; j<=avg; j++){ %>
 								    <div class="tt" style="margin-top:4px;"></div>
 							    <% }%>
-							    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="rlabel" >참여:<%=eList.size() %>건</label>
+							    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							    <label class="rlabel" >참여:<%=eList.size() %>건</label>
 							</div>
 						</div>
 						
 						
 						<div style="margin-top:80px; margin-left:60px; width:80%; align-items: center; ">
 							<%for(EmpEvaluation e : eList) {%>
-							<div class="evalArea">
-								<div>
-									<%=e.geteId()%> &nbsp;|&nbsp; <%=e.getEnrollDate()%>&nbsp; |&nbsp;
-				
-								    <%for(int j=1; j<=e.getSevalPoint(); j++){ %>
-								    <div class="tt"></div>
-								    <% }%>
+								<div class="evalArea">
+									<div>
+										<%=e.geteId()%> &nbsp;|&nbsp; <%=e.getEnrollDate()%>&nbsp; |&nbsp;
+									    <%for(int j=1; j<=e.getSevalPoint(); j++){ %>
+									   		<div class="tt"></div>
+									    <% }%>
+									</div>
+									<div style="margin-top:7px;">
+										&quot;<%=e.geteComment()%>&quot;
+									</div>
 								</div>
-								<div style="margin-top:7px;">
-									&quot;<%=e.geteComment()%>&quot;
-								</div>
-							</div>
 							<%} %>
 						</div>
-						
-						
 					</div>
 						
 						
@@ -193,50 +193,48 @@ margin: 30px;
 						</div>
 		
 						<div class='form-row'>
-						  <label class='lLabel' for='workDay'><span>근무 요일 |</span></label>
+							<label class='lLabel' for='workDay'><span>근무 요일 |</span></label>
 							<label  class="rlabel"><%=i.getWorkDay() %></label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel' for='termNo'>근무 기간 |</label>
-						   <label class="rlabel"><%=i.getTermName() %>(<%=i.getTermBigName() %>)</label>
-	
+							<label class='lLabel' for='termNo'>근무 기간 |</label>
+							<label class="rlabel"><%=i.getTermName() %>(<%=i.getTermBigName() %>)</label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel' for='workTime'>근무 시간 |</label>
+							<label class='lLabel' for='workTime'>근무 시간 |</label>
 							<label  class="rlabel"><%=i.getWorkTime() %></label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel' for='workAge1'>희망 연령 |</label>
-						<label class="rlabel"><%=i.getAge() %></label>
+							<label class='lLabel' for='workAge1'>희망 연령 |</label>
+							<label class="rlabel"><%=i.getAge() %></label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel' for='workGender'>희망 성별 |</label>
-						  <label  class="rlabel" ><%=i.getGender()%></label>
-			
+							<label class='lLabel' for='workGender'>희망 성별 |</label>
+							<label  class="rlabel" ><%=i.getGender()%></label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel'for='workEdu'>희망 학력 |</label>
-						  <label  class="rlabel" ><%=i.getEdu()%></label>
+							<label class='lLabel'for='workEdu'>희망 학력 |</label>
+							<label  class="rlabel" ><%=i.getEdu()%></label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel' for='workForm'>희망 급여 |</label>
-						  <label  class="rlabel" ><%=i.getSalaryForm()%> <%=i.getSalary()%>원</label>
+							<label class='lLabel' for='workForm'>희망 급여 |</label>
+							<label  class="rlabel" ><%=i.getSalaryForm()%> <%=i.getSalary()%>원</label>
 						</div>
 						
 						<div class='form-row'>
-						  <label class='lLabel' for='peopleCount'>모집 인원 |</label>
-							 <label  class="rlabel" ><%=i.getPeopleCount()%></label>
+							<label class='lLabel' for='peopleCount'>모집 인원 |</label>
+							<label  class="rlabel" ><%=i.getPeopleCount()%></label>
 						</div>
 		
 						<div class='form-row'>
-						  <label class='lLabel' for='rExplain'>상세 내역 |</label>
-						  <textarea  class="rlabel" style="background-color: #f6f2fa; border-color: #f6f2fa; font-weight: 700; font-size: inherit; padding:2px; " cols="30" rows="7" ><%=i.getDescription()%></textarea>
+							<label class='lLabel' for='rExplain'>상세 내역 |</label>
+							<textarea  class="rlabel" style="background-color: #f6f2fa; border-color: #f6f2fa; font-weight: 700; font-size: inherit; padding:2px; " cols="30" rows="7" ><%=i.getDescription()%></textarea>
 						</div>
 						
 						<div class='form-row' style="height:50px; padding-top:0px; ">
@@ -249,11 +247,11 @@ margin: 30px;
 						</div>
 						
 						<div class='form-row' style="margin-top:300px;">
-						  <button type="submit" class="btn" onclick="return submitCheck();" style="margin-left: 50px;">지원하기</button>
-						   <button type="button" class="btn" onclick="location.href='<%=request.getContextPath()%>/interestOwner.es';" style="margin-left:20px; padding-left:30px; padding-right:30px;">뒤로가기</button>
+							<button type="submit" class="btn" onclick="return submitCheck();" style="margin-left: 50px;">지원하기</button>
+							<button type="button" class="btn" onclick="location.href='<%=request.getContextPath()%>/interestOwner.es';" style="margin-left:20px; padding-left:30px; padding-right:30px;">뒤로가기</button>
 						</div>
-		
 					</div>
+					
 					<br><br>
 
 					<script>
@@ -267,7 +265,9 @@ margin: 30px;
 							}
 						}
 					</script>
+					
 				</form>
+				
 			</div>
 		
 			</div> <!-- /메인콘텐트 -->
