@@ -182,7 +182,7 @@ font-size: 14px !important;
 																</td>
 																<td class="cell100 column77"></td>
 															</tr>	
-												<%}}}%>
+												<%break;}}}%>
 												
 											</tbody>
 											</table>
