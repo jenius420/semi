@@ -70,7 +70,7 @@ margin-right: 0px;
 
 .goInput{
 margin-left:20px;
-width:200px;
+width:150px;
 box-shadow: 3px 3px 4px rgba(0, 0, 0.15, 0.15);
 margin-right: 0px;
 
@@ -97,6 +97,11 @@ font-size:13px;
 font-style: italic;
 opacity: 0.7;
 font-weight: bold;
+
+}
+
+#keyword{
+width:150px;
 }
 
 
@@ -280,9 +285,9 @@ border-radius: 40px;
 				</div>
 			
 				
-				<div class="filter" style="margin-right: 0;">
+				<div class="filter" style="margin-right: 0; ">
 					<div class="searchArea goInput">
-						<input id="keyword" type="text" placeholder="자기소개 키워드 검색..." value="<%if(keyword != null){%><%=keyword%><%}%>" onkeyup="enterkey();">
+						<input id="keyword" type="text" "placeholder="자기소개 키워드 검색..." value="<%if(keyword != null){%><%=keyword%><%}%>" onkeyup="enterkey();">
 					</div>
 					<div class="searchArea go" onclick="searchResume();"></div>
 				</div>
