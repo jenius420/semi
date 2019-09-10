@@ -9,7 +9,6 @@ ArrayList<Incruit> wList = (ArrayList<Incruit>)request.getAttribute("wList");
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 
@@ -86,8 +85,11 @@ display:none;
   border-bottom:1px solid #ffffff;
   box-shadow: inset 0 3px rgb(176,18,241);
 }
+
 </style>
+
 </head>
+
 <body>
 
 <div id="div">
@@ -99,7 +101,6 @@ display:none;
 	      </div>
 	 	</div>
  	</div>
- 	
 	
 	<div id="content">
 		
@@ -113,129 +114,125 @@ display:none;
 			</div>
 		
 			<form action="" id="deleteForm" method="post">
-			<div id="hopeOwnerBox" class="box">
-				<!--===============================================================================================-->	
-				<div class="limiter">
-				<div class="container-table100">
-					<div class="wrap-table100">
-						<div class="table100 ver4">
-							<div class="table100-head">
-								<table>
-									<thead>
-										<tr class="row100 head">
-											<th class="cell100 column1">업체명</th>
-											<th class="cell100 column2">주소</th>
-											<th class="cell100 column3">전화번호</th>
-											<th class="cell100 column4">업종</th>
-											<th class="cell100 column5"></th>
-										</tr>
-									</thead>
-								</table>
-							</div>
-		
-							<div class="table100-body js-pscroll">
-								<table>
-									<tbody>
-										<%if(hList.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" rowspan="2" style="text-align:center;height:100px;">존재하는 내용이 없습니다</td></tr>
-										<%}else{ %>
-											<%for(HopeEnt a : hList) {%>
-											<tr class="row100 body" style="height:40px;">
-												<td class="cell100 column1"><%=a.getOpName()%></td>
-												<td class="cell100 column2">
-												<%if(a.getRoadName() != null) {%>
-													<%=a.getDistrict()%> <%=a.getRoadName()%> <%=a.getRoadMain()%>
-												<%}else{%>
-													<%if(a.getOpAddress() !=null){%>
-											  	 		<%=a.getOpAddress()%>
-											  	 	<%}else{ %>
-											  	 		미확인
-											  	 	<%}%>
-												<%} %>
-												</td>
-												<td class="cell100 column3"><%=a.getoTel()%></td>
-												<td class="cell100 column4"><%=a.getCategory()%> :: <%=a.getType()%></td>
-												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInterest(<%=a.gethNum()%>);"></td>
-											</tr>
-											<%}}%>
-											<script>		
-												function deleteInterest(hNo){
+				<div id="hopeOwnerBox" class="box">
+					<!--===============================================================================================-->	
+					<div class="limiter">
+						<div class="container-table100">
+							<div class="wrap-table100">
+								<div class="table100 ver4">
+									<div class="table100-head">
+										<table>
+											<thead>
+												<tr class="row100 head">
+													<th class="cell100 column1">업체명</th>
+													<th class="cell100 column2">주소</th>
+													<th class="cell100 column3">전화번호</th>
+													<th class="cell100 column4">업종</th>
+													<th class="cell100 column5"></th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+				
+									<div class="table100-body js-pscroll">
+										<table>
+											<tbody>
+												<%if(hList.isEmpty()){%>
+													<tr class="row100 body"><td colspan="5" rowspan="2" style="text-align:center;height:100px;">존재하는 내용이 없습니다</td></tr>
+												<%}else{ %>
+													<%for(HopeEnt a : hList) {%>
+														<tr class="row100 body" style="height:40px;">
+															<td class="cell100 column1"><%=a.getOpName()%></td>
+															<td class="cell100 column2">
+																<%if(a.getRoadName() != null) {%>
+																	<%=a.getDistrict()%> <%=a.getRoadName()%> <%=a.getRoadMain()%>
+																<%}else{%>
+																	<%if(a.getOpAddress() !=null){%>
+															  	 		<%=a.getOpAddress()%>
+															  	 	<%}else{ %>
+															  	 		미확인
+															  	 	<%}%>
+																<%} %>
+															</td>
+															<td class="cell100 column3"><%=a.getoTel()%></td>
+															<td class="cell100 column4"><%=a.getCategory()%> :: <%=a.getType()%></td>
+															<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteInterest(<%=a.gethNum()%>);"></td>
+														</tr>
+												<%}}%>
 													
-													var con = confirm("관심기업에서 삭제 하시겠습니까");
-													
-													if(con){
-														$("#deleteForm").attr("action", "<%=request.getContextPath()%>/deleteInterestOwnerServlet.es?hNo="+hNo);
-														$("#deleteForm").submit();
-													}else{
-														return false;
+												<script>		
+													function deleteInterest(hNo){
+														
+														var con = confirm("관심기업에서 삭제 하시겠습니까");
+														
+														if(con){
+															$("#deleteForm").attr("action", "<%=request.getContextPath()%>/deleteInterestOwnerServlet.es?hNo="+hNo);
+															$("#deleteForm").submit();
+														}else{
+															return false;
+														}
 													}
-												}
-											</script>
-									</tbody>
-								</table>
+												</script>
+													
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<!--===============================================================================================-->	
 				</div>
-				</div>
-				<!--===============================================================================================-->	
-				
-			</div>
 			</form>
 			
 			
 			<div id="hopeOwnerIncruitBox" class="box">
 				<!--===============================================================================================-->	
 				<div class="limiter">
-				<div class="container-table100">
-					<div class="wrap-table100">
-						<div class="table100 ver5">
-							<div class="table100-head">
-								<table>
-									<thead>
-										<tr class="row100 head">
-											<th class="cell100 column11">공고 제목</th>
-											<th class="cell100 column22">업체명</th>
-											<th class="cell100 column33">희망 나이/성별</th>
-											<th class="cell100 column44">근무시간</th>
-											<th class="cell100 column55">급여</th>
-											<th class="cell100 column66">공고 마감일</th>
-										</tr>
-									</thead>
-								</table>
-							</div>
-		
-							<div class="table100-body js-pscroll">
-								<table>
-									<tbody>
-										<%if(wList.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
-										<%}else{ 
-											for(Incruit a : wList) {%>
-											<tr class="row100 body select" onclick="selectIncruit(<%=a.getwNum()%>);">
-												<td class="cell100 column11" style="font-size: 13px;"><%=a.getwTitle()%></td>
-												<td class="cell100 column22" style="font-size: 13px;"><%=a.getOpName()%></td>
-												<td class="cell100 column33" style="font-size: 13px;"><%=a.getAge()%> / <%=a.getGender()%></td>
-												<td class="cell100 column44" style="font-size: 13px;"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
-												<td class="cell100 column55" style="font-size: 13px;"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
-												<td class="cell100 column66" style="font-size: 13px;"><%=a.getDoneDate()%></td>
-		
+					<div class="container-table100">
+						<div class="wrap-table100">
+							<div class="table100 ver5">
+								<div class="table100-head">
+									<table>
+										<thead>
+											<tr class="row100 head">
+												<th class="cell100 column11">공고 제목</th>
+												<th class="cell100 column22">업체명</th>
+												<th class="cell100 column33">희망 나이/성별</th>
+												<th class="cell100 column44">근무시간</th>
+												<th class="cell100 column55">급여</th>
+												<th class="cell100 column66">공고 마감일</th>
 											</tr>
+										</thead>
+									</table>
+								</div>
+			
+								<div class="table100-body js-pscroll">
+									<table>
+										<tbody>
+											<%if(wList.isEmpty()){%>
+												<tr class="row100 body"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+											<%}else{ 
+												for(Incruit a : wList) {%>
+													<tr class="row100 body select" onclick="selectIncruit(<%=a.getwNum()%>);">
+														<td class="cell100 column11" style="font-size: 13px;"><%=a.getwTitle()%></td>
+														<td class="cell100 column22" style="font-size: 13px;"><%=a.getOpName()%></td>
+														<td class="cell100 column33" style="font-size: 13px;"><%=a.getAge()%> / <%=a.getGender()%></td>
+														<td class="cell100 column44" style="font-size: 13px;"><%=a.getTermName()%> / <%=a.getWorkDay()%> / <%=a.getWorkTime()%></td>
+														<td class="cell100 column55" style="font-size: 13px;"><%=a.getSalaryForm()%> <%if(a.getSalaryForm().equals("협의")){}else{ %><%=a.getSalary()%>원<% }%></td>
+														<td class="cell100 column66" style="font-size: 13px;"><%=a.getDoneDate()%></td>
+													</tr>
 											<%}}%>
-									</tbody>
-								</table>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				</div>
 				<!--===============================================================================================-->	
 				</div>
-				
-				
-				<script>
-				
-				</script>
+
 				<script>
 					function selectIncruit(wNum){
 						location.href='<%=request.getContextPath()%>/watchingIncruit2.es?wNum='+ wNum;
@@ -254,11 +251,8 @@ display:none;
 							}
 						}
 					}
-	
 				</script>
 		
-	
-
 		</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>

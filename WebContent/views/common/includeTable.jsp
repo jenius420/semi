@@ -16,9 +16,7 @@
 <link rel="stylesheet" type="text/css" href="resources/table/css/gs-util.css">
 <link rel="stylesheet" type="text/css" href="resources/table/css/gs-main.css">
 
-
 <style>
-
 
 .tab_container>label{
 border:1px solid transparent;
@@ -28,15 +26,17 @@ margin:0 0 -1px;
 font-weight: 600;
 font-size:15px;
 color: #bbb;
-
 }
 
 .tab_container>label:hover{
 cursor:pointer;
 color: purple;
 }
+
 </style>
+
 </head>
+
 <body>
 
 <script src="resources/table/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -46,7 +46,6 @@ color: purple;
 <script src="resources/table/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script src="resources/table/js/gs-main.js"></script>
 <script>
-
 $('.js-pscroll').each(function(){
 	var ps = new PerfectScrollbar(this);
 

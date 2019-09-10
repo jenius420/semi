@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="empService.model.vo.Resume, common.model.vo.Attachment"%>
 <%
 Resume resume = (Resume)request.getAttribute("resume");
+Attachment at = (Attachment)request.getAttribute("at");
 
 int rNum = resume.getrNum();
 String eName = resume.geteName();
@@ -17,27 +18,25 @@ String desireForm = resume.getDesireForm();
 int desireIncome = resume.getDesireIncome();
 String edu = resume.getEdu();
 String openSet = resume.getOpenSet();
-
-
-Attachment at = (Attachment)request.getAttribute("at");
-
 %>
 <!DOCTYPE html >
 <html>
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 
 <style>
+
 .speaker-form{
 margin-left:-200px;
 }
+
 </style>
+
 </head>
+
 <body>	
 	
 <div id="div">
@@ -61,24 +60,29 @@ margin-left:-200px;
 			<form action="<%=request.getContextPath()%>/submitResume.es;" method='get' class='speaker-form'  enctype="multipart/form-data">
 		
 				<div class='form-row' id="fileArea" style="margin-bottom:20px;">
-				  <label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
-				<img id="titleImg" width="100" height="100" src="<%=request.getContextPath()%>/photo/resumeImage/<%= at.getChangeName() %>">
-				  <input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">  
-				  </div>
+					<label class="lLabel" for="photo" style="vertical-align: bottom;">사진</label>
+					<img id="titleImg" width="100" height="100" src="<%=request.getContextPath()%>/photo/resumeImage/<%= at.getChangeName() %>">
+					<input type="file" multiple name="photo" id="photo" onchange="loadImg(this);">  
+				 </div>
 
 	
 				<div class='form-row'>
-				  <label class="lLabel">이름</label><p class="rLabel" style="width:180px;"><%=eName %></p>
+				  <label class="lLabel">이름</label>
+				  <p class="rLabel" style="width:180px;"><%=eName %></p>
 				</div>
 				<div class='form-row'>	
-				  <label class='lLabel'>전화번호</label><p class="rLabel"><%=phone %></p>
+				  <label class='lLabel'>전화번호</label>
+				  <p class="rLabel"><%=phone %></p>
 				</div>
 				<div class='form-row'>
-				  <label class='lLabel'>주소</label><p class="rLabel"><%=address %></p>
+				  <label class='lLabel'>주소</label>
+				  <p class="rLabel"><%=address %></p>
 				</div>
 				<div class='form-row'>
-				  <label class='lLabel'>이메일</label><p class="rLabel"><%=email %></p>
+				  <label class='lLabel'>이메일</label>
+				  <p class="rLabel"><%=email %></p>
 				</div>
+				
 				<div style="height:30px;"></div>
 				
 	
@@ -110,7 +114,6 @@ margin-left:-200px;
 				  </select>
 				  <input id='desireIncome' name='desireIncome' type='text' style="margin-left:20px;" value="<%=desireIncome %>" readonly/>
 				  <label for='desireIncome' style="text-align:left">원</label>
-				  
 				</div>
 
 				<div class='form-row'>
@@ -120,17 +123,16 @@ margin-left:-200px;
 	
 				<div class='form-row'>
 				  <label class='checkbox-label' for='openSet'>
-				  <%if(openSet.equals("Y")){ %>
-				  	<input id='openSet' name='openSet' type='checkbox' value='Y' checked disabled="disabled"/>
-				  <%}else{ %>
-				  	<input id='openSet' name='openSet' type='checkbox' value='Y' disabled="disabled"/>
-				  <%} %>
-				  <span>이력서 공개 설정</span>
+					  <%if(openSet.equals("Y")){ %>
+					  	<input id='openSet' name='openSet' type='checkbox' value='Y' checked disabled="disabled"/>
+					  <%}else{ %>
+					  	<input id='openSet' name='openSet' type='checkbox' value='Y' disabled="disabled"/>
+					  <%} %>
+					  <span>이력서 공개 설정</span>
 				  </label>
 				</div>
 				
 				<div class='form-row'>
-
 				  <button type="button" class="btn" onclick="deleteResume(<%=rNum %>);">삭제</button>
 				  <button type="button" class="btn" onclick="javascript:history.back();" style="margin-left:20px; padding-left:30px; padding-right:30px;">뒤로가기</button>
 				</div>
@@ -149,7 +151,7 @@ margin-left:-200px;
 		</script>
 		
 
-			</div> <!-- /메인콘텐트 -->
+		</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>
 		

@@ -38,8 +38,7 @@ public class SearchResumeServlet extends HttpServlet {
 		
 		ArrayList<District> dList = new CommonService().selectDistrictList();
 		ArrayList<JobType> tList = new CommonService().selectTypeList();
-		
-		
+
 		request.setAttribute("dList", dList);
 		request.setAttribute("tList", tList);
 		

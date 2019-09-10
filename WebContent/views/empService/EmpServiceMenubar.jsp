@@ -10,7 +10,6 @@
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
 <link rel="stylesheet" type="text/css" href="resources/css/display.css">
@@ -26,9 +25,8 @@
     margin: 0;
     padding: 10px;
     width: 170px;
-   
-
 }
+
 .esm1{
  	padding: 6px 14px;
     background-color: rgb(176,18,241);
@@ -37,6 +35,7 @@
     font-weight:bold;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -3px 20px rgba(255,255,255,0.4);
 }
+
 .esLink{
     color: #000;
     padding: 8px 17px;
@@ -50,22 +49,27 @@
     color: white;
     text-shadow: 2px 2px 2px gray;
 }
+
 .space{
 	height: 14px;
 	
 }
 
 </style>
+
 </head>
+
 <body>
 
 <div class="esMenubar">
+
     <div>
     	<div class="esm1">이력서</div>
        	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/manageResume.es';">이력서 리스트</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/makeResume.es';">이력서 작성</div>
         <!-- <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/suitableIncruit.es';">이력서 맞춤 알바</div> -->
     </div>
+    
     <div class="space"></div>
     
     <div>
@@ -73,12 +77,14 @@
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/applicationState.es';">알바 지원 현황</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/empEvaluationManagement.es';">알바 후기 관리</div>
    	</div>
+   	
     <div class="space"></div>
     
     <div>
         <div class="esm1">관심 정보</div>
        	<div class="esLink" onclick="location.href='<%=request.getContextPath()%>/interestOwner.es';">관심기업</div>
 	</div>
+	
     <div class="space"></div>
     
     <div>
@@ -86,8 +92,8 @@
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/checkEmpPwd.me';">회원 정보 변경</div>
         <div class="esLink" onclick="location.href='<%=request.getContextPath()%>/deleteForm.me'">회원탈퇴</div>
     </div>
-    <div class="space"></div>
     
+    <div class="space"></div>
 
 </div>
     

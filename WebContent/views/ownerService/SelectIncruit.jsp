@@ -10,16 +10,19 @@ ArrayList<IncruitProduct> list = (ArrayList<IncruitProduct>)request.getAttribute
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
 <link href="resources/form/css/checkbox.css" rel="stylesheet" media="all">
+
 <style>
 .speaker-form{
 margin-left:-200px;
 }
+
 </style>
+
 </head>
+
 <body>
 
 <div id="div" style="height: 1700px;">
@@ -32,7 +35,6 @@ margin-left:-200px;
 	 	</div>
  	</div>
  	
-	
 	<div id="content">
 		
 		<div id="content-left"><%@ include file="../ownerService/OwnerServiceMenubar.jsp"%></div>
@@ -50,7 +52,6 @@ margin-left:-200px;
 					
 					<br><br>
 					
-		
 					<div class='form-row'>
 					  <label class="lLabel">업체명</label><p class="rLabel" style="width:180px;"><%=owner.getOpName() %></p>
 					  <button type="button" class="gs-btn" style="padding: 2px; margin:0;" onclick="location.href='<%=request.getContextPath()%>';">개인정보 수정하기</button>
@@ -67,16 +68,18 @@ margin-left:-200px;
 					</div>
 					
 					<div class='form-row'>
-					  <label class='lLabel'>주소</label> <p class="rLabel">
-					  	<%if(owner.getRoadName() != null){%>
-					  	 	<%=owner.getRoadName()%> <%=owner.getRoadMain()%>-<%=owner.getRoadSub()%> <%=owner.getOpAddress()%>
-					  	 <%}else{ %>
-					  	 	<%if(owner.getOpAddress() !=null){%>
-					  	 		<%=owner.getOpAddress()%>
-					  	 	<%}else{ %>
-					  	 		미확인
-					  	 	<%}%>
-					  	 <%}%></p>
+					  <label class='lLabel'>주소</label>
+					  	<p class="rLabel">
+						  	<%if(owner.getRoadName() != null){%>
+						  	 	<%=owner.getRoadName()%> <%=owner.getRoadMain()%>-<%=owner.getRoadSub()%> <%=owner.getOpAddress()%>
+						  	 <%}else{ %>
+						  	 	<%if(owner.getOpAddress() !=null){%>
+						  	 		<%=owner.getOpAddress()%>
+						  	 	<%}else{ %>
+						  	 		미확인
+						  	 	<%}%>
+						  	 <%}%>
+					  	 </p>
 					</div>
 					
 					<div class='form-row'>
@@ -92,21 +95,24 @@ margin-left:-200px;
 					</div>
 		
 					<div class='form-row'>
-					  <label class='lLabel' for='workDay'><span>근무 요일</span></label>
-						    <input id='workDay1' name='workDay' type='checkbox' value='월' <%if(i.getWorkDay().contains("월")){%>checked<%}%>/>
-						    <label class='checkbox-label' for='workDay1'><span>월</span></label>
-							<input id='workDay2' name='workDay' type='checkbox' value='화' <%if(i.getWorkDay().contains("화")){%>checked<%}%>/>
-							<label class='checkbox-label' for='workDay2'><span>화</span></label>
-							<input id='workDay3' name='workDay' type='checkbox' value='수' <%if(i.getWorkDay().contains("수")){%>checked<%}%>/>
-							<label class='checkbox-label' for='workDay3'><span>수</span></label>
-							<input id='workDay4' name='workDay' type='checkbox' value='목' <%if(i.getWorkDay().contains("목")){%>checked<%}%>/>
-							<label class='checkbox-label' for='workDay4'><span>목</span></label>
-							<input id='workDay5' name='workDay' type='checkbox' value='금' <%if(i.getWorkDay().contains("금")){%>checked<%}%>/>
-							<label class='checkbox-label' for='workDay5'><span>금</span></label>
-							<input id='workDay6' name='workDay' type='checkbox' value='토' <%if(i.getWorkDay().contains("토")){%>checked<%}%>/>
-							<label class='checkbox-label' for='workDay6'><span>토</span></label>
-							<input id='workDay7' name='workDay' type='checkbox' value='일' <%if(i.getWorkDay().contains("일")){%>checked<%}%>/>
-							<label class='checkbox-label' for='workDay7'><span>일</span></label>
+						<label class='lLabel' for='workDay'>
+						  	<span>근무 요일</span>
+						</label>
+						  
+					    <input id='workDay1' name='workDay' type='checkbox' value='월' <%if(i.getWorkDay().contains("월")){%>checked<%}%>/>
+					    <label class='checkbox-label' for='workDay1'><span>월</span></label>
+						<input id='workDay2' name='workDay' type='checkbox' value='화' <%if(i.getWorkDay().contains("화")){%>checked<%}%>/>
+						<label class='checkbox-label' for='workDay2'><span>화</span></label>
+						<input id='workDay3' name='workDay' type='checkbox' value='수' <%if(i.getWorkDay().contains("수")){%>checked<%}%>/>
+						<label class='checkbox-label' for='workDay3'><span>수</span></label>
+						<input id='workDay4' name='workDay' type='checkbox' value='목' <%if(i.getWorkDay().contains("목")){%>checked<%}%>/>
+						<label class='checkbox-label' for='workDay4'><span>목</span></label>
+						<input id='workDay5' name='workDay' type='checkbox' value='금' <%if(i.getWorkDay().contains("금")){%>checked<%}%>/>
+						<label class='checkbox-label' for='workDay5'><span>금</span></label>
+						<input id='workDay6' name='workDay' type='checkbox' value='토' <%if(i.getWorkDay().contains("토")){%>checked<%}%>/>
+						<label class='checkbox-label' for='workDay6'><span>토</span></label>
+						<input id='workDay7' name='workDay' type='checkbox' value='일' <%if(i.getWorkDay().contains("일")){%>checked<%}%>/>
+						<label class='checkbox-label' for='workDay7'><span>일</span></label>
 					</div>
 					
 					<div class='form-row'>
@@ -220,6 +226,7 @@ margin-left:-200px;
 					</div>
 					
 					<script>
+					
 						function updateCheck(){
 							var result = confirm("이대로 수정하시겠습니까");
 							if(result){
@@ -237,13 +244,14 @@ margin-left:-200px;
 								return;
 							}
 						}
+						
 					</script>
 	
 				</form>
+				
 			</div>
-		
 
-			</div> <!-- /메인콘텐트 -->
+		</div> <!-- /메인콘텐트 -->
 			
 		<div id="content-right"></div>
 		

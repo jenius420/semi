@@ -1,13 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="empService.model.vo.Emp, 
-    java.util.ArrayList, 
-    common.model.vo.District, 
-    ownerService.model.vo.Filter, 
-    common.model.vo.JobType, 
-    empService.model.vo.Resume,
-    common.model.vo.Attachment"%>
-    
+    import="empService.model.vo.Emp, java.util.ArrayList, common.model.vo.District, ownerService.model.vo.Filter, common.model.vo.JobType, empService.model.vo.Resume,common.model.vo.Attachment"%>
 <%	
 Emp emp = (Emp)request.getSession().getAttribute("emp");
 
@@ -25,13 +18,10 @@ String keyword = (String)request.getAttribute("keyword");
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="<%=request.getContextPath()%>/views/member/js/joinOwnJs.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="<%=request.getContextPath()%>/views/member/js/joinOwnJs.js"></script>
     
-
 <style>
 
 input:focus, select:focus {
@@ -40,7 +30,6 @@ border:1px solid #df9dfb !important;
 }
 
 .searchResume{
-
 height: 60px;
 padding: 8px;
 margin-top:20px;
@@ -91,6 +80,7 @@ border-radius: 200px;
 .go:hover{
 cursor:pointer;
 }
+
 #keyword::placeholder {
 color:#6600cc;
 font-size:13px;
@@ -102,11 +92,6 @@ font-weight: bold;
 
 #keyword{
 width:150px;
-}
-
-
-.resume, .topside, .topside>div, .bottomside{
-
 }
 
 .resume{
@@ -157,10 +142,7 @@ height:100%;
 border-radius: 40px;
 }
 
-
-
-.scrollbar
-{
+.scrollbar{
 	margin-left: 30px;
 	float: left;
 	height: 150px;
@@ -169,27 +151,28 @@ border-radius: 40px;
 	overflow-y: scroll;
 	margin-bottom: 25px;
 }
-#style-1::-webkit-scrollbar-track
-{
+
+#style-1::-webkit-scrollbar-track{
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
 	background-color: white;
 }
-#style-1::-webkit-scrollbar
-{
+
+#style-1::-webkit-scrollbar{
 	width: 10px;
 	background-color: purple;
 }
-#style-1::-webkit-scrollbar-thumb
-{
+
+#style-1::-webkit-scrollbar-thumb{
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: purple;
-	}
-
+}
 
 </style>
+
 </head>
+
 <body>
 
 <div id="div" style="height:2000px;">
@@ -212,7 +195,7 @@ border-radius: 40px;
 			
 				<div class="filter" style="margin-left:15px;">
 					 <label for='districtNum' >근무지(구)</label>
-					  <select id='districtNum' name='districtNum'>
+					 <select id='districtNum' name='districtNum'>
 					  	<%for(District d : dList) {%>
 					  		<%if(filter != null && filter.getDistrictNum() == d.getDistrictNum()){ %>
 					  			<option value='<%=d.getDistrictNum()%>' selected><%=d.getDistrictName() %></option>
@@ -234,11 +217,9 @@ border-radius: 40px;
 					  </select>
 				</div>
 				
-				
-				
 				<div class="filter">
 					 <label for='edu'>학력</label>
-					  <select id='edu' name='edu'>
+					 <select id='edu' name='edu'>
 					  	<option value='무관' <%if(filter != null && filter.getFinalEdu() == null){%>selected<%}%>>무관</option>
 					    <option value='대졸 이상(4년제)' <%if(filter != null && filter.getFinalEdu().equals("대졸 이상(4년제)")){%>selected<%}%>>대졸 이상(4년제)</option>
 					    <option value='대졸 이상(2,3년제)' <%if(filter != null && filter.getFinalEdu().equals("대졸 이상(2,3년제)")){%>selected<%}%>>대졸 이상(2,3년제)</option>
@@ -246,25 +227,9 @@ border-radius: 40px;
 					  </select>
 				</div>
 				
-				<!--  
-				<div class="filter">
-					 <label for='desireForm'>희망 급여</label> 
-					  <select id='desireForm' name='desireForm'>
-					  	<option value='무관' <%//if(filter != null && filter.getDesireForm() == null){%>selected<%//}%>>무관</option>
-					    <option value='시급' <%//if(filter != null && filter.getDesireForm().equals("시급")){%>selected<%//}%>>시급</option>
-					    <option value='일급' <%//if(filter != null && filter.getDesireForm().equals("일급")){%>selected<%//}%>>일급</option>
-					    <option value='월급' <%//if(filter != null && filter.getDesireForm().equals("월급")){%>selected<%//}%>>월급</option>
-					    <option value='연봉' <%//if(filter != null && filter.getDesireForm().equals("연봉")){%>selected<%//}%>>연봉</option>
-					  </select>
-					  <input id='desireIncome' name='desireIncome' type='text' onkeypress="inNumber();" style="width:120px;"
-					  <%//if(filter != null && !filter.getDesireForm().equals("무관")){%>value="<%//filter.getDesireIncome()%>"<%//}%>/>
-					  <label for='desireIncome' style="text-align:left;" >원</label>
-				</div>
-				-->
-				
 				<div class="filter">
 					 <label for='ageType'>연령대</label> 
-					  <select id='ageType' name='ageType'>
+					 <select id='ageType' name='ageType'>
 					  	<option value='무관' <%if(filter != null && filter.getAgeType() == null){%>selected<%}%>>무관</option>
 					    <option value='10대' <%if(filter != null && filter.getAgeType().equals("10대")){%>selected<%}%>>10대</option>
 					    <option value='20대' <%if(filter != null && filter.getAgeType().equals("20대")){%>selected<%}%>>20대</option>
@@ -277,7 +242,7 @@ border-radius: 40px;
 				
 				<div class="filter">
 					 <label for='gender'>성별</label> 
-					  <select id='gender' name='gender'>
+					 <select id='gender' name='gender'>
 					  	<option value='무관' <%if(filter != null && filter.getGender() == null){%>selected<%}%>>무관</option>
 					    <option value='남' <%if(filter != null && filter.getGender().equals("남")){%>selected<%}%>>남자</option>
 					    <option value='여' <%if(filter != null && filter.getGender().equals("여")){%>selected<%}%>>여자</option>
@@ -308,12 +273,6 @@ border-radius: 40px;
 						var type = document.getElementById("typeNum");
 						var typeNum = type.options[type.selectedIndex].value;
 						
-						//var category = document.getElementById("subCategory");
-						//var subCategory = category.options[category.selectedIndex].value;
-						
-						//var category2 = document.getElementById("bigCategory");
-						//var bigCategory = category2.options[category2.selectedIndex].value;
-						
 						var eduNum = document.getElementById("edu");
 						var edu = eduNum.options[eduNum.selectedIndex].value;
 						
@@ -322,10 +281,6 @@ border-radius: 40px;
 						
 						var genderNum = document.getElementById("gender");
 						var gender = genderNum.options[genderNum.selectedIndex].value;
-						//var desireFormNum = document.getElementById("desireForm");
-						//var desireForm = desireFormNum.options[desireFormNum.selectedIndex].value;
-						
-						//var desireIncome = Number(document.getElementById("desireIncome").value);
 						
 						var keyword = document.getElementById("keyword").value;
 						
@@ -339,38 +294,35 @@ border-radius: 40px;
 				        }
 					}
 
-	
 				</script>
 				
 			</div> <!-- 검색박스 끝 -->
-			
 			
 			<div>
 				<%if(list== null || list.size() <1){%>
 					<div  style="font-size: 20px; text-align: center; margin-top:150px; width:85%;">검색 결과가 없습니다</div>
 				<% }else{%>
 					<%for(Resume a : list) {%>
-				<div class="resume">
-					<div class="topside">
-						<div class="topleftside">
-							<img id="titleImg"  src="<%=request.getContextPath()%>/photo/resumeImage/<%= a.getSaveName() %>">
+						<div class="resume">
+							<div class="topside">
+								<div class="topleftside">
+									<img id="titleImg"  src="<%=request.getContextPath()%>/photo/resumeImage/<%= a.getSaveName() %>">
+								</div>
+								<div class="toprightside" >
+									<label > 이름 : <%= a.geteName() %></label><br>
+									<label > 나이/성별 : <%= a.getAge() %> <%= a.getGender() %></label>
+									<label > 전화번호 : <%= a.getPhone() %></label>
+									<label > 이메일 : <%= a.getEmail() %></label>
+									<label > 희망 급여 : <%= a.getDesireForm() %> <%= a.getDesireIncome() %>원</label>
+								</div>
+							</div>
+							<div >
+								<div>
+									<p style="height:auto; overflow:hidden;">"<%=a.getComment()%>"</p> 
+							    </div>
+							</div>
 						</div>
-						<div class="toprightside" >
-							<label > 이름 : <%= a.geteName() %></label><br>
-							<label > 나이/성별 : <%= a.getAge() %> <%= a.getGender() %></label>
-							<label > 전화번호 : <%= a.getPhone() %></label>
-							<label > 이메일 : <%= a.getEmail() %></label>
-							<label > 희망 급여 : <%= a.getDesireForm() %> <%= a.getDesireIncome() %>원</label>
-						</div>
-					</div>
-					<div >
-						<!--  class="scrollbar" id="style-1" class="bottomside"style="text-overflow: ellipsis;   overflow: hidden; width=200px;  " -->
-						<div >
-						<p style="height:auto; overflow:hidden;">"<%=a.getComment()%>"</p> 
-					    </div>
-					</div>
-				</div>
-				<%}} %>
+				<%}}%>
 			
 			</div>
 

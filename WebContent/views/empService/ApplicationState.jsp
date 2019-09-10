@@ -8,12 +8,8 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
 <%@ include file="../common/includeTable.jsp"%>
-
 
 <style>
 
@@ -51,6 +47,7 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 </style>
 
 </head>
+
 <body>
 
 <div id="div">
@@ -69,61 +66,61 @@ ArrayList<Appliant> list = (ArrayList<Appliant>)request.getAttribute("list");
 		
 		<div id="content-center">
 		
-		<form action="" id="detailForm" method="post">
-		<!--===============================================================================================-->	
-			<div class="limiter">
-			<div class="container-table100">
-				<div class="wrap-table100">
-					<div class="table100 ver4">
-						<div class="table100-head">
-							<table>
-								<thead>
-									<tr class="row100 head">
-										<th class="cell100 column1">제목</th>
-										<th class="cell100 column2">업체명</th>
-										<th class="cell100 column3">마감일</th>
-										<th class="cell100 column4">지원일</th>
-										<th class="cell100 column5">지원상태</th>
-										<th class="cell100 column6">지원 취소</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-	
-						<div class="table100-body js-pscroll">
-							<table>
-								<tbody>
-									<%if(list.isEmpty()){%>
-										<tr class="row100 body"  style="height:200px;"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
-									<%}else{ 
-										for(Appliant a : list) {
-											String status = null;
-											switch(a.getPassOrFail()){
-												case "UC" : status = "사장님 확인 전"; break;
-												case "C" : status = "사장님 확인함"; break;
-												case "P" : status = "합격!"; break;
-												case "F" : status = "탈락"; break;
-												case "R" : status = "구직자 취소"; break;	
-											}
-										%>
-										<tr class="row100 body" style="height:60px;">
-											<td class="cell100 column1"><%=a.getwTitle()%></td>
-											<td class="cell100 column2"><%=a.getOpName()%>
-											<td class="cell100 column3"><%=a.getEndDate()%></td>
-											<td class="cell100 column4"><%=a.getApplyDate()%></td>
-											<td class="cell100 column5"><%=status%></td>
-											<td class="cell100 column6"><%if(!a.getPassOrFail().equals("P")) {%><input type="button" class="gs-btn" style="padding: 10px 10px" value="취소" onclick="cancleAppliant(<%=a.getApplyNum()%>);"><%} %></td>	
-										</tr>
-										<%}}%>
-								</tbody>
-							</table>
+			<form action="" id="detailForm" method="post">
+			<!--===============================================================================================-->	
+				<div class="limiter">
+					<div class="container-table100">
+						<div class="wrap-table100">
+							<div class="table100 ver4">
+								<div class="table100-head">
+									<table>
+										<thead>
+											<tr class="row100 head">
+												<th class="cell100 column1">제목</th>
+												<th class="cell100 column2">업체명</th>
+												<th class="cell100 column3">마감일</th>
+												<th class="cell100 column4">지원일</th>
+												<th class="cell100 column5">지원상태</th>
+												<th class="cell100 column6">지원 취소</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+			
+								<div class="table100-body js-pscroll">
+									<table>
+										<tbody>
+											<%if(list.isEmpty()){%>
+												<tr class="row100 body"  style="height:200px;"><td colspan="5" style="text-align:center">존재하는 내용이 없습니다</td></tr>
+											<%}else{ 
+												for(Appliant a : list) {
+													String status = null;
+													switch(a.getPassOrFail()){
+														case "UC" : status = "사장님 확인 전"; break;
+														case "C" : status = "사장님 확인함"; break;
+														case "P" : status = "합격!"; break;
+														case "F" : status = "탈락"; break;
+														case "R" : status = "구직자 취소"; break;	
+													}%>
+												<tr class="row100 body" style="height:60px;">
+													<td class="cell100 column1"><%=a.getwTitle()%></td>
+													<td class="cell100 column2"><%=a.getOpName()%>
+													<td class="cell100 column3"><%=a.getEndDate()%></td>
+													<td class="cell100 column4"><%=a.getApplyDate()%></td>
+													<td class="cell100 column5"><%=status%></td>
+													<td class="cell100 column6"><%if(!a.getPassOrFail().equals("P")) {%><input type="button" class="gs-btn" style="padding: 10px 10px" value="취소" onclick="cancleAppliant(<%=a.getApplyNum()%>);"><%} %></td>	
+												</tr>
+											<%}}%>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			</div>
-			<!--===============================================================================================-->	
+				<!--===============================================================================================-->	
 			</form>
+			
 			<script>
 				function cancleAppliant(applyNum){
 						

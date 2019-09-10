@@ -12,13 +12,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 public class EmpEvalService {
-	
-	
-	/**
-	 * 작성된 구직자 평가
-	 * @param empNum
-	 * @return 세션유저가 작성했었던 알바 평가 리스트
-	 */
+
 	public ArrayList<EmpEvaluation> selectEmpEval(int empNum){
 		
 		Connection conn = getConnection();
@@ -31,11 +25,6 @@ public class EmpEvalService {
 		
 	}
 	
-	/**
-	 * 작성 가능한(미작성) 구직자 평가
-	 * @param empNum
-	 * @return 세션유저가 작성 가능한 평가 리스트
-	 */
 	public ArrayList<EmpEvaluationBefore> selectEmpEvalBefore(int empNum){
 		
 		Connection conn = getConnection();

@@ -40,7 +40,6 @@ public class ApplyServlet extends HttpServlet {
 		int result = new EmpServiceService().apply(emp.getEmpNum(), wNum, rNum);
 		
 		response.sendRedirect("applicationState.es");
-
 		
 	}
 

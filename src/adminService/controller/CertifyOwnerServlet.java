@@ -40,7 +40,6 @@ public class CertifyOwnerServlet extends HttpServlet {
 		
 		ArrayList<Owner> ownerList = new ManageMemService().selectOwnerList();
 		
-
 		if(result > 0) {
 			request.setAttribute("ownerList", ownerList);
 			request.getRequestDispatcher("/views/adminService/OwnerList.jsp").forward(request, response);

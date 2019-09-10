@@ -41,7 +41,6 @@ public class UpdateIncruitServlet extends HttpServlet {
 		
 		incruit.setwNum(Integer.parseInt(request.getParameter("wNum")));
 		incruit.setwTitle(request.getParameter("wTitle"));
-		String workDay = request.getParameter("workDay");
 		incruit.setDoneDate(java.sql.Date.valueOf(request.getParameter("endDate")));
 		String[] workDayArr = request.getParameterValues("workDay");
 		incruit.setWorkDay(String.join("", workDayArr));

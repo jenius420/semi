@@ -11,10 +11,6 @@ import ownerService.model.vo.IncruitProduct;
 
 public class IncruitProductService {
 	
-	/**
-	 * 공고상품 조회
-	 * @return 공고상품 리스트
-	 */
 	public ArrayList<IncruitProduct> selectIncruitProduct(){
 		
 		Connection conn = getConnection();

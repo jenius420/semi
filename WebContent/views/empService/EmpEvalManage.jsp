@@ -10,12 +10,10 @@ ArrayList<EmpEvaluationBefore> empEvalBf = (ArrayList<EmpEvaluationBefore>)reque
 <head>
 <title>Donjo - Albamoon site</title>
 <link rel="shortcut icon" type="image⁄x-icon" href="<%= request.getContextPath()%>/resources/images/logo.png">
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../common/includeTable.jsp"%>
 <link rel="stylesheet" type="text/css" href="resources/css/starability-all.min.css">
 <link href="resources/form/css/form.css" rel="stylesheet" media="all">
-
 
 <style>
 
@@ -86,16 +84,15 @@ display:none;
   box-shadow: inset 0 3px rgb(176,18,241);
 }
 
-
-
 </style>
+
 </head>
+
 <body>
 
 
 <div id="div">
 
-	
 	<div id="header"><%@ include file="../common/header.jsp"%>
 		<div class="jumbotron" id="jumbotron">
 	      <div class="container">
@@ -103,7 +100,6 @@ display:none;
 	      </div>
 	 	</div>
  	</div>
- 	
 	
 	<div id="content">
 		
@@ -117,140 +113,142 @@ display:none;
 			</div>
 			
 			<form action="" id="detailForm" method="post">
-			<div id="empEvalBox" class="box">
-				<!--===============================================================================================-->	
-				<div class="limiter">
-				<div class="container-table100">
-					<div class="wrap-table100">
-						<div class="table100 ver4">
-							<div class="table100-head">
-								<table>
-									<thead>
-										<tr class="row100 head">
-											<th class="cell100 column1">업체명</th>
-											<th class="cell100 column2">작성일</th>
-											<th class="cell100 column3">내용</th>
-											<th class="cell100 column4">별점(1~5)</th>
-											<th class="cell100 column5"></th>
-										</tr>
-									</thead>
-								</table>
-							</div>
-		
-							<div class="table100-body js-pscroll">
-								<table>
-									<tbody>
-										<%if(empEval.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" style="text-align:center; height:200px;">존재하는 내용이 없습니다.</td></tr>
-										<%}else{ 
-											for(EmpEvaluation a : empEval) {%>
-											<tr class="row100 body">
-												<td class="cell100 column1"><%=a.getOpName()%></td>
-												<td class="cell100 column2" style="padding-left:10px;"><%=a.getEnrollDate()%></td>
-												<td class="cell100 column3" style="text-align:left;  padding-left:20px;"><%=a.geteComment()%></td>
-												<td class="cell100 column4">
-													<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:40px;"> 
-													    <%for(int i=1; i<=a.getSevalPoint(); i++){ %>
-													    <label for="rate<%=i %>" style="cursor:default;"></label>
-													    <% }%>
-													  </fieldset>
-												</td>
-												<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteEval('<%=a.getSevalNum()%>');">
-											</tr>
-											<%}}%>
-										<script>		
-											function deleteEval(sevalNum){
+				<div id="empEvalBox" class="box">
+					<!--===============================================================================================-->	
+					<div class="limiter">
+						<div class="container-table100">
+							<div class="wrap-table100">
+								<div class="table100 ver4">
+									<div class="table100-head">
+										<table>
+											<thead>
+												<tr class="row100 head">
+													<th class="cell100 column1">업체명</th>
+													<th class="cell100 column2">작성일</th>
+													<th class="cell100 column3">내용</th>
+													<th class="cell100 column4">별점(1~5)</th>
+													<th class="cell100 column5"></th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+				
+									<div class="table100-body js-pscroll">
+										<table>
+											<tbody>
+												<%if(empEval.isEmpty()){%>
+													<tr class="row100 body"><td colspan="5" style="text-align:center; height:200px;">존재하는 내용이 없습니다.</td></tr>
+												<%}else{ 
+													for(EmpEvaluation a : empEval) {%>
+														<tr class="row100 body">
+															<td class="cell100 column1"><%=a.getOpName()%></td>
+															<td class="cell100 column2" style="padding-left:10px;"><%=a.getEnrollDate()%></td>
+															<td class="cell100 column3" style="text-align:left;  padding-left:20px;"><%=a.geteComment()%></td>
+															<td class="cell100 column4">
+																<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:40px;"> 
+																    <%for(int i=1; i<=a.getSevalPoint(); i++){ %>
+																   		<label for="rate<%=i %>" style="cursor:default;"></label>
+																    <% }%>
+																  </fieldset>
+															</td>
+															<td class="cell100 column5"><input type="button" class="gs-btn" style="padding: 10px 10px" value="삭제" onclick="deleteEval('<%=a.getSevalNum()%>');">
+														</tr>
+												<%}}%>
 												
-												var con = confirm("평가를 삭제하시겠습니까");
-										
-												if(con){
-													$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEval.es?sevalNum=" + sevalNum);
-													$("#detailForm").submit();
-												}else{
-													return false;
-												}
-											}
-										</script>
-									</tbody>
-								</table>
+												<script>		
+													function deleteEval(sevalNum){
+														
+														var con = confirm("평가를 삭제하시겠습니까");
+												
+														if(con){
+															$("#detailForm").attr("action", "<%=request.getContextPath()%>/deleteEval.es?sevalNum=" + sevalNum);
+															$("#detailForm").submit();
+														}else{
+															return false;
+														}
+													}
+												</script>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<!--===============================================================================================-->	
 				</div>
-				</div>
-				<!--===============================================================================================-->	
-			
-			</div>
 			</form>
+			
+			
 			<form action="" id="detailForm2" method="post">
-			<div id="empEvalBfBox" class="box">
-				<!--===============================================================================================-->	
-				<div class="limiter">
-				<div class="container-table100">
-					<div class="wrap-table100">
-						<div class="table100 ver4">
-							<div class="table100-head">
-								<table>
-									<thead>
-										<tr class="row100 head">
-											<th class="cell100 column11">공고 제목</th>
-											<th class="cell100 column22">업체명</th>
-											<th class="cell100 column33">내용</th>
-											<th class="cell100 column44">별점(1~5)</th>
-											<th class="cell100 column55"></th>
-										</tr>
-									</thead>
-								</table>
-							</div>
-		
-							<div class="table100-body js-pscroll">
-								<table>
-									<tbody>
-										<%if(empEvalBf.isEmpty()){%>
-											<tr class="row100 body"><td colspan="5" style="text-align:center; height:200px;">존재하는 내용이 없습니다.</td></tr>
-										<%}else{ 
-											for(EmpEvaluationBefore a : empEvalBf) {%>
-											
-											<tr class="row100 body" style="height:60px;">
-												<td class="cell100 column11" ><%=a.getwTitle()%></td>
-												<td class="cell100 column22" ><%=a.getOpName()%></td>
-												<td class="cell100 column33">
-													<div class='form-row' >
-													  <textarea id='comment' name='eComment' style="width:450px; min-height:80px; margin-top:12px; margin-left:60px;"></textarea>
-													</div>
-												</td>
-												<td class="cell100 column44">
-													<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:50px;"> 
-													    <input type="radio" id="rate5" name="sevalPoint" value="1" />
-													    <label for="rate5" title="Amazing">5 stars</label>
+				<div id="empEvalBfBox" class="box">
+					<!--===============================================================================================-->	
+					<div class="limiter">
+						<div class="container-table100">
+							<div class="wrap-table100">
+								<div class="table100 ver4">
+									<div class="table100-head">
+										<table>
+											<thead>
+												<tr class="row100 head">
+													<th class="cell100 column11">공고 제목</th>
+													<th class="cell100 column22">업체명</th>
+													<th class="cell100 column33">내용</th>
+													<th class="cell100 column44">별점(1~5)</th>
+													<th class="cell100 column55"></th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+				
+									<div class="table100-body js-pscroll">
+										<table>
+											<tbody>
+												<%if(empEvalBf.isEmpty()){%>
+													<tr class="row100 body"><td colspan="5" style="text-align:center; height:200px;">존재하는 내용이 없습니다.</td></tr>
+												<%}else{ 
+													for(EmpEvaluationBefore a : empEvalBf) {%>
 													
-													    <input type="radio" id="rate4" name="sevalPoint" value="2" />
-													    <label for="rate4" title="Very good">4 stars</label>
+														<tr class="row100 body" style="height:60px;">
+															<td class="cell100 column11" ><%=a.getwTitle()%></td>
+															<td class="cell100 column22" ><%=a.getOpName()%></td>
+															<td class="cell100 column33">
+																<div class='form-row' >
+																	<textarea id='comment' name='eComment' style="width:450px; min-height:80px; margin-top:12px; margin-left:60px;"></textarea>
+																</div>
+															</td>
+															<td class="cell100 column44">
+																<fieldset class="starability-basic" style="width:100%; padding-top:15px; padding-left:50px;"> 
+																    <input type="radio" id="rate5" name="sevalPoint" value="1" />
+																    <label for="rate5" title="Amazing">5 stars</label>
+																
+																    <input type="radio" id="rate4" name="sevalPoint" value="2" />
+																    <label for="rate4" title="Very good">4 stars</label>
+																
+																    <input type="radio" id="rate3" name="sevalPoint" value="3" />
+																    <label for="rate3" title="Average">3 stars</label>
+																
+																    <input type="radio" id="rate2" name="sevalPoint" value="4" />
+																    <label for="rate2" title="Not good">2 stars</label>
+																
+																    <input type="radio" id="rate1" name="sevalPoint" value="5" />
+																    <label for="rate1" title="Terrible">1 star</label>
+																  </fieldset>
+															</td>
+															<td class="cell100 column55"><input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="makeEmpEval(<%=a.getoNum()%>,<%=a.getApplyNum()%>);"></td> 
+														</tr>
 													
-													    <input type="radio" id="rate3" name="sevalPoint" value="3" />
-													    <label for="rate3" title="Average">3 stars</label>
-													
-													    <input type="radio" id="rate2" name="sevalPoint" value="4" />
-													    <label for="rate2" title="Not good">2 stars</label>
-													
-													    <input type="radio" id="rate1" name="sevalPoint" value="5" />
-													    <label for="rate1" title="Terrible">1 star</label>
-													  </fieldset>
-												</td>
-												<td class="cell100 column55"><input type="button" class="gs-btn" style="padding: 10px 10px" value="등록" onclick="makeEmpEval(<%=a.getoNum()%>,<%=a.getApplyNum()%>);"></td> 
-											</tr>
-											
-											<%}}%>
-									</tbody>
-								</table>
+												<%}}%>
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<!--===============================================================================================-->	
 				</div>
-				</div>
-				<!--===============================================================================================-->	
-			
-			</div>
 			</form>
 			
 			<script>
