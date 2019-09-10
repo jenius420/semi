@@ -10,10 +10,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+label{
+font-size:  30px;
+text-align: center;
+
+}
+.a{
+color:purple;
+font-style: bold;
+}
+</style>
 </head>
 <body>
-	<div>
-		<label>회원님의 아이디는 <%= userId %> 입니다.</label>			
+	<div style="padding-top: 100px; padding-left:100px">
+		<label>회원님의 아이디는 <label class="a"><%= userId %></label> 입니다.</label>			
 	</div>
 </body>
 </html>
